@@ -1,0 +1,660 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🧭 MINI-CURSO: AUTO-CUSTÓDIA SOBERANA (Monero + Bitcoin)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🧭 MINI-CURSO: AUTO-CUSTÓDIA SOBERANA (Monero + Bitcoin)</h1>
+
+      <div class="ck-content">
+        <p>Abaixo estão os <strong>4 módulos corrigidos</strong> conforme a auditoria
+          do GUIA MESTRE. Cada aula agora reflete os procedimentos corretos, os avisos
+          de segurança obrigatórios e as referências aos arquivos atuais da pasta
+          do curso.</p>
+        <hr>
+        <h2>🧭 MINI-CURSO: AUTO-CUSTÓDIA SOBERANA (Monero + Bitcoin)</h2>
+        <h2>Versão corrigida pós‑auditoria – 4 módulos, 12 aulas</h2>
+        <blockquote>
+          <p><strong>Nota:</strong> Este roteiro substitui a proposta anterior que continha
+            erros técnicos.
+            <br>As correções estão aplicadas e os materiais de apoio referenciam os arquivos
+            finais da pasta do curso (GUIA MESTRE, módulos específicos, FAQs).</p>
+        </blockquote>
+        <hr>
+        <h2>Módulo 1 – Fundamentos: O que você realmente possui?</h2>
+        <p><strong>Objetivo:</strong> Compreender a seed como único ativo, diferenciar
+          Bitcoin (transparente) de Monero (confidencial) e modelar ameaças reais.</p>
+        <h3>Aula 1.1 – A ilusão do banco e a verdade da seed</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e31b0b59c84670c3511c0fd4f2b195a75">Custódia vs auto‑custódia.</li>
+          <li data-list-item-id="efd69ee00154f81a1cbb4a2ce828c3d3c">Seed de 12/16/25 palavras: a seed é o tesouro; o aplicativo é o veículo.</li>
+          <li
+          data-list-item-id="ea6c81f76413db32eab8ac242919265dd">Demonstração: criar carteira na Feather, apagar o arquivo, restaurar apenas
+            com a seed.</li>
+        </ul>
+        <p><strong>Comandos práticos (Feather no Linux/Tails):</strong>
+        </p><pre><code class="language-text-x-trilium-auto"># Criar carteira (feather já instalado)
+./feather-*.AppImage
+# Após anotar a seed, fechar e deletar o arquivo da carteira
+rm ~/.feather/wallets/minha-carteira.keys
+# Reabrir e escolher "Restore from seed"</code></pre>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e219468eb1940b45a2c48429b64657014"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seções 1 a 6 (fundamentos
+            e seed).</li>
+          <li data-list-item-id="e3901bf80bded20851c4d598217aa5c2b"><code spellcheck="false">README.md</code> – princípio do tesouro vs veículos.</li>
+        </ul>
+        <p><strong>Modelo de ameaça explícito:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e2768bc6a1e502a32e76f1989dd6689b7"><strong>Protege contra:</strong> perda do computador / arquivo da carteira.</li>
+          <li
+          data-list-item-id="e4b44bc1e3d995d1f2b6346253771538a"><strong>Não protege contra:</strong> seed exposta ou senha fraca.</li>
+        </ul>
+        <hr>
+        <h3>Aula 1.2 – Bitcoin vs Monero – duas filosofias de privacidade</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ed52b8419d4af6402d838da87d82f9277">Bitcoin: livro‑razão público, rastreável (Chainalysis).</li>
+          <li data-list-item-id="e2d1441cef0f98145d4999e0dadcd7136">Monero: ring signatures, stealth addresses, RingCT – confidencialidade
+            total.</li>
+          <li data-list-item-id="e9131d694fec25e2b72c98f56792a4283">KYC: o problema da entrada. Estratégia: saque para carteira própria e
+            uso de DEX (Haveno).</li>
+        </ul>
+        <p><strong>Demonstração:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e2dc076ff54d9d19fd10f310ee09ceb2c">Explorar um endereço Bitcoin no mempool.space → ver saldo e histórico.</li>
+          <li
+          data-list-item-id="ea94d2226d307e6b564a56c1b1278662c">Explorar uma transação Monero no xmrchain.net → só vê hash e data.</li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eab0e90b88fb3e09a00da3f5a1ba9d070"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seções 1.3 (Bitcoin
+            vs Monero).</li>
+          <li data-list-item-id="e53bf9c872cc11591d7ed56f1e93d8bc6"><code spellcheck="false">40 - FAQ Parte 2.md</code> – bloco A (diferenças
+            de privacidade).</li>
+        </ul>
+        <p><strong>Modelo de ameaça:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e06aa5e019eac00f524aa90c829bae168"><strong>Protege contra:</strong> vigilância financeira, rastreamento por
+            terceiros (Monero).</li>
+          <li data-list-item-id="ec2af00fe954193d6515babfe0f1bd8b5"><strong>Não protege contra:</strong> KYC na entrada (a compra já está ligada
+            ao seu nome).</li>
+        </ul>
+        <hr>
+        <h3>Aula 1.3 – Modelagem de ameaça para pessoas comuns</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e4ba05cd4914cfb79f26e125d99b59aee">Três ameaças reais:
+            <ol>
+              <li data-list-item-id="e18f60ac92c916d5a61ae600d0f5e9127">Roubo do dispositivo → LUKS + senha forte.</li>
+              <li data-list-item-id="e776aa885f5d68bf3072ce5a907fa5aa2">Coerção física (ataque da chave inglesa) → VeraCrypt com volume oculto.</li>
+              <li
+              data-list-item-id="eccbfb41091b7f6d3b4e7596df9ccf3d6">Falha de hardware → clone do pendrive com rsync.</li>
+          </ol>
+          </li>
+          <li data-list-item-id="ee6dbc83118f95b977cda20bd7f83568e">O que a tecnologia <strong>não</strong> resolve: senha fraca, foto da seed,
+            falar sobre o setup, não testar backup.</li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e13371427190644134ee7c9655875d8a1"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 6 (modelagem
+            de ameaças).</li>
+          <li data-list-item-id="e5eacd31b6785f3080009c7a780088397"><code spellcheck="false">30 - FAQ.md</code> – pergunta 2 (erros humanos).</li>
+        </ul>
+        <p><strong>Desafio do módulo 1:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eec0caf65034ae23ba6090983f9eb8309">Crie uma carteira na Feather, anote a seed, delete o arquivo e restaure.</li>
+          <li
+          data-list-item-id="ebd62f63cad4f778b168bf4c546fafd64">No comentário: “Consegui restaurar só com a seed!”</li>
+        </ul>
+        <hr>
+        <h2>Módulo 2 – O arsenal básico: carteiras leves e primeiros passos</h2>
+        <p><strong>Objetivo:</strong> Instalar e usar Feather (Monero) e Electrum
+          (Bitcoin) com Tor; usar carteiras móveis para pequenas quantias.</p>
+        <h3>Aula 2.1 – Feather Wallet (XMR) – a carteira que respeita você</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ee8343a8a98506ae1a746e62ce2904a66">Instalação (AppImage no Linux, .exe no Windows).</li>
+          <li data-list-item-id="e33f075570330967519042538c104383b">Criação de carteira Polyseed (16 palavras) ou legado (25).</li>
+          <li data-list-item-id="e2872f6f0d0d80a0003c8460e4635c625">Conexão via Tor (botão integrado). Escolha de nó remoto ou próprio (Módulo
+            4).</li>
+          <li data-list-item-id="e7d543114b6053ba5061696a8f15d4d80">Restauração: a Feather pede <strong>restore height</strong> (altura do bloco
+            ou data) – essencial para não escanear blocos desnecessários.</li>
+        </ul>
+        <p><strong>Comandos:</strong>
+        </p><pre><code class="language-text-x-trilium-auto"># Baixar e executar Feather
+wget https://featherwallet.org/files/releases/feather-2.6.4.AppImage
+chmod +x feather-*.AppImage
+./feather-*.AppImage</code></pre>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e64b5ed1375f737398589552de516d15c"><code spellcheck="false">20 - CURSO Perfil 1.md</code> – Módulo 4 (Feather).</li>
+          <li
+          data-list-item-id="ee5d26c70dcb8641c5f785526f2f782cb"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 7.2 (restore
+            height).</li>
+        </ul>
+        <p><strong>Correção aplicada:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e77af594a39e30b35a70592eaafb034f9"><em>Restore height</em> é conceito do Monero – mantido aqui. (O erro estava
+            na aula do Electrum, corrigido abaixo.)</li>
+        </ul>
+        <hr>
+        <h3>Aula 2.2 – Electrum (BTC) + rede Tor</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e8effa1bb45b80e17794b9c8e6e5c8d9d">Electrum já vem no Tails; em outros sistemas, baixar do site oficial.</li>
+          <li
+          data-list-item-id="efe4e25533955ffc49663d747eba87cd5">Configurar proxy Tor (Tools → Network → Use Tor proxy: <code spellcheck="false">localhost:9050</code>).</li>
+            <li
+            data-list-item-id="e94d0f1ffc31c1e86424e7aa9fcb59f43">Criar carteira: <strong>escolher o tipo de carteira (Segwit – endereços </strong>
+              <code
+              spellcheck="false"><strong>bc1</strong>
+                </code><strong>)</strong>.</li>
+                <li data-list-item-id="ee51d8e68d1f6ab5ef54f2af4d6e2335b"><strong>Importante:</strong> Não existe “restore height” no Electrum. A
+                  restauração usa apenas as 12/24 palavras. O que você deve anotar junto
+                  com a seed é o <strong>tipo de carteira</strong> (Segwit, Legacy, etc.) –
+                  se errar na restauração, o saldo “some”.</li>
+                <li data-list-item-id="e54765f3a4519645e9b6bc5f061abfe4e">Teste com pequena quantia.</li>
+        </ul>
+        <p><strong>Demonstração de restauração correta:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e4a8c49f570b9fb9c602357fe21ba8e81">Deletar o arquivo da carteira.</li>
+          <li data-list-item-id="e4fb0b55f5c2876274d7be9a9e9adf9ff">Abrir Electrum → Restore → digitar seed → escolher o mesmo tipo (Segwit)
+            → saldo reaparece.</li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e96e36cdf08d5496cb6fa4e011ee32ea5"><code spellcheck="false">25 - Electrum no Tails — Auto-custódia de Bitcoin.md</code> –
+            seções 4 e 6 (tipo de carteira e restauração).</li>
+        </ul>
+        <p><strong>Correção aplicada:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eb40caf9270375fabe98fae93a77f2502">Removida a menção a “restore height”. Incluída a nuance do tipo de carteira.</li>
+        </ul>
+        <hr>
+        <h3>Aula 2.3 – Cake Wallet / Monerujo (mobile – para pequenas quantias)</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ef77b538c8afebd3c69141769cf6e7209">Instalação, criação de seed, ativação de Tor (nas configurações).</li>
+          <li
+          class="ck-list-marker-bold" data-list-item-id="ea592724c1174c55c8ea7a5d4dd3ee9be"><strong>Regras de segurança:</strong>
+            <ul>
+              <li data-list-item-id="ec5436f0af8873c4bbd5a7fcb2f045945">Usar apenas para valores pequenos (equivalente a dinheiro de bolso).</li>
+              <li
+              data-list-item-id="e32cfc2854569ba2a84ba34e4666e175e">Desativar backup automático na nuvem para o app.</li>
+                <li data-list-item-id="e4beef9c4ce7f46a21d7747d5535775b3">Não usar a seed principal do cofre – crie uma carteira separada.</li>
+            </ul>
+            </li>
+            <li data-list-item-id="ec47a86bb225a63adda32096ceeb8d783">Conexão com nó remoto ou nó próprio (via endereço IP local ou Tor).</li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e4a076be53c802a565bdd14816973b194"><code spellcheck="false">20 - CURSO Perfil 1.md</code> – Módulo 0 (mobile).</li>
+          <li
+          data-list-item-id="e8f040d5bbc8327ee9ec42c05065c25b3"><code spellcheck="false">30 - FAQ.md</code> – pergunta 5 (riscos em celular).</li>
+        </ul>
+        <p><strong>Desafio do módulo 2:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e645dd8a904831121b90233f96a9930b1">Instale Feather e Electrum. Faça uma transação de teste em cada uma (valor
+            simbólico).</li>
+          <li data-list-item-id="e0d5bac5b789e1df15a1471adab0134d0">Restaure a carteira do Electrum <strong>escolhendo o tipo correto</strong> (Segwit)
+            e confirme o saldo.</li>
+        </ul>
+        <hr>
+        <h2>Módulo 3 – O bunker: Tails + Persistência + Backup</h2>
+        <p><strong>Objetivo:</strong> Construir o pendrive Tails com persistência,
+          instalar as ferramentas, dominar o backup com rsync (com proteções) e o
+          Tails Cloner.</p>
+        <h3>Aula 3.1 – Tails do zero: instalação e primeira inicialização</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e5164e640533b1bfb41979e8490f379b6">Baixar a <strong>imagem </strong><code spellcheck="false"><strong>.img</strong></code> do
+            Tails (não uma ISO genérica).</li>
+          <li data-list-item-id="ead566486a8ab18fbb9eb36483b55c93d">Verificar assinatura GPG ou usar a verificação integrada do navegador.</li>
+          <li
+          data-list-item-id="eeb93b8e6409efa320d83ae060ac0332a">Gravar com <strong>balenaEtcher</strong> (corrigido: não “balenaEtcdher”).</li>
+            <li
+            data-list-item-id="e0a659cd89d21a051ec68b1e4f96e76c9">Primeiro boot, configurar <strong>Persistent Storage</strong> (LUKS), escolher
+              quais recursos ativar (Personal Data, Network Connections, etc.).</li>
+              <li
+              data-list-item-id="e62cb1c91778744bf680c2645e661bcc8">Definir senha forte (12+ caracteres).</li>
+        </ul>
+        <p><strong>Comandos (Linux para verificação):</strong>
+        </p><pre><code class="language-text-x-trilium-auto">gpg --auto-key-locate nodefault,wkd --locate-keys tails@boum.org
+gpg --verify tails-amd64-*.img.sig tails-amd64-*.img</code></pre>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e0be0bc8ecac32a6d8e6851590accb7df"><code spellcheck="false">20 - CURSO Perfil 1.md</code> – Módulo 2 (instalação
+            do Tails).</li>
+          <li data-list-item-id="ecc69c04f64ed2dd68d40134d458f557e"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 7 (Persistent
+            Storage).</li>
+        </ul>
+        <hr>
+        <h3>Aula 3.2 – Colocando ferramentas no Persistent Storage</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ed98771d6a13a3fbed8b8468a3269bd98">Criar pastas dentro de <code spellcheck="false">/live/persistence/TailsData_unlocked/</code> para
+            Feather, Electrum, KeePassXC.</li>
+          <li data-list-item-id="eac863a326aaade8cd109025c54ba0a39">Baixar AppImages e criar links simbólicos para que as configurações persistam.</li>
+          <li
+          data-list-item-id="e37289bae72dce97bce659ed7d2a7f4c6">
+            <p>Exemplo para Feather:</p><pre><code class="language-text-x-trilium-auto">cd /live/persistence/TailsData_unlocked/
+mkdir -p Feather
+cd Feather
+wget https://featherwallet.org/files/releases/feather-2.6.4.AppImage
+chmod +x feather-*.AppImage
+ln -s /live/persistence/TailsData_unlocked/Feather/.feather ~/.feather</code></pre>
+            </li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e50d637891500032c86cbf9e4db5cac9e"><code spellcheck="false">20 - CURSO Perfil 1.md</code> – Módulo 3 (instalação
+            de apps).</li>
+          <li data-list-item-id="eb31bb0d7c97e62c91a48eb6017813c99"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 8 (links simbólicos).</li>
+        </ul>
+        <hr>
+        <h3>Aula 3.3 – rsync: o copiar e colar que não quebra (com proteções)</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e1008c4de546f587d4a606fcad1e119e9">Explicar por que <code spellcheck="false">cp</code> ou arrastar com mouse
+            falha: permissões, arquivos esparsos, links.</li>
+          <li data-list-item-id="e2c42d5d0a18de2ec74ac7c051df0c2d7">O comando <code spellcheck="false">rsync -PaSHAXv --del</code> preserva
+            tudo.</li>
+          <li data-list-item-id="ea9e0eb83e07a47f076a7941333f1dc41"><strong>Proteção crítica</strong> antes de rodar com <code spellcheck="false">--del</code>:
+            <ol>
+              <li data-list-item-id="e7fa55295abba39ab17f0239569dc7f9c">Verifique se a origem está montada: <code spellcheck="false">ls -la /live/persistence/TailsData_unlocked/</code>
+              </li>
+              <li data-list-item-id="ec4c32db5ae5f3ac330f75fb3a1c7e542">Execute um <strong>dry‑run</strong> primeiro: <code spellcheck="false">sudo rsync -PaSHAXv --dry-run --del origem/ destino/</code>
+              </li>
+              <li data-list-item-id="e1a95fb70121731f625e53387ab197c01">Confira se o destino não será apagado indevidamente.</li>
+            </ol>
+          </li>
+          <li data-list-item-id="e6bc32dd0bd17a74efbb7fb1e59bfbfa1">Demonstração de <strong>falha proposital</strong> (origem vazia + <code spellcheck="false">--del</code> apaga
+            o backup).</li>
+        </ul>
+        <p><strong>Comando final seguro:</strong>
+        </p><pre><code class="language-text-x-trilium-auto">sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData/</code></pre>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e50928101e89a035fcc03c5126ca66e79"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 9 (rsync e
+            flag <code spellcheck="false">--del</code>).</li>
+          <li data-list-item-id="edfbfee26ebb5ad67dc3bff252541771f"><code spellcheck="false">20 - CURSO Perfil 1.md</code> – Módulo 7 (backup).</li>
+        </ul>
+        <p><strong>Correção aplicada:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e39a90297fb7e73e4b89e75205ff9feda">Exigência de <code spellcheck="false">--dry-run</code> e verificação da
+            origem.</li>
+        </ul>
+        <hr>
+        <h3>Aula 3.4 – Tails Cloner: atualizando o sistema do pen drive B</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e4d5fa9c5abfa6f7d87b0a2910250df9b">O Tails Cloner preserva a partição de dados (Persistent) e só atualiza
+            a partição de sistema.</li>
+          <li data-list-item-id="e868dcde2fe7a42237c08c36cb378e525"><strong>Regra de ouro operacional:</strong> primeiro atualize o sistema
+            (Cloner), depois sincronize os dados (rsync).</li>
+          <li data-list-item-id="e47066f4e4d55531c9fd807cb6a5083a0"><strong>Saltos grandes de versão:</strong> não confie na migração automática.
+            Verifique as notas de versão em tails.net. O exemplo “5.1 → 7.8” é <strong>hipotético</strong> –
+            consulte as versões reais.</li>
+          <li data-list-item-id="ee25a2e746954bb9ccdbaab1191bb77a4">Procedimento seguro: instalar o Tails novo em um pendrive C, depois copiar
+            manualmente os dados via rsync (como na aula 3.3).</li>
+        </ul>
+        <p><strong>Demonstração:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="efd66f3eda39debca55ead6348c13ae6b">Clonagem interna (mesma versão principal) → ok.</li>
+          <li data-list-item-id="ed486784c385440b46cfaf3cde7809bac">Upgrade externo (salto grande) → migração manual.</li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ee71cb97652cbb86ded102403f7a9f28d"><code spellcheck="false">20 - CURSO Perfil 1.md</code> – Módulo 8 (upgrade).</li>
+          <li
+          data-list-item-id="e2de2f6b4cb33aa3a7f66930aac0458ee"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 10 (Tails Cloner
+            e saltos).</li>
+        </ul>
+        <p><strong>Desafio do módulo 3:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ecf22d08eba1c2e5f6296b5030958a2cc">Clone seu pendrive A para o B usando Tails Cloner (mesma versão).</li>
+          <li
+          data-list-item-id="ec38f9061e77486545657bffa262fde40">Rode o rsync com <code spellcheck="false">--dry-run</code> primeiro e confirme
+            o espelhamento.</li>
+        </ul>
+        <hr>
+        <h2>Módulo 4 – Avançado: soberania total e resiliência extrema</h2>
+        <p><strong>Objetivo:</strong> Usar VeraCrypt com negação plausível (fluxo
+          correto no Tails), rodar nó próprio Monero, entender Whonix (com pontos
+          cegos) e evitar erros humanos.</p>
+        <h3>Aula 4.1 – VeraCrypt dentro do Persistent – negação plausível (fluxo correto para Tails)</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e9cb60ffcd6805bec4ed7ef26778ce01b">O Tails <strong>não cria</strong> volumes VeraCrypt – ele apenas <strong>abre</strong> volumes
+            já existentes (via <em>Applications → Tails → Unlock VeraCrypt Volumes</em>).</li>
+          <li
+          data-list-item-id="ea9f550148e3866b70e9219b3d5802d06">Portanto, você deve criar o contêiner (volume normal + oculto) em uma <strong>máquina offline confiável</strong> (ex.:
+            um Linux instalado em outro computador, ou uma VM sem rede).</li>
+            <li data-list-item-id="e1ce839acc0292bda861f0ecb1598aefd">Depois, copie o arquivo contêiner para o Persistent Storage do Tails.</li>
+            <li
+            data-list-item-id="ef3d1dfc25158b6029528dc10b318afec">No Tails, desbloqueie a persistência LUKS, depois use <em>Unlock VeraCrypt Volumes</em> para
+              montar o volume isca (senha A) ou o oculto (senha B).</li>
+              <li data-list-item-id="e67854cb1317ba8e47e554cb71d305ce7"><strong>Onde guardar a seed principal?</strong> Em papel/metal, <strong>nunca</strong> dentro
+                do volume oculto. No volume oculto podem ficar backups secundários (ex.:
+                cópia da chave pública, histórico de trades, seeds de carteiras de teste).</li>
+        </ul>
+        <p><strong>Roteiro resumido (fora do Tails):</strong>
+        </p><pre><code class="language-text-x-trilium-auto"># Criar o volume normal (isca) de 500 MB
+veracrypt --text --create isca.hc
+# Criar o volume oculto dentro dele (usar a mesma ferramenta)
+veracrypt --text --create isca.hc   # escolher "Hidden"</code></pre>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e8b23a08113a0dc65063b71df8ed4371f"><code spellcheck="false">10 - VeraCrypt Volume Oculto (Roteiro Airgapped).md</code> –
+            fluxo completo.</li>
+          <li data-list-item-id="e89440537d2f06e264f8059be1d4e67fb"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 6.2 (coerção
+            física) e correção 4.</li>
+        </ul>
+        <p><strong>Correção aplicada:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e1244e013fc092ec46d5dc98bc9f8462f">Removida a afirmação incorreta de que o Tails cria volumes. Incluído o
+            roteiro airgapped.</li>
+        </ul>
+        <hr>
+        <h3>Aula 4.2 – Seu próprio nó Monero (full ou podado) com hardware velho</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li class="ck-list-marker-bold" data-list-item-id="e86e1c2780e666cf4b956b98b20947dd3"><strong>Tamanhos padronizados (2025):</strong>
+            <ul>
+              <li data-list-item-id="ecac376dcf3a0e692a5e78814fcef794d">Full node: 220‑230 GB (+30 GB/ano)</li>
+              <li data-list-item-id="e921e800fcdd5f4d373c5693c6f2d5d9e">Pruned node: ~95 GB (+10 GB/ano)</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e260959fb8ce79defa3bfbbd0b67b4eed">Instalação do <code spellcheck="false">monerod</code> no Linux (Ubuntu/Debian).</li>
+          <li
+          data-list-item-id="e963447ce65a901a90f07e48d5dbed800">
+            <p>Arquivo de configuração <code spellcheck="false">bitmonero.conf</code> com <strong>atenção à porta RPC</strong>:</p><pre><code class="language-text-x-trilium-auto">data-dir=/var/lib/monero
+prune-blockchain=1      # descomente para nó podado
+rpc-bind-ip=127.0.0.1   # somente local. Para rede interna, use 192.168.x.x
+rpc-bind-port=18081
+confirm-external-bind=0 # nunca abra 18081 para a internet!</code></pre>
+            </li>
+            <li data-list-item-id="eea1534bcf9d01446360fefacf4e66a5f">Firewall: liberar 18080 (P2P) mas <strong>não</strong> 18081 para o mundo.</li>
+            <li
+            data-list-item-id="ea3cd0063c583c7320b7ff051fee43267">Conectar Feather ao nó local (<code spellcheck="false">127.0.0.1:18081</code>).</li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e1058c385fa4eeb4661fe0498a293af0f"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seções 11–13 (nó
+            próprio, tamanhos).</li>
+          <li data-list-item-id="e29a3e2e4657adb6cde1663e34a6d1eac"><code spellcheck="false">40 - FAQ Parte 2.md</code> – bloco D (porta 18081
+            e segurança).</li>
+        </ul>
+        <p><strong>Correção aplicada:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e9fbb5edf5c751fa96bd3cd454ff5dc5a">Valores corrigidos para 220‑230 GB / 95 GB.</li>
+          <li data-list-item-id="e2a7805e32ca486e80a1a72aa98aa6677">Aviso explícito sobre a porta RPC.</li>
+        </ul>
+        <hr>
+        <h3>Aula 4.3 – Whonix para traders frequentes (com pontos cegos)</h3>
+        <p><strong>Conteúdo:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e0c53ab947d6c6ee09b3edf74c3a9814a">Arquitetura: Gateway (Tor) + Workstation (aplicações).</li>
+          <li data-list-item-id="e099a45db4bd002ced8bd37f61104965a"><strong>Vantagens:</strong> isolamento de rede, mesmo que a Workstation
+            seja comprometida, o IP real não vaza.</li>
+          <li class="ck-list-marker-bold"
+          data-list-item-id="e20b50f6d93b65edd3ed8339ac25f9bd0"><strong>Pontos cegos (obrigatório ensinar):</strong>
+            <ol>
+              <li data-list-item-id="eaa2092c5f6686227782541db6986f46e">Se o <strong>sistema hospedeiro</strong> (Host) estiver infectado com keylogger,
+                o atacante vê o que você digita na VM antes mesmo de entrar no Whonix.</li>
+              <li
+              data-list-item-id="ec4debfe5c00c1cd81f4ec87c634c7b04">Haveno sobre Tor + duas VMs consome muitos recursos e pode causar <strong>timeout</strong> em
+                trades (conexão P2P instável).</li>
+          </ol>
+          </li>
+          <li data-list-item-id="e0f004eddee586801f12b64de79554c55">Instalação no VirtualBox, instalação do Feather/Haveno na Workstation.</li>
+          <li
+          data-list-item-id="eb7852b1aaa71f260ff4c408cb9e9181d">Backup: snapshots da VM.</li>
+        </ul>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ea16c9ce81cab65dee2a83f510a8b1bbf"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 14 (Whonix
+            vs Tails).</li>
+          <li data-list-item-id="e38736202f9abb3d8897e1bc5387c688f"><code spellcheck="false">20 - CURSO Perfil 1.md</code> – menção ao perfil
+            3 (Whonix + Haveno).</li>
+        </ul>
+        <p><strong>Correção aplicada:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ed0c1aae3d6c35ca052f05ac255df2086">Incluídos os dois pontos cegos obrigatórios.</li>
+        </ul>
+        <hr>
+        <h3>Aula 4.4 – Erros humanos que quebram toda a criptografia</h3>
+        <p><strong>Conteúdo:</strong>
+          <br>Lista dos erros mais comuns (baseada no FAQ e GUIA MESTRE):</p>
+        <ol>
+          <li data-list-item-id="ed5ff8cb3608a6ea354cb3c1df8093c40"><strong>Senha fraca no LUKS/carteira</strong> → use gerador de senhas (KeePassXC).</li>
+          <li
+          data-list-item-id="e17808ede82c805400f9b5744d43ec12e"><strong>Foto da seed no celular</strong> → a nuvem vaza. Solução: papel
+            ou metal.</li>
+            <li data-list-item-id="e9f9b52c7e195f765de61a46510d855b0"><strong>Falar sobre o setup para pessoas erradas</strong> → opacidade total.</li>
+            <li
+            data-list-item-id="e0235e8bd886557bb81a19890667c8349"><strong>Não testar o backup</strong> → faça boot no pendrive B a cada 30
+              dias.</li>
+              <li data-list-item-id="eb60c5f129f1314c283397698937fe776"><strong>Login em contas pessoais dentro do Tails</strong> → quebra o anonimato.</li>
+              <li
+              data-list-item-id="eb08373b37fc5d9229a31907e82827eb1"><strong>Não ter backup físico da seed em metal</strong> → papel queima/molha.</li>
+                <li
+                data-list-item-id="e0b6055bdc2c1c938dc18a5feadddcb0c"><strong>Usar o mesmo pendrive por anos sem substituir</strong> → ciclos
+                  de escrita matam NAND.</li>
+        </ol>
+        <p><strong>Checklist de segurança comportamental</strong> (para imprimir):</p><pre><code class="language-text-x-trilium-auto">[ ] Seed principal em metal + papel (dois locais diferentes)
+[ ] Nenhuma foto da seed no celular ou nuvem
+[ ] Senha LUKS tem 12+ caracteres (não é data de nascimento)
+[ ] Backup rsync testado nos últimos 30 dias
+[ ] Ninguém (além de mim) sabe que tenho cripto
+[ ] Pendrive Tails tem menos de 18 meses de uso</code></pre>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e757434d158f57178d374a1ab57dba541"><code spellcheck="false">30 - FAQ.md</code> – pergunta 2 (erros humanos).</li>
+          <li
+          data-list-item-id="e1c7589939ed78e2d08a9f3c2a578c6d8"><code spellcheck="false">00 - GUIA MESTRE.md</code> – seção 15 (OPSEC).</li>
+        </ul>
+        <p><strong>Desafio final do curso:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eb7930b7c86cc8e852fcd9e0778998129">Simule a <strong>falha do pendrive A</strong> (como na aula bônus) e recupere
+            usando o pendrive B.</li>
+          <li data-list-item-id="e7f7d707bd609b6cc22bebb0175ba850f">Poste: “Meu backup resistiu ao teste – estou pronto para a auto-custódia
+            real.”</li>
+        </ul>
+        <hr>
+        <h2>🎁 Aula bônus (para membros ou live)</h2>
+        <p><strong>Título:</strong>  <em>“Como testar seu backup sem chorar – simulação de perda total do Pen Drive A”</em>
+        </p>
+        <p><strong>Roteiro resumido:</strong>
+        </p>
+        <ol>
+          <li data-list-item-id="e53bf030f5494943c29bea88b87991247">Verifique se o pendrive B é inicializável e a persistência desbloqueia.</li>
+          <li
+          data-list-item-id="e047933559aebe03408c61f5205bdeb5b">Desligue, remova o pendrive A.</li>
+            <li data-list-item-id="e9d6efa23a2c17d0e31d74636c0a048d6">Tente dar boot apenas com o B.</li>
+            <li data-list-item-id="ecce2c3f1045ca2e53b1d8382db08109d">Abra Feather e Electrum – confira saldos.</li>
+            <li data-list-item-id="e00a404502a1a796cfdf536c54b51a78f">Se falhar: refaça o clone (Tails Cloner) e o rsync (com <code spellcheck="false">--dry-run</code>).</li>
+            <li
+            data-list-item-id="e1c92497257875ef8560e762b88046963">Se funcionar: anote a data e repita a cada 3 meses.</li>
+        </ol>
+        <p><strong>Material de apoio:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ebf9063824acd98bac85fa55e7a0bfe89">
+            <p>Script de verificação automática do backup:</p><pre><code class="language-text-x-trilium-auto">#!/bin/bash
+[ -f /live/persistence/TailsData_unlocked/Feather/feather-*.AppImage ] &amp;&amp; echo "✅ Feather" || echo "❌ Feather faltando"
+[ -d /live/persistence/TailsData_unlocked/Electrum ] &amp;&amp; echo "✅ Electrum" || echo "❌ Electrum faltando"</code></pre>
+          </li>
+        </ul>
+        <hr>
+        <h2>📚 Tabela de material de apoio – mapeamento atualizado (pós‑auditoria)</h2>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Aula</th>
+                <th>Material correto na pasta do curso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1.1, 1.2, 1.3</td>
+                <td><code spellcheck="false">00 - GUIA MESTRE.md</code> (seções 1–6) +
+                  <code
+                  spellcheck="false">README.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td>2.1</td>
+                <td><code spellcheck="false">20 - CURSO Perfil 1.md</code> (Módulo 4)</td>
+              </tr>
+              <tr>
+                <td>2.2</td>
+                <td><code spellcheck="false">25 - Electrum no Tails — Auto-custódia de Bitcoin.md</code> (seções
+                  4,6)</td>
+              </tr>
+              <tr>
+                <td>2.3</td>
+                <td><code spellcheck="false">20 - CURSO Perfil 1.md</code> (Módulo 0) +
+                  <code
+                  spellcheck="false">30 - FAQ.md</code>(pergunta 5)</td>
+              </tr>
+              <tr>
+                <td>3.1, 3.2, 3.3, 3.4</td>
+                <td><code spellcheck="false">20 - CURSO Perfil 1.md</code> (Módulos 2,3,7,8)
+                  + <code spellcheck="false">00 - GUIA MESTRE.md</code> (seções 7–10)</td>
+              </tr>
+              <tr>
+                <td>4.1</td>
+                <td><code spellcheck="false">10 - VeraCrypt Volume Oculto (Roteiro Airgapped).md</code> +
+                  <code
+                  spellcheck="false">00 - GUIA MESTRE.md</code>(correção 4)</td>
+              </tr>
+              <tr>
+                <td>4.2</td>
+                <td><code spellcheck="false">00 - GUIA MESTRE.md</code> (seções 11–13) +
+                  <code
+                  spellcheck="false">40 - FAQ Parte 2.md</code>(bloco D)</td>
+              </tr>
+              <tr>
+                <td>4.3</td>
+                <td><code spellcheck="false">00 - GUIA MESTRE.md</code> (seção 14) + <code spellcheck="false">20 - CURSO Perfil 1.md</code> (perfil
+                  3)</td>
+              </tr>
+              <tr>
+                <td>4.4</td>
+                <td><code spellcheck="false">30 - FAQ.md</code> (pergunta 2) + <code spellcheck="false">00 - GUIA MESTRE.md</code> (seção
+                  15)</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>✅ Checklist de validação para o instrutor (antes de gravar cada aula)</h2>
+        <ul class="todo-list">
+          <li data-list-item-id="ec432f7616c9d1635c0af7d275adac1e4">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">A aula tem um <strong>modelo de ameaça explícito</strong>?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e6aa75936587708b32b5e2fc14624dc9c">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Os comandos foram testados em um Tails real (ou VM limpa)?</span>
+            </label>
+          </li>
+          <li data-list-item-id="ebd8959d9252efa83200c7be3e0d47b21">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">As seeds usadas na demonstração são claramente <strong>falsas</strong> (ex.: 12x “test”)?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e7e5a612b1ce8ac7cc4b2ed7629ca9ae1">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">O aviso “nunca digite sua seed real em um vídeo” foi dito?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e342bc85f549c9fa1f694d396006426e1">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Para a aula 3.3 (rsync): demonstrei o <code spellcheck="false">--dry-run</code> e mostrei o erro de origem vazia?</span>
+            </label>
+          </li>
+          <li data-list-item-id="ec68ffccdc8f8dc1051f10499ae3410f6">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Para a aula 4.1 (VeraCrypt): deixei claro que o Tails <strong>não cria</strong> volumes, só abre?</span>
+            </label>
+          </li>
+          <li data-list-item-id="ef1f61c04358472919c34975a646a3557">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Para a aula 4.2 (nó): usei os valores corretos (220‑230 GB / 95 GB) e alertei sobre a porta 18081?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e832f4aa354220074d089c4aa32d2e87f">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Para a aula 4.3 (Whonix): mencionei os pontos cegos (host infectado, latência)?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e4b8fd0f126d84680da7eb851e8649a8c">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">O material de apoio referenciado realmente existe na pasta (não é arquivo antigo)?</span>
+            </label>
+          </li>
+        </ul>
+        <hr>
+        <p><strong>Entregável:</strong> este texto é o roteiro completo dos 4 módulos,
+          corrigido conforme sua auditoria.
+          <br>Se desejar, posso gerar cada aula como um arquivo markdown separado dentro
+          da pasta <code spellcheck="false">mini-curso-moneiro/</code> – basta pedir.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

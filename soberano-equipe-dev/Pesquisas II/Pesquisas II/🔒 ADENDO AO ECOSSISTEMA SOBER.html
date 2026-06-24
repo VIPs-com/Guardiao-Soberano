@@ -1,0 +1,749 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🔒 ADENDO AO ECOSSISTEMA SOBERANO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🔒 ADENDO AO ECOSSISTEMA SOBERANO</h1>
+
+      <div class="ck-content">
+        <p>Você tem razão! Faltou fechar o ciclo com os <strong>itens que salvam vidas</strong> que
+          eu havia mencionado lá atrás e que não foram totalmente integrados ao ecossistema.
+          Vamos complementar a documentação com esses serviços, nomes e pesquisas
+          essenciais que você precisa conhecer.</p>
+        <hr>
+        <h2>🔒 ADENDO AO ECOSSISTEMA SOBERANO</h2>
+        <h2>Itens que Salvam Vidas — Documentação Complementar</h2>
+        <h3>"O que não está no diagrama principal, mas deveria estar"</h3>
+        <hr>
+        <h2>📋 Índice do Adendo</h2>
+        <ol>
+          <li data-list-item-id="e82caa5274c15c9627fe5722d4dfe7524"><a href="#1-abctracer-2025">ABCTracer 2025 — A Ameaça de Correlação Temporal</a>
+          </li>
+          <li data-list-item-id="e5d7ca84c73533c435129e7bb2b1cee60"><a href="#2-joinmarket">JoinMarket — Alternativa ao Whirlpool</a>
+          </li>
+          <li data-list-item-id="e80cccc7b650db411c04139db03f89df4"><a href="#3-payjoin">PayJoin (Pay-to-EndPoint) — Privacidade Colaborativa</a>
+          </li>
+          <li data-list-item-id="e58684eb6b0e1f53286609fdd78e8ff98"><a href="#4-bip47">BIP47 — Códigos de Pagamento Reutilizáveis</a>
+          </li>
+          <li data-list-item-id="e4b9ad805ceabc0d4a310bf74358f0fa8"><a href="#5-ricochet">Ricochet — Envio com Saltos</a>
+          </li>
+          <li data-list-item-id="e1766430cdc391729216fa620063beeaa"><a href="#6-coin-control">Coin Control Avançado</a>
+          </li>
+          <li data-list-item-id="e79319e773f56914a08ea0568ca3c28da"><a href="#7-servidores-electrum-onion">Servidores Electrum .onion — Lista Curada</a>
+          </li>
+          <li data-list-item-id="efd793049ab925a1175524db1fba1f80d"><a href="#8-samourai-whirlpool">Samourai Whirlpool — História e Sucessor</a>
+          </li>
+          <li data-list-item-id="e0f724a6266b86e1fd2dd9b978d0aa1bb"><a href="#9-ferramentas-de-an%C3%A1lise">Ferramentas de Análise de Privacidade</a>
+          </li>
+          <li data-list-item-id="efb80ca465d4e903b643b67d92a953fb7"><a href="#10-gloss%C3%A1rio-t%C3%A9cnico">Glossário Técnico</a>
+          </li>
+        </ol>
+        <hr>
+        <h2>1. ABCTracer 2025</h2>
+        <h3>O que é</h3>
+        <p><strong>ABCTracer</strong> é o nome dado pela comunidade a uma classe de
+          ataques de correlação temporal que evoluíram em 2025. Não é uma ferramenta
+          única, mas uma metodologia de análise que combina:</p>
+        <ul>
+          <li data-list-item-id="e9aa8655e82f641f4765bacb07aae0e99"><strong>Timing analysis:</strong> Correlacionar horários de transações
+            entre blockchains</li>
+          <li data-list-item-id="e36ca7e7be5f462d66d07b34ec95cd0ff"><strong>Amount correlation:</strong> Valores similares entrando e saindo
+            em janelas curtas</li>
+          <li data-list-item-id="e087c6ae3c085b018e25723288e8054a8"><strong>Cross-chain fingerprinting:</strong> Metadados que vazam entre
+            BTC e XMR</li>
+        </ul>
+        <h3>Como funciona o ataque</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│              ABCTRACER — CENÁRIO DE ATAQUE                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ⚠️ O QUE O ATACANTE VÊ:                                   │
+│                                                             │
+│  Blockchain Bitcoin (pública):                              │
+│  • UTXO de 0.05 BTC entra em swap às 14:32                  │
+│  • Transação de swap confirmada às 14:45                    │
+│                                                             │
+│  Blockchain Monero (privada, mas...):                       │
+│  • Output de ~0.98 XMR aparece às 15:10                     │
+│  • Valor convertido ≈ 0.0485 BTC (muito próximo!)           │
+│                                                             │
+│  ⚠️ CORRELAÇÃO:                                            │
+│  • Intervalo: 38 minutos                                    │
+│  • Valor: ~97% do original (menos fee)                      │
+│  • Probabilidade de ser o mesmo swap: ALTA                  │
+│                                                             │
+│  🔓 PRIVACIDADE DO MONERO QUEBRADA                          │
+│  (para este swap específico)                                │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>Contra-medidas (já integradas ao seu protocolo)</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Medida</th>
+                <th>Por que funciona</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Intervalo ≥ 24h</strong>
+                </td>
+                <td>Dilui a janela temporal. Quanto maior, menos correlacionável</td>
+              </tr>
+              <tr>
+                <td><strong>Múltiplos swaps em paralelo</strong>
+                </td>
+                <td>Vários UTXOs → vários XMR em horários próximos. Atacante não sabe qual
+                  é qual</td>
+              </tr>
+              <tr>
+                <td><strong>Valores não-redondos</strong>
+                </td>
+                <td>0.0485 BTC parece menos com 0.05 BTC do que 0.05 exato</td>
+              </tr>
+              <tr>
+                <td><strong>Churn Monero</strong>
+                </td>
+                <td>Mover XMR para outra carteira Monero quebra o link de valor</td>
+              </tr>
+              <tr>
+                <td><strong>Coinjoin antes do swap</strong>
+                </td>
+                <td>UTXO de entrada não tem histórico vinculado a você</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Pesquisa adicional</h3>
+        <ul>
+          <li data-list-item-id="e24378c03579ae7aeac50b7683035f883"><strong>OXT Research</strong> (oxt.me) — Ferramentas de análise de blockchain</li>
+          <li
+          data-list-item-id="e666445f17220c2f5e141a04c3f5b3708"><strong>Monero Research Lab</strong> — Papers sobre correlação cross-chain</li>
+            <li
+            data-list-item-id="e85ac9642075d146e784c5cc70f7ca5ee"><strong>KYCP.org</strong> — Simulador de ataques de correlação (não use
+              com dados reais!)</li>
+        </ul>
+        <hr>
+        <h2>2. JoinMarket</h2>
+        <h3>O que é</h3>
+        <p><strong>JoinMarket</strong> é uma implementação de CoinJoin que usa um
+          mercado descentralizado de liquidez. Diferente do Whirlpool (coordinator
+          central), no JoinMarket:</p>
+        <ul>
+          <li data-list-item-id="ec070c21a4554de3521ba8b05efb19fa4"><strong>Makers</strong> oferecem BTC para misturar (ganham fees)</li>
+          <li
+          data-list-item-id="eb8a0229ffd2118e08f6dc32a3c6402e7"><strong>Takers</strong> iniciam os coinjoins (pagam fees)</li>
+            <li data-list-item-id="ea85cc9cad66c709df66f982d5ab383c7">Não há coordinator central — é P2P via rede Tor</li>
+        </ul>
+        <h3>Comparação JoinMarket vs Whirlpool</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>Whirlpool (Sparrow)</th>
+                <th>JoinMarket</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Coordinator</strong>
+                </td>
+                <td>Centralizado (.onion)</td>
+                <td>Descentralizado (P2P)</td>
+              </tr>
+              <tr>
+                <td><strong>Pools</strong>
+                </td>
+                <td>Fixos (0.001, 0.01, 0.05, 0.5 BTC)</td>
+                <td>Qualquer valor</td>
+              </tr>
+              <tr>
+                <td><strong>Taxa</strong>
+                </td>
+                <td>Fixa por output (coordinator fee)</td>
+                <td>Mercado (makers competem)</td>
+              </tr>
+              <tr>
+                <td><strong>Liquidez</strong>
+                </td>
+                <td>Alta (muitos usuários)</td>
+                <td>Variável (depende de makers)</td>
+              </tr>
+              <tr>
+                <td><strong>Complexidade</strong>
+                </td>
+                <td>Baixa (GUI no Sparrow)</td>
+                <td>Média-Alta (CLI ou GUI básica)</td>
+              </tr>
+              <tr>
+                <td><strong>Resiliência</strong>
+                </td>
+                <td>Se coordinator cair, mixagem para</td>
+                <td>Totalmente P2P, sem ponto único</td>
+              </tr>
+              <tr>
+                <td><strong>Integração Whonix</strong>
+                </td>
+                <td>Nativa</td>
+                <td>Possível, mas requer configuração extra</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Instalação Básica no Whonix</h3><pre><code class="language-text-x-trilium-auto"># Na Whonix Workstation
+git clone https://github.com/JoinMarket-Org/joinmarket-clientserver.git
+cd joinmarket-clientserver
+
+# Instalar dependências
+pip3 install -r requirements.txt
+
+# Gerar carteira
+python3 wallet-tool.py generate
+
+# Configurar para Tor
+nano joinmarket.cfg
+# [MESSAGING:server]
+# host = 127.0.0.1
+# port = 9050
+# type = socks5</code></pre>
+        <h3>Quando considerar JoinMarket</h3>
+        <ul>
+          <li data-list-item-id="e5c02505b15c37bbe6a8d0f3c653ec10d">Se o coordinator Whirlpool ficar offline por dias</li>
+          <li data-list-item-id="efac50bf7894bf07406929463d4f2343f">Se você quiser valores de coinjoin personalizados (não apenas pools fixos)</li>
+          <li
+          data-list-item-id="ed7279dcd44893ddc1710e8784728a9e9">Se quiser GANHAR fees como maker (fornecendo liquidez)</li>
+            <li data-list-item-id="ee6dd08e921abf18d18ece190cccf37be">Como <strong>alternativa de backup</strong> ao Whirlpool</li>
+        </ul>
+        <hr>
+        <h2>3. PayJoin (Pay-to-EndPoint)</h2>
+        <h3>O que é</h3>
+        <p><strong>PayJoin</strong> (também chamado P2EP ou Pay-to-EndPoint) é uma
+          transação colaborativa onde o pagador e o recebedor contribuem inputs para
+          a mesma transação, quebrando a heurística de "common input ownership".</p>
+        <h3>Como funciona</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                 PAYJOIN — ANTES E DEPOIS                     │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  TRANSAÇÃO NORMAL:                                          │
+│  Input: 0.05 BTC (seu) → Output: 0.03 BTC (pagamento)      │
+│                          → Output: 0.0199 BTC (troco)       │
+│                                                             │
+│  🔍 Analista vê: 1 pessoa gastou 0.05, recebeu 0.0199       │
+│                                                             │
+│  ─────────────────────────────────────────────────          │
+│                                                             │
+│  PAYJOIN:                                                   │
+│  Input: 0.05 BTC (seu) + 0.02 BTC (do recebedor)           │
+│  → Output: 0.03 BTC (pagamento efetivo)                     │
+│  → Output: 0.0398 BTC (volta pra você)                      │
+│                                                             │
+│  🔍 Analista vê: 2 pessoas consolidaram inputs              │
+│  → Não sabe quem pagou quem                                 │
+│  → Não sabe qual output é troco                             │
+│  → Heurística de propriedade comum QUEBRADA                 │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>Ferramentas que suportam PayJoin</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Ferramenta</th>
+                <th>Suporte</th>
+                <th>Nota</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sparrow Wallet</strong>
+                </td>
+                <td>✅ Nativo</td>
+                <td>Enviar → PayJoin (se recebedor tiver endpoint)</td>
+              </tr>
+              <tr>
+                <td><strong>JoinMarket</strong>
+                </td>
+                <td>✅</td>
+                <td>PayJoin + CoinJoin no mesmo ecossistema</td>
+              </tr>
+              <tr>
+                <td><strong>BTCPay Server</strong>
+                </td>
+                <td>✅</td>
+                <td>Loja online com PayJoin ativado</td>
+              </tr>
+              <tr>
+                <td><strong>Wasabi Wallet</strong>
+                </td>
+                <td>✅</td>
+                <td>Implementação WabiSabi + PayJoin</td>
+              </tr>
+              <tr>
+                <td><strong>Electrum</strong>
+                </td>
+                <td>⚠️ Limitado</td>
+                <td>Plugins de terceiros</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>PayJoin + Whirlpool (Estratégia Combinada)</h3>
+        <ol>
+          <li data-list-item-id="e29de417f17122ccd7c70e63f96b33574"><strong>Antes do Whirlpool:</strong> Use PayJoin para compras normais (quebra
+            heurística inicial)</li>
+          <li data-list-item-id="e074096e2ab309b73d2cb9ea558f85fbc"><strong>Depois do PayJoin:</strong> Mova o troco para Whirlpool (anonset
+            começa mais alto)</li>
+          <li data-list-item-id="edfcb848e9967750e9635bcadad79e95c"><strong>Após Whirlpool:</strong> Use PayJoin para gastar outputs limpos
+            (adiciona camada extra)</li>
+        </ol>
+        <hr>
+        <h2>4. BIP47 — Códigos de Pagamento Reutilizáveis</h2>
+        <h3>O que é</h3>
+        <p><strong>BIP47</strong> (Payment Codes) permite publicar um "código de pagamento"
+          reutilizável que gera endereços únicos para cada transação, sem interação
+          entre as partes.</p>
+        <h3>Por que é relevante</h3>
+        <p>No seu ecossistema, você pode publicar um código BIP47 para receber pagamentos
+          privados sem:</p>
+        <ul>
+          <li data-list-item-id="e126f666e1d4ae1b1067e5a06580afd37">Reutilizar endereços (má prática)</li>
+          <li data-list-item-id="eeebfc461793006bd4ebd1b4a75f7e2bc">Gerar novos endereços manualmente a cada vez</li>
+          <li data-list-item-id="e31213b47e9874dd42a5c767b4490adba">Usar xpub publicamente (expõe todo histórico)</li>
+        </ul>
+        <h3>Ferramentas BIP47</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Ferramenta</th>
+                <th>Plataforma</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PayNym</strong> (Samourai)</td>
+                <td>Android (legado, pós-apreensão)</td>
+              </tr>
+              <tr>
+                <td><strong>Sparrow Wallet</strong>
+                </td>
+                <td>Suporte parcial para BIP47</td>
+              </tr>
+              <tr>
+                <td><strong>Silentium</strong>
+                </td>
+                <td>Implementação standalone</td>
+              </tr>
+              <tr>
+                <td><strong>BIP47 CLI</strong>
+                </td>
+                <td>Scripts Python para integração</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Estado atual (2026)</h3>
+        <p>O BIP47 perdeu força após a apreensão do Samourai Wallet (2024), mas o
+          padrão é aberto e implementável. O Sparrow está adicionando suporte incremental.</p>
+        <hr>
+        <h2>5. Ricochet — Envio com Saltos</h2>
+        <h3>O que é</h3>
+        <p><strong>Ricochet</strong> (ou "hopping") é uma técnica de enviar BTC através
+          de múltiplos endereços próprios antes do destino final, criando distância
+          on-chain.</p>
+        <h3>Exemplo</h3><pre><code class="language-text-x-trilium-auto">Sua carteira → Endereço A → Endereço B → Endereço C → Destino final
+                                                         
+Cada salto = 1 transação = custo de fee</code></pre>
+        <h3>Quando usar</h3>
+        <ul>
+          <li data-list-item-id="e4575d74652c499697b0036a6747f3280"><strong>NÃO use</strong> com outputs pós-coinjoin (diminui anonimato ao
+            consolidar)</li>
+          <li data-list-item-id="e37236e4112b784d44938e73f74889fa2">Use com <strong>outputs não-misturados</strong> quando não puder usar Whirlpool</li>
+          <li
+          data-list-item-id="e66089542f3266557d21db42907dd75e9">Eficácia é <strong>baixa</strong> contra análise moderna (analistas já modelam
+            ricochet)</li>
+        </ul>
+        <h3>Alternativa superior</h3>
+        <p>Em vez de Ricochet, prefira:</p>
+        <ol>
+          <li data-list-item-id="e5ec5e816dcc371275f02c7b63818123a"><strong>CoinJoin</strong> (Whirlpool/JoinMarket) — anonimato real</li>
+          <li
+          data-list-item-id="e38315496d38fe983c73211c1ccb321f5"><strong>PayJoin</strong> — quebra heurística sem custo extra de fees</li>
+            <li
+            data-list-item-id="e6b3e30585542836e488f0e528a535bd2"><strong>Swap XMR</strong> — anonimato de rede diferente</li>
+        </ol>
+        <hr>
+        <h2>6. Coin Control Avançado</h2>
+        <h3>O que é</h3>
+        <p><strong>Coin Control</strong> é a prática de selecionar manualmente quais
+          UTXOs gastar em cada transação. O Sparrow oferece isso na aba UTXOs.</p>
+        <h3>Regras de Ouro</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│              COIN CONTROL — REGRAS                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ✅ FAÇA:                                                   │
+│  • Gastar 1 UTXO por vez (quando possível)                  │
+│  • Rotular UTXOs por origem (KYC, coinjoin, swap)          │
+│  • Usar UTXOs pós-coinjoin SEPARADOS de não-misturados     │
+│  • Congelar UTXOs "sujos" para não gastar sem querer        │
+│                                                             │
+│  ❌ NÃO FAÇA:                                               │
+│  • Consolidar 2+ UTXOs pós-coinjoin (reduz anonimato)      │
+│  • Misturar UTXO KYC com UTXO coinjoin (contaminação)      │
+│  • Gastar dust (valores &lt; fee) — polui carteira            │
+│  • Usar "Send Max" sem verificar quais UTXOs selecionados  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>Como Congelar UTXOs no Sparrow</h3>
+        <ol>
+          <li data-list-item-id="e67c226f551496f8c22acd4a88080ac23">Aba UTXOs</li>
+          <li data-list-item-id="eb09e9c833812f06082ea694541dee539">Clique com botão direito no UTXO</li>
+          <li data-list-item-id="eb730eeb4a9e2d728e37d6127704c0b37"><strong>Freeze</strong> → UTXO fica cinza, não será gasto</li>
+          <li data-list-item-id="eac44659907fc981abd04e219aeef755f">Para descongelar: <strong>Unfreeze</strong>
+          </li>
+        </ol>
+        <hr>
+        <h2>7. Servidores Electrum .onion — Lista Curada</h2>
+        <h3>O que são</h3>
+        <p>Servidores Electrum que expõem um endereço .onion, permitindo consultar
+          a blockchain Bitcoin sem vazar seu IP.</p>
+        <h3>Lista Verificada (para seu KeePassXC)</h3><pre><code class="language-text-x-trilium-auto">=== SERVIDORES ELECTRUM .ONION ===
+Última verificação: Junho 2026
+
+1. electrumx.hodlister.co.onion:50002
+   SSL: Sim | Verificado: Sim
+
+2. fortress.qtornado.com.onion:50002
+   SSL: Sim | Verificado: Sim
+
+3. electrum.anonymize.net.onion:50002
+   SSL: Sim | Verificado: Sim
+
+4. Seu EPS próprio: xxxxxxxxxxxxxxxx.onion:50002
+   SSL: Opcional | Verificado: Sim (seu node!)
+
+⚠️ SEMPRE verifique se o SSL está ativo (cadeado verde no Sparrow)
+⚠️ NUNCA use servidores .onion de listas não-verificadas
+⚠️ PREFIRA seu EPS próprio — zero confiança em terceiros</code></pre>
+        <h3>Como testar um servidor</h3>
+        <p>No terminal da Workstation:</p><pre><code class="language-text-x-trilium-auto"># Testar conexão básica
+torify nc -zv electrumx.hodlister.co.onion 50002
+
+# Deve retornar: Connection to electrumx.hodlister.co.onion 50002 port [tcp/*] succeeded!</code></pre>
+        <hr>
+        <h2>8. Samourai Whirlpool — História e Sucessor</h2>
+        <h3>O que aconteceu</h3>
+        <p>Em <strong>Abril de 2024</strong>, o Departamento de Justiça dos EUA apreendeu
+          os servidores do <strong>Samourai Wallet</strong> e prendeu os fundadores
+          (Keonne Rodriguez e William Lonergan Hill). O coordinator Whirlpool original
+          foi desligado.</p>
+        <h3>O que mudou</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Antes (Samourai)</th>
+                <th>Depois (2024-2026)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Coordinator mantido pela Samourai</td>
+                <td>Coordinator mantido pela comunidade</td>
+              </tr>
+              <tr>
+                <td>Whirlpool CLI oficial</td>
+                <td>Sparrow assumiu integração Whirlpool</td>
+              </tr>
+              <tr>
+                <td>Dojo (node) integrado</td>
+                <td>RoninDojo, Start9, node próprio</td>
+              </tr>
+              <tr>
+                <td>Samourai Wallet mobile</td>
+                <td><strong>Não use mais</strong> — sem atualizações</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Sucessor atual</h3>
+        <p>O <strong>Sparrow Wallet</strong> é o sucessor de facto para Whirlpool.
+          Ele:</p>
+        <ul>
+          <li data-list-item-id="ed23f24365e0b95cb2f2754d657eabaf5">Conecta ao coordinator comunitário</li>
+          <li data-list-item-id="ea620413259e819708bfeac1978d7b3bf">Mantém o protocolo Whirlpool original (ZeroLink)</li>
+          <li data-list-item-id="e1f5e4339a215f08f959d82ff318032d7">É mantido por Craig Raw (desenvolvedor independente, baseado no Canadá)</li>
+          <li
+          data-list-item-id="ece3aeb2eaf307bc15f8705c10c38704a">Tem auditoria de segurança contínua</li>
+        </ul>
+        <h3>O que NÃO usar</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Ferramenta</th>
+                <th>Motivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Samourai Wallet (mobile)</td>
+                <td>Sem updates desde 2024, risco de vulnerabilidades</td>
+              </tr>
+              <tr>
+                <td>Whirlpool CLI original</td>
+                <td>Coordinator desligado</td>
+              </tr>
+              <tr>
+                <td>Dojo original</td>
+                <td>Migrar para RoninDojo ou alternativas</td>
+              </tr>
+              <tr>
+                <td>Qualquer fork não-auditado</td>
+                <td>Risco de backdoor</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>9. Ferramentas de Análise de Privacidade</h2>
+        <h3>Para auditar sua própria privacidade</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Ferramenta</th>
+                <th>Função</th>
+                <th>Uso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>OXT Explorer</strong> (oxt.me)</td>
+                <td>Visualizar transações, clustering</td>
+                <td>Analisar UTXOs antes de gastar</td>
+              </tr>
+              <tr>
+                <td><strong>KYCP.org</strong>
+                </td>
+                <td>Simulador de privacidade</td>
+                <td>TESTES apenas (não use dados reais!)</td>
+              </tr>
+              <tr>
+                <td><strong>Mempool.space</strong> (.onion)</td>
+                <td>Visualizar transações pendentes</td>
+                <td>Verificar fees, confirmações</td>
+              </tr>
+              <tr>
+                <td><strong>Sparrow → Aba UTXOs</strong>
+                </td>
+                <td>Ver anonset de cada output</td>
+                <td>Checar status pós-coinjoin</td>
+              </tr>
+              <tr>
+                <td><strong>Blockpath</strong>
+                </td>
+                <td>Análise gráfica de fluxo</td>
+                <td>Visualizar caminho dos fundos</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Como auto-auditar</h3>
+        <ol>
+          <li data-list-item-id="e7b1834a7e5fcc4d358d10aa9963e5c11">Pegue um UTXO pós-coinjoin</li>
+          <li data-list-item-id="e399dfff52cdedaaed815669ceaa44d18">Cole o TXID no OXT Explorer (via Tor!)</li>
+          <li data-list-item-id="ee7c65a746d46d99b146199205b461ccb">Veja o "cluster" — quantos endereços estão ligados?</li>
+          <li data-list-item-id="eaf00d53dfab7ec587f3d6e28f90a3b0e">Se o cluster for pequeno (só seus endereços), o anonimato é baixo</li>
+          <li
+          data-list-item-id="e502999d6a5109625eec833e3ffb013ad">Se o cluster for grande (muitos participantes do round), anonimato é alto</li>
+        </ol>
+        <hr>
+        <h2>10. Glossário Técnico</h2>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Termo</th>
+                <th>Definição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Air-gap</strong>
+                </td>
+                <td>Dispositivo completamente isolado de rede (ex: Coldcard)</td>
+              </tr>
+              <tr>
+                <td><strong>Anonset</strong>
+                </td>
+                <td>Tamanho do conjunto de anonimato — quantas pessoas "parecem" ser a origem</td>
+              </tr>
+              <tr>
+                <td><strong>Atomic Swap</strong>
+                </td>
+                <td>Troca entre blockchains sem intermediário (contrato inteligente)</td>
+              </tr>
+              <tr>
+                <td><strong>Change (troco)</strong>
+                </td>
+                <td>Output que volta para você em uma transação</td>
+              </tr>
+              <tr>
+                <td><strong>CoinJoin</strong>
+                </td>
+                <td>Transação colaborativa que mistura inputs de múltiplas pessoas</td>
+              </tr>
+              <tr>
+                <td><strong>Coordinator</strong>
+                </td>
+                <td>Servidor que coordena rounds de CoinJoin</td>
+              </tr>
+              <tr>
+                <td><strong>Dice Rolls</strong>
+                </td>
+                <td>Lançamentos de dado para gerar entropia verdadeiramente aleatória</td>
+              </tr>
+              <tr>
+                <td><strong>Dust</strong>
+                </td>
+                <td>UTXO tão pequeno que o fee para gastá-lo é maior que seu valor</td>
+              </tr>
+              <tr>
+                <td><strong>Heurística</strong>
+                </td>
+                <td>Regra usada por analistas para inferir propriedade de endereços</td>
+              </tr>
+              <tr>
+                <td><strong>Mempool</strong>
+                </td>
+                <td>Fila de transações não-confirmadas</td>
+              </tr>
+              <tr>
+                <td><strong>Passphrase (BIP39)</strong>
+                </td>
+                <td>25ª palavra opcional que gera carteira completamente diferente</td>
+              </tr>
+              <tr>
+                <td><strong>PSBT</strong>
+                </td>
+                <td>Partially Signed Bitcoin Transaction — transação a ser assinada</td>
+              </tr>
+              <tr>
+                <td><strong>Round (Whirlpool)</strong>
+                </td>
+                <td>Uma rodada de mistura; mais rounds = maior anonimato</td>
+              </tr>
+              <tr>
+                <td><strong>UTXO</strong>
+                </td>
+                <td>Unspent Transaction Output — "pedaço" de Bitcoin que você possui</td>
+              </tr>
+              <tr>
+                <td><strong>Watch-only</strong>
+                </td>
+                <td>Carteira que vê saldo mas não pode gastar (só tem chave pública)</td>
+              </tr>
+              <tr>
+                <td><strong>Xpub</strong>
+                </td>
+                <td>Extended Public Key — chave pública mestra que deriva todos os endereços</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>🔗 Integração com o Ecossistema Principal</h2>
+        <p>Este adendo complementa a documentação <code spellcheck="false">ecossistema_soberano_cripto.md</code> com:</p>
+        <figure
+        class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Documento Principal</th>
+                <th>Este Adendo</th>
+                <th>Seção</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fase 2: CoinJoin</td>
+                <td>JoinMarket (alternativa)</td>
+                <td>§2</td>
+              </tr>
+              <tr>
+                <td>Fase 4: Swap</td>
+                <td>ABCTracer (ameaça)</td>
+                <td>§1</td>
+              </tr>
+              <tr>
+                <td>Arquitetura geral</td>
+                <td>Servidores .onion</td>
+                <td>§7</td>
+              </tr>
+              <tr>
+                <td>Fluxos operacionais</td>
+                <td>PayJoin + Coin Control</td>
+                <td>§3, §6</td>
+              </tr>
+              <tr>
+                <td>Verificações</td>
+                <td>Ferramentas de análise</td>
+                <td>§9</td>
+              </tr>
+              <tr>
+                <td>Histórico/Sucessão</td>
+                <td>Samourai → Sparrow</td>
+                <td>§8</td>
+              </tr>
+            </tbody>
+          </table>
+          </figure>
+          <hr>
+          <h2>⚠️ Nova Advertência</h2>
+          <blockquote>
+            <p>O Whirlpool no Sparrow depende de um coordinator comunitário. Embora descentralizado
+              em governança, ainda é um ponto único de falha técnica.
+              <br><strong>Mantenha o JoinMarket como alternativa configurada e testada</strong> —
+              você não quer descobrir que o coordinator caiu justamente quando precisa
+              mixar fundos urgentemente.</p>
+          </blockquote>
+          <hr><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   Estes "itens que salvam vidas" são a diferença entre      │
+│   um usuário que PARECE ter privacidade e um que            │
+│   realmente TEM privacidade.                                │
+│                                                             │
+│   ABCTracer → Entender a ameaça                             │
+│   JoinMarket → Alternativa descentralizada                  │
+│   PayJoin → Camada extra de proteção                        │
+│   Coin Control → Não se auto-sabotar                        │
+│   Servidores .onion → Independência de rede                 │
+│   Auto-auditoria → Verificar se está funcionando            │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+          <hr>
+          <p>Esta é a peça que faltava. Com este adendo, seu ecossistema cobre:</p>
+          <p>✅ Geração de seed segura
+            <br>✅ Node próprio com EPS
+            <br>✅ Mixagem (Whirlpool + alternativa JoinMarket)
+            <br>✅ Swaps atômicos com proteção anti-correlação
+            <br>✅ PayJoin para transações diárias
+            <br>✅ Coin Control para não contaminar UTXOs
+            <br>✅ Auto-auditoria de privacidade
+            <br>✅ Resiliência contra falhas de componentes
+            <br>✅ Intervalos de segurança (ABCTracer)</p>
+          <p>O ciclo está fechado.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

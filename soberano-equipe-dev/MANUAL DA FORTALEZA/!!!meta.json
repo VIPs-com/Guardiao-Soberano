@@ -1,0 +1,569 @@
+{
+	"formatVersion": 2,
+	"appVersion": "0.103.0",
+	"files": [
+		{
+			"isClone": false,
+			"noteId": "6kufRgbj5Omr",
+			"notePath": [
+				"6kufRgbj5Omr"
+			],
+			"title": "MANUAL DA FORTALEZA",
+			"notePosition": 1450,
+			"prefix": null,
+			"isExpanded": true,
+			"type": "text",
+			"mime": "text/html",
+			"attributes": [
+				{
+					"type": "label",
+					"name": "readOnly",
+					"value": "",
+					"isInheritable": false,
+					"position": 10
+				},
+				{
+					"type": "label",
+					"name": "iconClass",
+					"value": "bx bxs-balloon",
+					"isInheritable": false,
+					"position": 20
+				}
+			],
+			"format": "html",
+			"dataFileName": "MANUAL DA FORTALEZA.html",
+			"attachments": [],
+			"dirFileName": "MANUAL DA FORTALEZA",
+			"children": [
+				{
+					"isClone": false,
+					"noteId": "pSdsQK411Zs7",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"pSdsQK411Zs7"
+					],
+					"title": "🛡️ Backup 3-2-1 no Tails: Haveno, Electrum e KeePassXC",
+					"notePosition": 10,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🛡️ Backup 3-2-1 no Tails Have.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "9f8Wk1UIQPt7",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"9f8Wk1UIQPt7"
+					],
+					"title": "💀 A Morte do Pendrive no Meio do Trade",
+					"notePosition": 20,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "💀 A Morte do Pendrive no Meio.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "KAlo6UVboFvK",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"KAlo6UVboFvK"
+					],
+					"title": "🔓 RISCOS REAIS DO PENDRIVE TAILS ROUBADO OU CONFISCADO",
+					"notePosition": 30,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🔓 RISCOS REAIS DO PENDRIVE TA.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "PfEQD7QbLAiS",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"PfEQD7QbLAiS"
+					],
+					"title": "💾 SALVANDO O HAVENO NO PERSISTENT STORAGE DO TAILS",
+					"notePosition": 40,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "💾 SALVANDO O HAVENO NO PERSIS.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "Y7bsmQztaiqo",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"Y7bsmQztaiqo"
+					],
+					"title": "🔢 O QUE É O RESTORE HEIGHT DO MONERO E COMO ANOTAR",
+					"notePosition": 50,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🔢 O QUE É O RESTORE HEIGHT DO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "3GYA5lXfoc0t",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"3GYA5lXfoc0t"
+					],
+					"title": "🧨 ERROS HUMANOS QUE QUEBRAM A SEGURANÇA DO TAILS",
+					"notePosition": 60,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🧨 ERROS HUMANOS QUE QUEBRAM A.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "Gc5xQizNP0cz",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"Gc5xQizNP0cz"
+					],
+					"title": "🔓 SOB COAÇÃO: QUANDO O INIMIGO EXIGE SUA SENHA",
+					"notePosition": 70,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🔓 SOB COAÇÃO QUANDO O INIMIGO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "xVg4xNAfAsuQ",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"xVg4xNAfAsuQ"
+					],
+					"title": "🌱 A SEMENTE DE 25 PALAVRAS: O ÚNICO QUE IMPORTA",
+					"notePosition": 80,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🌱 A SEMENTE DE 25 PALAVRAS O .html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "8GiALAorhlit",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"8GiALAorhlit"
+					],
+					"title": "👻 O PERFIL TAILS + HAVENO NO PENDRIVE: COMPRA E ESQUECE",
+					"notePosition": 90,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "👻 O PERFIL TAILS + HAVENO NO .html",
+					"attachments": [],
+					"dirFileName": "👻 O PERFIL TAILS + HAVENO NO PENDRIVE COMPRA E ESQUECE",
+					"children": [
+						{
+							"isClone": false,
+							"noteId": "3HIkJI60GyZc",
+							"notePath": [
+								"6kufRgbj5Omr",
+								"8GiALAorhlit",
+								"3HIkJI60GyZc"
+							],
+							"title": "🌍 O OPERADOR NÔMADE: OTIMIZAÇÕES PARA VIAGENS FREQUENTES E SESSÕES CURTAS",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dataFileName": "🌍 O OPERADOR NÔMADE OTIMIZAÇÕ.html",
+							"attachments": []
+						}
+					]
+				},
+				{
+					"isClone": false,
+					"noteId": "pFq61bcA17ip",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"pFq61bcA17ip"
+					],
+					"title": "🌐 O NÓ MONERO: POR QUE VOCÊ NÃO PRECISA DE UM FULL NODE NA SUA MOCHILA",
+					"notePosition": 100,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🌐 O NÓ MONERO POR QUE VOCÊ NÃ.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "Gr635MNQVVRf",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"Gr635MNQVVRf"
+					],
+					"title": "🧅 NÓ COMPLETO vs. NÓ PODADO NO MONERO",
+					"notePosition": 110,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🧅 NÓ COMPLETO vs. NÓ PODADO N.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "ENrxv5QlwPu6",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"ENrxv5QlwPu6"
+					],
+					"title": "🔐 KEEPASSXC NO TAILS: O COFRE DENTRO DO COFRE",
+					"notePosition": 120,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🔐 KEEPASSXC NO TAILS O COFRE .html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "za2J17fswJoF",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"za2J17fswJoF"
+					],
+					"title": "⚡ ELECTRUM NO TAILS: CARTEIRA BITCOIN PERSISTENTE",
+					"notePosition": 130,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "⚡ ELECTRUM NO TAILS CARTEIRA B.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "tBwPvlOMYDiV",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"tBwPvlOMYDiV"
+					],
+					"title": "🪶 FEATHER WALLET NO TAILS: INSTALAÇÃO PERSISTENTE E SEGURA",
+					"notePosition": 140,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🪶 FEATHER WALLET NO TAILS INS.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "HLgxymxafoyM",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"HLgxymxafoyM"
+					],
+					"title": "🏰 WHONIX + HAVENO: O PERFIL DO TRADER FREQUENTE",
+					"notePosition": 150,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🏰 WHONIX + HAVENO O PERFIL DO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "RAxHwBeJACWJ",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"RAxHwBeJACWJ"
+					],
+					"title": "🛡️ PROTEÇÃO CONTRA A MORTE PREMATURA DO PENDRIVE",
+					"notePosition": 160,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🛡️ PROTEÇÃO CONTRA A MORTE PR.html",
+					"attachments": [],
+					"dirFileName": "🛡️ PROTEÇÃO CONTRA A MORTE PREMATURA DO PENDRIVE",
+					"children": [
+						{
+							"isClone": false,
+							"noteId": "7sQNRas4HwGI",
+							"notePath": [
+								"6kufRgbj5Omr",
+								"RAxHwBeJACWJ",
+								"7sQNRas4HwGI"
+							],
+							"title": "💿 PENDRIVES PREMIUM ACESSÍVEIS PARA O OPERADOR TAILS",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dataFileName": "💿 PENDRIVES PREMIUM ACESSÍVEI.html",
+							"attachments": []
+						}
+					]
+				},
+				{
+					"isClone": false,
+					"noteId": "dvfw7S0EDYRL",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"dvfw7S0EDYRL"
+					],
+					"title": "🧩 ADENDOS FINAIS PARA O CICLO COMPLETO",
+					"notePosition": 170,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🧩 ADENDOS FINAIS PARA O CICLO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "77DZQQ5fPgmF",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"77DZQQ5fPgmF"
+					],
+					"title": "🧭 MINI-CURSO: AUTO-CUSTÓDIA SOBERANA (Monero + Bitcoin)",
+					"notePosition": 180,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🧭 MINI-CURSO AUTO-CUSTÓDIA SO.html",
+					"attachments": [],
+					"dirFileName": "🧭 MINI-CURSO AUTO-CUSTÓDIA SOBERANA (Monero + Bitcoin)",
+					"children": [
+						{
+							"isClone": false,
+							"noteId": "PQPly8FsUw08",
+							"notePath": [
+								"6kufRgbj5Omr",
+								"77DZQQ5fPgmF",
+								"PQPly8FsUw08"
+							],
+							"title": "🧭 MINI-CURSO: AUTO-CUSTÓDIA SOBERANA (Monero + Bitcoin)",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "text",
+							"mime": "text/html",
+							"attributes": [],
+							"format": "html",
+							"dataFileName": "🧭 MINI-CURSO AUTO-CUSTÓDIA SO.html",
+							"attachments": []
+						}
+					]
+				},
+				{
+					"isClone": false,
+					"noteId": "GEDcadPKLasH",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"GEDcadPKLasH"
+					],
+					"title": "🔐 MÓDULO 9 – VERIFICAÇÃO PGP, CIFRAGEM E AUTOMAÇÃO",
+					"notePosition": 190,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🔐 MÓDULO 9 – VERIFICAÇÃO PGP,.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "JMYs5YdB77DZ",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"JMYs5YdB77DZ"
+					],
+					"title": "🔍 AUDITORIA FINAL: TODAS AS FERRAMENTAS DO CYPHERPUNK OPERACIONAL",
+					"notePosition": 200,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🔍 AUDITORIA FINAL TODAS AS FE.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "NdrwxwVWTe2b",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"NdrwxwVWTe2b"
+					],
+					"title": "📜 MÓDULO 10 – OS SCRIPTS DO OPERADOR",
+					"notePosition": 210,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "📜 MÓDULO 10 – OS SCRIPTS DO O.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "hrKbQWuu8pQg",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"hrKbQWuu8pQg"
+					],
+					"title": "🏁 O ÚLTIMO TIJOLO",
+					"notePosition": 220,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🏁 O ÚLTIMO TIJOLO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "0EsrSpjndqPs",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"0EsrSpjndqPs"
+					],
+					"title": "🛠️ MÓDULO 11 – A FORTALEZA NÃO ENFERRUJA: MANUTENÇÃO CONTÍNUA DO CYPHERPUNK OPERACIONAL",
+					"notePosition": 230,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🛠️ MÓDULO 11 – A FORTALEZA NÃ.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "LyXPeL3X0qmS",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"LyXPeL3X0qmS"
+					],
+					"title": "🗺️ O QUE FICOU DE FORA — E POR QUE NÃO IMPORTA (AGORA)",
+					"notePosition": 240,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🗺️ O QUE FICOU DE FORA — E PO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "W2SqPrTnec8v",
+					"notePath": [
+						"6kufRgbj5Omr",
+						"W2SqPrTnec8v"
+					],
+					"title": "Passo a passo: Criar volume LUKS2 com Argon2id",
+					"notePosition": 250,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "Passo a passo Criar volume LUK.html",
+					"attachments": []
+				}
+			]
+		},
+		{
+			"noImport": true,
+			"dataFileName": "navigation.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "index.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "style.css"
+		}
+	]
+}

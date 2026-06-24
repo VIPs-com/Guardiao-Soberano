@@ -1,0 +1,373 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>O que exatamente é &quot;restaurar o Whirlpool&quot;</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>O que exatamente é &quot;restaurar o Whirlpool&quot;</h1>
+
+      <div class="ck-content">
+        <p>A restauração do Whirlpool a partir da seed é o seu <strong>último plano de contingência</strong> quando
+          o Persistent Storage do Tails corrompe, o pendrive quebra ou a pasta
+          <code
+          spellcheck="false">~/.sparrow/</code>simplesmente some. A boa notícia: se a transação <strong>Premix foi transmitida e confirmada</strong>,
+            seus fundos nunca estão perdidos — apenas o "estado" do Whirlpool (em qual
+            round cada output está) precisa ser reconstruído. Vou detalhar o processo
+            completo.</p>
+        <hr>
+        <h2>O que exatamente é "restaurar o Whirlpool"</h2>
+        <p>Quando você faz a transação Premix, o coordinator do Whirlpool <strong>registra os outputs de pool</strong> (aqueles
+          de exatamente 0.01, 0.05 etc.) vinculados à sua carteira. Esses outputs
+          são identificados pela sua <strong>xpub</strong> e pela <strong>derivação específica</strong> usada
+          no Whirlpool.</p>
+        <p>O que some quando o Persistent Storage morre:</p>
+        <ul>
+          <li data-list-item-id="e760ad5258e64f9dcc2372bb342ea1b51">O arquivo de configuração do Whirlpool (coordinator, pool escolhido)</li>
+          <li
+          data-list-item-id="eea381a5d98b343a679f62648ab791f06">O registro local de quais outputs já estão em que round</li>
+            <li data-list-item-id="e67aded8819f7b258f7e3a9c23bb7516c">O histórico de transações coinjoin já realizadas</li>
+            <li data-list-item-id="eb402c71af6fe68199ac99d1c8b5664fc">As labels e notas que você colocou nos UTXOs</li>
+        </ul>
+        <p>O que <strong>não some nunca</strong>:</p>
+        <ul>
+          <li data-list-item-id="e0fcd9cb37c1bf58ceb4b73dfc4f55f74">Os UTXOs reais na blockchain (eles existem independentemente)</li>
+          <li
+          data-list-item-id="efde328a27a52c87d7ea99e51261b45bf">O registro dos outputs no coordinator (eles foram registrados com sua
+            chave pública)</li>
+            <li data-list-item-id="eb80f599228b47559df959c29a9035f3f">A capacidade de recuperar o controle desses outputs usando sua seed +
+              passphrase</li>
+        </ul>
+        <hr>
+        <h2>Pré-requisitos para restauração</h2>
+        <ol>
+          <li data-list-item-id="e0b117064df506fe9f0ff2881a6eb7921"><strong>Seed BIP39 + passphrase (25ª palavra) intactas</strong>
+            <br>As 24 palavras gravadas em aço + a passphrase que você memorizou ou guardou
+            separadamente.</li>
+          <li data-list-item-id="efadc72d783e19556a69315f828bcfe0c"><strong>Coldcard funcionando</strong> (ou qualquer dispositivo com sua
+            seed)
+            <br>Você vai precisar derivar as chaves para reassinar transações.</li>
+          <li
+          data-list-item-id="eb549530391263d13e1c733d675d4dc19"><strong>Tails recém-instalado</strong> (novo pendrive, nova sessão limpa)
+            <br>Do zero, como se fosse a primeira vez.</li>
+            <li data-list-item-id="e7992bf5061ff263a45205c2b3d3d9057"><strong>Sparrow Wallet AppImage verificada</strong> (baixada novamente,
+              PGP verificado)</li>
+            <li data-list-item-id="ea15517232771d783489f03cff38fa589"><strong>Coordenador Whirlpool .onion atualizado</strong>
+              <br>Obter do site oficial do Sparrow.</li>
+            <li data-list-item-id="ee8dbc8631985a771d1450dec3c0bf40f"><strong>Tempo e paciência</strong> — o processo pode levar horas, mas não
+              há risco de perda de fundos.</li>
+        </ol>
+        <hr>
+        <h2>Passo 1 — Recriar a carteira Sparrow do zero</h2>
+        <h3>1.1 Instalar e verificar o Sparrow no novo Tails</h3>
+        <p>Siga o ritual de sempre:</p><pre><code class="language-text-x-trilium-auto"># Baixar a AppImage e a assinatura
+torify wget https://sparrowwallet.com/downloads/sparrow-*.AppImage
+torify wget https://sparrowwallet.com/downloads/sparrow-*.AppImage.asc
+
+# Importar chave do Craig Raw
+curl https://keybase.io/craigraw/pgp_keys.asc | gpg --import
+
+# Verificar
+gpg --verify sparrow-*.AppImage.asc sparrow-*.AppImage
+
+# Tornar executável
+chmod +x sparrow-*.AppImage</code></pre>
+        <h3>1.2 Criar a carteira importando a xpub do Coldcard</h3>
+        <ul>
+          <li data-list-item-id="e713303790a7d261c7a27f72eb2e870fc">Abra o Sparrow</li>
+          <li data-list-item-id="efc6e51e8f6004d8a01cbc80dd28048fc"><strong>File → New Wallet</strong> → dê o nome <code spellcheck="false">Whirlpool_Recovery</code>
+          </li>
+          <li data-list-item-id="e7572a1ebd1b003335806f0c154d8722b"><strong>Import from Hardware Wallet</strong> ou <strong>Import File</strong> (use
+            o arquivo <code spellcheck="false">.json</code> exportado do Coldcard)</li>
+          <li
+          data-list-item-id="e0a62beac66d32b152387d87911122223">Se não tiver o arquivo <code spellcheck="false">.json</code>, faça agora:
+            <br>Coldcard → Advanced → MicroSD → Export Wallet → Sparrow Wallet
+            <br>(Isso só exporta a xpub, nunca a seed)</li>
+            <li data-list-item-id="e503929dbc1caa808e21c9b6162d41e12">A carteira será criada como <strong>watching-only</strong> — sem chave privada.</li>
+        </ul>
+        <h3>1.3 Verificar que a carteira está correta</h3>
+        <ul>
+          <li data-list-item-id="edbe04a39ba80150acdbd03f782746235">Na aba <strong>Transactions</strong>, você deve ver a transação Premix
+            original (se ela já foi confirmada).</li>
+          <li data-list-item-id="e63d18a899f1c96800c1c1ccf4b5ace3e">Na aba <strong>UTXOs</strong>, devem aparecer todos os outputs — incluindo
+            os outputs de pool (0.01, 0.05 BTC etc.) e o change.</li>
+          <li data-list-item-id="e845063ea9235cdac87639d11f96ffbf5">Se não aparecer nada, você pode ter importado a derivação errada. Verifique
+            se está usando <code spellcheck="false">m/84'/0'/0'</code> (native SegWit,
+            padrão do Sparrow).</li>
+        </ul>
+        <hr>
+        <h2>Passo 2 — Conectar ao servidor Electrum .onion</h2>
+        <p>Configure em <strong>Preferences → Server</strong>:</p>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Server Type</td>
+                <td>Private Electrum</td>
+              </tr>
+              <tr>
+                <td>URL</td>
+                <td><code spellcheck="false">electrumx.hodlister.co.onion:50002</code> (ou
+                  seu EPS .onion)</td>
+              </tr>
+              <tr>
+                <td>Use Tor</td>
+                <td>Marcado</td>
+              </tr>
+              <tr>
+                <td>Use SSL</td>
+                <td>Marcado</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <p>Teste a conexão. A carteira agora sincroniza com a blockchain via Tor.</p>
+        <hr>
+        <h2>Passo 3 — Configurar o coordinator Whirlpool</h2>
+        <p>Na aba <strong>Whirlpool</strong>, clique em <strong>Settings</strong> (engrenagem):</p>
+        <figure
+        class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Coordinator</td>
+                <td>O .onion atual (verifique no site oficial!)</td>
+              </tr>
+              <tr>
+                <td>Use Tor</td>
+                <td>Marcado</td>
+              </tr>
+            </tbody>
+          </table>
+          </figure>
+          <p><strong>Exemplo de coordinator atual:</strong>
+            <br><code spellcheck="false">coordinator.sparrowwallet.com.onion:443</code>
+            <br>(Confirmar no momento da restauração — isto muda periodicamente.)</p>
+          <hr>
+          <h2>Passo 4 — O passo crítico: "Restore from Seed" no Whirlpool</h2>
+          <p>Agora vem a mágica. O Whirlpool do Sparrow tem uma função específica para
+            recuperar o estado sem o arquivo de configuração local.</p>
+          <h3>4.1 Iniciar a recuperação</h3>
+          <p>Na aba <strong>Whirlpool</strong>, procure por um botão ou link <strong>"Restore from Seed"</strong> (pode
+            estar em um menu dropdown ou no canto inferior da janela do Whirlpool).</p>
+          <p>Se não estiver visível, tente:</p>
+          <ul>
+            <li data-list-item-id="e16da827110937f080dd0f00dc3405ef5">Clicar com o botão direito na área vazia da aba Whirlpool</li>
+            <li data-list-item-id="e2ba05b172a7c6815f31e06753d7f64e0">Verificar no menu <strong>Tools → Restore Whirlpool</strong>
+            </li>
+          </ul>
+          <h3>4.2 O que acontece tecnicamente</h3>
+          <p>O Sparrow irá:</p>
+          <ol>
+            <li data-list-item-id="e73c68b3e2fcde39c07444afe1c660c24">Usar a <strong>xpub da carteira</strong> para derivar os caminhos específicos
+              do Whirlpool (BIP84/0'/0'/... com ramificações especiais para premix/postmix)</li>
+            <li
+            data-list-item-id="e9ccac76f50dda9966104078ae24ab39e"><strong>Escanear a blockchain</strong> atrás de todos os outputs de pool
+              que pertencem a essa xpub</li>
+              <li data-list-item-id="ea604bd79e5876823adb6de3e84fc71c1"><strong>Consultar o coordinator</strong> via Tor: "este output é meu? está
+                registrado? em qual round está?"</li>
+              <li data-list-item-id="e374efa9cf4678034ea34dc39508e669d">Reconstruir localmente a fila de mixagem com o estado atual</li>
+          </ol>
+          <h3>4.3 Tempo de espera</h3>
+          <p>Esse escaneamento pode levar de <strong>10 a 40 minutos</strong>, dependendo
+            de:</p>
+          <ul>
+            <li data-list-item-id="e5d805ae9b645c97d292c631f7f8a4e57">Quantos outputs de pool você tinha</li>
+            <li data-list-item-id="e8afdc595fbb96b12778df67955241415">Quantos rounds já completou</li>
+            <li data-list-item-id="e322de6bc74a345e1d20ab68719b2973a">Velocidade do Tor no momento</li>
+            <li data-list-item-id="ef9f1c62a08adc7c16c22b6c08c910d7e">Latência do coordinator</li>
+          </ul>
+          <p><strong>Não interrompa o processo.</strong> Deixe o Sparrow trabalhar.
+            A barra de progresso pode parecer travada — é normal.</p>
+          <hr>
+          <h2>Passo 5 — Interpretar o resultado da restauração</h2>
+          <h3>5.1 Cenário ideal: tudo recuperado</h3>
+          <p>Após o escaneamento, a aba <strong>Whirlpool</strong> mostrará:</p>
+          <figure
+          class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Coluna</th>
+                  <th>O que aparece</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Premix</strong>
+                  </td>
+                  <td>Outputs que ainda não começaram a misturar (se houver transação Premix
+                    com outputs parados)</td>
+                </tr>
+                <tr>
+                  <td><strong>Registered</strong>
+                  </td>
+                  <td>Outputs registrados no coordinator aguardando round</td>
+                </tr>
+                <tr>
+                  <td><strong>Remixing</strong>
+                  </td>
+                  <td>Outputs que já completaram rounds e voltaram para mais</td>
+                </tr>
+                <tr>
+                  <td><strong>Error/Stop</strong>
+                  </td>
+                  <td>Outputs que travaram por algum motivo (conexão, conflito)</td>
+                </tr>
+              </tbody>
+            </table>
+            </figure>
+            <p>Na aba <strong>UTXOs</strong>, os outputs pós-coinjoin aparecerão com o
+              ícone de redemoinho azul e o <strong>anonset</strong> estimado (ex:
+              <code
+              spellcheck="false">Anon: 5</code>).</p>
+            <h3>5.2 Cenário parcial: outputs sumiram da fila</h3>
+            <p>Se a transação Premix foi confirmada mas os outputs de pool <strong>não aparecem na fila do Whirlpool</strong>:</p>
+            <ul>
+              <li data-list-item-id="eba94b8d017403f4754e59272280cfe8b">É possível que o coordinator tenha perdido o registro (raro, mas acontece
+                se o coordinator foi reiniciado ou migrado)</li>
+              <li data-list-item-id="e414242ce3e1b1327a8f6a312208482c8"><strong>Seus fundos não sumiram</strong> — eles estão nos outputs de pool,
+                que são UTXOs normais na blockchain</li>
+              <li data-list-item-id="e86888c0314d3f9fcd5b645e6328a8fa6">Você pode gastá-los manualmente como faria com qualquer UTXO, mas <strong>perderá o estado de anonimato</strong> se
+                fizer isso antes de completar as rodadas</li>
+            </ul>
+            <p><strong>O que fazer nesse caso:</strong>
+            </p>
+            <ol>
+              <li data-list-item-id="ef692a32e28f5cfd7194b5c86992ba614">Na aba <strong>UTXOs</strong>, identifique os outputs de pool (valores
+                exatos como 0.01 BTC)</li>
+              <li data-list-item-id="e031e7c808bc7defd1a18722bdddb9169">Anote os TXIDs e índices de saída (vout) no KeePassXC</li>
+              <li data-list-item-id="ec1b8b0014f42e10af08ea588a1ab377e">Tente registrar novamente: selecione o output, botão direito → <strong>Mix to Whirlpool</strong> →
+                escolha o mesmo pool</li>
+              <li data-list-item-id="e5ba35ac089fc140510d1b552c0b93df1">Se o coordinator aceitar, o output entra na fila como se fosse novo (anonset
+                resetado para 1)</li>
+            </ol>
+            <h3>5.3 Cenário crítico: outputs de pool não aparecem em lugar nenhum</h3>
+            <p>Se os outputs de pool <strong>não aparecem na aba UTXOs</strong>:</p>
+            <ul>
+              <li data-list-item-id="e3bfde2197b63092bcba766cc810cd258">Você pode ter importado a derivação errada</li>
+              <li data-list-item-id="e693b52ad475a986c0b0aaeb4ba586776">Ou a transação Premix nunca foi confirmada (ficou presa na mempool e expirou)</li>
+            </ul>
+            <p><strong>Verificação:</strong>
+            </p>
+            <ol>
+              <li data-list-item-id="e7ac245b0b260500c1f5fd243bc4c4444">Pegue o TXID da transação Premix (você anotou no KeePassXC, certo?)</li>
+              <li
+              data-list-item-id="ee6e2dc06e607cd4f9a6eac9fe91cca82">Consulte um explorador .onion (ex: <code spellcheck="false">mempool.space.onion</code>)
+                para ver se a transação foi minerada</li>
+                <li data-list-item-id="e96bcca2f5a21f57c0ff0a37cafcf4f60">Se foi minerada, os outputs existem. O problema é de derivação na carteira
+                  Sparrow</li>
+                <li data-list-item-id="e1cc07746a15f9e9c5c8c76056afaced1">Recrie a carteira usando <strong>derivação manual</strong>:
+                  <br>File → New Wallet → Manual Derivation → <code spellcheck="false">m/84'/0'/0'</code>
+                </li>
+            </ol>
+            <hr>
+            <h2>Passo 6 — Retomar a mixagem do ponto onde parou</h2>
+            <p>Com o estado restaurado, clique em <strong>Start</strong> na aba Whirlpool.</p>
+            <p>O coordinator reconhecerá os outputs que já estavam registrados e continuará
+              de onde parou. Para outputs que completaram rounds mas voltaram à fila,
+              o anonset acumulado <strong>deve ser preservado</strong> (o coordinator mantém
+              o histórico de rounds por output).</p>
+            <p><strong>Verificação de segurança:</strong>
+              <br>Após a restauração, anote no KeePassXC:</p>
+            <ul>
+              <li data-list-item-id="e02cae43430dde7e443cf6f5a76a7cc45">Quantos outputs de pool apareceram</li>
+              <li data-list-item-id="e4281aaaf9a3f7819e22c6b75bf3468c3">Quantos rounds cada um já completou</li>
+              <li data-list-item-id="e6a414b3b0537234958b51d72a3a258d6">Quais estão em "Remixing" vs "Registered"</li>
+            </ul>
+            <p>Compare com o que você tinha anotado <strong>antes</strong> da perda do
+              Persistent Storage. Se houver discrepância (ex: output que tinha 5 rounds
+              aparece com 2), <strong>não consolide esse output com outros</strong> até
+              entender o que houve. Pode ser que o coordinator tenha reiniciado a contagem
+              — nesse caso, deixe misturar novamente até atingir o anonset desejado.</p>
+            <hr>
+            <h2>Passo 7 — Mover os outputs recuperados para uma carteira Postmix limpa</h2>
+            <p>Após confirmar que os outputs estão com anonset adequado:</p>
+            <ol>
+              <li data-list-item-id="e4d2377375b1b39de471ebe59eaf87c1a">Crie uma nova carteira Sparrow: <code spellcheck="false">Postmix_Recovered</code>
+              </li>
+              <li data-list-item-id="ece17edc1f0f619bce2ef70187697608b">Importe a mesma xpub do Coldcard</li>
+              <li data-list-item-id="e009a4f5039d9da4a76be45503f5d10b5">Na carteira <code spellcheck="false">Whirlpool_Recovery</code>, selecione
+                os UTXOs pós-coinjoin</li>
+              <li data-list-item-id="edb317b9ef8f1862fe199eb6a21f7c1b0">Botão direito → <strong>Send to → Postmix</strong>
+              </li>
+              <li data-list-item-id="e169cad6119fa96811556157f5da8ce6b">Crie PSBT, assine no Coldcard, transmita</li>
+            </ol>
+            <p>Agora você tem os fundos misturados em uma carteira limpa, prontos para
+              swap ou uso privado.</p>
+            <hr>
+            <h2>Resumo visual do fluxo de restauração</h2><pre><code class="language-text-x-trilium-auto">Persistent Storage perdido
+           │
+           ▼
+Instalar Tails novo + Sparrow (PGP verificado)
+           │
+           ▼
+Criar carteira com xpub do Coldcard
+           │
+           ▼
+Conectar Electrum .onion + Coordinator Whirlpool .onion
+           │
+           ▼
+Aba Whirlpool → "Restore from Seed"
+           │
+           ▼
+Aguardar escaneamento (10-40 min)
+           │
+           ├── Outputs aparecem na fila? 
+           │   ├── SIM → Verificar rounds → Start → Continuar mixagem
+           │   └── NÃO → Verificar TXID Premix em explorador .onion
+           │              ├── Transação minerada → Reimportar derivação
+           │              └── Transação expirada → Fundos voltaram ao change
+           │
+           ▼
+Mover outputs prontos para Postmix_Recovered
+           │
+           ▼
+Fundos seguros e anônimos novamente</code></pre>
+            <hr>
+            <h2>O que anotar no KeePassXC HOJE para facilitar a restauração futura</h2>
+            <p>Enquanto seu Persistent Storage ainda está saudável, registre:</p><pre><code class="language-text-x-trilium-auto">=== DADOS PARA RESTAURAÇÃO WHIRLPOOL ===
+Data: 2026-06-23
+Carteira: Whirlpool_Tails
+Derivação: m/84'/0'/0'
+Xpub: xpub6... (copie os primeiros 20 caracteres)
+Transação Premix TXID: abc123...
+Outputs de pool: 3 outputs de 0.01 BTC
+Coordinator: coordinator.sparrowwallet.com.onion
+Servidor Electrum: electrumx.hodlister.co.onion:50002
+Rounds atuais: Output #1 (5 rounds), Output #2 (3 rounds), Output #3 (registrado, 0 rounds)</code></pre>
+            <p>Isso transforma o processo de restauração de "desespero" em "protocolo
+              burocrático".</p>
+            <hr>
+            <h2>Pergunta complementar</h2>
+            <p>Depois de restaurar o Whirlpool com sucesso, você terá duas escolhas para
+              o futuro:</p>
+            <p><strong>A)</strong> Continuar usando Tails com Persistent Storage (sabendo
+              que pode falhar de novo)
+              <br><strong>B)</strong> Migrar para um ambiente mais estável (Whonix Workstation
+              persistente ou Qubes AppVM)</p>
+            <p>Quer que eu faça um comparativo entre <strong>manter o Whirlpool no Tails vs movê-lo para o Whonix</strong>,
+              considerando seu perfil de desenvolvedor e a necessidade de rodar swaps
+              regularmente?</p>
+      </div>
+    </div>
+  </body>
+
+</html>

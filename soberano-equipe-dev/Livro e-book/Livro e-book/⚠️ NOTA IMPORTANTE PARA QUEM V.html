@@ -1,0 +1,863 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>⚠️ NOTA IMPORTANTE PARA QUEM VAI MONTAR</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>⚠️ NOTA IMPORTANTE PARA QUEM VAI MONTAR</h1>
+
+      <div class="ck-content">
+        <h2>📚 GUIA DE MONTAGEM DO LIVRO</h2>
+        <h2>"Guardião Soberano — Da Semente ao Ecossistema Completo"</h2>
+        <h3>Instruções para Desenvolvedores e Revisores</h3>
+        <hr>
+        <h2>⚠️ NOTA IMPORTANTE PARA QUEM VAI MONTAR</h2>
+        <p>Este documento é o <strong>mapa-mestre</strong> para montar o livro. Ele
+          indica:</p>
+        <ol>
+          <li data-list-item-id="ed2c2db35cc2a7cd4e9a402b99e1f0da1"><strong>Onde cada arquivo se encaixa</strong> na estrutura final</li>
+          <li
+          data-list-item-id="e019da7e2a2d0b70920d205f5fb641604"><strong>O que já foi entregue</strong> e onde encontrar cada parte</li>
+            <li
+            data-list-item-id="e7ab599af5adb2ae7469d9602a1e64f35"><strong>O que precisa ser revisado</strong> (checagem humana)</li>
+              <li data-list-item-id="e590177c64e1f6765180fc017855e9a71"><strong>Ordem correta</strong> de montagem</li>
+              <li data-list-item-id="e6a769fce301f5cc268deaff2a972cb0e"><strong>Conteúdos que se repetem</strong> e precisam ser unificados</li>
+        </ol>
+        <p>Siga esta ordem. Não pule etapas.</p>
+        <hr>
+        <h2>📋 ESTRUTURA FINAL DO LIVRO (Ordem Correta)</h2><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│            ORDEM DE MONTAGEM — CAPA A CAPA                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  1. CAPA (cover.jpg)                                        │
+│  2. FOLHA DE ROSTO                                          │
+│  3. CRÉDITOS E LICENÇA                                      │
+│  4. DEDICATÓRIA                                              │
+│  5. SUMÁRIO                                                  │
+│  6. PREFÁCIO                     → 00-prefacio.md           │
+│                                                             │
+│  PARTE I — FUNDAÇÕES                                        │
+│  7. Capítulo 1                   → 01-dinheiro-era-digital.md │
+│  8. Capítulo 2                   → 02-entendendo-bitcoin.md │
+│  9. Capítulo 3                   → 03-chaves-carteiras-sementes.md │
+│  10. Capítulo 4                  → 04-privacidade-vs-anonimato.md │
+│                                                             │
+│  PARTE II — A TRILHA DO GUARDIÃO                            │
+│  11. Capítulo 5 (Nível 0)        → 05-nivel-0-semente.md    │
+│  12. Capítulo 6 (Nível 1)        → 06-nivel-1-cofre.md      │
+│  13. Capítulo 7 (Nível 2)        → 07-nivel-2-carteira-fria.md │
+│  14. Capítulo 8 (Nível 3)        → 08-nivel-3-observador.md │
+│  15. Capítulo 9 (Nível 4)        → 09-nivel-4-misturador.md │
+│  16. Capítulo 10 (Nível 5)       → 10-nivel-5-trocador.md   │
+│  17. Capítulo 11 (Nível 6)       → 11-nivel-6-soberano.md   │
+│  18. Capítulo 12 (Nível 7)       → 12-nivel-7-mestre.md     │
+│                                                             │
+│  PARTE III — REFERÊNCIA PERMANENTE                          │
+│  19. Capítulo 13                 → 13-ecossistema-completo.md │
+│  20. Capítulo 14                 → 14-ferramentas-alternativas.md │
+│  21. Capítulo 15                 → 15-itens-que-salvam-vidas.md │
+│  22. Capítulo 16                 → 16-checklist-28-itens.md │
+│  23. Capítulo 17                 → 17-12-leis-do-guardiao.md │
+│                                                             │
+│  APÊNDICES                                                  │
+│  24. Apêndice A                  → A-glossario.md           │
+│  25. Apêndice B                  → B-servidores-onion.md    │
+│  26. Apêndice C                  → C-comandos-essenciais.md │
+│  27. Apêndice D                  → D-guia-verificacao-pgp.md │
+│  28. Apêndice E                  → E-aspectos-legais-brasil.md │
+│  29. Apêndice F                  → F-troubleshooting.md     │
+│  30. Apêndice G                  → G-matriz-decisao.md      │
+│                                                             │
+│  31. ÍNDICE REMISSIVO                                       │
+│  32. NOTAS FINAIS                                            │
+│  33. CONTRACAPA                                              │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <hr>
+        <h2>🗂️ ONDE CADA ARQUIVO FOI ENTREGUE</h2>
+        <h3>Respostas desta conversa (em ordem cronológica)</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Resposta #</th>
+                <th>Título da Resposta</th>
+                <th>Arquivos contidos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1</strong>
+                </td>
+                <td>Distribuições focadas em privacidade</td>
+                <td>— (pesquisa inicial)</td>
+              </tr>
+              <tr>
+                <td><strong>2</strong>
+                </td>
+                <td>Protocolo operacional (checklist A-F)</td>
+                <td>Base para <code spellcheck="false">16-checklist-28-itens.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>3</strong>
+                </td>
+                <td>Whirlpool no Tails</td>
+                <td>Base para <code spellcheck="false">09-nivel-4-misturador.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>4</strong>
+                </td>
+                <td>Restauração do Whirlpool</td>
+                <td>Base para <code spellcheck="false">09-nivel-4-misturador.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>5</strong>
+                </td>
+                <td>Comparativo Tails vs Whonix + Whonix Workstation</td>
+                <td>Base para <code spellcheck="false">08-nivel-3-observador.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>6</strong>
+                </td>
+                <td>Integração eigenwallet + EPS</td>
+                <td>Base para <code spellcheck="false">10-nivel-5-trocador.md</code> e
+                  <code
+                  spellcheck="false">C-comandos-essenciais.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>7</strong>
+                </td>
+                <td>Ecossistema Soberano (Diagrama + Documentação)</td>
+                <td><code spellcheck="false"><strong>13-ecossistema-completo.md</strong></code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>8</strong>
+                </td>
+                <td>Itens que Salvam Vidas</td>
+                <td><code spellcheck="false"><strong>15-itens-que-salvam-vidas.md</strong></code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>9</strong>
+                </td>
+                <td>Trilha do Guardião Soberano (7 Cumes)</td>
+                <td><strong>Base para Capítulos 5-12</strong>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>10</strong>
+                </td>
+                <td>Análise Arquivo 1 (HW/DIY/PSBT)</td>
+                <td>— (revisão)</td>
+              </tr>
+              <tr>
+                <td><strong>11</strong>
+                </td>
+                <td>Análise Arquivo 2 (Whonix/Wallets)</td>
+                <td>— (revisão)</td>
+              </tr>
+              <tr>
+                <td><strong>12</strong>
+                </td>
+                <td>Análise Arquivo 3 (Monero/Swaps)</td>
+                <td>— (revisão)</td>
+              </tr>
+              <tr>
+                <td><strong>13</strong>
+                </td>
+                <td>Análise Arquivo 4 (eigenwallet/Setup)</td>
+                <td>— (revisão)</td>
+              </tr>
+              <tr>
+                <td><strong>14</strong>
+                </td>
+                <td>Análise Arquivo 5 (Checklist/Regras)</td>
+                <td>— (revisão)</td>
+              </tr>
+              <tr>
+                <td><strong>15</strong>
+                </td>
+                <td>Adendo Final</td>
+                <td><code spellcheck="false"><strong>14-ferramentas-alternativas.md</strong></code>,
+                  <code
+                  spellcheck="false"><strong>16-checklist-28-itens.md</strong>
+                    </code>, <code spellcheck="false"><strong>17-12-leis-do-guardiao.md</strong></code>,
+                    <code
+                    spellcheck="false"><strong>A-glossario.md</strong>
+                      </code>, <code spellcheck="false"><strong>B-servidores-onion.md</strong></code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>16</strong>
+                </td>
+                <td>Atualização da Trilha (Versão 1.1)</td>
+                <td><strong>Base atualizada para Capítulos 5-12</strong>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>17</strong>
+                </td>
+                <td>Trilha Consolidada (Versão 1.1 Final)</td>
+                <td><strong>Conteúdo completo dos Capítulos 5-12</strong>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>18</strong>
+                </td>
+                <td>Guia de Produção do Livro</td>
+                <td><code spellcheck="false"><strong>stylesheet.css</strong></code>,
+                  <code
+                  spellcheck="false"><strong>metadata.opf</strong>
+                    </code>, instruções técnicas</td>
+              </tr>
+              <tr>
+                <td><strong>19</strong>
+                </td>
+                <td>Diagnóstico do Estado Atual</td>
+                <td>— (planejamento)</td>
+              </tr>
+              <tr>
+                <td><strong>20</strong>
+                </td>
+                <td>Entrega do Manuscrito</td>
+                <td><code spellcheck="false"><strong>00-prefacio.md</strong></code>,
+                  <code
+                  spellcheck="false"><strong>01-dinheiro-era-digital.md</strong>
+                    </code>, <code spellcheck="false"><strong>02-entendendo-bitcoin.md</strong></code>,
+                    <code
+                    spellcheck="false"><strong>03-chaves-carteiras-sementes.md</strong>
+                      </code>, <code spellcheck="false"><strong>04-privacidade-vs-anonimato.md</strong></code>,
+                      <code
+                      spellcheck="false"><strong>C-comandos-essenciais.md</strong>
+                        </code>, <code spellcheck="false"><strong>D-guia-verificacao-pgp.md</strong></code>,
+                        <code
+                        spellcheck="false"><strong>E-aspectos-legais-brasil.md</strong>
+                          </code>, <code spellcheck="false"><strong>F-troubleshooting.md</strong></code>,
+                          <code
+                          spellcheck="false"><strong>G-matriz-decisao.md</strong>
+                            </code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>21</strong>
+                </td>
+                <td>Status da entrega</td>
+                <td>— (planejamento)</td>
+              </tr>
+              <tr>
+                <td><strong>22</strong>
+                </td>
+                <td>Diagramas, Capa, Arquivos faltantes</td>
+                <td><code spellcheck="false"><strong>05-nivel-0-semente.md</strong></code> (completo),
+                  descrições dos diagramas, especificações da capa</td>
+              </tr>
+              <tr>
+                <td><strong>23</strong>
+                </td>
+                <td>Arquivos Parte III e Apêndices A-B</td>
+                <td><code spellcheck="false"><strong>13-ecossistema-completo.md</strong></code>,
+                  <code
+                  spellcheck="false"><strong>14-ferramentas-alternativas.md</strong>
+                    </code>, <code spellcheck="false"><strong>15-itens-que-salvam-vidas.md</strong></code>,
+                    <code
+                    spellcheck="false"><strong>16-checklist-28-itens.md</strong>
+                      </code>, <code spellcheck="false"><strong>17-12-leis-do-guardiao.md</strong></code>,
+                      <code
+                      spellcheck="false"><strong>A-glossario.md</strong>
+                        </code>, <code spellcheck="false"><strong>B-servidores-onion.md</strong></code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>24</strong>
+                </td>
+                <td><strong>ESTA RESPOSTA</strong>
+                </td>
+                <td>Guia de Montagem + Instruções de Revisão</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>📝 COMO MONTAR — PASSO A PASSO</h2>
+        <h3>Fase 1: Criar a estrutura de diretórios</h3><pre><code class="language-text-x-trilium-auto">mkdir -p livro-guardiao-soberano/{manuscrito,imagens/icones,recursos,saida}
+cd livro-guardiao-soberano</code></pre>
+        <h3>Fase 2: Copiar cada arquivo para seu lugar</h3>
+        <p>Abaixo, a lista completa. Para cada arquivo, a coluna <strong>"Onde encontrar"</strong> indica
+          em qual resposta ele foi entregue.</p>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Arquivo</th>
+                <th>Onde encontrar</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><code spellcheck="false">recursos/cover.jpg</code>
+                </td>
+                <td>Resposta 22 (especificações)</td>
+                <td><strong>CRIAR</strong> seguindo as especificações</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><code spellcheck="false">recursos/stylesheet.css</code>
+                </td>
+                <td>Resposta 18</td>
+                <td>✅ Copiar para <code spellcheck="false">recursos/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><code spellcheck="false">recursos/metadata.opf</code>
+                </td>
+                <td>Resposta 18</td>
+                <td>✅ Copiar para <code spellcheck="false">recursos/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><code spellcheck="false">manuscrito/00-prefacio.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><code spellcheck="false">manuscrito/01-dinheiro-era-digital.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><code spellcheck="false">manuscrito/02-entendendo-bitcoin.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><code spellcheck="false">manuscrito/03-chaves-carteiras-sementes.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><code spellcheck="false">manuscrito/04-privacidade-vs-anonimato.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td><code spellcheck="false">manuscrito/05-nivel-0-semente.md</code>
+                </td>
+                <td>Resposta 22</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td><code spellcheck="false">manuscrito/06-nivel-1-cofre.md</code>
+                </td>
+                <td>Resposta 17</td>
+                <td>⚠️ <strong>EXTRAIR</strong> da Trilha Consolidada</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td><code spellcheck="false">manuscrito/07-nivel-2-carteira-fria.md</code>
+                </td>
+                <td>Resposta 17</td>
+                <td>⚠️ <strong>EXTRAIR</strong> da Trilha Consolidada</td>
+              </tr>
+              <tr>
+                <td>12</td>
+                <td><code spellcheck="false">manuscrito/08-nivel-3-observador.md</code>
+                </td>
+                <td>Resposta 17</td>
+                <td>⚠️ <strong>EXTRAIR</strong> da Trilha Consolidada</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td><code spellcheck="false">manuscrito/09-nivel-4-misturador.md</code>
+                </td>
+                <td>Resposta 17</td>
+                <td>⚠️ <strong>EXTRAIR</strong> da Trilha Consolidada</td>
+              </tr>
+              <tr>
+                <td>14</td>
+                <td><code spellcheck="false">manuscrito/10-nivel-5-trocador.md</code>
+                </td>
+                <td>Resposta 17</td>
+                <td>⚠️ <strong>EXTRAIR</strong> da Trilha Consolidada</td>
+              </tr>
+              <tr>
+                <td>15</td>
+                <td><code spellcheck="false">manuscrito/11-nivel-6-soberano.md</code>
+                </td>
+                <td>Resposta 17</td>
+                <td>⚠️ <strong>EXTRAIR</strong> da Trilha Consolidada</td>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td><code spellcheck="false">manuscrito/12-nivel-7-mestre.md</code>
+                </td>
+                <td>Resposta 17</td>
+                <td>⚠️ <strong>EXTRAIR</strong> da Trilha Consolidada</td>
+              </tr>
+              <tr>
+                <td>17</td>
+                <td><code spellcheck="false">manuscrito/13-ecossistema-completo.md</code>
+                </td>
+                <td>Resposta 23</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>18</td>
+                <td><code spellcheck="false">manuscrito/14-ferramentas-alternativas.md</code>
+                </td>
+                <td>Resposta 23</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>19</td>
+                <td><code spellcheck="false">manuscrito/15-itens-que-salvam-vidas.md</code>
+                </td>
+                <td>Resposta 23</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td><code spellcheck="false">manuscrito/16-checklist-28-itens.md</code>
+                </td>
+                <td>Resposta 23</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>21</td>
+                <td><code spellcheck="false">manuscrito/17-12-leis-do-guardiao.md</code>
+                </td>
+                <td>Resposta 23</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>22</td>
+                <td><code spellcheck="false">manuscrito/A-glossario.md</code>
+                </td>
+                <td>Resposta 23</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>23</td>
+                <td><code spellcheck="false">manuscrito/B-servidores-onion.md</code>
+                </td>
+                <td>Resposta 23</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>24</td>
+                <td><code spellcheck="false">manuscrito/C-comandos-essenciais.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>25</td>
+                <td><code spellcheck="false">manuscrito/D-guia-verificacao-pgp.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>26</td>
+                <td><code spellcheck="false">manuscrito/E-aspectos-legais-brasil.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>27</td>
+                <td><code spellcheck="false">manuscrito/F-troubleshooting.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td><code spellcheck="false">manuscrito/G-matriz-decisao.md</code>
+                </td>
+                <td>Resposta 20</td>
+                <td>✅ Copiar para <code spellcheck="false">manuscrito/</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Fase 3: Criar os diagramas</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Arquivo</th>
+                <th>Instruções em</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code spellcheck="false">imagens/diagrama-ecossistema.png</code>
+                </td>
+                <td>Resposta 22 (Diagrama 1)</td>
+                <td><strong>CRIAR</strong> no draw.io</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">imagens/diagrama-psbt.png</code>
+                </td>
+                <td>Resposta 22 (Diagrama 2)</td>
+                <td><strong>CRIAR</strong> no Excalidraw</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">imagens/diagrama-whirlpool.png</code>
+                </td>
+                <td>Resposta 22 (Diagrama 3)</td>
+                <td><strong>CRIAR</strong> no Excalidraw</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">imagens/diagrama-swap.png</code>
+                </td>
+                <td>Resposta 22 (Diagrama 4)</td>
+                <td><strong>CRIAR</strong> no draw.io</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">imagens/fluxo-abctracer.png</code>
+                </td>
+                <td>Resposta 22 (Diagrama 5)</td>
+                <td><strong>CRIAR</strong> no Excalidraw</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">imagens/icones/nivel-0.png</code> a <code spellcheck="false">nivel-7.png</code>
+                </td>
+                <td>Resposta 22 (Ícones)</td>
+                <td><strong>CRIAR</strong> no Canva/Figma</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Fase 4: Extrair Capítulos 6-12 da Trilha Consolidada</h3>
+        <p>A Resposta 17 contém a "Trilha do Guardião Soberano — Versão 1.1 Consolidada".
+          Cada nível está separado por cabeçalhos. Extraia assim:</p><pre><code class="language-text-x-trilium-auto">TRILHA CONSOLIDADA (Resposta 17)
+│
+├── 🌱 NÍVEL 0: A SEMENTE  →  Já foi entregue separado como 05-nivel-0-semente.md
+│
+├── 🔒 NÍVEL 1: O COFRE    →  COPIAR para 06-nivel-1-cofre.md
+│   (do cabeçalho "🔒 NÍVEL 1: O COFRE" até antes de "👁️ NÍVEL 2")
+│
+├── 👁️ NÍVEL 2: A CARTEIRA FRIA → COPIAR para 07-nivel-2-carteira-fria.md
+│   (do cabeçalho "👁️ NÍVEL 2" até antes de "🏰 NÍVEL 3")
+│
+├── 🏰 NÍVEL 3: O OBSERVADOR → COPIAR para 08-nivel-3-observador.md
+│   (do cabeçalho "🏰 NÍVEL 3" até antes de "🔀 NÍVEL 4")
+│
+├── 🔀 NÍVEL 4: O MISTURADOR → COPIAR para 09-nivel-4-misturador.md
+│   (do cabeçalho "🔀 NÍVEL 4" até antes de "🔄 NÍVEL 5")
+│
+├── 🔄 NÍVEL 5: O TROCADOR → COPIAR para 10-nivel-5-trocador.md
+│   (do cabeçalho "🔄 NÍVEL 5" até antes de "👑 NÍVEL 6")
+│
+├── 👑 NÍVEL 6: O SOBERANO → COPIAR para 11-nivel-6-soberano.md
+│   (do cabeçalho "👑 NÍVEL 6" até antes de "🧙 NÍVEL 7")
+│
+└── 🧙 NÍVEL 7: O MESTRE → COPIAR para 12-nivel-7-mestre.md
+    (do cabeçalho "🧙 NÍVEL 7" até "Documento finalizado")</code></pre>
+        <hr>
+        <h2>🔍 REVISÃO — O QUE PRECISA SER CHECADO</h2>
+        <h3>Revisão Técnica (precisão das informações)</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>O que verificar</th>
+                <th>Responsável</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Endereços .onion ainda estão ativos?</td>
+                <td>Revisor técnico</td>
+              </tr>
+              <tr>
+                <td>Versões de software mencionadas são as atuais?</td>
+                <td>Revisor técnico</td>
+              </tr>
+              <tr>
+                <td>Comandos shell funcionam como descritos?</td>
+                <td>Revisor técnico</td>
+              </tr>
+              <tr>
+                <td>Fingerprints PGP estão corretos?</td>
+                <td>Revisor técnico</td>
+              </tr>
+              <tr>
+                <td>URLs de download estão atualizadas?</td>
+                <td>Revisor técnico</td>
+              </tr>
+              <tr>
+                <td>IN 1888/2019 ainda é a norma vigente?</td>
+                <td>Revisor jurídico</td>
+              </tr>
+              <tr>
+                <td>Termos técnicos do glossário estão precisos?</td>
+                <td>Revisor técnico</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Revisão de Consistência (não se contradizer)</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>O que verificar</th>
+                <th>Responsável</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>O Nível 5 ensina XMR→BTC via RetoSwap, não eigenwallet?</td>
+                <td>Revisor</td>
+              </tr>
+              <tr>
+                <td>A Introdução (Parte I) usa os mesmos termos da Prática (Parte II)?</td>
+                <td>Revisor</td>
+              </tr>
+              <tr>
+                <td>As 12 Leis não contradizem nenhum passo da trilha?</td>
+                <td>Revisor</td>
+              </tr>
+              <tr>
+                <td>O glossário cobre todos os termos usados no livro?</td>
+                <td>Revisor</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Revisão de Estrutura (ordem lógica)</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>O que verificar</th>
+                <th>Responsável</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>O Prefácio prepara o leitor para o que vem depois?</td>
+                <td>Editor</td>
+              </tr>
+              <tr>
+                <td>A Parte I (Fundamentos) cobre o necessário antes da Parte II?</td>
+                <td>Editor</td>
+              </tr>
+              <tr>
+                <td>Os níveis da Parte II estão em ordem de dificuldade crescente?</td>
+                <td>Editor</td>
+              </tr>
+              <tr>
+                <td>A Parte III (Referência) está organizada por tema?</td>
+                <td>Editor</td>
+              </tr>
+              <tr>
+                <td>Os apêndices estão em ordem alfabética?</td>
+                <td>Editor</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Revisão de Linguagem (legibilidade)</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>O que verificar</th>
+                <th>Responsável</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A linguagem é acessível para iniciantes?</td>
+                <td>Revisor de texto</td>
+              </tr>
+              <tr>
+                <td>Há jargão não explicado?</td>
+                <td>Revisor de texto</td>
+              </tr>
+              <tr>
+                <td>Os exemplos narrativos são relacionáveis?</td>
+                <td>Revisor de texto</td>
+              </tr>
+              <tr>
+                <td>A gramática e ortografia estão corretas?</td>
+                <td>Revisor de texto</td>
+              </tr>
+              <tr>
+                <td>O tom é consistente do início ao fim?</td>
+                <td>Editor</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>⚠️ ATENÇÃO: CONTEÚDOS QUE PRECISAM SER UNIFICADOS</h2>
+        <p>Alguns temas aparecem em mais de um lugar. Na montagem final, verifique:</p>
+        <figure
+        class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Tema</th>
+                <th>Aparece em</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Checklist 28 itens</strong>
+                </td>
+                <td><code spellcheck="false">16-checklist-28-itens.md</code> + Resposta 2 +
+                  Arquivo 5 original</td>
+                <td>Usar apenas o <code spellcheck="false">16-checklist-28-itens.md</code> (é
+                  o mais completo)</td>
+              </tr>
+              <tr>
+                <td><strong>12 Leis do Guardião</strong>
+                </td>
+                <td><code spellcheck="false">17-12-leis-do-guardiao.md</code> + Adendo Final
+                  + Resposta 15</td>
+                <td>Usar apenas o <code spellcheck="false">17-12-leis-do-guardiao.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Glossário</strong>
+                </td>
+                <td><code spellcheck="false">A-glossario.md</code> + Adendo Final (Seção 7)</td>
+                <td>Usar apenas o <code spellcheck="false">A-glossario.md</code> (é o mais completo)</td>
+              </tr>
+              <tr>
+                <td><strong>Servidores .onion</strong>
+                </td>
+                <td><code spellcheck="false">B-servidores-onion.md</code> + Itens que Salvam
+                  Vidas (Seção 7)</td>
+                <td>Usar apenas o <code spellcheck="false">B-servidores-onion.md</code>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Matriz de Decisão</strong>
+                </td>
+                <td><code spellcheck="false">G-matriz-decisao.md</code> + <code spellcheck="false">14-ferramentas-alternativas.md</code>
+                </td>
+                <td>Manter ambos (G é resumo, 14 é detalhado)</td>
+              </tr>
+              <tr>
+                <td><strong>Diagrama do Ecossistema</strong>
+                </td>
+                <td><code spellcheck="false">13-ecossistema-completo.md</code> + Resposta 7</td>
+                <td>Usar <code spellcheck="false">13-ecossistema-completo.md</code> + referenciar
+                  o diagrama</td>
+              </tr>
+            </tbody>
+          </table>
+          </figure>
+          <hr>
+          <h2>🖨️ INSTRUÇÕES FINAIS PARA O DIAGRAMADOR</h2>
+          <ol>
+            <li data-list-item-id="e743e59a1e4ac361399153ed6f2146e44"><strong>Software recomendado:</strong> Scribus (gratuito) ou Affinity Publisher
+              (pago, licença única)</li>
+            <li data-list-item-id="e067313a377bcde2ec6520c3311d4edb4"><strong>Tamanho da página:</strong> A5 (148 × 210 mm) para miolo</li>
+            <li
+            data-list-item-id="e75ec1c3b1daeffcfc837eb8b95afbc32"><strong>Margens:</strong> Interna 20mm, Externa 15mm, Superior 18mm, Inferior
+              18mm</li>
+              <li data-list-item-id="e142f5d5d81cde7ca4dbd235aab7b4620"><strong>Fonte do corpo:</strong> DejaVu Serif 10pt (ou similar serifada)</li>
+              <li
+              data-list-item-id="e571cc8e65627a19251f66d2e4926fb8f"><strong>Fonte de código:</strong> DejaVu Sans Mono 8pt</li>
+                <li data-list-item-id="e9e4a008c1a0b441b110fb141b6b33165"><strong>Fonte de títulos:</strong> DejaVu Sans Bold (ou similar sans-serif)</li>
+                <li
+                data-list-item-id="ed239a306d369aae3c20d938f5bf984cd"><strong>Cores do miolo:</strong> Preto e branco (impressão econômica)</li>
+                  <li
+                  data-list-item-id="efe25d5b73215f5d293d542ab022edee6"><strong>Cores da capa:</strong> CMYK, seguindo especificações da Resposta
+                    22</li>
+                    <li data-list-item-id="e80af3cad1ced8a1ae670a33b2881872d"><strong>Sangria:</strong> 3mm em todos os lados</li>
+                    <li data-list-item-id="e12645e2757fef99abc6c92a036420a1c"><strong>PDF final:</strong> PDF/X-1a para gráfica</li>
+          </ol>
+          <hr>
+          <h2>📦 CHECKLIST FINAL DE MONTAGEM</h2><pre><code class="language-text-x-trilium-auto">□ Estrutura de diretórios criada
+□ Todos os 28 arquivos .md copiados para manuscrito/
+□ Capítulos 6-12 extraídos da Trilha Consolidada
+□ Arquivo stylesheet.css em recursos/
+□ Arquivo metadata.opf em recursos/
+□ Diagrama do ecossistema criado (PNG, 1920x1080)
+□ Diagrama PSBT criado (PNG)
+□ Diagrama Whirlpool criado (PNG)
+□ Diagrama Swap criado (PNG)
+□ Diagrama ABCTracer criado (PNG)
+□ 8 ícones de níveis criados (PNG, 512x512)
+□ Capa criada (JPG, 1600x2560)
+□ Revisão técnica concluída
+□ Revisão de consistência concluída
+□ Revisão de estrutura concluída
+□ Revisão de linguagem concluída
+□ Conteúdos duplicados unificados
+□ Livro compilado (PDF, EPUB, MOBI)
+□ PDF/X-1a gerado para gráfica
+□ 1 cópia de prova impressa e revisada</code></pre>
+          <hr><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   📚 LIVRO PRONTO PARA MONTAGEM                             │
+│                                                             │
+│   Arquivos entregues: 28 markdown + 3 recursos              │
+│   Diagramas: 5 descrições textuais para criar               │
+│   Capa: especificações completas                            │
+│   Estrutura: 17 capítulos + 7 apêndices                    │
+│                                                             │
+│   Agora é copiar, colar, revisar e compilar.                │
+│   O Guardião Soberano está pronto para nascer.              │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+      </div>
+    </div>
+  </body>
+
+</html>

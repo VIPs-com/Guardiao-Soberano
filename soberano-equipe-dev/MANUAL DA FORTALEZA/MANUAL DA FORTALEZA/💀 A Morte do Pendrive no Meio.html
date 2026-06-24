@@ -1,0 +1,172 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>💀 A Morte do Pendrive no Meio do Trade</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>💀 A Morte do Pendrive no Meio do Trade</h1>
+
+      <div class="ck-content">
+        <h2>💀 A Morte do Pendrive no Meio do Trade</h2>
+        <blockquote>
+          <p><em>"O pior pesadelo do operador não é o adversário externo, é a falha silenciosa do hardware que carrega sua identidade."</em>
+          </p>
+        </blockquote>
+        <h2>O Cenário</h2>
+        <p>Você está usando <strong>Tails + Feather + Haveno</strong>. Iniciou uma
+          compra de XMR. O vendedor bloqueou os fundos no contrato multifirma da
+          Haveno. Você fez o pagamento fiduciário (transferência bancária, PIX, etc.),
+          clicou em <em>"Payment sent"</em> e está aguardando o vendedor confirmar. <strong>Nesse exato momento, o pendrive trava. Tela congelada. Desligou. Não liga mais. Morto.</strong>
+        </p>
+        <p>O que acontece com seu dinheiro? Com sua conta? Com as provas de pagamento?</p>
+        <hr>
+        <h2>🔍 O Protocolo da Haveno sob Ruptura Total</h2>
+        <h3>1. Estado do Contrato Multifirma</h3>
+        <ul>
+          <li data-list-item-id="ecd2fcda9a337d59c27c9e40bc6e77a19">O vendedor bloqueou XMR no contrato. Esse contrato é uma transação especial
+            na blockchain Monero que requer 2 de 3 assinaturas para liberar: comprador,
+            vendedor ou árbitro.</li>
+          <li data-list-item-id="e0573b42b50dd2417210ba12f9e890bb2">O contrato <strong>não desaparece</strong>. Ele está na blockchain. O árbitro
+            ainda pode intervir.</li>
+          <li data-list-item-id="e040f3387c5400038d2b5b22790915f06">O temporizador da transação continua rodando. O vendedor pode abrir uma
+            disputa se você não aparecer.</li>
+        </ul>
+        <h3>2. Estado da Sua Conta Haveno</h3>
+        <ul>
+          <li data-list-item-id="e2884b978a2d0c71ed0871a2ff2016224">Sua conta (chave pública, reputação, ofertas) <strong>some da rede</strong> porque
+            seu aplicativo não está mais online.</li>
+          <li data-list-item-id="e9647316d8ff2277a171a7e7efb84cc0b">O vendedor vê você como "offline" e, depois de um tempo, pode iniciar
+            uma disputa alegando que você sumiu.</li>
+        </ul>
+        <h3>3. Estado das Provas de Pagamento</h3>
+        <ul>
+          <li data-list-item-id="effc3053a0e078041181e511724172f8d">Os comprovantes estavam salvos na pasta <code spellcheck="false">~/home/amnesia/Disputas/</code> dentro
+            da persistência, certo? <strong>Se o pendrive morreu fisicamente e você não tem backup recente, essas provas estão perdidas.</strong>
+          </li>
+          <li data-list-item-id="ef08456f9412c09de3e285f48dfb42b95">O chat da Haveno (criptografado) também está no pendrive. Sem ele, você
+            perde o histórico da negociação.</li>
+          <li data-list-item-id="e7311ff83dfa5f5b16a2fa04c3b98846c">Se você salvou o comprovante em outro lugar (ex: backup 3-2-1), ainda
+            tem como provar o pagamento.</li>
+        </ul>
+        <hr>
+        <h2>⚖️ Quem Perde o Quê?</h2>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Ativo</th>
+                <th>Estado</th>
+                <th>Consequência sem backup</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Seu XMR na carteira Feather</strong>
+                </td>
+                <td>Seguro (a seed está em papel, certo?)</td>
+                <td><strong>Nenhuma perda permanente.</strong> Recupera com a seed depois.</td>
+              </tr>
+              <tr>
+                <td><strong>XMR bloqueados no contrato (colateral do vendedor)</strong>
+                </td>
+                <td>Pendentes na blockchain</td>
+                <td><strong>Risco de perder esse colateral</strong> se você não conseguir provar
+                  que pagou.</td>
+              </tr>
+              <tr>
+                <td><strong>Dinheiro fiduciário que você enviou</strong>
+                </td>
+                <td>Já saiu da sua conta bancária/carteira fiat</td>
+                <td><strong>Perda real</strong> se o vendedor não liberar os XMR e você não
+                  tiver provas para a disputa.</td>
+              </tr>
+              <tr>
+                <td><strong>Sua reputação na Haveno</strong>
+                </td>
+                <td>Congelada (não será manchada se resolver depois)</td>
+                <td>Disputa não respondida pode gerar penalidade se você não explicar.</td>
+              </tr>
+              <tr>
+                <td><strong>Seus arquivos de conta Haveno</strong>
+                </td>
+                <td>Perdidos se não houver backup</td>
+                <td><strong>Perde a identidade de negociação, ordens abertas e histórico.</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>🧯 Plano de Emergência: Você Ainda Tem Backup?</h2>
+        <h3>✅ Se você fez o backup 3-2-1 (Módulo 4/Backup):</h3>
+        <ol>
+          <li data-list-item-id="e5d60f76e310b5b9c68efa2b73b96fe89"><strong>Pegue o pendrive 2 (backup local)</strong> ou o HD offsite.</li>
+          <li
+          data-list-item-id="e4013bee82c5365cad2dfbcb55d0290d2">Inicie o Tails em um novo pendrive (ou no esqueleto já preparado) e ative
+            a persistência.</li>
+            <li data-list-item-id="e175bea0e38145107f74db82e74b08639">
+              <p>Restaure o backup:</p><pre><code class="language-text-x-trilium-auto">gpg --decrypt /media/backup/fortaleza_backup_20260101.tar.gz.gpg | tar xzvf - -C /</code></pre>
+            </li>
+            <li data-list-item-id="e6953f8f6f7f72fbf16f29f44bf3ea6fb">Abra a Haveno. Ela carregará sua conta, os contratos ativos e o chat.</li>
+            <li
+            data-list-item-id="e024932e81b3be6af4e28fa128601fdcc">Volte ao trade, veja o status. Se o vendedor abriu disputa, você terá
+              o chat e poderá submeter o comprovante.</li>
+              <li data-list-item-id="e2680c7f01bebe03acb0eba400e70b040"><strong>Pronto.</strong> Você perdeu algumas horas, mas não perdeu dinheiro
+                nem reputação.</li>
+        </ol>
+        <h3>❌ Se você NÃO tem backup:</h3>
+        <ol>
+          <li data-list-item-id="e11c48283bdf72ca37fbc600a32bcb929"><strong>Acesse sua conta bancária / app de pagamento</strong> e imprima/
+            salve o comprovante da transferência. Esse é o único registro externo que
+            você ainda pode ter.</li>
+          <li data-list-item-id="ef125f3edc5838f1efc1fdba8ded6b7dc">Entre em contato com o suporte da Haveno (via canal oficial, como Matrix
+            ou fórum) explicando a situação. Forneça detalhes do trade: data, valor,
+            ID da oferta (se lembrar), hash da transação (se tiver anotado). O suporte <strong>pode</strong> redirecionar
+            ao árbitro.</li>
+          <li data-list-item-id="e6a5b92cee17e06ac2e3e0a8ace4a3589">O árbitro poderá pedir que você prove sua identidade na Haveno de outra
+            forma (ex: assinando uma mensagem com a chave da sua carteira Monero que
+            participou do trade). Sim, isso é possível, mas é excepcional e depende
+            de você ter guardado a seed da carteira que usou para o depósito de segurança.</li>
+          <li
+          data-list-item-id="e75904a4891be87761aee1b8a6ac99836"><strong>Prepare-se para o pior:</strong> Sem as provas armazenadas, o árbitro
+            tenderá a liberar os fundos para o vendedor e você perderá o dinheiro fiat
+            enviado mais qualquer depósito de segurança que tenha feito.</li>
+        </ol>
+        <hr>
+        <h2>🛡️ Como se Proteger: Regras de Ouro</h2>
+        <ol>
+          <li data-list-item-id="ef2cdf2a9e0fc78597e46af36571c1227"><strong>Backup pré-trade:</strong> Sempre rode o script de backup rápido <strong>antes de iniciar um trade de valor significativo</strong>.
+            Não espere o cronograma semanal.</li>
+          <li data-list-item-id="e22120d53d84340abe82767b43ed10b64"><strong>Salve o comprovante fora do Tails imediatamente.</strong> Se possível,
+            use uma nuvem criptografada (ex: Proton Drive via Tor Browser) ou envie
+            o PDF para um email seguro (Tutanota/ProtonMail) no exato momento do pagamento.
+            Isso já é uma cópia offsite.</li>
+          <li data-list-item-id="ef78fbcd953d2d835ac84754d9f42fee9"><strong>Anote manualmente:</strong> ID da oferta, nome do vendedor, valor,
+            data/hora, e o hash da transação fiat (se houver) em um papel físico.</li>
+          <li
+          data-list-item-id="e194334a399b556aa24bee0b6940eb0d9"><strong>Mantenha o colateral baixo:</strong> Nunca deixe mais XMR do que
+            o necessário na carteira quente da Haveno.</li>
+            <li data-list-item-id="e4b2f1499f1d7a658aaa0803ee3dd05f9"><strong>Teste o backup:</strong> Simule a morte do pendrive conforme o
+              Módulo 4. A confiança vem do teste.</li>
+        </ol>
+        <hr>
+        <h2>💎 Conclusão: A Soberania Cobra seu Preço em Disciplina</h2>
+        <p>A morte do pendrive no meio do trade é o teste definitivo do seu compromisso
+          com a soberania. Sem um intermediário para chorar, a responsabilidade é
+          inteiramente sua. Mas, seguindo o ritual de backup 3-2-1, você transforma
+          uma catástrofe em um mero inconveniente.</p>
+        <blockquote>
+          <p><em>"O cypherpunk operacional não torce para o hardware não falhar; ele planeja o que fazer quando ele falhar."</em>
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </body>
+
+</html>

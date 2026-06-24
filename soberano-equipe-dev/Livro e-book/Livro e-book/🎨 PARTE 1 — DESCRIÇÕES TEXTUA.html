@@ -1,0 +1,782 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🎨 PARTE 1 — DESCRIÇÕES TEXTUAIS DOS DIAGRAMAS</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🎨 PARTE 1 — DESCRIÇÕES TEXTUAIS DOS DIAGRAMAS</h1>
+
+      <div class="ck-content">
+        <p>Perfeito! Vou entregar tudo isso de uma vez — as descrições dos diagramas,
+          as especificações da capa e todos os arquivos <code spellcheck="false">.md</code> que
+          faltam. Isso completa o manuscrito.</p>
+        <hr>
+        <h2>🎨 PARTE 1 — DESCRIÇÕES TEXTUAIS DOS DIAGRAMAS</h2>
+        <hr>
+        <h2>Diagrama 1: Ecossistema Completo</h2>
+        <p><strong>Arquivo:</strong>  <code spellcheck="false">diagrama-ecossistema.png</code>  <strong>Ferramenta recomendada:</strong> draw.io
+          (diagrams.net) — gratuito, online ou desktop</p>
+        <h3>Instruções para criar no draw.io</h3>
+        <ol>
+          <li data-list-item-id="e11919d0d22d433246db8fa65fdd69559">Abra draw.io</li>
+          <li data-list-item-id="eafdd2555a671a66b38c8b134e00dd038">Crie um novo diagrama em branco</li>
+          <li data-list-item-id="e7adc683f852607f6c45f5ea0a8db18f6">Configure a página: 1920 x 1080 pixels, orientação paisagem</li>
+        </ol>
+        <h3>Elementos do diagrama</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────────────────┐
+│ Camada 1: INTERNET (topo)                                                │
+│                                                                          │
+│ Desenhe uma nuvem larga no topo com o texto "🌍 INTERNET (Rede Tor)"    │
+│                                                                          │
+│ Dentro da nuvem, três retângulos menores:                               │
+│ □ "Coordinator Whirlpool .onion"                                        │
+│ □ "Maker eigenwallet .onion"                                            │
+│ □ "Rede Bitcoin / Monero"                                               │
+│                                                                          │
+│ Abaixo da nuvem, uma linha tracejada horizontal com o texto:            │
+│ "Todo tráfego via Tor — IP real nunca exposto"                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Camada 2: HOST FÍSICO (meio)                                             │
+│                                                                          │
+│ Desenhe um retângulo grande com borda tracejada e texto:                │
+│ "🖥️ HOST FÍSICO (Linux/Windows/macOS com VirtualBox/KVM)"               │
+│                                                                          │
+│ Dentro dele, um retângulo menor com texto:                              │
+│ "📦 HIPERVISOR"                                                         │
+│                                                                          │
+│ Dentro do hipervisor, TRÊS retângulos lado a lado (as VMs):            │
+│                                                                          │
+│ VM 1 (esquerda, cor verde claro):                                       │
+│ ┌─────────────────────────┐                                             │
+│ │ WHONIX-GATEWAY          │                                             │
+│ │ 🔒 Força Tor            │                                             │
+│ │ IP: 10.152.152.10       │                                             │
+│ │ (rede interna)          │                                             │
+│ └─────────────────────────┘                                             │
+│                                                                          │
+│ VM 2 (centro, cor azul claro):                                          │
+│ ┌─────────────────────────┐                                             │
+│ │ WHONIX-WORKSTATION      │                                             │
+│ │ 🦜 Sparrow              │                                             │
+│ │ 🔀 Whirlpool            │                                             │
+│ │ 🔄 eigenwallet          │                                             │
+│ │ 🪶 Feather              │                                             │
+│ │ 🔑 KeePassXC            │                                             │
+│ │ IP: 10.152.152.20       │                                             │
+│ └─────────────────────────┘                                             │
+│                                                                          │
+│ VM 3 (direita, cor laranja claro):                                      │
+│ ┌─────────────────────────┐                                             │
+│ │ BITCOIN-NODE            │                                             │
+│ │ ₿ Bitcoin Core          │                                             │
+│ │ 📡 EPS (.onion)         │                                             │
+│ │ IP: 10.152.152.30       │                                             │
+│ └─────────────────────────┘                                             │
+│                                                                          │
+│ Setas conectando as VMs:                                                │
+│ • Workstation → Gateway (texto: "tráfego")                              │
+│ • Workstation → Node (texto: "consulta .onion")                         │
+│ • Gateway → Internet (seta subindo)                                     │
+│                                                                          │
+│ Abaixo das VMs, um retângulo horizontal:                                │
+│ ┌──────────────────────────────────────────┐                            │
+│ │ 📁 PASTA COMPARTILHADA: /psbt_bridge     │                            │
+│ │ Host ↔ Workstation ↔ Coldcard            │                            │
+│ └──────────────────────────────────────────┘                            │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Camada 3: DISPOSITIVOS FÍSICOS (abaixo)                                  │
+│                                                                          │
+│ Lado esquerdo:                                                          │
+│ ┌─────────────────────┐                                                 │
+│ │ 🔒 COLDCARD MK5     │                                                 │
+│ │ Seed BIP39          │                                                 │
+│ │ Dice Rolls 99+      │                                                 │
+│ │ Passphrase          │                                                 │
+│ │ Assina PSBTs        │                                                 │
+│ │ NUNCA online        │                                                 │
+│ └─────────────────────┘                                                 │
+│                                                                          │
+│ Abaixo do Coldcard, dois retângulos menores:                            │
+│ ┌──────────────────┐  ┌──────────────────┐                              │
+│ │ 🔩 PLACA DE AÇO  │  │ 📝 PASSPHRASE    │                              │
+│ │ 24 palavras      │  │ Local físico C   │                              │
+│ │ Local físico A   │  │                  │                              │
+│ └──────────────────┘  └──────────────────┘                              │
+│ ┌──────────────────┐                                                    │
+│ │ 🔩 PLACA DE AÇO  │                                                    │
+│ │ 24 palavras      │                                                    │
+│ │ Local físico B   │                                                    │
+│ └──────────────────┘                                                    │
+│                                                                          │
+│ Lado direito:                                                           │
+│ ┌──────────────────────────────────────────┐                            │
+│ │ 📱 AMBIENTE MÓVEL (CalyxOS/GrapheneOS)   │                            │
+│ │ 🦜 Sparrow (watch-only)                  │                            │
+│ │ 🪶 Feather (watch-only)                  │                            │
+│ │ 🔑 KeePassDX                             │                            │
+│ │ 🔒 Bootloader travado                    │                            │
+│ └──────────────────────────────────────────┘                            │
+│                                                                          │
+│ Lado direito inferior:                                                   │
+│ ┌──────────────────────────────────────────┐                            │
+│ │ 💿 AMBIENTE CIRÚRGICO (Tails USB)        │                            │
+│ │ 🔄 eigenwallet (swaps)                   │                            │
+│ │ 🪶 Feather (XMR)                         │                            │
+│ │ 🤖 RoboSats (.onion)                     │                            │
+│ │ 🚫 Amnésico — nada persiste              │                            │
+│ └──────────────────────────────────────────┘                            │
+└─────────────────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>Cores recomendadas para o draw.io</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Elemento</th>
+                <th>Cor de fundo</th>
+                <th>Cor da borda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gateway VM</td>
+                <td>#E1F5EE (verde claro)</td>
+                <td>#0F6E56</td>
+              </tr>
+              <tr>
+                <td>Workstation VM</td>
+                <td>#EEEDFE (roxo claro)</td>
+                <td>#534AB7</td>
+              </tr>
+              <tr>
+                <td>Node VM</td>
+                <td>#FAEEDA (laranja claro)</td>
+                <td>#854F0B</td>
+              </tr>
+              <tr>
+                <td>Coldcard</td>
+                <td>#FCEBEB (vermelho claro)</td>
+                <td>#A32D2D</td>
+              </tr>
+              <tr>
+                <td>Mobile</td>
+                <td>#E6F1FB (azul claro)</td>
+                <td>#185FA5</td>
+              </tr>
+              <tr>
+                <td>Tails</td>
+                <td>#EAF3DE (verde oliva)</td>
+                <td>#3B6D11</td>
+              </tr>
+              <tr>
+                <td>Placas de aço</td>
+                <td>#F5F5F5 (cinza)</td>
+                <td>#999999</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>Diagrama 2: Fluxo PSBT</h2>
+        <p><strong>Arquivo:</strong>  <code spellcheck="false">diagrama-psbt.png</code>  <strong>Ferramenta recomendada:</strong> Excalidraw
+          (excalidraw.com) — estilo desenhado à mão</p>
+        <h3>Instruções</h3>
+        <p>Desenhe 5 caixas em sequência horizontal, conectadas por setas:</p><pre><code class="language-text-x-trilium-auto">┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│ 1. COORDINATOR│     │ 2. TRANSFER  │     │ 3. ASSINAR   │     │ 4. DEVOLVER  │     │ 5. BROADCAST │
+│              │     │              │     │              │     │              │     │              │
+│ Sparrow cria │ ──▶ │ QR animado   │ ──▶ │ Coldcard     │ ──▶ │ QR assinado  │ ──▶ │ Sparrow      │
+│ transação    │     │ ou SD card   │     │ verifica e   │     │ ou SD card   │     │ transmite    │
+│ não assinada │     │              │     │ assina       │     │              │     │ via Tor      │
+│              │     │              │     │              │     │              │     │              │
+│ (online)     │     │ (air-gap)    │     │ (offline)    │     │ (air-gap)    │     │ (online)     │
+└──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘</code></pre>
+        <p>Abaixo de cada caixa, um ícone:</p>
+        <ul>
+          <li data-list-item-id="e233539ea460f09dc41a5f4a8a1d3c0f8">Caixa 1: ícone de computador</li>
+          <li data-list-item-id="e96ad8abe1aa3995fb008ae64fc58567a">Caixa 2: ícone de QR code / SD card</li>
+          <li data-list-item-id="ef21c46e7dade05469ef08d0c3ff1bc58">Caixa 3: ícone de Coldcard (retângulo com tela)</li>
+          <li data-list-item-id="eb80458beb15309023ae5d8e3f24e5338">Caixa 4: ícone de QR code / seta voltando</li>
+          <li data-list-item-id="ef7497b9bb1d852cbadb995e570f3937d">Caixa 5: ícone de broadcast (antena)</li>
+        </ul>
+        <hr>
+        <h2>Diagrama 3: Whirlpool (CoinJoin)</h2>
+        <p><strong>Arquivo:</strong>  <code spellcheck="false">diagrama-whirlpool.png</code>  <strong>Ferramenta recomendada:</strong> Excalidraw</p>
+        <h3>Instruções</h3>
+        <p>Desenhe um funil largo no topo e estreito embaixo:</p><pre><code class="language-text-x-trilium-auto">Topo (entradas):
+┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
+│ 0.01│ │ 0.01│ │ 0.01│ │ 0.01│ │ 0.01│  ← 5 pessoas colocam 0.01 BTC cada
+│ 👤A │ │ 👤B │ │ 👤C │ │ 👤D │ │ 👤E │
+└─────┘ └─────┘ └─────┘ └─────┘ └─────┘
+         \    |    |    |    /
+          \   |    |    |   /
+           \  |    |    |  /
+            \ |    |    | /
+             \|    |    |/
+         ┌─────────────────┐
+         │   🔀 WHIRLPOOL  │  ← Mistura (CoinJoin)
+         │   Anonset: 5    │
+         └─────────────────┘
+            /     |     \
+           /      |      \
+          /       |       \
+┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐
+│ 0.01│ │ 0.01│ │ 0.01│ │ 0.01│ │ 0.01│  ← 5 pessoas recebem 0.01 BTC cada
+│ 🆕1 │ │ 🆕2 │ │ 🆕3 │ │ 🆕4 │ │ 🆕5 │     Novos endereços
+└─────┘ └─────┘ └─────┘ └─────┘ └─────┘
+
+Analista vê: 5 entradas, 5 saídas — não sabe qual é de quem</code></pre>
+        <hr>
+        <h2>Diagrama 4: Fluxo de Swap BTC↔XMR</h2>
+        <p><strong>Arquivo:</strong>  <code spellcheck="false">diagrama-swap.png</code>  <strong>Ferramenta recomendada:</strong> draw.io</p>
+        <h3>Instruções</h3>
+        <p>Desenhe três colunas:</p><pre><code class="language-text-x-trilium-auto">Coluna ESQUERDA           Coluna CENTRO            Coluna DIREITA
+(Bitcoin)                 (Monero)                 (Bitcoin Limpo)
+
+┌──────────────┐         ┌──────────────┐         ┌──────────────┐
+│ BTC com KYC  │         │              │         │              │
+│ (rastreável) │──┐      │   MONERO     │      ┌─│ BTC LIMPO    │
+│              │  │      │   (privado)  │      │ │ (sem vínculo)│
+│   🔗🏷️       │  │      │              │      │ │              │
+└──────────────┘  │      │  Ring CT     │      │ │   🔗🆕       │
+                  │      │  Stealth     │      │ └──────────────┘
+                  │      │  Addresses   │      │
+┌──────────────┐  │      │              │      │
+│ CoinJoin     │  │      │  🔐🔐🔐     │      │
+│ (Whirlpool)  │──┤      │              │      │
+│              │  │      │              │      │
+│   🔀         │  │      └──────────────┘      │
+└──────────────┘  │             ▲               │
+                  │             │               │
+                  ▼             │               ▲
+             ┌──────────────┐   │   ┌──────────────┐
+             │ eigenwallet  │───┘   │ RetoSwap     │
+             │ BTC → XMR    │       │ XMR → BTC    │
+             │ (swap)       │       │ (swap)       │
+             └──────────────┘       └──────────────┘
+                  │                         │
+                  │    ⏰ 24h-7 dias        │
+                  │    (intervalo)          │
+                  └─────────────────────────┘</code></pre>
+        <p>Texto abaixo do diagrama: "Defesa ABCTracer: intervalo temporal + valores
+          diferentes + endereços virgens"</p>
+        <hr>
+        <h2>Diagrama 5: ABCTracer — Ataque e Defesa</h2>
+        <p><strong>Arquivo:</strong>  <code spellcheck="false">fluxo-abctracer.png</code>  <strong>Ferramenta recomendada:</strong> Excalidraw
+          (estilo "antes e depois")</p>
+        <h3>Instruções</h3>
+        <p>Divida o diagrama em duas metades: "SEM DEFESA" (esquerda, vermelho) e
+          "COM DEFESA" (direita, verde).</p><pre><code class="language-text-x-trilium-auto">┌────────────────────────────┐  ┌────────────────────────────┐
+│ ❌ SEM DEFESA              │  │ ✅ COM DEFESA              │
+│                            │  │                            │
+│ 14:00: 1.0 BTC → swap     │  │ Dia 1: 0.4 BTC → swap     │
+│ 14:25: ~0.98 XMR aparece  │  │ Dia 3: 0.3 BTC → swap     │
+│                            │  │ Dia 5: 0.5 BTC → swap     │
+│ ⚠️ Intervalo: 25 min      │  │                            │
+│ ⚠️ Valor: 98% igual       │  │ ✅ Intervalos: dias        │
+│ ⚠️ Mesmo endereço         │  │ ✅ Valores diferentes      │
+│                            │  │ ✅ Endereços virgens       │
+│ 🔓 CORRELACIONADO          │  │ 🔒 NÃO CORRELACIONADO     │
+│ (91.75% rastreável)       │  │ (ABCTracer confundido)    │
+└────────────────────────────┘  └────────────────────────────┘</code></pre>
+        <hr>
+        <h2>Ícones dos Níveis (8 arquivos)</h2>
+        <p><strong>Arquivos:</strong>  <code spellcheck="false">nivel-0.png</code> até
+          <code
+          spellcheck="false">nivel-7.png</code> <strong>Ferramenta recomendada:</strong> Canva ou Figma
+            (gratuitos)</p>
+        <h3>Especificações para cada ícone</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Nível</th>
+                <th>Emoji</th>
+                <th>Cor de fundo</th>
+                <th>Texto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>🌱</td>
+                <td>#EAF3DE (verde claro)</td>
+                <td>N0</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>🔒</td>
+                <td>#FCEBEB (vermelho claro)</td>
+                <td>N1</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>👁️</td>
+                <td>#E6F1FB (azul claro)</td>
+                <td>N2</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>🏰</td>
+                <td>#EEEDFE (roxo claro)</td>
+                <td>N3</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>🔀</td>
+                <td>#FAEEDA (laranja claro)</td>
+                <td>N4</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>🔄</td>
+                <td>#E1F5EE (verde água)</td>
+                <td>N5</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>👑</td>
+                <td>#EAF3DE (verde escuro)</td>
+                <td>N6</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>🧙</td>
+                <td>#EEEDFE (roxo escuro)</td>
+                <td>N7</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <p><strong>Dimensões:</strong> 512 x 512 pixels, PNG com fundo transparente <strong>Formato:</strong> Círculo
+          com emoji centralizado e número abaixo</p>
+        <hr>
+        <h2>🎨 PARTE 2 — ESPECIFICAÇÕES TÉCNICAS DA CAPA</h2>
+        <h2>Arquivo: <code spellcheck="false">cover.jpg</code></h2>
+        <h3>Dimensões</h3>
+        <ul>
+          <li data-list-item-id="e7366801e22939e2e73796c859489c353"><strong>Largura:</strong> 1600 pixels</li>
+          <li data-list-item-id="e6c672de856546672a19d7be5697fa202"><strong>Altura:</strong> 2560 pixels</li>
+          <li data-list-item-id="e7c826eb2620dedc8d06b423b814e712e"><strong>Proporção:</strong> 1:1.6 (padrão para e-books)</li>
+          <li data-list-item-id="eded94ceb37c742bf790c5f7cb394c420"><strong>Resolução:</strong> 300 DPI</li>
+          <li data-list-item-id="e22cb2a39f684c4ce55eef4f205aae0e2"><strong>Espaço de cor:</strong> RGB (digital) / CMYK (impressão)</li>
+        </ul>
+        <h3>Composição Visual</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│                                                             │
+│              [FUNDO: Gradiente escuro]                      │
+│              Preto (#000000) no topo                        │
+│              ↓                                              │
+│              Verde escuro (#1a3a1a) embaixo                 │
+│                                                             │
+│                                                             │
+│              [SILHUETA DE MONTANHA]                         │
+│              Sete picos ascendentes da esquerda             │
+│              para a direita, cada um com uma                │
+│              bandeira no topo                               │
+│                                                             │
+│              Cor da montanha: cinza escuro (#2d2d2d)        │
+│              Bandeiras: verde (#3B6D11)                    │
+│                                                             │
+│                                                             │
+│                                                             │
+│              GUARDIÃO SOBERANO                              │
+│              [Fonte: DejaVu Sans Bold, 72pt, branco]       │
+│                                                             │
+│              Da Semente ao Ecossistema Completo             │
+│              [Fonte: DejaVu Sans, 28pt, cinza claro]       │
+│                                                             │
+│              Manual Prático de Auto-Custódia                │
+│              Bitcoin com Privacidade                        │
+│              [Fonte: DejaVu Sans, 20pt, cinza]             │
+│                                                             │
+│                                                             │
+│              [ÍCONE BITCOIN ESTILIZADO]                     │
+│              Cor: laranja (#F7931A)                        │
+│              Tamanho: ~200px                                │
+│                                                             │
+│                                                             │
+│              Versão 1.1 — Junho 2026                        │
+│              [Fonte: DejaVu Sans, 14pt, cinza escuro]      │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>Cores da Capa</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Elemento</th>
+                <th>Código Hex</th>
+                <th>Cor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fundo (topo)</td>
+                <td>#000000</td>
+                <td>Preto</td>
+              </tr>
+              <tr>
+                <td>Fundo (base)</td>
+                <td>#1a3a1a</td>
+                <td>Verde escuro</td>
+              </tr>
+              <tr>
+                <td>Montanha</td>
+                <td>#2d2d2d</td>
+                <td>Cinza escuro</td>
+              </tr>
+              <tr>
+                <td>Bandeiras</td>
+                <td>#3B6D11</td>
+                <td>Verde</td>
+              </tr>
+              <tr>
+                <td>Título</td>
+                <td>#FFFFFF</td>
+                <td>Branco</td>
+              </tr>
+              <tr>
+                <td>Subtítulo</td>
+                <td>#CCCCCC</td>
+                <td>Cinza claro</td>
+              </tr>
+              <tr>
+                <td>Ícone Bitcoin</td>
+                <td>#F7931A</td>
+                <td>Laranja Bitcoin</td>
+              </tr>
+              <tr>
+                <td>Texto versão</td>
+                <td>#999999</td>
+                <td>Cinza</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Fontes Recomendadas</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Elemento</th>
+                <th>Fonte</th>
+                <th>Tamanho</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Título principal</td>
+                <td>Montserrat Bold ou DejaVu Sans Bold</td>
+                <td>72pt</td>
+              </tr>
+              <tr>
+                <td>Subtítulo</td>
+                <td>Montserrat Regular ou DejaVu Sans</td>
+                <td>28pt</td>
+              </tr>
+              <tr>
+                <td>Descrição</td>
+                <td>Montserrat Light ou DejaVu Sans</td>
+                <td>20pt</td>
+              </tr>
+              <tr>
+                <td>Versão</td>
+                <td>Montserrat Light ou DejaVu Sans</td>
+                <td>14pt</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>📄 PARTE 3 — TODOS OS ARQUIVOS .MD FALTANTES</h2>
+        <p>Agora entrego cada arquivo Markdown completo.</p>
+        <hr>
+        <h2>ARQUIVO: `05-nivel-0-semente.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 5 — Nível 0: A Semente
+
+&gt; "Tudo começa com entropia verdadeira"
+
+---
+
+## Objetivo
+
+Gerar uma seed BIP39 com entropia própria, sem confiar em nenhum software. Adquirir os primeiros satoshis sem KYC.
+
+**Tempo estimado:** 2-4 dias
+**Dificuldade:** ★★☆☆☆
+
+---
+
+## Abertura Narrativa
+
+Maria sempre guardou dinheiro em casa. Quando o banco fechou por três dias durante a crise bancária, ela não conseguiu pagar as contas. Foi ali que decidiu: precisava de um dinheiro que ninguém pudesse bloquear.
+
+Ela ouviu falar de Bitcoin. Mas quando tentou comprar em uma exchange, pediram foto do documento, selfie, comprovante de endereço. "Isso não é liberdade", pensou.
+
+A liberdade começa antes da primeira compra. Começa com uma semente.
+
+Uma semente que você — e apenas você — planta. Em aço. Com entropia gerada pelas suas próprias mãos.
+
+Este capítulo é o fundamento sobre o qual todo o resto será construído. Não tenha pressa. Cada minuto gasto aqui é um minuto que protege o resto da sua vida financeira.
+
+---
+
+## Passo 0.1 — Comprar os materiais físicos
+
+Antes de qualquer software, você precisa de coisas tangíveis. Este é o alicerce.
+
+### Lista de materiais
+
+| Item | Opções | Custo estimado (Brasil) |
+|------|--------|--------------------------|
+| Dados de casino | 2 unidades, cores diferentes | R$ 10-20 |
+| Material para backup | Placa de aço inox + gravador | R$ 50-150 |
+| Material para backup (alt) | Kit de arruelas (washers) inox + estilete | R$ 30-80 |
+| Material para backup (premium) | Cryptosteel ou similar | R$ 400-600 |
+| Envelope pardo | Para papel intermediário | R$ 2 |
+| Pendrive USB | 2 unidades de 8GB+ | R$ 40-60 |
+
+### Por que aço e não papel?
+
+Papel queima a 230°C. Papel molha. Papel rasga. Papel desbota com o tempo. Uma inundação, um incêndio, um descuido — e sua seed desaparece.
+
+Aço inox resiste a temperaturas de até 1400°C. Não corrói com água. Não rasga. Dura décadas.
+
+Nunca use papel como backup permanente da sua seed.
+
+---
+
+## Passo 0.2 — Estudar o básico
+
+Antes de gerar sua seed, dedique 1-2 horas para entender estes conceitos fundamentais. A compreensão é sua primeira linha de defesa.
+
+### O que são palavras BIP39?
+
+BIP39 é um padrão que mapeia entropia (aleatoriedade) para palavras humanas. A lista tem 2048 palavras padronizadas em inglês. Cada palavra representa 11 bits de entropia.
+
+24 palavras = 24 × 11 = 264 bits = 256 bits de entropia + 8 bits de checksum
+
+O checksum permite detectar erros: se você digitar uma palavra errada ao restaurar, a carteira avisa.
+
+### Por que 24 palavras e não 12?
+
+12 palavras = 128 bits de entropia — seguro hoje, margem menor contra computação quântica futura.
+24 palavras = 256 bits de entropia — padrão ouro, margem de segurança astronômica.
+
+Neste livro, padronizamos 24 palavras.
+
+### Por que NUNCA gerar seed em software?
+
+- **Computadores podem ser comprometidos:** malware pode capturar sua seed no momento da geração.
+- **RNG pode ser previsível:** geradores de números aleatórios de software podem ter falhas ou backdoors.
+- **Dados físicos são entropia verdadeira:** não há como prever o resultado de 100 lançamentos de dados.
+
+---
+
+## Passo 0.3 — Gerar entropia com dados físicos
+
+Este é o momento mais importante do Nível 0. Faça com calma, em local privado.
+
+### Procedimento
+
+1. Sente-se em local sem câmeras. Desligue o celular ou deixe-o em outro cômodo.
+2. Pegue os dois dados de casino (cores diferentes ajudam a não confundir).
+3. Lance os dois simultaneamente sobre uma superfície plana.
+4. Anote EM PAPEL o resultado. Exemplo: Dado vermelho=3, Dado azul=5 → anote "35".
+5. Repita 100 vezes (50 pares de lançamentos).
+6. Você terá 100 números entre 11 e 66.
+
+**Tempo estimado:** 30-45 minutos.
+
+&gt; ⚠️ **NUNCA:**
+&gt; - Filmar ou fotografar os lançamentos
+&gt; - Ditar os números para um dispositivo com microfone
+&gt; - Fazer perto de webcam, celular ou assistente virtual
+&gt; - Pular lançamentos ("99 está bom")
+&gt; - Usar dados digitais (app de dado) — não são verdadeiramente aleatórios
+
+### Dica de João
+
+João, um bitcoiner de São Paulo, comprou dois dados por R$12 na loja de jogos do bairro. Sentou na cozinha, desligou o celular, fechou a cortina, e passou 30 minutos lançando dados. "Parecia um ritual", ele contou depois. "E era."
+
+---
+
+## Passo 0.4 — Converter entropia em seed (SIMULAÇÃO OFFLINE)
+
+Este passo é uma SIMULAÇÃO para validar o processo. A seed REAL será gerada no Coldcard (Nível 1). O objetivo aqui é você se familiarizar com o processo e entender que funciona.
+
+1. Em um computador COM internet, baixe o arquivo `bip39-standalone.html` do site iancoleman.io/bip39.
+2. Copie o arquivo para um pendrive.
+3. DESCONECTE o computador da internet: desligue WiFi, remova cabo ethernet, ative modo avião.
+4. Abra o arquivo no navegador (funciona offline).
+5. Na seção "Entropy", cole seus 100 números de dados (sem espaços, todos em sequência).
+6. O site gera 24 palavras BIP39.
+7. Copie as palavras EM PAPEL (manualmente, nunca imprima).
+8. Feche o navegador.
+9. Desligue o computador (isso limpa a memória RAM).
+
+Você agora tem 24 palavras no papel. Mas atenção: esta é uma seed de TESTE, gerada para você entender o processo. A seed REAL será gerada no dispositivo air-gapped.
+
+---
+
+## Passo 0.5 — Gravar seed em metal
+
+Quando você gerar sua seed REAL (Nível 1), siga este procedimento para o backup:
+
+1. Confira as 24 palavras. Leia em voz alta três vezes. Peça para outra pessoa conferir (sem revelar a seed completa — mostre palavra por palavra e cubra as outras).
+2. Grave na placa de aço com o gravador elétrico. Ou, se usar arruelas, grave uma palavra por arruela.
+3. Confira novamente. Mais duas leituras completas.
+4. Guarde a placa em Local Físico A (seguro, discreto, que você confia).
+5. Faça uma SEGUNDA CÓPIA em outra placa ou kit de arruelas.
+6. Guarde em Local Físico B (diferente do A — ex: A na sua casa, B na casa de um familiar de confiança).
+7. Queime ou pique o papel intermediário. Não deixe rastros.
+
+### Opção complementar: SeedQR
+
+SeedQR é um padrão que transforma suas 24 palavras em um QR code compacto, que pode ser estampado em metal.
+
+**Vantagens:** mais compacto que palavras, escaneável por SeedSigner, Krux, Jade, Passport.
+**Desvantagens:** requer dispositivo compatível para ler.
+
+Recomendação: tenha AMBOS — palavras gravadas + SeedQR. Redundância é segurança.
+
+---
+
+## Passo 0.6 — Criar passphrase (25ª palavra)
+
+A passphrase é uma palavra ou frase que VOCÊ escolhe. Ela é adicionada à sua seed para gerar uma carteira completamente diferente.
+
+### Como criar uma passphrase forte
+
+- Mínimo 8 caracteres, ideal 20+
+- Misture maiúsculas, minúsculas, números
+- Pode incluir espaços (frases são mais fáceis de memorizar)
+- NUNCA use dados pessoais reais (data de nascimento, nome de familiar, endereço)
+- NUNCA use frases de livros, filmes, músicas (previsíveis)
+
+**Exemplo BOM:** "MinhaAvóNasceuEm1920NoInterior"
+**Exemplo BOM:** "O Gato Preto Pulou 7 Vezes o Muro"
+**Exemplo RUIM:** "12345678"
+**Exemplo RUIM:** "bitcoin"
+
+### Onde guardar
+
+- Anote a passphrase em papel separado da seed.
+- Guarde em Local Físico C (diferente de A e B).
+- Memorize. Repita mentalmente 10 vezes por dia durante uma semana.
+- Peça a uma pessoa de confiança para também memorizar, mas NUNCA revele a seed junto.
+
+---
+
+## Passo 0.7 — Como adquirir os primeiros satoshis sem KYC
+
+KYC (Know Your Customer) é o processo de identificação exigido por exchanges. Você envia foto do documento, selfie, comprovante de endereço — e tudo isso fica vinculado ao seu primeiro endereço Bitcoin.
+
+Se você puder evitar o KYC desde o primeiro satoshi, sua privacidade começa mais forte.
+
+### Opção A: RoboSats (Pix → BTC Lightning)
+
+RoboSats é uma exchange P2P que funciona via Tor e Lightning Network.
+
+1. Abra o Tor Browser.
+2. Acesse o .onion oficial: `RoboSatsy56bwqn56qyadmcxkx767hnabg4mihxlmgyt6if5gnuxvzad.onion`
+3. Gere um avatar (token único para este trade — você não cria conta).
+4. Escolha uma oferta: comprar BTC, pagar com Pix.
+5. O BTC do vendedor entra em escrow (garantia) na Lightning Network.
+6. Faça o Pix para o vendedor.
+7. Vendedor confirma recebimento → BTC é liberado para você.
+8. Transfira o BTC da Lightning para sua carteira on-chain (Sparrow).
+
+**Privacidade:** Média. O Pix tem registro bancário. Para anonimato máximo, use uma conta sem vínculo óbvio com sua identidade.
+
+### Opção B: RetoSwap/Haveno (dinheiro físico → XMR → BTC)
+
+1. Instale o RetoSwap (veremos no Nível 5).
+2. Procure ofertas "cash by mail" (dinheiro por correio).
+3. O XMR entra em escrow multisig.
+4. Envie dinheiro físico pelo correio.
+5. Vendedor confirma → XMR liberado na sua carteira Feather.
+6. Depois: swap XMR → BTC (Nível 5).
+
+**Privacidade:** Alta. Zero registro digital do pagamento.
+
+### Opção C: Venda direta
+
+Comprar de um conhecido que tenha BTC. Pagar em dinheiro físico. Encontro presencial.
+
+**Privacidade:** Alta. Simples. Requer confiança.
+
+### Opção D: Trabalho/freelance
+
+Oferecer serviços e receber em BTC. O cliente envia diretamente para seu endereço.
+
+**Privacidade:** Alta. BTC entra sem exchange.
+
+---
+
+## Verificação do Nível 0
+
+Marque cada item antes de prosseguir:
+
+- [ ] Placa de aço (ou arruelas) gravada com as 24 palavras
+- [ ] Segunda cópia em Local Físico B (diferente do A)
+- [ ] Passphrase criada, memorizada e backup em Local Físico C
+- [ ] Entendo o que é BIP39 e por que 24 palavras
+- [ ] Entendo que passphrase gera uma carteira diferente da seed pura
+- [ ] Adquiri meus primeiros satoshis (de preferência sem KYC)
+- [ ] Nunca digitalizei a seed (foto, nuvem, email, WhatsApp)
+
+---
+
+## Resumo do Nível
+
+| Passo | Tempo | Essência |
+|-------|-------|----------|
+| 0.1 | 1 tarde | Comprar aço e dados |
+| 0.2 | 2 horas | Estudar BIP39 |
+| 0.3 | 45 min | Lançar dados 100x |
+| 0.4 | 30 min | Simular geração offline |
+| 0.5 | 2 horas | Gravar em metal (quando tiver seed real) |
+| 0.6 | 30 min + 1 sem | Criar e memorizar passphrase |
+| 0.7 | 2-3 horas | Adquirir primeiros sats sem KYC |
+
+---
+
+## 🏅 Conquista: "A Semente"
+
+&gt; Plantei minha soberania em aço. Nenhum software gerou minhas chaves. Nenhuma câmera viu minhas palavras. O fundamento está fincado. Os primeiros satoshis chegaram sem que ninguém soubesse meu nome.
+
+---
+
+No próximo capítulo, escolheremos e configuraremos o dispositivo que guardará esta semente como um cofre offline: a hardware wallet air-gapped.</code></pre>
+        <hr>
+        <p>Devido ao limite de caracteres da resposta, entreguei o <strong>Capítulo 5 completo</strong> como
+          exemplo. Os demais capítulos da Parte II (Níveis 1-7) seguem o mesmo formato
+          detalhado e já foram entregues na resposta "Trilha do Guardião Soberano
+          — Versão 1.1 Consolidada".</p>
+        <p>O que você precisa agora:</p>
+        <ol>
+          <li data-list-item-id="e596790886a52170e141bf16df260c015"><strong>Copiar</strong> cada capítulo da trilha consolidada para seu arquivo
+            <code
+            spellcheck="false">.md</code>correspondente</li>
+          <li data-list-item-id="e42e1b14d387c80a72f1eb367c5b6deed"><strong>Copiar</strong> os conteúdos das outras respostas (Adendo, Ecossistema,
+            Itens que Salvam Vidas) para seus respectivos arquivos</li>
+          <li data-list-item-id="ec3aad629a1cb60a7375f6b6bd15e6f03"><strong>Criar</strong> os diagramas seguindo as descrições textuais que
+            entreguei</li>
+          <li data-list-item-id="e65ae5eb0578460b3d8f922625f48ba8d"><strong>Criar</strong> a capa seguindo as especificações</li>
+          <li data-list-item-id="e3b1977bafc7f2bfacf3b8501aa33494e"><strong>Compilar</strong> tudo com Pandoc/Calibre</li>
+        </ol>
+        <p>Quer que eu continue gerando os próximos arquivos (Capítulos 6 a 12 e
+          Apêndices A, B) como fiz com o Capítulo 5?</p>
+      </div>
+    </div>
+  </body>
+
+</html>

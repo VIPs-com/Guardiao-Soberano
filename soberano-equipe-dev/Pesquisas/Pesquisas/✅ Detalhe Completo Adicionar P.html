@@ -1,0 +1,123 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Detalhe Completo: Adicionar Passphrase (BIP39) no SeedSigner</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Detalhe Completo: Adicionar Passphrase (BIP39) no SeedSigner</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Detalhe Completo: Adicionar Passphrase (BIP39) no SeedSigner</strong>
+        </p>
+        <p>A <strong>passphrase BIP39</strong> (também chamada de “Word 25” ou 13ª/25ª
+          palavra) é uma senha extra que transforma sua seed de 12/24 palavras em
+          uma wallet <strong>completamente diferente</strong>. É um ótimo adicional
+          de segurança, mas <strong>exige backup cuidadoso</strong>: sem a passphrase
+          correta, você perde acesso aos fundos mesmo tendo a seed.</p>
+        <h3>Quando Adicionar a Passphrase</h3>
+        <ul>
+          <li data-list-item-id="eb57a05516971079ff851896b0c551426">Durante a <strong>criação inicial</strong> da seed (recomendado).</li>
+          <li
+          data-list-item-id="ec42ab8509cac99ced51bccabc2a8a279">Ou ao <strong>carregar</strong> uma seed existente.</li>
+        </ul>
+        <h3>Passo a Passo: Durante a Criação de Nova Seed</h3>
+        <ol>
+          <li data-list-item-id="ec0768e42c2e46ab8a92599554f2bfdf4">Ligue o SeedSigner.</li>
+          <li data-list-item-id="e39a45aa1f1a88ccb602d088bb476da0d">Vá em <strong>Seeds → Create a seed</strong> (ou <strong>New Seed</strong>).</li>
+          <li
+          data-list-item-id="e7c5eca9db4d66213e1a959ba740a2033">Escolha o método:
+            <ul>
+              <li data-list-item-id="e9b1e46b593db89d58820ae8bff6915d1">Dice Rolls (recomendado).</li>
+              <li data-list-item-id="e5e143bfb47094c0af6c62597b27e93a9">Seed from Image, etc.</li>
+            </ul>
+            </li>
+            <li data-list-item-id="eb0b9bc524e978dd722e67837c504b979">Gere a seed e <strong>verifique</strong> as 12/24 palavras na tela.</li>
+            <li
+            data-list-item-id="e9764517ba38eb7a2b248cf541f732e52">Após a verificação (o SeedSigner mostra as palavras e pede confirmação),
+              aparecerá a opção:
+              <ul>
+                <li data-list-item-id="e7d1d29cab29ff29ac52522b470a4321f"><strong>Apply Passphrase</strong> ou <strong>BIP39 Passphrase</strong>.</li>
+              </ul>
+              </li>
+              <li data-list-item-id="e42b300d098f17d86fa274e21e2775b44">Selecione <strong>Yes</strong> / <strong>Add Passphrase</strong>.</li>
+              <li
+              data-list-item-id="e4f4f49699a4d5f47800ffaa9d4e94e33">Digite a passphrase usando o joystick:
+                <ul>
+                  <li data-list-item-id="e1e04b83daad90c3c7fd23c7a39af7f2b">Pode ser uma frase forte (recomendado: 8+ caracteres com maiúsculas, minúsculas,
+                    números e símbolos).</li>
+                  <li data-list-item-id="ebd9b8b61f4f8d3adc0a2ba3b80a4b6ed">Ou várias palavras aleatórias (ex: “correct horse battery staple”).</li>
+                </ul>
+                </li>
+                <li data-list-item-id="eb7f1ed8defbcb07a820de859edfcedab">Confirme a passphrase digitando novamente (o SeedSigner pede confirmação).</li>
+                <li
+                data-list-item-id="e1d565bb097a6842f121a8bfbf1a7fc9b">O dispositivo agora carregará a seed <strong>+ passphrase</strong> como
+                  uma wallet combinada.</li>
+                  <li data-list-item-id="e17d427f70f58db6b35d1adbbb7c18ade">Exporte o <strong>xpub</strong> (via QR) — esse xpub já inclui o efeito
+                    da passphrase.</li>
+        </ol>
+        <h3>Passo a Passo: Adicionar Passphrase em uma Seed Existente</h3>
+        <ol>
+          <li data-list-item-id="eb0434f3a72d71320318f063a23a2fd36">Carregue a seed normalmente:
+            <ul>
+              <li data-list-item-id="ef4faff6c9c8584e106715d5232464da5"><strong>Seeds → Load Seed</strong> → Scan SeedQR, digite manualmente ou
+                importe.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e927e568791d2b611f4474d883dd98b86">Depois de carregar, vá no menu da seed.</li>
+          <li data-list-item-id="e91bace66bcf094acfd8bb2455590e61c">Procure a opção <strong>Passphrase</strong>, <strong>BIP39 Passphrase</strong> ou <strong>Tools → Apply Passphrase</strong>.</li>
+          <li
+          data-list-item-id="ed95a8e0d44ba799cd8e38e6a93d9a6f7">Digite a passphrase e confirme.</li>
+            <li data-list-item-id="eb92d155a7c9bcfbb0b69a25376d3cb8c">O SeedSigner agora usa a seed + passphrase para todas as operações (xpub,
+              assinatura, etc.).</li>
+        </ol>
+        <h3>Dicas Importantes de Segurança</h3>
+        <ul>
+          <li data-list-item-id="ee0da4bdffef1a10b8c5fcf3ab843259f"><strong>Backup</strong>:
+            <ul>
+              <li data-list-item-id="e5dda9f8c11327c9b5900ef0bdb6e64c7">Anote a seed de 12/24 palavras <strong>separadamente</strong>.</li>
+              <li
+              data-list-item-id="e2154c6cab7446cc7e40cd43f2ff1ea35">Anote a passphrase em um local <strong>diferente</strong> (nunca junto com
+                a seed).</li>
+          <li data-list-item-id="e0bd4b98b83768540c0966937c994b598">Recomendado: grave a passphrase também em metal.</li>
+          </ul>
+          </li>
+          <li data-list-item-id="edfda12513ffaa02352a16be7592730e5"><strong>Teste sempre</strong>: Crie uma wallet de teste com passphrase,
+            envie small amount e teste o restore completo.</li>
+          <li data-list-item-id="e93a5cf1becf7d7a1608e66b5141c5d22"><strong>No Sparrow</strong>:
+            <ul>
+              <li data-list-item-id="e5bfa8009ea93dc855b5b1b79280e42c8">Quando importar o xpub via QR, o Sparrow usa automaticamente a wallet
+                com passphrase (não precisa digitar a passphrase no Sparrow).</li>
+              <li data-list-item-id="e0f189f58ee256607851a67511ea9f54e">No multisig, aplique passphrase em um ou mais keystores.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e3ee660899e1760935b4ab13c0aede70d"><strong>Esqueceu a passphrase?</strong> Não tem recuperação. Ela é como
+            uma segunda seed.</li>
+          <li data-list-item-id="e7829ed37d68ddf03ff50ee6725b15711"><strong>Recomendação para novatos</strong>: Use passphrase forte, mas
+            comece sem ela em testes e adicione depois de se sentir confortável.</li>
+        </ul>
+        <h3>Vantagens e Cuidados</h3>
+        <ul>
+          <li data-list-item-id="e90b0808c4efe1ec0aef8be558b2a67e0"><strong>Vantagem</strong>: Mesmo se alguém encontrar sua seed física,
+            sem a passphrase os fundos estão seguros.</li>
+          <li data-list-item-id="e115bc4b7ab1faa94e87eaafda53d9535"><strong>Cuidado</strong>: A passphrase vira um ponto único de falha. Muitos
+            na comunidade usam multisig + passphrase em apenas um dos keystores.</li>
+        </ul>
+        <p>Quer que eu detalhe agora:</p>
+        <ul>
+          <li data-list-item-id="e345c39107510e1cf43e2600a3e605e28">Como fazer backup seguro da passphrase?</li>
+          <li data-list-item-id="ee59350f3f1d52cfa66958ec31ddd8e11">Como usar passphrase no Krux (para comparar)?</li>
+          <li data-list-item-id="e24b63d9aa07662c7946db1e77debda2e">Teste de restore com passphrase no Sparrow?</li>
+          <li data-list-item-id="e467fd271cbbf3ebc9427f6fd127a5ac9">Criação de multisig com passphrase em um dos signers?</li>
+        </ul>
+        <p>Me diga o próximo passo! 🚀</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,239 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🔐 MÓDULO 9 – VERIFICAÇÃO PGP, CIFRAGEM E AUTOMAÇÃO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🔐 MÓDULO 9 – VERIFICAÇÃO PGP, CIFRAGEM E AUTOMAÇÃO</h1>
+
+      <div class="ck-content">
+        <h2>🔐 MÓDULO 9 – VERIFICAÇÃO PGP, CIFRAGEM E AUTOMAÇÃO</h2>
+        <blockquote>
+          <p><em>"A confiança é uma falha. A verificação é uma muralha."</em>
+          </p>
+        </blockquote>
+        <p>Você construiu a fortaleza, mas todas as peças vieram da internet. Como
+          saber que o arquivo que baixou não foi trocado por um impostor? Como garantir
+          que o backup não foi corrompido? E como não gastar 10 minutos toda semana
+          repetindo comandos?
+          <br>Aqui você aprende a <strong>verificar assinaturas PGP</strong>, <strong>cifrar com GPG</strong> em
+          detalhes e a criar um <strong>script mestre</strong> que automatiza o pesado,
+          deixando apenas o que exige sua atenção.</p>
+        <hr>
+        <h2>1. Verificação PGP na Prática</h2>
+        <p>Sempre que baixar um arquivo (Tails, Feather, Electrum, KeePassXC), o
+          site oferece um arquivo <code spellcheck="false">.asc</code> ou <code spellcheck="false">.sig</code> (assinatura
+          destacada) e a <strong>chave pública</strong> do desenvolvedor. O processo
+          é:</p>
+        <h3>Passo a passo (exemplo com Feather)</h3><pre><code class="language-text-x-trilium-auto"># 1. Baixe o AppImage e a assinatura
+wget https://featherwallet.org/files/releases/linux/feather-2.7.0.AppImage
+wget https://featherwallet.org/files/releases/linux/feather-2.7.0.AppImage.asc
+
+# 2. Importe a chave pública do desenvolvedor (uma vez)
+#    O fingerprint está no site oficial. Exemplo fictício:
+gpg --keyserver hkps://keys.openpgp.org --recv-keys 0x1234567890ABCDEF
+
+# 3. Verifique
+gpg --verify feather-2.7.0.AppImage.asc feather-2.7.0.AppImage</code></pre>
+        <p><strong>Saída esperada:</strong>
+        </p><pre><code class="language-text-x-trilium-auto">gpg: Assinatura feita em [data]
+gpg: Assinatura correta de "Feather Dev &lt;dev@featherwallet.org&gt;" [confiança indefinida]
+gpg: ATENÇÃO: Esta chave não é certificada por uma assinatura confiável!</code></pre>
+        <p>A mensagem de "confiança indefinida" é normal — você não assinou a chave
+          do desenvolvedor, apenas a importou. O importante é a linha <strong>"Assinatura correta"</strong>.
+          Se aparecer <strong>"Assinatura inválida"</strong>, o arquivo foi adulterado.</p>
+        <h3>E se a chave pública não estiver no keyserver?</h3>
+        <p>Baixe o arquivo <code spellcheck="false">.asc</code> da chave pública do
+          site e importe:</p><pre><code class="language-text-x-trilium-auto">gpg --import chave-publica.asc</code></pre>
+        <hr>
+        <h2>2. Cifrando o Backup com GPG (entendendo cada pedaço)</h2>
+        <p>O comando que você usou várias vezes merece um olhar mais profundo:</p><pre><code class="language-text-x-trilium-auto">tar czf - \
+  /home/amnesia/Persistent/feather-data \
+  /home/amnesia/Persistent/electrum-data \
+  ... \
+| gpg --symmetric --cipher-algo AES256 --output /media/backup/fortaleza_backup_$(date +%Y%m%d).tar.gz.gpg</code></pre>
+        <ul>
+          <li data-list-item-id="e989e0f5f7f927df27d371d42e27359ae"><code spellcheck="false">tar czf -</code>: empacota e comprime (c=create,
+            z=gzip, f=- envia para stdout).</li>
+          <li data-list-item-id="eb0d2a463356b05189e6c82605e21254b"><code spellcheck="false">|</code> (pipe): conecta a saída do tar à entrada
+            do GPG.</li>
+          <li data-list-item-id="e52b0640c1916d5728cdc38b644268a5b"><code spellcheck="false">gpg --symmetric</code>: cifra com senha simétrica
+            (você digita a frase-senha).</li>
+          <li data-list-item-id="e52551d7bf3a958a4e712125d921b4eab"><code spellcheck="false">--cipher-algo AES256</code>: força o algoritmo
+            AES-256.</li>
+          <li data-list-item-id="ed353102c33ca8b388ea6eed3934a2ff1"><code spellcheck="false">--output</code>: define o nome do arquivo final.</li>
+          <li
+          data-list-item-id="ec608e92f859f0e4bb77eedb53ca65229"><code spellcheck="false">$(date +%Y%m%d)</code>: adiciona a data (ex:
+            20260712) ao nome.</li>
+        </ul>
+        <p><strong>Por que simétrico?</strong> Simples e direto. Uma única frase-senha
+          memorizada (ou guardada no KeePassXC e em local separado). Não há chave
+          privada para gerenciar, ideal para backups.</p>
+        <hr>
+        <h2>3. Script Mestre do Operador</h2>
+        <p>Crie um script na persistência que automatize:</p>
+        <ol>
+          <li data-list-item-id="e27faf8535862af5c424b26d884c7c0cd"><strong>Verificação de integridade</strong> de arquivos baixados.</li>
+          <li
+          data-list-item-id="e17089d79f566ceddc684de0bc8ef7d08"><strong>Backup 3-2-1</strong> rápido.</li>
+            <li data-list-item-id="eb416723171b91496d55b402d4d666994"><strong>Restauração</strong> guiada.</li>
+        </ol>
+        <h3>O Script</h3>
+        <p>Salve como <code spellcheck="false">/home/amnesia/Persistent/fortaleza-toolkit.sh</code>:</p><pre><code class="language-text-x-trilium-auto">#!/bin/bash
+
+# ==============================================
+# FORTALEZA TOOLKIT - Cypherpunk Operacional
+# ==============================================
+
+PASTA_APPS="/home/amnesia/Persistent/Apps"
+PASTA_BACKUP="/media/backup"
+
+# Cores para melhor visualização
+VERDE='\033[0;32m'
+VERMELHO='\033[0;31m'
+AMARELO='\033[1;33m'
+SEMCOR='\033[0m'
+
+# Função: Verificar assinatura PGP
+verificar_assinatura() {
+    arquivo="$1"
+    assinatura="$2"
+    echo -e "${AMARELO}[VERIFICANDO]${SEMCOR} $arquivo"
+    if gpg --verify "$assinatura" "$arquivo" 2&gt;&amp;1 | grep -q "Assinatura correta"; then
+        echo -e "${VERDE}[OK]${SEMCOR} Assinatura válida!"
+        return 0
+    else
+        echo -e "${VERMELHO}[FALHA]${SEMCOR} Assinatura INVÁLIDA ou erro!"
+        return 1
+    fi
+}
+
+# Função: Criar backup 3-2-1
+criar_backup() {
+    echo -e "${AMARELO}[BACKUP] Iniciando backup seguro...${SEMCOR}"
+    echo "Digite a frase-senha GPG para criptografar o backup:"
+    read -s FRASE
+
+    ARQUIVO_SAIDA="$PASTA_BACKUP/fortaleza_backup_$(date +%Y%m%d_%H%M).tar.gz.gpg"
+
+    tar czf - \
+        /home/amnesia/Persistent/feather-data \
+        /home/amnesia/Persistent/electrum-data \
+        /home/amnesia/.local/share/haveno \
+        /home/amnesia/Persistent/fortaleza_cofre.kdbx \
+        /home/amnesia/Persistent/haveno_backup_amnesia.zip \
+    | gpg --batch --passphrase "$FRASE" --symmetric --cipher-algo AES256 --output "$ARQUIVO_SAIDA"
+
+    if [ $? -eq 0 ]; then
+        echo -e "${VERDE}[OK]${SEMCOR} Backup salvo em: $ARQUIVO_SAIDA"
+        # Opcional: copiar para um pendrive extra
+        # cp "$ARQUIVO_SAIDA" /caminho/para/segundo_pendrive/
+    else
+        echo -e "${VERMELHO}[ERRO]${SEMCOR} Falha ao criar backup."
+    fi
+}
+
+# Função: Restaurar backup
+restaurar_backup() {
+    echo "Backups disponíveis:"
+    ls $PASTA_BACKUP/fortaleza_backup_*.tar.gz.gpg
+    echo ""
+    echo "Digite o nome exato do arquivo de backup:"
+    read ARQUIVO
+    echo "Digite a frase-senha GPG:"
+    read -s FRASE
+
+    gpg --batch --passphrase "$FRASE" --decrypt "$PASTA_BACKUP/$ARQUIVO" | tar xzvf - -C /
+
+    if [ $? -eq 0 ]; then
+        echo -e "${VERDE}[OK]${SEMCOR} Backup restaurado com sucesso."
+    else
+        echo -e "${VERMELHO}[ERRO]${SEMCOR} Falha na restauração."
+    fi
+}
+
+# Menu principal
+echo "========================================="
+echo "       FORTALEZA TOOLKIT v1.0"
+echo "========================================="
+echo "1) Verificar assinatura PGP de um arquivo"
+echo "2) Criar backup 3-2-1"
+echo "3) Restaurar backup"
+echo "4) Sair"
+read -p "Escolha: " OPCAO
+
+case $OPCAO in
+    1)
+        read -p "Caminho do arquivo (.AppImage, .iso): " ARQ
+        read -p "Caminho da assinatura (.asc, .sig): " ASS
+        verificar_assinatura "$ARQ" "$ASS"
+        ;;
+    2)
+        criar_backup
+        ;;
+    3)
+        restaurar_backup
+        ;;
+    *)
+        echo "Até logo, cypherpunk."
+        ;;
+esac</code></pre>
+        <p><strong>Torne-o executável:</strong>
+        </p><pre><code class="language-text-x-trilium-auto">chmod +x /home/amnesia/Persistent/fortaleza-toolkit.sh</code></pre>
+        <hr>
+        <h2>4. Automatizando a Verificação de Todos os Downloads</h2>
+        <p>Para quem quer um script que baixa e <strong>já verifica</strong> a assinatura
+          dos aplicativos principais, crie este complemento:</p><pre><code class="language-text-x-trilium-auto">#!/bin/bash
+# Script: atualizar-fortaleza.sh
+
+PASTA_APPS="/home/amnesia/Persistent/Apps"
+cd $PASTA_APPS
+
+# Feather
+echo "Baixando Feather..."
+torsocks wget -q https://featherwallet.org/files/releases/linux/feather-2.7.0.AppImage
+torsocks wget -q https://featherwallet.org/files/releases/linux/feather-2.7.0.AppImage.asc
+gpg --verify feather-2.7.0.AppImage.asc feather-2.7.0.AppImage
+
+# Electrum
+echo "Baixando Electrum..."
+torsocks wget -q https://download.electrum.org/4.5.5/electrum-4.5.5-x86_64.AppImage
+torsocks wget -q https://download.electrum.org/4.5.5/electrum-4.5.5-x86_64.AppImage.asc
+gpg --verify electrum-4.5.5-x86_64.AppImage.asc electrum-4.5.5-x86_64.AppImage
+
+# KeePassXC
+echo "Baixando KeePassXC..."
+torsocks wget -q https://github.com/keepassxreboot/keepassxc/releases/latest/download/KeePassXC-2.7.9-x86_64.AppImage
+torsocks wget -q https://github.com/keepassxreboot/keepassxc/releases/latest/download/KeePassXC-2.7.9-x86_64.AppImage.asc
+gpg --verify KeePassXC-2.7.9-x86_64.AppImage.asc KeePassXC-2.7.9-x86_64.AppImage
+
+echo "Verificação concluída. Se não houver 'Assinatura incorreta' acima, tudo OK."</code></pre>
+        <hr>
+        <h2>5. Checklist de Integridade Semanal (Manual Simplificado)</h2>
+        <p>Se preferir fazer no olho:</p>
+        <ul>
+          <li data-list-item-id="e4e9b13f8348aee5a5247e9696736af90"><strong>Tails:</strong> O site fornece um checksum SHA256. Rode <code spellcheck="false">sha256sum tails.img</code> e
+            compare com o site.</li>
+          <li data-list-item-id="e4429ee3ae60e6a079782173459d514ba"><strong>Feather/Electrum/KeePassXC:</strong> Confira sempre a saída do
+            <code
+            spellcheck="false">gpg --verify</code>como descrito.</li>
+        </ul>
+        <hr>
+        <p>Com estas ferramentas, a verificação deixa de ser um bicho de sete cabeças
+          e vira parte da rotina. A automação reduz erros humanos e libera sua mente
+          para o que realmente importa: operar com soberania.</p>
+        <blockquote>
+          <p><em>“O que é verificado, fica. O que é confiado, pode ruir.”</em>
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </body>
+
+</html>

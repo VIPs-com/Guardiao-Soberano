@@ -1,0 +1,469 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Pré-requisitos antes de começar</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Pré-requisitos antes de começar</h1>
+
+      <div class="ck-content">
+        <p>Vamos detalhar a configuração do Whirlpool no Sparrow sobre Tails. Este
+          é um passo crítico porque <strong>coinjoin no Tails exige ajustes específicos</strong> —
+          o sistema é amnésico por padrão e roda tudo sobre Tor, o que afeta performance
+          e persistência do Whirlpool.</p>
+        <hr>
+        <h2>Pré-requisitos antes de começar</h2>
+        <ol>
+          <li data-list-item-id="e58f6edda6a44ef1b7277b7693454c398"><strong>Tails com Persistent Storage ativo</strong>
+            <br>Applications → Tails → Persistent Storage
+            <br>Marcar: <code spellcheck="false">Personal Data</code>, <code spellcheck="false">Bitcoin Client</code>,
+            <code
+            spellcheck="false">Additional Software</code>
+              <br>Sem isso, o Whirlpool perde todo o progresso ao desligar.</li>
+          <li data-list-item-id="e6759e15a089534a8b8fe8773fe1a1aab"><strong>Sparrow Wallet AppImage verificada e funcional</strong>
+            <br>Já testou o ciclo PSBT completo com Coldcard.</li>
+          <li data-list-item-id="e9d5cf65ea72231e53698c97ff378cf9e"><strong>Tor funcionando e verificado</strong>
+            <br><code spellcheck="false">check.torproject.org</code> no Tor Browser confirma
+            que você está na rede Tor.</li>
+          <li data-list-item-id="e25112441f6bb4fa8085b289a4c88872b"><strong>Pelo menos 0.01 BTC para começar</strong>
+            <br>O Whirlpool tem taxas de coordenação (coordinator fee) e requer UTXOs
+            de tamanhos padronizados (pools). Valores muito pequenos não entram ou
+            demoram eternidade.</li>
+          <li data-list-item-id="e679618b05345c76a3a39f287c22ca9d0"><strong>Tempo de sessão longo disponível</strong>
+            <br>Whirlpool pode levar horas. Configure o Tails para não suspender:
+            <br>Terminal: <code spellcheck="false">gsettings set org.gnome.desktop.session idle-delay 0</code>
+            <br>Conecte o laptop à energia.</li>
+        </ol>
+        <hr>
+        <h2>Passo 1 — Conectar Sparrow a um servidor Electrum .onion confiável</h2>
+        <p>O Whirlpool precisa de um servidor Electrum para monitorar a blockchain
+          e transmitir transações. Use <strong>servidor próprio</strong> (EPS + Bitcoin
+          Core) ou um servidor público .onion de altíssima reputação.</p>
+        <p><strong>Opção A: Servidor público .onion (se não tiver EPS próprio)</strong>
+        </p>
+        <p>Abra o Sparrow. Vá em <strong>Preferences → Server</strong> e configure:</p>
+        <figure
+        class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Server Type</td>
+                <td>Private Electrum</td>
+              </tr>
+              <tr>
+                <td>URL</td>
+                <td><code spellcheck="false">electrumx.hodlister.co.onion:50002</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Use Tor</td>
+                <td>Marcado</td>
+              </tr>
+              <tr>
+                <td>Use SSL</td>
+                <td>Marcado</td>
+              </tr>
+            </tbody>
+          </table>
+          </figure>
+          <p>Teste a conexão: botão <strong>Test Connection</strong>. Deve ficar verde.</p>
+          <p><strong>Lista de servidores .onion confiáveis (anote no KeePassXC)</strong>
+          </p>
+          <ul>
+            <li data-list-item-id="e7290c03ae4335032802f76d140916fa2"><code spellcheck="false">electrumx.hodlister.co.onion:50002</code>
+            </li>
+            <li data-list-item-id="e37a96b30750159139c8a06888acadcc7"><code spellcheck="false">fortress.qtornado.com.onion:50002</code>
+            </li>
+            <li data-list-item-id="eac5995c3242ff7f4042695115e9427ff"><code spellcheck="false">electrum.anonymize.net.onion:50002</code>
+            </li>
+          </ul>
+          <p>Sempre verifique se o servidor aparece com SSL válido (ícone de cadeado
+            verde no Sparrow).</p>
+          <p><strong>Opção B: Servidor próprio (ideal)</strong>
+            <br>EPS rodando em Raspi, exposto como .onion.
+            <br>Exemplo de configuração no Sparrow: <code spellcheck="false">seudominio.onion:50002</code> com
+            SSL.
+            <br>Isso garante que ninguém além de você veja suas consultas de endereço
+            (embora o próprio protocolo Whirlpool oculte os vínculos).</p>
+          <hr>
+          <h2>Passo 2 — Criar a carteira Bitcoin com coinjoin habilitado</h2>
+          <p>Você já tem a carteira watching-only importada do Coldcard. Agora vamos
+            configurar a parte de coinjoin.</p>
+          <p><strong>2.1 Criar uma nova carteira Sparrow dedicada ao Whirlpool (recomendado)</strong>
+          </p>
+          <p>Para evitar misturar UTXOs não-misturados com os pós-coinjoin na mesma
+            carteira, crie uma carteira <strong>separada</strong> apenas para o processo
+            de coinjoin.</p>
+          <ul>
+            <li data-list-item-id="ee7f6322cf6147361f90250b0c5473584">File → New Wallet → dê nome como <code spellcheck="false">Whirlpool_Tails</code>
+            </li>
+            <li data-list-item-id="ecfe635768965d3c3f8ece767c4d966de">Importar a <strong>mesma xpub do Coldcard</strong> (arquivo <code spellcheck="false">.json</code> exportado).</li>
+            <li
+            data-list-item-id="e460511d21231b6d73b28444e53f9c456">A carteira será watching-only, assinatura continua offline no Coldcard.</li>
+          </ul>
+          <p><strong>2.2 Acessar a aba Whirlpool</strong>
+          </p>
+          <p>No Sparrow, com a carteira aberta, clique na aba <strong>Whirlpool</strong> (ícone
+            de redemoinho).</p>
+          <p><strong>2.3 Configurar o coordinator .onion</strong>
+          </p>
+          <p>Na janela do Whirlpool, clique em <strong>Settings</strong> (engrenagem).</p>
+          <figure
+          class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Campo</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Coordinator</td>
+                  <td><code spellcheck="false">sparrow.samouraiwallet.com.onion</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Use Tor</td>
+                  <td>Marcado</td>
+                </tr>
+                <tr>
+                  <td>Coordinator Port</td>
+                  <td>443</td>
+                </tr>
+              </tbody>
+            </table>
+            </figure>
+            <p><strong>Importante:</strong> O coordinator oficial do Samourai foi descontinuado
+              após a apreensão. O Sparrow migrou para um coordinator mantido por voluntários
+              da comunidade. Verifique no site oficial do Sparrow (<code spellcheck="false">sparrowwallet.com</code>)
+              qual é o coordinator .onion atual antes de conectar. Pode ser algo como
+              <code
+              spellcheck="false">coordinator.sparrowwallet.com.onion</code>ou similar. <strong>Nunca aceite coordinator de fontes não-verificadas.</strong>
+            </p>
+            <p><strong>Como verificar o coordinator oficial atual:</strong>
+              <br>No Tor Browser, acesse <code spellcheck="false">sparrowwallet.com</code> (versão
+              .onion se disponível) e procure por "Whirlpool Coordinator" na documentação
+              ou blog. Confira o fingerprint PGP do anúncio.</p>
+            <hr>
+            <h2>Passo 3 — Preparar os UTXOs para o Whirlpool (Premix)</h2>
+            <p>O Whirlpool exige que os UTXOs sejam fragmentados em tamanhos padronizados
+              (pools). Os pools comuns são:</p>
+            <figure class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pool</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0.5 BTC</td>
+                    <td>0.5</td>
+                  </tr>
+                  <tr>
+                    <td>0.05 BTC</td>
+                    <td>0.05</td>
+                  </tr>
+                  <tr>
+                    <td>0.01 BTC</td>
+                    <td>0.01</td>
+                  </tr>
+                  <tr>
+                    <td>0.001 BTC</td>
+                    <td>0.001</td>
+                  </tr>
+                </tbody>
+              </table>
+            </figure>
+            <p>Você precisa criar uma transação <strong>Premix</strong> que quebra seu
+              UTXO em múltiplos outputs do tamanho do pool escolhido + taxas.</p>
+            <p><strong>3.1 Selecionar UTXOs para misturar</strong>
+            </p>
+            <p>Na aba <strong>UTXOs</strong>, selecione os UTXOs que você quer submeter
+              ao Whirlpool.
+              <br>Clique com o botão direito → <strong>Mix to Whirlpool</strong>.</p>
+            <p><strong>3.2 Escolher o pool</strong>
+            </p>
+            <p>Escolha o pool desejado (ex: <code spellcheck="false">0.01 BTC</code>).
+              O Sparrow calculará quantos outputs de 0.01 BTC podem ser criados e mostrará:</p>
+            <ul>
+              <li data-list-item-id="ed4d8b10d55855e7b4ccb479b18dd2030">Quantidade de outputs de pool (ex: 2 outputs de 0.01 BTC)</li>
+              <li data-list-item-id="e032e9bd43b8b4d32f3a9a31383e20cf1">Output de change (troco) que volta para você</li>
+              <li data-list-item-id="e945e652bffc6f8e8986af6789e3f49fd">Taxa de coordenação (coordinator fee)</li>
+              <li data-list-item-id="ecb54266fd5f397c887a2d317139d4c02">Taxa de mineração (miner fee)</li>
+            </ul>
+            <p><strong>3.3 Taxa de coordenação</strong>
+            </p>
+            <p>O coordinator cobra uma taxa por output misturado. Exemplo: 0.002 BTC
+              por output de 0.01 BTC (20% no primeiro ciclo, diluído com o tempo).
+              <br>Verifique os valores atuais no momento da configuração. O Sparrow mostra
+              tudo antes de criar a transação.</p>
+            <p><strong>3.4 Criar a transação Premix</strong>
+            </p>
+            <p>Revise os valores. Se estiver correto, clique em <strong>Create Premix Transaction</strong>.
+              <br>O Sparrow criará uma transação que envia:</p>
+            <ul>
+              <li data-list-item-id="e47c2089cef260c69b8b0be284fc5e7ca">Vários outputs de exatamente 0.01 BTC (outputs de pool, que serão misturados)</li>
+              <li
+              data-list-item-id="e89324267a223fbb15b2f9e8af8560917">Um output de change (seu troco)</li>
+                <li data-list-item-id="e811ed7b30b58e899e7986e92c030c7d6">Um output de coordinator fee</li>
+            </ul>
+            <p><strong>3.5 Assinar a transação Premix com o Coldcard</strong>
+            </p>
+            <p>Salve a transação PSBT em um arquivo no MicroSD.
+              <br>Leve ao Coldcard → Ready to Sign → selecione o arquivo → assine.
+              <br>Volte ao Sparrow → Load Transaction → carregue a PSBT assinada → <strong>Broadcast Transaction</strong>.</p>
+            <p>A transação Premix será transmitida pela rede Tor e entrará na mempool.</p>
+            <hr>
+            <h2>Passo 4 — Iniciar o Whirlpool (mixagem contínua)</h2>
+            <p><strong>4.1 Aguardar confirmação da transação Premix</strong>
+            </p>
+            <p>O Whirlpool só começa a misturar depois que a transação Premix tem pelo
+              menos <strong>1 confirmação</strong>. Monitore na aba Transactions.</p>
+            <p><strong>4.2 Iniciar o Whirlpool</strong>
+            </p>
+            <p>Com a transação confirmada, vá na aba <strong>Whirlpool</strong>.
+              <br>Clique no botão <strong>Start</strong> (triângulo verde).</p>
+            <p>O Sparrow agora:</p>
+            <ul>
+              <li data-list-item-id="e3c82481c6f446f99a0ea84a010b531b7">Conecta ao coordinator .onion via Tor</li>
+              <li data-list-item-id="eaef0e9144c0401885d336de1c6f12469">Registra seus outputs de pool (agora chamados de "premix outputs")</li>
+              <li
+              data-list-item-id="e8ae445cc3733edbc6cb433f8a6ed1ded">Aguarda outros participantes formarem um pool (round)</li>
+                <li data-list-item-id="efa5ec74c86251eb2911f36176b89382c">Quando um round é formado, seu output entra em um coinjoin coletivo</li>
+            </ul>
+            <p><strong>4.3 O que aparece na tela</strong>
+            </p>
+            <figure class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Indicador</th>
+                    <th>Significado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Registered</strong>
+                    </td>
+                    <td>Seu output está registrado no coordinator</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Signing</strong>
+                    </td>
+                    <td>O round está em andamento, Sparrow assina a transação coinjoin</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Remixing</strong>
+                    </td>
+                    <td>Após um round bem-sucedido, o output limpo volta automaticamente para
+                      mais rodadas</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Error</strong>
+                    </td>
+                    <td>Falha de conexão ou conflito de UTXO</td>
+                  </tr>
+                </tbody>
+              </table>
+            </figure>
+            <p><strong>4.4 Modo Remix (automático)</strong>
+            </p>
+            <p>Após o primeiro round bem-sucedido, o output misturado (agora com anonset
+              &gt; 1) volta para a fila e entra em novos rounds automaticamente.
+              <br>Isso aumenta o <strong>anonymity set</strong> (conjunto de anonimato) a
+              cada rodada.</p>
+            <p>Você configura quantas rodadas deseja em <strong>Whirlpool Settings → Mix to (target anonimity set)</strong>.
+              <br>Recomendação: mínimo de <strong>3 rodadas</strong> (anonset 3) para privacidade
+              básica, <strong>5+ rodadas</strong> para privacidade forte.</p>
+            <hr>
+            <h2>Passo 5 — Gerenciar durante a sessão Tails</h2>
+            <p><strong>5.1 Duração realista</strong>
+            </p>
+            <ul>
+              <li data-list-item-id="e35af7480eb49f92c5dee7848bc83e397">Cada round de Whirlpool leva de 10 a 60 minutos, dependendo do pool e
+                do número de participantes.</li>
+              <li data-list-item-id="ea0d8339497da0c8c782bd2e4fdd49e6f">Para 5 rodadas, espere de 2 a 8 horas de sessão contínua.</li>
+              <li data-list-item-id="e3b205fbb86d830a62b5a7319e55b6825"><strong>Nunca desligue o Tails com o Whirlpool rodando</strong> — você
+                pode perder rounds em andamento e ter que recuperar manualmente.</li>
+            </ul>
+            <p><strong>5.2 Pausar e retomar em sessões futuras</strong>
+            </p>
+            <p>O Whirlpool foi desenhado para ser persistente, mas o Tails é amnésico.
+              Como resolver:</p>
+            <ul>
+              <li data-list-item-id="e516d08ad7c4cc8e8d231e4ff2bd1ec45">O Sparrow armazena o estado do Whirlpool na pasta <code spellcheck="false">~/.sparrow/</code>
+              </li>
+              <li data-list-item-id="e0cf5f39a6fe7a50cd15f2ebd67dcfb6d">Como você ativou o Persistent Storage com <code spellcheck="false">Personal Data</code>,
+                essa pasta sobrevive entre sessões</li>
+              <li data-list-item-id="eabbffbb8815cb270ef22871b4a640420">Ao reiniciar o Tails, abra o Sparrow, carregue a carteira <code spellcheck="false">Whirlpool_Tails</code>,
+                vá na aba Whirlpool e clique em <strong>Start</strong> novamente.</li>
+              <li
+              data-list-item-id="eecb85af6ad366df5343e27cd28392ab0">O coordinator reconhece seus outputs registrados e continua de onde parou.</li>
+            </ul>
+            <p><strong>5.3 Verificar persistência real</strong>
+            </p>
+            <p>Após configurar o Whirlpool e ter pelo menos 1 output registrado:</p>
+            <ol>
+              <li data-list-item-id="ebb12b44281b09ef428aa315d4b71051e">Anote no KeePassXC: ID da carteira, quantidade de outputs premix, round
+                atual.</li>
+              <li data-list-item-id="e6738f52af3b085ebe24d541ce0a12092">Desligue o Tails normalmente.</li>
+              <li data-list-item-id="e18f4e19ad8d35e560cf350c881acc622">Reinicie o Tails, desbloqueie o Persistent Storage.</li>
+              <li data-list-item-id="e1682504bcdd05242c742a89b37bddd17">Abra o Sparrow, carregue a carteira Whirlpool_Tails.</li>
+              <li data-list-item-id="ee002405e9fc079f9e79789e63acbe977">Verifique se os outputs premix ainda aparecem na aba Whirlpool.</li>
+              <li
+              data-list-item-id="e08c740c14f33b4d5f42f76bccc398438">Se sim, a persistência está funcionando. Se não, revise as permissões
+                da pasta <code spellcheck="false">~/.sparrow/</code> ou reinstale o Sparrow
+                AppImage dentro do Persistent Storage.</li>
+            </ol>
+            <p><strong>5.4 Dica de segurança: não misture tudo de uma vez</strong>
+            </p>
+            <p>Mantenha sempre uma parte dos seus BTC <strong>não misturada</strong> em
+              outro endereço da mesma carteira (ou carteira separada).
+              <br>Assim, se houver algum problema com o coordinator ou ataque teórico ao
+              pool, você não perde acesso a todos os fundos de uma vez.</p>
+            <hr>
+            <h2>Passo 6 — Finalizar e usar os outputs pós-coinjoin</h2>
+            <p><strong>6.1 Identificar outputs misturados</strong>
+            </p>
+            <p>Na aba <strong>UTXOs</strong>, os outputs que completaram o número desejado
+              de rodadas aparecem com um ícone de redemoinho azul e o <strong>anonset</strong> exibido
+              (ex: <code spellcheck="false">Anon: 5</code>).</p>
+            <p><strong>6.2 Mover outputs para carteira "limpa" (Postmix)</strong>
+            </p>
+            <p>Para separar definitivamente os fundos misturados:</p>
+            <ul>
+              <li data-list-item-id="e48633fb5e431f6678c24a3d00aba8a69">Crie uma <strong>terceira carteira Sparrow</strong> (ex: <code spellcheck="false">Postmix_Tails</code>)</li>
+              <li
+              data-list-item-id="ed9ac0ec20db89662d896b742b5831211">Importe a mesma xpub do Coldcard</li>
+                <li data-list-item-id="ed46f1befb1288d2743732d982a8a4168">Na carteira Whirlpool_Tails, selecione os UTXOs pós-coinjoin</li>
+                <li data-list-item-id="eaa858f64f6242e0696baf372ab0c89db">Clique com botão direito → <strong>Send to → Postmix</strong>
+                </li>
+                <li data-list-item-id="ec2aad1852958438e2b086d4748e66624">Assine a transação com Coldcard (PSBT) e transmita</li>
+            </ul>
+            <p>Agora os fundos estão na carteira <code spellcheck="false">Postmix_Tails</code> e
+              podem ser usados para swaps (eigenwallet) ou pagamentos privados.</p>
+            <p><strong>Nunca consolide outputs pós-coinjoin com outputs não-misturados</strong> —
+              isso desfaz todo o anonimato (common-input-ownership heuristic).</p>
+            <hr>
+            <h2>Passo 7 — Troubleshooting comum no Tails</h2>
+            <figure class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Problema</th>
+                    <th>Solução</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Whirlpool não conecta</strong>
+                    </td>
+                    <td>Verifique se o coordinator .onion está online. Teste no Tor Browser:
+                      <code
+                      spellcheck="false">http://coordinator.onion</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Output preso em "Registering"</strong>
+                    </td>
+                    <td>Aguarde até 30 min. Se persistir, delete o output da fila (botão direito
+                      → Remove) e recomece o Premix</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Erro SSL no servidor Electrum</strong>
+                    </td>
+                    <td>Troque para outro servidor .onion da lista. O Sparrow exige SSL válido</td>
+                  </tr>
+                  <tr>
+                    <td><strong>"Not enough funds" ao criar Premix</strong>
+                    </td>
+                    <td>O UTXO precisa ser maior que a soma dos outputs de pool + fee. Adicione
+                      mais fundos ou escolha pool menor</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tails perdeu dados do Whirlpool</strong>
+                    </td>
+                    <td>Se a pasta <code spellcheck="false">~/.sparrow/</code> sumiu, você perdeu
+                      o estado. Recupere a partir da seed: recrie a carteira, vá na aba Whirlpool,
+                      clique em <strong>Restore from Seed</strong>. O coordinator reconhecerá
+                      seus outputs se a transação Premix foi confirmada</td>
+                  </tr>
+                </tbody>
+              </table>
+            </figure>
+            <hr>
+            <h2>Checklist rápida de verificação antes de iniciar</h2>
+            <ul class="todo-list">
+              <li data-list-item-id="e59aab5a48732fbc328ebe15acb7729f1">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Persistent Storage ativo com <code spellcheck="false">Personal Data</code> e <code spellcheck="false">Bitcoin Client</code></span>
+                </label>
+              </li>
+              <li data-list-item-id="eec7c4792083288d60196af465c789bd3">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Tor verificado (check.torproject.org)</span>
+                </label>
+              </li>
+              <li data-list-item-id="e2f60870a55d395a995165c39b359d616">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Sparrow conectado a servidor Electrum .onion com SSL verde</span>
+                </label>
+              </li>
+              <li data-list-item-id="e7074d04e3f3d6922fcb3d17734b7da65">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Coordinator .onion verificado no site oficial</span>
+                </label>
+              </li>
+              <li data-list-item-id="e7d186de6a40de45f081c14c21899066e">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Carteira <code spellcheck="false">Whirlpool_Tails</code> criada e xpub importada</span>
+                </label>
+              </li>
+              <li data-list-item-id="ef2cb389964093e7ca7b0a08751674290">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Coldcard com bateria/sinal pronto para assinar PSBT</span>
+                </label>
+              </li>
+              <li data-list-item-id="e0ab2b79b95cde0604bd2c16f9ae498cb">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">KeePassXC aberto para anotar IDs e progresso</span>
+                </label>
+              </li>
+              <li data-list-item-id="e576f8914c37746c56b1782bd4d51f99b">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Pelo menos 4 horas ininterruptas disponíveis</span>
+                </label>
+              </li>
+              <li data-list-item-id="e5854d8301ba8b1d485c9d852d74edebe">
+                <label class="todo-list__label">
+                  <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Alimentação elétrica estável (sem chance de queda)</span>
+                </label>
+              </li>
+            </ul>
+            <p>Se algum round falhar durante a madrugada, o Whirlpool pausa e retoma
+              na próxima sessão sem perda de fundos — apenas perda de tempo. Por isso
+              a persistência via Tails Persistent Storage é tão importante: você pode
+              dividir a mixagem em várias sessões ao longo de dias.</p>
+            <p>Quer que eu detalhe como fazer a <strong>restauração do Whirlpool a partir da seed em caso de perda do Persistent Storage</strong> ou
+              como configurar o <strong>Electrum Personal Server .onion</strong> para eliminar
+              de vez a dependência de servidores públicos?</p>
+      </div>
+    </div>
+  </body>
+
+</html>

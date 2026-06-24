@@ -1,0 +1,236 @@
+{
+	"formatVersion": 2,
+	"appVersion": "0.103.0",
+	"files": [
+		{
+			"isClone": false,
+			"noteId": "emht8b33qZc4",
+			"notePath": [
+				"emht8b33qZc4"
+			],
+			"title": "Livro e-book ",
+			"notePosition": 1470,
+			"prefix": null,
+			"isExpanded": true,
+			"type": "text",
+			"mime": "text/html",
+			"attributes": [],
+			"format": "html",
+			"dataFileName": "Livro e-book.html",
+			"attachments": [],
+			"dirFileName": "Livro e-book",
+			"children": [
+				{
+					"isClone": false,
+					"noteId": "LQF63nejhm01",
+					"notePath": [
+						"emht8b33qZc4",
+						"LQF63nejhm01"
+					],
+					"title": "📊 DIAGNÓSTICO DO ESTADO ATUAL  O que TEMOS (completo e pronto)",
+					"notePosition": 20,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "📊 DIAGNÓSTICO DO ESTADO ATUAL.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "Pgw4bSgJIjfG",
+					"notePath": [
+						"emht8b33qZc4",
+						"Pgw4bSgJIjfG"
+					],
+					"title": "gerando os arquivos faltantes. Como o conteúdo da Parte II (Capítulos 6-12) ",
+					"notePosition": 30,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "gerando os arquivos faltantes..html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "8fRgoMwphUqw",
+					"notePath": [
+						"emht8b33qZc4",
+						"8fRgoMwphUqw"
+					],
+					"title": "⚠️ NOTA IMPORTANTE PARA QUEM VAI MONTAR",
+					"notePosition": 40,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "⚠️ NOTA IMPORTANTE PARA QUEM V.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "vzsRIzxkUiNq",
+					"notePath": [
+						"emht8b33qZc4",
+						"vzsRIzxkUiNq"
+					],
+					"title": "🤖 PROMPT UNIVERSAL PARA MONTAGEM DO LIVRO",
+					"notePosition": 50,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🤖 PROMPT UNIVERSAL PARA MONTA.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "BfhoF9NBIfS0",
+					"notePath": [
+						"emht8b33qZc4",
+						"BfhoF9NBIfS0"
+					],
+					"title": "✅ CONFIRMAÇÃO DE ALINHAMENTO",
+					"notePosition": 60,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "✅ CONFIRMAÇÃO DE ALINHAMENTO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "Ub7ab0bV2RAj",
+					"notePath": [
+						"emht8b33qZc4",
+						"Ub7ab0bV2RAj"
+					],
+					"title": "🤖 PROMPT PARA O REVISOR FINAL",
+					"notePosition": 70,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🤖 PROMPT PARA O REVISOR FINAL.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "PQlFFbNKux6w",
+					"notePath": [
+						"emht8b33qZc4",
+						"PQlFFbNKux6w"
+					],
+					"title": "📚 MANUSCRITO COMPLETO — GUARDIÃO SOBERANO",
+					"notePosition": 80,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "📚 MANUSCRITO COMPLETO — GUARD.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "mGNNMNfOXxTa",
+					"notePath": [
+						"emht8b33qZc4",
+						"mGNNMNfOXxTa"
+					],
+					"title": "📂 INSTRUÇÕES PARA COPIAR PARA O OBSIDIAN",
+					"notePosition": 90,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "📂 INSTRUÇÕES PARA COPIAR PARA.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "uYVC8qOMxXA5",
+					"notePath": [
+						"emht8b33qZc4",
+						"uYVC8qOMxXA5"
+					],
+					"title": "📊 PANORAMA GERAL DO LIVRO",
+					"notePosition": 100,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "📊 PANORAMA GERAL DO LIVRO.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "3RoCYSOFh4cU",
+					"notePath": [
+						"emht8b33qZc4",
+						"3RoCYSOFh4cU"
+					],
+					"title": "🎨 PARTE 1 — DESCRIÇÕES TEXTUAIS DOS DIAGRAMAS",
+					"notePosition": 110,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "🎨 PARTE 1 — DESCRIÇÕES TEXTUA.html",
+					"attachments": []
+				},
+				{
+					"isClone": false,
+					"noteId": "emSGWBXWDt0d",
+					"notePath": [
+						"emht8b33qZc4",
+						"emSGWBXWDt0d"
+					],
+					"title": "📚 GUIA DE PRODUÇÃO DO LIVRO  \"Guardião Soberano — Da Semente ao Ecossistema Completo\"  Manual de Auto-Custódia e Privacidade Digital",
+					"notePosition": 120,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"attributes": [],
+					"format": "html",
+					"dataFileName": "📚 GUIA DE PRODUÇÃO DO LIVRO  .html",
+					"attachments": []
+				}
+			]
+		},
+		{
+			"noImport": true,
+			"dataFileName": "navigation.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "index.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "style.css"
+		}
+	]
+}

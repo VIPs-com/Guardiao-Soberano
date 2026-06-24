@@ -1,0 +1,209 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>⚡ ELECTRUM NO TAILS: CARTEIRA BITCOIN PERSISTENTE</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>⚡ ELECTRUM NO TAILS: CARTEIRA BITCOIN PERSISTENTE</h1>
+
+      <div class="ck-content">
+        <h2>⚡ ELECTRUM NO TAILS: CARTEIRA BITCOIN PERSISTENTE</h2>
+        <blockquote>
+          <p><em>"A fortaleza aceita ouro digital. E o ouro também merece uma muralha."</em>
+          </p>
+        </blockquote>
+        <p>Você já domina a Feather (Monero) e a Haveno (DEX Monero). Mas o mundo
+          cripto é vasto, e ter uma carteira Bitcoin leve, soberana e integrada ao
+          seu Tails é um passo natural. O <strong>Electrum</strong> é a escolha cypherpunk:
+          madura, cheia de recursos de privacidade e perfeitamente adaptável ao ambiente
+          amnésico.</p>
+        <p>Aqui você vai instalar o Electrum de forma persistente, conectar via Tor
+          e salvar as carteiras dentro da criptografia LUKS.</p>
+        <hr>
+        <h2>🎯 Objetivo</h2>
+        <p>Instalar o Electrum no Tails, manter os dados da carteira (<code spellcheck="false">.electrum</code>)
+          na persistência, configurar rede Tor e integrá-lo ao ritual de backup 3-2-1,
+          lado a lado com Haveno e Feather.</p>
+        <hr>
+        <h2>🧱 Pré‑requisitos</h2>
+        <ul>
+          <li data-list-item-id="e60837a3493448373858d1ce10f99d2b2">Tails iniciado com <strong>persistência desbloqueada</strong> e a opção <em>Personal Data</em> ativa
+            (para acessarmos <code spellcheck="false">/home/amnesia/Persistent/</code>).</li>
+          <li
+          data-list-item-id="e1b732a55623195089171a43c9bd4021e">Pasta de aplicativos pronta: <code spellcheck="false">/home/amnesia/Persistent/Apps/</code> (se
+            não existir, crie com <code spellcheck="false">mkdir -p</code>).</li>
+            <li
+            data-list-item-id="e29b6eb4bdcf14737a6bb082d29f1f8e9">Conexão Tor funcional (o Tails já faz isso).</li>
+        </ul>
+        <hr>
+        <h2>🛠️ Passo a passo</h2>
+        <h3>1. Baixar e verificar o Electrum (AppImage)</h3>
+        <p>O Electrum distribui um AppImage oficial. Vamos baixá‑lo com <code spellcheck="false">torsocks</code> e
+          verificar a assinatura.</p><pre><code class="language-text-x-trilium-auto"># Defina a versão (consulte electrum.org para a mais recente)
+VERSION=4.5.5
+
+# Baixe o AppImage e a assinatura
+torsocks wget -P /home/amnesia/Persistent/Apps/ \
+  https://download.electrum.org/$VERSION/electrum-$VERSION-x86_64.AppImage \
+  https://download.electrum.org/$VERSION/electrum-$VERSION-x86_64.AppImage.asc</code></pre>
+        <p><strong>Verifique a assinatura GPG</strong> (a chave pública de ThomasV
+          está disponível em electrum.org; no primeiro uso você precisará importá‑la):</p><pre><code class="language-text-x-trilium-auto"># Baixar chave pública uma vez (pode ser feito pelo Tor Browser e salvo no Persistent)
+# No terminal:
+gpg --keyserver hkps://keys.openpgp.org --recv-keys 7A6B 6B1E 6E6B 6B6E 6B6B 6B6E 6B6B 6B6E 6B6B 6B6E 6B6B 6B6E   # (exemplo, verifique o fingerprint real no site)
+# Ou importe o arquivo .asc da chave pública do site.
+gpg --verify /home/amnesia/Persistent/Apps/electrum-$VERSION-x86_64.AppImage.asc \
+             /home/amnesia/Persistent/Apps/electrum-$VERSION-x86_64.AppImage</code></pre>
+        <p>Se a verificação passar, o binário é confiável. Torne‑o executável:</p><pre><code class="language-text-x-trilium-auto">chmod +x /home/amnesia/Persistent/Apps/electrum-$VERSION-x86_64.AppImage</code></pre>
+        <hr>
+        <h3>2. Criar o lançador rápido</h3>
+        <p>Crie um script na persistência para abrir o Electrum com um clique:</p><pre><code class="language-text-x-trilium-auto">cat &gt; /home/amnesia/Persistent/start-electrum.sh &lt;&lt; 'EOF'
+#!/bin/bash
+/home/amnesia/Persistent/Apps/electrum-*-x86_64.AppImage --datadir /home/amnesia/Persistent/electrum-data "$@"
+EOF
+chmod +x /home/amnesia/Persistent/start-electrum.sh</code></pre>
+        <p>A opção <code spellcheck="false">--datadir</code> força o Electrum a guardar
+          todas as carteiras, configurações e logs na pasta persistente. Sem isso,
+          ele usaria <code spellcheck="false">~/.electrum</code> (tmpfs, volátil).</p>
+        <hr>
+        <h3>3. Primeiro lançamento e configuração Tor</h3>
+        <ol>
+          <li data-list-item-id="eca20210b4f4ef6dda26919aefa8c01c0">
+            <p>Execute o script:</p><pre><code class="language-text-x-trilium-auto">/home/amnesia/Persistent/start-electrum.sh</code></pre>
+          </li>
+          <li data-list-item-id="e44cd45857482d40c79748a20a67feac3">Na primeira tela, escolha o modo: <strong>"Standard wallet"</strong> (ou
+            outro, conforme sua necessidade).</li>
+          <li data-list-item-id="e2254f0e3908e6dcb13342359ff5c2334">
+            <p><strong>Configurar a rede</strong> antes de criar/conectar a carteira:</p>
+            <ul>
+              <li data-list-item-id="ed3cd5377d46fd3e2e276cddf95d2910b">Vá em <strong>Ferramentas → Rede</strong> (ou <strong>Tools → Network</strong>).</li>
+              <li
+              data-list-item-id="e9c0f8d3ac224f3a38ad4f49f92892088">Guia <strong>Proxy</strong>: Marque <strong>"Usar proxy"</strong> e preencha:
+                <ul>
+                  <li data-list-item-id="e3816c2f5e8a22f341aacf6edb011100c">Tipo: <code spellcheck="false">SOCKS5</code>
+                  </li>
+                  <li data-list-item-id="e55f1e0ba0e9a50ef21f9ec730155ffe3">Host: <code spellcheck="false">127.0.0.1</code>
+                  </li>
+                  <li data-list-item-id="e5c44842c19e0fb976c11b10eca98fca4">Porta: <code spellcheck="false">9050</code> (ou <code spellcheck="false">9150</code> se
+                    estiver usando o Tor Browser; no Tails o proxy do sistema é <code spellcheck="false">9050</code>)</li>
+                </ul>
+          </li>
+          <li data-list-item-id="ea95a01f4c8b54d0799af86191f027d59">Guia <strong>Servidores</strong>: Mantenha "Selecionar servidor automaticamente".
+            Você pode, mais tarde, adicionar servidores Tor <code spellcheck="false">.onion</code> para
+            maior privacidade.</li>
+          </ul>
+          <blockquote>
+            <p>💡 <strong>Dica cypherpunk:</strong> Prefira servidores onion. Você pode
+              encontrá‑los em <a href="https://electrum.org">electrum.org</a> ou usar a
+              lista pública. Adicione‑os manualmente e desabilite servidores em plaintext.</p>
+          </blockquote>
+          </li>
+          <li data-list-item-id="e77691ee8e83091ae068898dd417eedfa"><strong>Aumente a privacidade da carteira</strong>:
+            <ul>
+              <li data-list-item-id="ea8b4a035af069087c90c58aa1dfd53d0">Vá em <strong>Ferramentas → Preferências</strong> → Aba <strong>Transações</strong>:
+                <ul>
+                  <li data-list-item-id="e3ee966101573ef61e354f72271cbaad5">Marque <strong>"Usar múltiplas mudanças"</strong> (dificulta análise).</li>
+                  <li
+                  data-list-item-id="e3114847c1377e080d3728c3e0af430e2">Marque <strong>"Desabilitar endereços com prefixo público"</strong> (se
+                    aparecer).</li>
+              <li data-list-item-id="e739c87197544a009a9f01e9137372710">Ajuste as taxas manualmente se quiser evitar rastreio por valores.</li>
+              </ul>
+          </li>
+          </ul>
+          </li>
+        </ol>
+        <hr>
+        <h3>4. Criar ou restaurar uma carteira</h3>
+        <ul>
+          <li data-list-item-id="ec2b20cf46ecd2fac82c9dfce114e6c8e"><strong>Nova carteira:</strong> O Electrum gerará uma seed de 12 palavras
+            (padrão Bitcoin). <strong>Anote imediatamente</strong> em papel/metal, junto
+            com o tipo ("segwit", "native segwit", etc.) e a data.</li>
+          <li data-list-item-id="e1822b4adbd2d59cd0688fe8fe8b82ee1"><strong>Restaurar:</strong> Cole a seed, defina senha (forte) e deixe‑a
+            sincronizar.</li>
+        </ul>
+        <p>A carteira será salva em:</p><pre><code class="language-text-x-trilium-auto">/home/amnesia/Persistent/electrum-data/wallets/sua_carteira</code></pre>
+        <hr>
+        <h2>🔗 Persistência automática: tudo salvo na pasta certa</h2>
+        <p>Com <code spellcheck="false">--datadir</code>, o Electrum grava diretamente
+          na persistência. Você não precisa criar links simbólicos. A estrutura fica
+          assim:</p><pre><code class="language-text-x-trilium-auto">/home/amnesia/Persistent/electrum-data/
+├── config
+├── wallets/
+│   └── fortaleza_btc
+│       ├── wallet
+│       └── ... 
+├── logs/
+└── …</code></pre>
+        <p>Ao reiniciar o Tails, execute o script e tudo estará como você deixou.</p>
+        <hr>
+        <h2>🧪 Teste de sobrevivência</h2>
+        <ol>
+          <li data-list-item-id="e799367df9051ab2d388165ba4581dfc4">Crie uma carteira no Electrum.</li>
+          <li data-list-item-id="efd27afc4b531b85d3379470067da55f4">Anote a seed.</li>
+          <li data-list-item-id="eac106a11c5e13c2da03f3e2904de3437">Receba uma fração mínima de BTC (ex: via faucet ou um amigo).</li>
+          <li
+          data-list-item-id="ec6fcf5fae86f71b4c6d35fbc3dc2ac81">Feche o Electrum, reinicie o Tails.</li>
+            <li data-list-item-id="e11d1a8af185e24393b8c29efff2567a1">Execute o script de inicialização.</li>
+            <li data-list-item-id="eadafa2fd6ca179704779618c0e5ed395">Verifique se o saldo e as transações reaparecem.</li>
+        </ol>
+        <hr>
+        <h2>📦 Integração com o backup 3-2-1</h2>
+        <p>O seu ritual de backup já incluía o <code spellcheck="false">.electrum</code> (se
+          você seguiu o módulo anterior). Como agora a pasta é <code spellcheck="false">Persistent/electrum-data</code>,
+          ajuste o comando do backup:</p><pre><code class="language-text-x-trilium-auto">tar czf - \
+  /home/amnesia/.local/share/haveno \
+  /home/amnesia/.config/feather \
+  /home/amnesia/Persistent/electrum-data \
+  /home/amnesia/Persistent/fortaleza_cofre.kdbx \
+  /home/amnesia/Persistent/haveno_backup_amnesia.zip \
+| gpg --symmetric --cipher-algo AES256 --output /media/backup/fortaleza_backup_$(date +%Y%m%d).tar.gz.gpg</code></pre>
+        <p><strong>Lembre‑se:</strong> A seed do Electrum (12 palavras) é o último
+          recurso. Guarde‑a offline, em aço, separada do arquivo de backup.</p>
+        <hr>
+        <h2>🧠 Dicas de segurança e privacidade</h2>
+        <ul>
+          <li data-list-item-id="e3a44e7375b74df7d205df54f018cbbd6">
+            <p><strong>Use servidores onion:</strong> Na aba Rede, adicione manualmente
+              endereços <code spellcheck="false">.onion</code> confiáveis e desmarque os
+              servidores clearnet. Exemplo:</p><pre><code class="language-text-x-trilium-auto">electrumx6k3k4xyz.onion 50002 s</code></pre>
+          </li>
+          <li data-list-item-id="e879b0a9cc77d9d6dc67fdfd9747d13a3"><strong>Não misture carteiras de identidades diferentes</strong> na mesma
+            sessão Tails (ex: carteira pessoal vs. carteira anônima).</li>
+          <li data-list-item-id="e999301559af5e2cc06aa621dde6fd412"><strong>A senha da carteira</strong> (que protege o arquivo wallet) é adicional.
+            Se você a esquecer, ainda pode restaurar com a seed. Mas se o arquivo wallet
+            for roubado e a senha for fraca, o ladrão pode gastar seus fundos. Use
+            senha forte.</li>
+          <li data-list-item-id="e5c8369a2886a950a4ed538382fec6244"><strong>Nunca exporte a seed pelo Electrum em um ambiente online.</strong> Se
+            precisar visualizá‑la, faça‑o com o computador offline (ex: Tails sem rede).</li>
+          <li
+          data-list-item-id="e1bdea75fb2c5045394395939511171bf"><strong>Feche o Electrum completamente</strong> antes de fazer backup manual
+            ou desligar.</li>
+        </ul>
+        <hr>
+        <h2>⚠️ Perigo: confundir as seeds</h2>
+        <p>O Electrum gera seeds Bitcoin (12 palavras). A Feather gera seeds Monero
+          (25 palavras). São universos diferentes. Rotule claramente no KeePassXC
+          e nos seus papéis. Um erro pode fazer você tentar restaurar uma seed Bitcoin
+          numa carteira Monero e achar que perdeu tudo.</p>
+        <hr>
+        <h2>🔁 Convivência com Haveno e Feather</h2>
+        <p>Você pode ter <strong>os três abertos ao mesmo tempo</strong> no Tails (se
+          a RAM permitir). A Haveno usa a Feather para Monero; o Electrum é independente
+          para Bitcoin. Nenhum conflito. O roteamento Tor é compartilhado pelo sistema.</p>
+        <hr>
+        <p>Com o Electrum, sua fortaleza agora fala dois idiomas monetários. Bitcoin
+          e Monero, cada um com sua força, ambos sob o mesmo teto amnésico e criptografado.</p>
+        <blockquote>
+          <p><em>“O ouro digital tem seu lugar na torre. E o silêncio da torre protege tanto o ouro quanto a prata.”</em>
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </body>
+
+</html>

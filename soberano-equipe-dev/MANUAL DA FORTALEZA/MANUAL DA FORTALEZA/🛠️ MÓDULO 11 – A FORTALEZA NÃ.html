@@ -1,0 +1,277 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🛠️ MÓDULO 11 – A FORTALEZA NÃO ENFERRUJA: MANUTENÇÃO CONTÍNUA DO CYPHERPUNK
+      OPERACIONAL</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🛠️ MÓDULO 11 – A FORTALEZA NÃO ENFERRUJA: MANUTENÇÃO CONTÍNUA DO CYPHERPUNK OPERACIONAL</h1>
+
+      <div class="ck-content">
+        <h2>🛠️ MÓDULO 11 – A FORTALEZA NÃO ENFERRUJA: MANUTENÇÃO CONTÍNUA DO CYPHERPUNK OPERACIONAL</h2>
+        <blockquote>
+          <p><em>"O tempo corrói até o aço. Mas o ferreiro atento troca a lâmina antes da batalha."</em>
+          </p>
+        </blockquote>
+        <p>Você ergueu a fortaleza. Mas o mundo digital não para. O Tails lança uma
+          nova versão. A Haveno muda o protocolo. A Feather ganha um recurso que
+          quebra a compatibilidade com o script antigo. Se você não fizer nada, em
+          poucos meses seu castelo terá janelas abertas e portas emperradas.
+          <br>Este módulo é o <strong>plano de manutenção</strong> — para que você nunca
+          seja pego desprevenido.</p>
+        <hr>
+        <h2>🧠 Por que a fortaleza enferruja?</h2>
+        <ul>
+          <li data-list-item-id="ea6d94340e3b5518d3b384f3cdf96fee4"><strong>Software envelhece:</strong> Bugs de segurança são descobertos
+            e corrigidos. Se você não atualiza, fica com os bugs.</li>
+          <li data-list-item-id="e30d4e7ca2ffba6213912b7533381a29f"><strong>Redes mudam:</strong> O Tor atualiza pontes e protocolos. A rede
+            Monero faz hard forks periódicos (a cada ~6 meses). Carteiras não atualizadas
+            podem ficar incompatíveis.</li>
+          <li data-list-item-id="eddec7b71d33c572e8d862720770f161f"><strong>Dependências quebram:</strong> O AppImage da Feather pode parar
+            de funcionar no Tails se o kernel for atualizado e não houver retrocompatibilidade.</li>
+          <li
+          data-list-item-id="edf6f50ee4053b81897b199d2909de3bc"><strong>Você esquece:</strong> Sem prática, os rituais de backup e verificação
+            se perdem na memória. Um ano depois, você não lembra mais o comando exato.</li>
+        </ul>
+        <p><strong>A ferrugem não dorme.</strong> A manutenção é o óleo que mantém
+          tudo funcionando.</p>
+        <hr>
+        <h2>🔄 O ciclo de vida das ferramentas e como atualizar cada uma</h2>
+        <h3>1. Tails OS</h3>
+        <p><strong>Frequência:</strong> Uma nova versão estável a cada ~2 meses, mais
+          correções urgentes.</p>
+        <p><strong>Como atualizar:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e6f2ca224ab8dabed713f14fcb38a9bd5"><strong>Método automático (recomendado):</strong> O Tails oferece atualização
+            automática entre versões menores (ex: 6.0 → 6.1). Na sessão, um aviso aparece.
+            Basta clicar e reiniciar.</li>
+          <li data-list-item-id="e02898bdd9cb3f20254856d4b3dbce5cb"><strong>Método manual (para versões maiores):</strong> Baixar a nova ISO,
+            gravar num pendrive limpo e migrar a persistência. Você aprendeu isso:
+            backup 3-2-1 antes de tudo, depois restaurar os dados na nova persistência.</li>
+        </ul>
+        <p><strong>O que esperar:</strong> A cada versão maior (ex: 6.x para 7.0),
+          pode haver mudanças profundas no sistema (kernel, drivers). É aí que seus
+          scripts podem quebrar. Sempre teste o novo Tails com um pendrive esqueleto
+          antes de migrar o principal.</p>
+        <p><strong>Mantenha:</strong> O backup recente. Assim, se a migração falhar,
+          você volta à versão anterior em minutos.</p>
+        <hr>
+        <h3>2. Feather Wallet</h3>
+        <p><strong>Frequência:</strong> Releases a cada poucos meses, com correções
+          de bugs e melhorias no protocolo Monero.</p>
+        <p><strong>Como atualizar:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ea3bc7ad326c34d37ebe05747c6c4b029">Baixar o novo AppImage e sua assinatura.</li>
+          <li data-list-item-id="e2a024cf91cf60b2064a6fe82c0ca3d51">Verificar com GPG (script de atualização).</li>
+          <li data-list-item-id="ef94a917a9090343e47de407521684ea2">Substituir o arquivo na pasta <code spellcheck="false">Persistent/Apps/</code>.
+            Manter apenas a versão mais nova (apague a antiga para evitar conflito
+            com o curinga <code spellcheck="false">*</code> nos scripts).</li>
+          <li data-list-item-id="eb42954ef7b5e8dd273f5f1b6f85645cd">Executar o script <code spellcheck="false">start-feather.sh</code> normalmente.
+            A carteira e os dados permanecem intactos (a pasta <code spellcheck="false">feather-data</code> não
+            é tocada).</li>
+        </ul>
+        <p><strong>O que esperar:</strong> Hard forks do Monero (a cada ~6 meses)
+          exigem atualização da carteira. Se você não atualizar, pode ficar incapaz
+          de enviar/receber fundos na nova cadeia. A Feather costuma lançar a atualização
+          alguns dias antes do fork.</p>
+        <p><strong>Dica:</strong> Nunca atualize <strong>no dia do fork</strong>. Espere
+          alguns dias, veja se a comunidade reporta problemas.</p>
+        <hr>
+        <h3>3. Haveno</h3>
+        <p><strong>Frequência:</strong> Ainda em desenvolvimento ativo, pode ter mudanças
+          significativas. Verifique o repositório e anúncios oficiais.</p>
+        <p><strong>Como atualizar:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e4ffd7c4c5d7d7554de0e89ed1272ee23">Baixar o novo tarball e verificar assinatura.</li>
+          <li data-list-item-id="e45fba6d78151e96f1ba49bd7bd89e80e">Fazer backup da conta Haveno (menu Account → Backup) e do diretório
+            <code
+            spellcheck="false">Persistent/haveno-data</code>.</li>
+          <li data-list-item-id="e1303521953653e3fb3a854c597e037a1">Extrair o novo tarball sobre a instalação antiga (em <code spellcheck="false">Persistent/Apps/haveno</code>).</li>
+          <li
+          data-list-item-id="e503ade95a74989bd76024eca6766afd8">Iniciar com o script de sempre. Se houver migração de dados, o próprio
+            Haveno fará.</li>
+        </ul>
+        <p><strong>O que esperar:</strong> Mudanças no protocolo da DEX podem exigir
+          que todos os usuários atualizem simultaneamente. Fique atento aos anúncios
+          no site oficial e no Matrix. Em caso de atualização obrigatória, você terá
+          uma janela de tempo (dias) para atualizar antes que a rede antiga pare
+          de funcionar.</p>
+        <hr>
+        <h3>4. Electrum</h3>
+        <p><strong>Frequência:</strong> Atualizações menos frequentes, mas importantes
+          para segurança (ex: novos métodos de assinatura).</p>
+        <p><strong>Como atualizar:</strong> Mesmo processo da Feather: baixar, verificar,
+          substituir AppImage. Os dados da carteira em <code spellcheck="false">electrum-data</code> continuam
+          compatíveis.</p>
+        <hr>
+        <h3>5. KeePassXC</h3>
+        <p><strong>Frequência:</strong> Atualizações ocasionais (melhorias de segurança
+          e compatibilidade).</p>
+        <p><strong>Como atualizar:</strong> Mesmo processo: AppImage novo verificado
+          substitui o antigo. O arquivo <code spellcheck="false">.kdbx</code> não é
+          afetado.</p>
+        <hr>
+        <h3>6. Whonix (para traders frequentes)</h3>
+        <p><strong>Frequência:</strong> Atualizações via apt (dentro das VMs) são
+          constantes. Versões maiores das VMs saem a cada alguns meses.</p>
+        <p><strong>Como atualizar:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eed62091028fc9a55ec64f45ce6e8c8b1">Dentro da Workstation e do Gateway, rode regularmente: <code spellcheck="false">sudo apt update &amp;&amp; sudo apt full-upgrade</code>.</li>
+          <li
+          data-list-item-id="eb8188b6825cb1d694f69c6795cdf9490">Para novas versões das VMs (.ova), baixe e importe no VirtualBox. Você
+            pode manter a VM antiga como backup e testar a nova.</li>
+        </ul>
+        <p><strong>O que esperar:</strong> O Whonix é muito estável; a transição entre
+          versões costuma ser suave. Backups da Workstation (snapshots) ajudam a
+          reverter se algo quebrar.</p>
+        <hr>
+        <h2>🧪 Testes antes de aplicar: o ambiente de homologação</h2>
+        <p>Nunca atualize sua fortaleza principal às cegas. Tenha um <strong>pendrive esqueleto</strong> (Tails
+          limpo) ou uma <strong>VM Whonix descartável</strong> onde você testa as novas
+          versões primeiro.</p>
+        <p><strong>Procedimento:</strong>
+        </p>
+        <ol>
+          <li data-list-item-id="ed92b32f3a9e71d4dab235e83554beb5f">Atualize o ambiente de teste.</li>
+          <li data-list-item-id="ee93976386647d909ef755aa57f67ae18">Restaure um backup recente dos dados (ou use uma conta de teste).</li>
+          <li
+          data-list-item-id="e31b96ef172444ca8a9f035ef69075373">Execute todos os scripts, faça transações de teste na Haveno, confira
+            sincronização.</li>
+            <li data-list-item-id="e9afcade838c65a332bb5692501c77b8f">Se tudo funcionar, aplique a atualização no ambiente principal.</li>
+        </ol>
+        <p>Isso adiciona uma camada extra de segurança e evita dores de cabeça.</p>
+        <hr>
+        <h2>📢 Como se manter informado sem se expor</h2>
+        <ul>
+          <li data-list-item-id="e8ce3f681edf6d5a53c8a99949453e970"><strong>Tails:</strong> tails.net (acessar via Tor). Anúncios de novas
+            versões.</li>
+          <li data-list-item-id="ef53a2adcb5476fd042fef48bb46d46df"><strong>Feather:</strong> feather-wallet.org, e repositório no GitHub.
+            O próprio aplicativo mostra notificações de nova versão.</li>
+          <li data-list-item-id="e828e9027370eb30263a10cfb7c68c92f"><strong>Haveno:</strong> haveno.exchange, canal Matrix (#haveno:monero.social),
+            GitHub.</li>
+          <li data-list-item-id="efc8a720cbc2a8881c90c0bae7c7c2eb5"><strong>Electrum:</strong> electrum.org.</li>
+          <li data-list-item-id="e8bd7dfa3e7c124d380835124a2cecb52"><strong>KeePassXC:</strong> keepassxc.org.</li>
+          <li data-list-item-id="e8496b123e8ed783579295594b6dbd9b6"><strong>Whonix:</strong> whonix.org, fórum.</li>
+        </ul>
+        <p><strong>Dica de opsec:</strong> Use o Tor Browser do Tails para acessar
+          esses sites. Não assine newsletters com seu email real. Use RSS anônimo
+          (ex: Newsboat sobre Tor) ou simplesmente crie o hábito de visitar os sites
+          a cada 2 semanas.</p>
+        <hr>
+        <h2>🧰 Checklist de manutenção mensal</h2>
+        <ul class="todo-list">
+          <li data-list-item-id="e0a0cf93a060b2a35840985c554db33d1">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Verifique se há novas versões de Tails, Feather, Haveno, Electrum, KeePassXC.</span>
+            </label>
+          </li>
+          <li data-list-item-id="efec7a2d79532c4aba00d13287d3036ee">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Leia as notas de versão (changelogs) para entender o que muda.</span>
+            </label>
+          </li>
+          <li data-list-item-id="e416b67520da9f407a872b4202771e35e">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Teste as atualizações no ambiente de homologação.</span>
+            </label>
+          </li>
+          <li data-list-item-id="eccd2fa5849a8d8ed4406a2e7aa530f6a">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Faça backup 3-2-1 antes de qualquer atualização na fortaleza principal.</span>
+            </label>
+          </li>
+          <li data-list-item-id="e2d93f1b5ec5a2814d4466c17b13c2a33">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Atualize os scripts se houver mudança de nomes ou caminhos.</span>
+            </label>
+          </li>
+          <li data-list-item-id="e9f8f0eb6059cbc173cede4eecc4acd91">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Execute o simulado de restauração do backup (a cada 3 meses).</span>
+            </label>
+          </li>
+          <li data-list-item-id="e6207d4ac959fc09fdab671c2976ddce4">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Verifique a saúde do pendrive (velocidade de escrita, erros).</span>
+            </label>
+          </li>
+        </ul>
+        <hr>
+        <h2>⚠️ O que fazer quando uma atualização quebrar algo</h2>
+        <ol>
+          <li data-list-item-id="eb7501097d984ac7f9904a4a1cb5fe170"><strong>Não entre em pânico.</strong> Você tem backup. Você tem o ambiente
+            de homologação. Você é um cypherpunk.</li>
+          <li data-list-item-id="e5d6572c59a377c1576c8d40ac2742217"><strong>Reverta:</strong> Restaure o backup da versão anterior no pendrive
+            principal (ou use o snapshot da VM). Volte à versão funcional.</li>
+          <li
+          data-list-item-id="e81a5a464a6bed031d99c10efd3000169"><strong>Relate:</strong> Avise a comunidade (de forma anônima) sobre o
+            problema. Pode ser um bug que afeta outros.</li>
+            <li data-list-item-id="e6832841b0d82fe7e05674014edd3987a"><strong>Aguarde:</strong> Muitas vezes uma correção sai em poucos dias.</li>
+            <li
+            data-list-item-id="e70ba1c0f3fe875f4cd9a143f3c9c79dd"><strong>Mantenha a calma financeira:</strong> Não faça trades de alto valor
+              até ter certeza de que o sistema está estável.</li>
+        </ol>
+        <hr>
+        <h2>👤 O elo mais fraco: você (e como fortalecê-lo)</h2>
+        <p>A manutenção técnica é fácil. O difícil é manter a <strong>disciplina</strong>:</p>
+        <ul>
+          <li data-list-item-id="ea8f68b2d0329c26801f2f9b2d1f99cc8">Não pular o backup "só desta vez".</li>
+          <li data-list-item-id="e274328721c74a76f4c3dd6c6813fad63">Não adiar a atualização "para a próxima semana".</li>
+          <li data-list-item-id="ed194c17294b61b6f52fe652c321d1dde">Não perder o hábito de verificar assinaturas.</li>
+          <li data-list-item-id="e4b4ff9d01eb9e2faf1eb82aee9f8f16d">Não reutilizar senhas.</li>
+          <li data-list-item-id="e6168bf005c8b54c82b9f20bf4282e27f">Não deixar o KeePassXC aberto enquanto faz outras coisas.</li>
+        </ul>
+        <p><strong>Como se fortalecer:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ec4744fb8ca049bdcde4315ed33373499">Crie um <strong>alarme no calendário offline</strong> (ex: um lembrete no
+            KeePassXC) para o check-up mensal.</li>
+          <li data-list-item-id="e8767ac083de1541e0e494ec5a54f719d">Transforme os rituais em hábitos tão automáticos quanto escovar os dentes.
+            Demora 21 dias para formar um hábito; force-se por três semanas e o cérebro
+            assumirá.</li>
+          <li data-list-item-id="ecb1b57b6a379b85f3c45c14ee5e344e4">Tenha um <strong>parceiro de responsabilidade</strong> (se confiável e igualmente
+            discreto) para revisarem juntos as práticas.</li>
+          <li data-list-item-id="e6019553d61e6f1c0eee2b690aaf97573">Lembre-se do motivo: <strong>soberania financeira</strong>. Cada minuto
+            de manutenção é um minuto que te distancia da dependência de bancos, governos
+            e exchanges.</li>
+        </ul>
+        <hr>
+        <h2>🌅 O futuro: o que esperar e como se preparar</h2>
+        <ul>
+          <li data-list-item-id="e34be66133ebed75206d50efcf04ddce5"><strong>Hard forks do Monero</strong> continuarão a cada ~6 meses. Planeje-se.</li>
+          <li
+          data-list-item-id="eb3c71db041f6e74022f0d0240d64e04a"><strong>Haveno</strong> pode migrar para uma versão 2.0 com grandes melhorias.
+            Acompanhe.</li>
+            <li data-list-item-id="ecf70db4d6631e3b2b1485dd3e39a8b4b"><strong>Tails</strong> pode se tornar ainda mais restritivo ou, ao contrário,
+              mais amigável. Seu conhecimento básico de Linux será seu guia.</li>
+            <li
+            data-list-item-id="ebbfd18849cbdb07c20e967e93142e869"><strong>Novas ferramentas surgirão.</strong> Aplique a mesma metodologia
+              de verificação antes de adotar.</li>
+              <li data-list-item-id="e8ed1aaec15d328738a868a0b739fa555"><strong>Regulações</strong> podem tentar proibir nós Tor ou exchanges P2P.
+                Mas a tecnologia é neutra e distribuída; sempre haverá pontes e alternativas.</li>
+        </ul>
+        <p>Você não está estagnado. Sua fortaleza é modular, adaptável. O que você
+          aprendeu não são receitas fixas, mas <strong>princípios</strong> — e princípios
+          não enferrujam.</p>
+        <hr>
+        <blockquote>
+          <p><em>“O cypherpunk não tem medo do novo. Ele tem procedimentos para o novo.”</em>
+          </p>
+        </blockquote>
+        <p>Mantenha o aço afiado, a mente atenta e o backup em dia. A liberdade é
+          sua — e agora você sabe como preservá-la.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

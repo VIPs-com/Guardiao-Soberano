@@ -1,0 +1,1354 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🌐 ECOSSISTEMA DE AUTO-CUSTÓDIA SOBERANA</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🌐 ECOSSISTEMA DE AUTO-CUSTÓDIA SOBERANA</h1>
+
+      <div class="ck-content">
+        <p>Vou criar uma documentação completa e visual do ecossistema soberano que
+          construímos ao longo desta pesquisa. Isso serve como mapa de referência
+          rápida e material de estudo.</p>
+        <hr>
+        <h2>🌐 ECOSSISTEMA DE AUTO-CUSTÓDIA SOBERANA</h2>
+        <h2>Documentação de Arquitetura — Versão 1.0</h2>
+        <h3>Data de compilação: 23 de Junho de 2026</h3>
+        <hr>
+        <h2>📋 Índice</h2>
+        <ol>
+          <li data-list-item-id="ed14c0d2dbb2455324623f136a6c143f4"><a href="#1-vis%C3%A3o-geral-da-arquitetura">Visão Geral da Arquitetura</a>
+          </li>
+          <li data-list-item-id="ecf3cdd4c5e970810e7f163db21adc56a"><a href="#2-diagrama-principal">Diagrama Principal</a>
+          </li>
+          <li data-list-item-id="e6df27331a45211ed1a1fadcf0412d23e"><a href="#3-invent%C3%A1rio-de-componentes">Inventário de Componentes</a>
+          </li>
+          <li data-list-item-id="e4c0e5525d9254b524005f75f0d724700"><a href="#4-fluxos-operacionais">Fluxos Operacionais</a>
+          </li>
+          <li data-list-item-id="e166a4fc30943e867582f171400d6a93a"><a href="#5-camada-de-hardware-f%C3%ADsico">Camada de Hardware Físico</a>
+          </li>
+          <li data-list-item-id="edd699f2d01b1f0c760f420a6350109b1"><a href="#6-camada-de-virtualiza%C3%A7%C3%A3o">Camada de Virtualização</a>
+          </li>
+          <li data-list-item-id="ee0c169b72ecefc40dc47e7b07d4cb3db"><a href="#7-camada-de-rede-an%C3%B4nima">Camada de Rede Anônima</a>
+          </li>
+          <li data-list-item-id="e7df4d0bad30a2b05e9d5bc25f7a65dbb"><a href="#8-camada-de-aplica%C3%A7%C3%B5es-cripto">Camada de Aplicações Cripto</a>
+          </li>
+          <li data-list-item-id="e0cf83e3dd899b307fdc4ca30a0e2b50c"><a href="#9-protocolo-de-swap-at%C3%B4mico">Protocolo de Swap Atômico</a>
+          </li>
+          <li data-list-item-id="ed7bcc5932922586aafb019ccde751502"><a href="#10-matriz-de-resili%C3%AAncia">Matriz de Resiliência</a>
+          </li>
+          <li data-list-item-id="e28c1c98a8a3d13cc4fe3fba281be890d"><a href="#11-checklist-de-verifica%C3%A7%C3%A3o-de-integridade">Checklist de Verificação de Integridade</a>
+          </li>
+          <li data-list-item-id="ea1295d11a7fc9b9229689e6a13ab58a6"><a href="#12-refer%C3%AAncias-e-fontes">Referências e Fontes</a>
+          </li>
+        </ol>
+        <hr>
+        <h2>1. Visão Geral da Arquitetura</h2>
+        <h3>Princípios Fundamentais</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Princípio</th>
+                <th>Implementação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Auto-custódia real</strong>
+                </td>
+                <td>Seed BIP39 offline em aço + Coldcard air-gapped</td>
+              </tr>
+              <tr>
+                <td><strong>Anonimato de rede</strong>
+                </td>
+                <td>Tor forçado em todo o ecossistema (Whonix Gateway)</td>
+              </tr>
+              <tr>
+                <td><strong>Independência de terceiros</strong>
+                </td>
+                <td>Node próprio + EPS + coordinator Whirlpool (mínimo necessário)</td>
+              </tr>
+              <tr>
+                <td><strong>Resiliência contra falhas</strong>
+                </td>
+                <td>Snapshots de VM + backup de estado + restore from seed</td>
+              </tr>
+              <tr>
+                <td><strong>Segregação de funções</strong>
+                </td>
+                <td>Mixagem (Whonix 24/7) vs Swaps (Tails descartável)</td>
+              </tr>
+              <tr>
+                <td><strong>Privacidade on-chain</strong>
+                </td>
+                <td>Coinjoin ≥ 5 rounds + Atomic Swaps + intervalo temporal</td>
+              </tr>
+              <tr>
+                <td><strong>Verificabilidade total</strong>
+                </td>
+                <td>Toda ferramenta verificada via PGP + fingerprint cruzado</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Objetivo Final</h3>
+        <blockquote>
+          <p>Permitir transações diárias de criptomoedas com privacidade máxima, sem
+            expor seed a nenhum sistema conectado à rede, sem depender de servidores
+            públicos de terceiros, e com capacidade de recuperação total em caso de
+            perda de qualquer componente.</p>
+        </blockquote>
+        <hr>
+        <h2>2. Diagrama Principal</h2><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                              🌍 INTERNET (Rede Tor)                                   │
+│                                                                                      │
+│    ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐              │
+│    │ Coordinator      │    │ Maker (eigen)     │    │ Rede Bitcoin     │              │
+│    │ Whirlpool .onion │    │ .onion            │    │ (via Tor)        │              │
+│    └────────┬─────────┘    └────────┬─────────┘    └────────┬─────────┘              │
+│             │                       │                       │                         │
+└─────────────┼───────────────────────┼───────────────────────┼─────────────────────────┘
+              │                       │                       │
+              │                       │                       │
+┌─────────────┴───────────────────────┴───────────────────────┴─────────────────────────┐
+│                           🖥️ HOST FÍSICO (Linux/Windows/macOS)                         │
+│                                                                                       │
+│  ┌──────────────────────────────────────────────────────────────────────────────┐    │
+│  │                         📦 HIPERVISOR (VirtualBox/KVM)                        │    │
+│  │                                                                               │    │
+│  │  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐            │    │
+│  │  │                  │  │                  │  │                  │            │    │
+│  │  │  WHONIX-GATEWAY  │  │  WHONIX-         │  │  BITCOIN-NODE    │            │    │
+│  │  │                  │  │  WORKSTATION     │  │  VM              │            │    │
+│  │  │  🔒 Força Tor    │  │                  │  │                  │            │    │
+│  │  │  em toda rede    │  │  🦜 Sparrow      │  │  ₿ Bitcoin Core  │            │    │
+│  │  │  interna         │  │  🔀 Whirlpool    │  │  📡 EPS          │            │    │
+│  │  │                  │  │  🔄 eigenwallet  │  │  🧅 .onion EPS   │            │    │
+│  │  │  IP: 10.152.     │  │  🪶 Feather      │  │                  │            │    │
+│  │  │  152.10          │  │  🔑 KeePassXC    │  │  IP: 10.152.     │            │    │
+│  │  │  (rede interna)  │  │                  │  │  152.30          │            │    │
+│  │  │                  │  │  IP: 10.152.     │  │  (rede interna)  │            │    │
+│  │  │                  │  │  152.20          │  │                  │            │    │
+│  │  └────────┬─────────┘  └────────┬─────────┘  └────────┬─────────┘            │    │
+│  │           │                     │                       │                      │    │
+│  │           └─────────────────────┼───────────────────────┘                      │    │
+│  │                                 │                                              │    │
+│  │                    Rede Interna Whonix (10.152.152.0/24)                       │    │
+│  │                    🔗 Isolada da internet direta                                │    │
+│  └─────────────────────────────────┼──────────────────────────────────────────────┘    │
+│                                    │                                                    │
+│  ┌─────────────────────────────────┼──────────────────────────────────────────────┐    │
+│  │                    📁 PASTA COMPARTILHADA (/psbt_bridge)                        │    │
+│  │                         Host ↔ Workstation ↔ Coldcard                           │    │
+│  └─────────────────────────────────┼──────────────────────────────────────────────┘    │
+│                                    │                                                    │
+└────────────────────────────────────┼────────────────────────────────────────────────────┘
+                                     │
+                                     │ PSBT (MicroSD)
+                                     │
+                          ┌──────────┴──────────┐
+                          │                     │
+                          │   🔒 COLD CARD MK5  │
+                          │   (Air-gapped)      │
+                          │                     │
+                          │   • Seed BIP39      │
+                          │   • Dice Rolls 99+  │
+                          │   • Passphrase      │
+                          │   • Assina PSBTs    │
+                          │   • Nunca online    │
+                          │                     │
+                          └─────────────────────┘
+                                     │
+                                     │ Backup físico
+                                     ▼
+                          ┌─────────────────────┐
+                          │  🔩 PLACA DE AÇO    │
+                          │  24 palavras        │
+                          │  (Local físico 1)   │
+                          └─────────────────────┘
+                          ┌─────────────────────┐
+                          │  📝 PASSPHRASE      │
+                          │  (Local físico 2)   │
+                          └─────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                    📱 AMBIENTE MÓVEL (Celular Dedicado)                               │
+│                                                                                       │
+│  ┌──────────────────────────────────────────────────────────┐                        │
+│  │                    CalyxOS / GrapheneOS                   │                        │
+│  │                                                          │                        │
+│  │  🦜 Sparrow Wallet (watch-only)    🔑 KeePassDX          │                        │
+│  │  🪶 Feather Mobile (watch-only)    📷 QR Scanner         │                        │
+│  │                                                          │                        │
+│  │  🔒 Bootloader travado   🔒 Criptografia completa        │                        │
+│  │  🛡️ Firewall Datura     🧅 Orbot (Tor forçado)          │                        │
+│  └──────────────────────────────────────────────────────────┘                        │
+│                                                                                       │
+│  Função: Transações diárias de baixo valor + monitoramento de saldo                   │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                    💿 AMBIENTE CIRÚRGICO (Pendrive Tails)                             │
+│                                                                                       │
+│  ┌──────────────────────────────────────────────────────────┐                        │
+│  │                    Tails OS (Pendrive)                    │                        │
+│  │                                                          │                        │
+│  │  🔄 eigenwallet (swaps BTC↔XMR)                          │                        │
+│  │  🪶 Feather Wallet (carteira XMR)                        │                        │
+│  │  🤖 RoboSats (P2P Lightning, .onion)                     │                        │
+│  │  🔑 KeePassXC (metadados da sessão)                      │                        │
+│  │                                                          │                        │
+│  │  🔒 Amnésico por padrão   🧅 Tor forçado                 │                        │
+│  │  🚫 Sem persistência de dados sensíveis                  │                        │
+│  └──────────────────────────────────────────────────────────┘                        │
+│                                                                                       │
+│  Função: Sessões dedicadas para swaps atômicos — liga, opera, desliga, sem rastro     │
+└─────────────────────────────────────────────────────────────────────────────────────┘</code></pre>
+        <hr>
+        <h2>3. Inventário de Componentes</h2>
+        <h3>3.1 Hardware Físico</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Componente</th>
+                <th>Modelo Recomendado</th>
+                <th>Função</th>
+                <th>Custo Estimado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Coldcard</strong>
+                </td>
+                <td>Mk5</td>
+                <td>Signing device air-gapped</td>
+                <td>$150</td>
+              </tr>
+              <tr>
+                <td><strong>Placa de aço</strong>
+                </td>
+                <td>Washers inox + kit gravação</td>
+                <td>Backup seed 24 palavras</td>
+                <td>$30</td>
+              </tr>
+              <tr>
+                <td><strong>Dados de casino</strong>
+                </td>
+                <td>2 dados de 6 faces</td>
+                <td>Entropia para seed (99+ lançamentos)</td>
+                <td>$5</td>
+              </tr>
+              <tr>
+                <td><strong>MicroSD</strong>
+                </td>
+                <td>2x 32GB (Samsung/SanDisk)</td>
+                <td>Ponte PSBT + Tails</td>
+                <td>$20</td>
+              </tr>
+              <tr>
+                <td><strong>Pendrive USB</strong>
+                </td>
+                <td>2x 32GB USB 3.0</td>
+                <td>Tails OS (instalador + final)</td>
+                <td>$20</td>
+              </tr>
+              <tr>
+                <td><strong>Celular Pixel</strong>
+                </td>
+                <td>Pixel 6a ou superior</td>
+                <td>CalyxOS/GrapheneOS</td>
+                <td>$200-400</td>
+              </tr>
+              <tr>
+                <td><strong>PC Host</strong>
+                </td>
+                <td>16+ GB RAM, SSD 500+ GB</td>
+                <td>Virtualização + VMs</td>
+                <td>$500-1000</td>
+              </tr>
+              <tr>
+                <td><strong>Raspberry Pi</strong>
+                </td>
+                <td>Pi 4/5 (opcional)</td>
+                <td>Node Bitcoin dedicado</td>
+                <td>$80-150</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>3.2 Máquinas Virtuais</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>VM</th>
+                <th>SO Base</th>
+                <th>RAM</th>
+                <th>Disco</th>
+                <th>IP Interno</th>
+                <th>Função</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Whonix-Gateway</strong>
+                </td>
+                <td>Debian (Whonix)</td>
+                <td>2 GB</td>
+                <td>20 GB</td>
+                <td>10.152.152.10</td>
+                <td>Força Tor em toda rede</td>
+              </tr>
+              <tr>
+                <td><strong>Whonix-Workstation</strong>
+                </td>
+                <td>Debian (Whonix)</td>
+                <td>6 GB</td>
+                <td>50 GB</td>
+                <td>10.152.152.20</td>
+                <td>Sparrow, Whirlpool, eigen, Feather</td>
+              </tr>
+              <tr>
+                <td><strong>Bitcoin-Node</strong>
+                </td>
+                <td>Debian minimal</td>
+                <td>4-8 GB</td>
+                <td>400 GB</td>
+                <td>10.152.152.30</td>
+                <td>Bitcoin Core + EPS</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>3.3 Aplicações por Ambiente</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Aplicação</th>
+                <th>Whonix Workstation</th>
+                <th>Tails</th>
+                <th>Mobile</th>
+                <th>Verificação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sparrow Wallet</strong>
+                </td>
+                <td>✅ Principal</td>
+                <td>❌</td>
+                <td>✅ Watch-only</td>
+                <td>PGP Craig Raw</td>
+              </tr>
+              <tr>
+                <td><strong>Whirlpool</strong>
+                </td>
+                <td>✅ 24/7</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>PGP + coordinator .onion</td>
+              </tr>
+              <tr>
+                <td><strong>eigenwallet</strong>
+                </td>
+                <td>✅</td>
+                <td>✅ Principal</td>
+                <td>❌</td>
+                <td>PGP binarybaron</td>
+              </tr>
+              <tr>
+                <td><strong>Feather Wallet</strong>
+                </td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅ Watch-only</td>
+                <td>PGP devs Monero</td>
+              </tr>
+              <tr>
+                <td><strong>KeePassXC/DX</strong>
+                </td>
+                <td>✅ Metadados</td>
+                <td>✅ Sessão</td>
+                <td>✅ Senhas</td>
+                <td>Assinatura oficial</td>
+              </tr>
+              <tr>
+                <td><strong>Electrum</strong>
+                </td>
+                <td>✅ Alternativo</td>
+                <td>✅ Pré-instalado</td>
+                <td>✅</td>
+                <td>PGP Electrum</td>
+              </tr>
+              <tr>
+                <td><strong>RoboSats</strong>
+                </td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>.onion verificado</td>
+              </tr>
+              <tr>
+                <td><strong>Bitcoin Core</strong>
+                </td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>PGP Bitcoin Core</td>
+              </tr>
+              <tr>
+                <td><strong>EPS</strong>
+                </td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>Git + PGP</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>3.4 Chaves e Segredos</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Segredo</th>
+                <th>Local de Armazenamento</th>
+                <th>Nunca Armazenar Em</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Seed BIP39 (24 palavras)</strong>
+                </td>
+                <td>Placa de aço (local físico 1)</td>
+                <td>Digital, nuvem, foto, KeePassXC</td>
+              </tr>
+              <tr>
+                <td><strong>Passphrase (25ª palavra)</strong>
+                </td>
+                <td>Memória + local físico 2</td>
+                <td>Junto com a seed</td>
+              </tr>
+              <tr>
+                <td><strong>Senha Persistent Storage</strong>
+                </td>
+                <td>KeePassXC + local físico</td>
+                <td>Mesmo local da seed</td>
+              </tr>
+              <tr>
+                <td><strong>Senha KeePassXC</strong>
+                </td>
+                <td>Memória + local físico 3</td>
+                <td>Digital sem backup físico</td>
+              </tr>
+              <tr>
+                <td><strong>PIN Coldcard</strong>
+                </td>
+                <td>Memória</td>
+                <td>Qualquer lugar digital</td>
+              </tr>
+              <tr>
+                <td><strong>Xpub</strong>
+                </td>
+                <td>Sparrow (watching-only)</td>
+                <td>- (não é segredo, é chave pública)</td>
+              </tr>
+              <tr>
+                <td><strong>Seed XMR (Feather)</strong>
+                </td>
+                <td>KeePassXC (sessão Tails)</td>
+                <td>Persistent Storage do Tails</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>4. Fluxos Operacionais</h2>
+        <h3>4.1 Fluxo Principal: Depósito → Mixagem → Swap → Uso</h3><pre><code class="language-text-x-trilium-auto">INÍCIO
+  │
+  ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 0: GERAÇÃO DE SEED (Uma vez na vida)                   │
+│                                                             │
+│ Coldcard + Dice Rolls (99+) → 24 palavras → Placa de aço    │
+│ → Passphrase (25ª) → Validar Ian Coleman OFFLINE            │
+│ → Testar restore → Exportar xpub                            │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 1: RECEBIMENTO DE BTC                                  │
+│                                                             │
+│ Adquirir BTC (P2P/RoboSats/DEX)                             │
+│ → Enviar para endereço da carteira Sparrow                  │
+│ → UTXO aparece na aba UTXOs (Whonix Workstation)            │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 2: COINJOIN (Whirlpool 24/7 no Whonix)                 │
+│                                                             │
+│ Selecionar UTXOs → Premix → Assinar PSBT (Coldcard)         │
+│ → Transmitir → Aguardar confirmação                         │
+│ → Iniciar Whirlpool → Aguardar N rounds (mínimo 5)          │
+│ → Outputs com ícone azul (anonset ≥ 5)                      │
+│ → Mover para Postmix_Whonix                                 │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 3: ISOLAMENTO PARA SWAP                                │
+│                                                             │
+│ Na carteira Postmix_Whonix:                                 │
+│ → Selecionar 1 UTXO (anonset ≥ 5)                           │
+│ → Enviar para Swap_Ready_Whonix (mesma xpub, carteira sep.) │
+│ → UTXO isolado e rotulado                                   │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 4: SWAP BTC→XMR (Tails ou Whonix)                      │
+│                                                             │
+│ [Ambiente] Iniciar Tails (sessão limpa) OU Whonix           │
+│ [Feather] Gerar subendereço XMR virgem                       │
+│ [Sparrow] Gerar endereço BTC change virgem                   │
+│ [eigenwallet] Escolher maker → Inserir endereços            │
+│ [Coldcard] Assinar PSBT do swap                             │
+│ [Aguardar] 25-90 min para conclusão                         │
+│ [Feather] Confirmar recebimento XMR                         │
+│ [KeePassXC] Registrar TXIDs, endereços, timestamp           │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 5: INTERVALO DE SEGURANÇA                              │
+│                                                             │
+│ Aguardar MÍNIMO 24h (ideal 3-7 dias)                        │
+│ NÃO mover o XMR durante este período                        │
+│ Fechar Tails completamente                                  │
+│ Whonix continua mixando outros UTXOs                        │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 6: CHURN MONERO (Opcional, recomendado)                │
+│                                                             │
+│ Feather → Nova carteira (seed virgem)                       │
+│ → Enviar XMR para nova carteira                             │
+│ → Aguardar 10 confirmações Monero                           │
+│ → XMR agora sem vínculo temporal com o swap                 │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ FASE 7: USO DOS FUNDOS                                      │
+│                                                             │
+│ XMR: Gastar diretamente (Feather)                           │
+│ ou                                                        │
+│ Novo swap XMR→BTC (via eigenwallet, mesmo processo)         │
+│ → BTC pós-swap volta limpo (sem histórico KYC)              │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>4.2 Fluxo de Recuperação de Desastre</h3><pre><code class="language-text-x-trilium-auto">DESASTRE: Whonix Workstation corrompida / Persistent Storage perdido
+  │
+  ▼
+┌─────────────────────────────────────────────────────────────┐
+│ AVALIAR O QUE FOI PERDIDO                                   │
+│                                                             │
+│ Seed BIP39: ❌ NUNCA perdida (aço + memória)                │
+│ Passphrase: ❌ NUNCA perdida (memória + local físico)       │
+│ Coldcard: ⚠️ Se perdido, comprar novo e restaurar seed     │
+│ VM Whonix Workstation: ⚠️ Restaurar snapshot/backup        │
+│ Estado Whirlpool: ⚠️ Restore from Seed no Sparrow          │
+│ KeePassXC: ⚠️ Restaurar de backup externo                  │
+│ Pendrive Tails: ⚠️ Recriar do zero (sem perda de fundos)   │
+└──────────────────────────┬──────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│ PROCEDIMENTO DE RECUPERAÇÃO                                 │
+│                                                             │
+│ 1. Restaurar VM Whonix de backup (snapshot/arquivo .vdi)    │
+│    OU recriar VM do zero + restaurar KeePassXC              │
+│                                                             │
+│ 2. No Sparrow: File → New Wallet → Import xpub do Coldcard  │
+│    → Aba Whirlpool → Restore from Seed                      │
+│    → Aguardar scan (10-40 min)                              │
+│                                                             │
+│ 3. Verificar UTXOs na aba Transactions                      │
+│    → Outputs de pool reaparecem                             │
+│    → Continuar mixagem ou mover para Postmix                │
+│                                                             │
+│ 4. Recriar pendrive Tails (se perdido):                     │
+│    → Baixar ISO, verificar PGP, gravar                      │
+│    → Reinstalar eigenwallet, Feather                        │
+│    → NÃO há perda de fundos (XMR está na blockchain)        │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <hr>
+        <h2>5. Camada de Hardware Físico</h2>
+        <h3>5.1 Coldcard Mk5 — Configuração Inicial</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────┐
+│              COLD CARD MK5 — SETUP INICIAL              │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  1. Verificar bag antiviolação (número de série)        │
+│  2. Atualizar firmware via MicroSD (PGP verificado)     │
+│  3. New Wallet → Dice Rolls → 99+ lançamentos           │
+│  4. Anotar 24 palavras em papel (depois gravar aço)     │
+│  5. Configurar Passphrase (25ª palavra)                 │
+│  6. Exportar xpub para MicroSD                          │
+│  7. Validar com Ian Coleman OFFLINE (Tails sem rede)    │
+│  8. Testar restore: apagar Coldcard, restaurar seed     │
+│  9. Gravar palavras em aço, guardar em local seguro     │
+│                                                         │
+│  ⚠️ NUNCA: digitar seed em computador                   │
+│  ⚠️ NUNCA: fotografar seed                              │
+│  ⚠️ NUNCA: guardar seed e passphrase juntos             │
+│                                                         │
+└─────────────────────────────────────────────────────────┘</code></pre>
+        <h3>5.2 Dispositivos de Backup Físico</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Material</th>
+                <th>Localização</th>
+                <th>Contém</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Backup 1</strong>
+                </td>
+                <td>Placa de aço</td>
+                <td>Local físico A (ex: cofre residência)</td>
+                <td>24 palavras BIP39</td>
+              </tr>
+              <tr>
+                <td><strong>Backup 2</strong>
+                </td>
+                <td>Placa de aço</td>
+                <td>Local físico B (ex: familiar confiável)</td>
+                <td>24 palavras BIP39</td>
+              </tr>
+              <tr>
+                <td><strong>Passphrase</strong>
+                </td>
+                <td>Papel especial + memória</td>
+                <td>Local físico C (ex: outro cômodo)</td>
+                <td>25ª palavra</td>
+              </tr>
+              <tr>
+                <td><strong>PIN Coldcard</strong>
+                </td>
+                <td>Memória + envelope selado</td>
+                <td>Local físico D</td>
+                <td>6-12 dígitos</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>6. Camada de Virtualização</h2>
+        <h3>6.1 Configuração do VirtualBox</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                    VIRTUALBOX — REDES                       │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  Rede Interna: "Whonix" (10.152.152.0/24)                   │
+│                                                             │
+│  ┌──────────────────┐  ┌──────────────────┐                │
+│  │ Whonix-Gateway   │  │ Whonix-Workstation│                │
+│  │                  │  │                  │                │
+│  │ Adapter 1: NAT   │  │ Adapter 1:       │                │
+│  │ (internet via    │  │ Internal Network │                │
+│  │  Tor)            │  │ "Whonix"         │                │
+│  │                  │  │                  │                │
+│  │ Adapter 2:       │  │ (SEM adapter 2)  │                │
+│  │ Internal Network │  │                  │                │
+│  │ "Whonix"         │  │                  │                │
+│  └──────────────────┘  └──────────────────┘                │
+│                                                             │
+│  ┌──────────────────┐                                       │
+│  │ Bitcoin-Node     │                                       │
+│  │                  │                                       │
+│  │ Adapter 1:       │                                       │
+│  │ Internal Network │                                       │
+│  │ "Whonix"         │                                       │
+│  │                  │                                       │
+│  │ (Opcional:       │                                       │
+│  │  Adapter 2: NAT  │                                       │
+│  │  para sync inicial│                                      │
+│  │  mais rápida)    │                                       │
+│  └──────────────────┘                                       │
+│                                                             │
+│  PASTA COMPARTILHADA:                                       │
+│  /psbt_bridge (Host) → /mnt/psbt_bridge (Workstation)       │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>6.2 Estratégia de Snapshots</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Momento</th>
+                <th>Snapshot</th>
+                <th>Quando Restaurar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Após instalação limpa</td>
+                <td><code spellcheck="false">clean_install</code>
+                </td>
+                <td>Contaminação grave</td>
+              </tr>
+              <tr>
+                <td>Antes de criar Premix</td>
+                <td><code spellcheck="false">pre_premix</code>
+                </td>
+                <td>Erro na transação Premix</td>
+              </tr>
+              <tr>
+                <td>Premix confirmada</td>
+                <td><code spellcheck="false">premix_confirmed</code>
+                </td>
+                <td>Falha no registro Whirlpool</td>
+              </tr>
+              <tr>
+                <td>A cada 3 rounds completos</td>
+                <td><code spellcheck="false">round_X_complete</code>
+                </td>
+                <td>Corrupção durante mixagem</td>
+              </tr>
+              <tr>
+                <td>Antes de cada swap</td>
+                <td><code spellcheck="false">pre_swap</code>
+                </td>
+                <td>Falha no eigenwallet</td>
+              </tr>
+              <tr>
+                <td>Após swap concluído</td>
+                <td><code spellcheck="false">swap_complete</code>
+                </td>
+                <td>Referência para auditoria</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>7. Camada de Rede Anônima</h2>
+        <h3>7.1 Topologia Tor</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                 FLUXO DE TRÁFEGO TOR                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  Whonix-Workstation                                         │
+│  (SEM IP real, SEM rota clearnet)                           │
+│        │                                                    │
+│        │ Tráfego (Sparrow, eigen, Feather)                  │
+│        ▼                                                    │
+│  Whonix-Gateway                                             │
+│  (Força TUDO por Tor)                                       │
+│        │                                                    │
+│        │ Circuito Tor (3 relays + possível bridge)          │
+│        ▼                                                    │
+│  ┌──────────────────────────────────────────┐              │
+│  │         REDE TOR                          │              │
+│  │                                           │              │
+│  │  Entry → Middle → Exit                    │              │
+│  │  (ou Bridge → Entry → Middle → Exit)      │              │
+│  │                                           │              │
+│  └──────────────────────────────────────────┘              │
+│        │                                                    │
+│        ▼                                                    │
+│  ┌──────────────────────────────────────────┐              │
+│  │         SERVIÇOS .ONION                    │              │
+│  │                                           │              │
+│  │  • Coordinator Whirlpool                  │              │
+│  │  • Makers eigenwallet                     │              │
+│  │  • EPS próprio (seu node)                 │              │
+│  │  • Rede Bitcoin (pares .onion)            │              │
+│  │  • Rede Monero (pares .onion)             │              │
+│  │                                           │              │
+│  └──────────────────────────────────────────┘              │
+│                                                             │
+│  ⚠️ VERIFICAÇÃO:                                            │
+│  curl --socks5-hostname 127.0.0.1:9050                      │
+│       https://check.torproject.org                          │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>7.2 Endereços .onion de Referência</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Serviço</th>
+                <th>.onion</th>
+                <th>Verificação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Whirlpool Coordinator</td>
+                <td>Verificar em sparrowwallet.com</td>
+                <td>Site oficial + PGP</td>
+              </tr>
+              <tr>
+                <td>Mempool Space</td>
+                <td>mempool.space.onion</td>
+                <td>Site oficial</td>
+              </tr>
+              <tr>
+                <td>RoboSats</td>
+                <td>RoboSatsy56bwqn56...onion</td>
+                <td>GitHub oficial + PGP</td>
+              </tr>
+              <tr>
+                <td>Seu EPS</td>
+                <td>Gerado automaticamente</td>
+                <td><code spellcheck="false">/var/lib/tor/electrum_hidden_service/hostname</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>8. Camada de Aplicações Cripto</h2>
+        <h3>8.1 Sparrow Wallet — Carteiras por Função</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│         SPARROW — ESTRUTURA DE CARTEIRAS                    │
+│         (Todas usam a MESMA xpub do Coldcard)               │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌────────────────────────────────────────────────────┐    │
+│  │ Whirlpool_Whonix                                    │    │
+│  │ • UTXOs não-misturados                              │    │
+│  │ • Transações Premix                                 │    │
+│  │ • Mixagem em andamento                              │    │
+│  │ • Status: "Sujo" — Não gastar fora do Whirlpool     │    │
+│  └────────────────────────────────────────────────────┘    │
+│                        │                                    │
+│                        │ Após N rounds (anonset ≥ 5)        │
+│                        ▼                                    │
+│  ┌────────────────────────────────────────────────────┐    │
+│  │ Postmix_Whonix                                      │    │
+│  │ • UTXOs pós-coinjoin (anonset ≥ 5)                 │    │
+│  │ • Prontos para uso privado                          │    │
+│  │ • Status: "Limpo" — Pode gastar                     │    │
+│  └────────────────────────────────────────────────────┘    │
+│                        │                                    │
+│                        │ Isolar 1 UTXO para swap            │
+│                        ▼                                    │
+│  ┌────────────────────────────────────────────────────┐    │
+│  │ Swap_Ready_Whonix                                   │    │
+│  │ • UTXO único, isolado, rotulado                    │    │
+│  │ • Destinado ao eigenwallet                          │    │
+│  │ • Status: "Reservado para swap"                     │    │
+│  └────────────────────────────────────────────────────┘    │
+│                                                             │
+│  ⚠️ NUNCA CONSOLIDAR:                                       │
+│  UTXO pós-coinjoin + UTXO não-misturado = PERDA DE          │
+│  PRIVACIDADE (common-input-ownership heuristic)             │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>8.2 Configuração do Whirlpool</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│              WHIRLPOOL — CONFIGURAÇÃO                       │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  Coordinator: [.onion oficial] (verificar a cada sessão)   │
+│  Pool: 0.01 BTC (recomendado para início)                   │
+│  Target Anonset: 5 (mínimo), 10+ (ideal)                    │
+│  Modo: Remix automático                                     │
+│                                                             │
+│  ⏱️ TEMPOS TÍPICOS:                                        │
+│  • Premix: 10-30 min (confirmação)                          │
+│  • 1 round: 20-60 min                                       │
+│  • 5 rounds: 2-8 horas                                      │
+│  • 10 rounds: 5-20 horas (recomendado deixar 24/7)          │
+│                                                             │
+│  💾 PERSISTÊNCIA:                                           │
+│  • Whonix: Snapshots da VM                                  │
+│  • Tails: Persistent Storage + anotações no KeePassXC       │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <hr>
+        <h2>9. Protocolo de Swap Atômico</h2>
+        <h3>9.1 Diagrama do Swap BTC↔XMR (eigenwallet)</h3><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│           SWAP ATÔMICO BTC→XMR — SEQUÊNCIA                  │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  VOCÊ (Taker)                    MAKER (Provedor)           │
+│  ───────────                     ─────────────────          │
+│                                                             │
+│  1. Escolhe maker                                         │
+│     → Preço, reputação, bond                               │
+│                                                             │
+│  2. Fornece endereços:                                    │
+│     • BTC change (Sparrow)                                │
+│     • XMR destino (Feather)                               │
+│                                                             │
+│  3. Cria transação BTC            ←──→  4. Maker deposita  │
+│     (PSBT para Coldcard)                   bond (caução)    │
+│                                                             │
+│  5. Assina PSBT (Coldcard)                                │
+│     → Transmite transação                                  │
+│                                                             │
+│  6. Aguarda confirmações          ←──→  7. Maker revela    │
+│     (10 blocos BTC)                        chave XMR        │
+│                                                             │
+│  8. Resgata XMR                                          │
+│     → Recebe no Feather                                    │
+│                                                             │
+│  9. Aguarda 10 confirmações                                │
+│     Monero (~20 min)                                       │
+│                                                             │
+│  ✅ SWAP CONCLUÍDO                                        │
+│                                                             │
+│  ⏱️ Tempo total: 25-90 minutos                             │
+│  💰 Taxa maker: 1-3% (varia)                               │
+│  🔒 Se maker desertar: recupera BTC após timeout            │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <h3>9.2 Pré-condições para Swap Seguro</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Condição</th>
+                <th>Verificação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>UTXO BTC pós-coinjoin (anonset ≥ 5)</td>
+                <td>Sparrow → Aba UTXOs → ver ícone azul</td>
+              </tr>
+              <tr>
+                <td>Subendereço XMR virgem</td>
+                <td>Feather → Receive → New address</td>
+              </tr>
+              <tr>
+                <td>Endereço BTC change virgem</td>
+                <td>Sparrow → Addresses → nunca usado</td>
+              </tr>
+              <tr>
+                <td>Tor funcionando</td>
+                <td><code spellcheck="false">curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org</code>
+                </td>
+              </tr>
+              <tr>
+                <td>eigenwallet PGP verificado</td>
+                <td><code spellcheck="false">gpg --verify eigenwallet*.AppImage.asc</code>
+                </td>
+              </tr>
+              <tr>
+                <td>Sem pressa para mover XMR depois</td>
+                <td>Planejar intervalo ≥ 24h</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>10. Matriz de Resiliência</h2>
+        <h3>10.1 Cenários de Falha e Recuperação</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Cenário</th>
+                <th>Impacto</th>
+                <th>Recuperação</th>
+                <th>Tempo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Persistent Storage corrompido</strong>
+                </td>
+                <td>Perda do estado Whirlpool local</td>
+                <td>Restore from Seed no Sparrow</td>
+                <td>10-40 min</td>
+              </tr>
+              <tr>
+                <td><strong>VM Whonix Workstation apagada</strong>
+                </td>
+                <td>Perda total do ambiente</td>
+                <td>Restaurar snapshot/backup + Restore from Seed</td>
+                <td>1-2 horas</td>
+              </tr>
+              <tr>
+                <td><strong>Pendrive Tails perdido/quebrado</strong>
+                </td>
+                <td>Perda do ambiente de swap</td>
+                <td>Recriar Tails em novo USB</td>
+                <td>30 min</td>
+              </tr>
+              <tr>
+                <td><strong>Coldcard perdido/roubado</strong>
+                </td>
+                <td>Sem capacidade de assinar</td>
+                <td>Comprar novo Coldcard, restaurar seed do aço</td>
+                <td>1-7 dias (compra)</td>
+              </tr>
+              <tr>
+                <td><strong>Placa de aço perdida (local A)</strong>
+                </td>
+                <td>Sem backup primário</td>
+                <td>Usar backup do local B</td>
+                <td>Imediato</td>
+              </tr>
+              <tr>
+                <td><strong>Esqueceu passphrase</strong>
+                </td>
+                <td>Carteira com passphrase inacessível</td>
+                <td>Esperar lembrar (sem recuperação possível)</td>
+                <td>∞</td>
+              </tr>
+              <tr>
+                <td><strong>Coordinator Whirlpool offline</strong>
+                </td>
+                <td>Mixagem pausa</td>
+                <td>Aguardar volta + manter outputs registrados</td>
+                <td>Horas-dias</td>
+              </tr>
+              <tr>
+                <td><strong>Maker eigenwallet deserta</strong>
+                </td>
+                <td>Swap pendente</td>
+                <td>Timeout devolve BTC automaticamente</td>
+                <td>24-48 horas</td>
+              </tr>
+              <tr>
+                <td><strong>Tor comprometido (teórico)</strong>
+                </td>
+                <td>Anonimato reduzido</td>
+                <td>Rotacionar outputs, novo swap com intervalo</td>
+                <td>Dias</td>
+              </tr>
+              <tr>
+                <td><strong>Host físico apreendido</strong>
+                </td>
+                <td>Perda das VMs</td>
+                <td>Recuperar VMs de backup externo + seed do aço</td>
+                <td>Dias-semanas</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>10.2 Níveis de Backup</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Nível</th>
+                <th>O que</th>
+                <th>Onde</th>
+                <th>Frequência</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>N1: Seed</strong>
+                </td>
+                <td>24 palavras em aço</td>
+                <td>2 locais físicos</td>
+                <td>Uma vez (gravação)</td>
+              </tr>
+              <tr>
+                <td><strong>N2: Passphrase</strong>
+                </td>
+                <td>25ª palavra</td>
+                <td>Memória + local físico 3</td>
+                <td>Uma vez</td>
+              </tr>
+              <tr>
+                <td><strong>N3: VM Whonix</strong>
+                </td>
+                <td>Arquivo .vdi/.qcow2</td>
+                <td>HD externo criptografado</td>
+                <td>Semanal</td>
+              </tr>
+              <tr>
+                <td><strong>N4: KeePassXC</strong>
+                </td>
+                <td>Banco .kdbx</td>
+                <td>HD externo + nuvem cifrada</td>
+                <td>Após cada swap</td>
+              </tr>
+              <tr>
+                <td><strong>N5: Snapshots</strong>
+                </td>
+                <td>Estado das VMs</td>
+                <td>No próprio host</td>
+                <td>Antes de cada operação crítica</td>
+              </tr>
+              <tr>
+                <td><strong>N6: Anotações</strong>
+                </td>
+                <td>TXIDs, endereços, timestamps</td>
+                <td>KeePassXC (dentro do N4)</td>
+                <td>A cada transação</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>11. Checklist de Verificação de Integridade</h2>
+        <h3>11.1 Verificação Diária (Whonix)</h3><pre><code class="language-text-x-trilium-auto">□ Whonix-Gateway iniciado e Tor verde
+□ Whonix-Workstation iniciada
+□ curl check.torproject.org → "Congratulations"
+□ Sparrow conectado ao EPS .onion (ícone verde)
+□ Whirlpool rodando (verificar rounds ativos)
+□ KeePassXC aberto e banco íntegro
+□ Pasta /mnt/psbt_bridge acessível</code></pre>
+        <h3>11.2 Verificação Pré-Swap (Tails ou Whonix)</h3><pre><code class="language-text-x-trilium-auto">□ Tails iniciado, Tor verificado
+□ eigenwallet AppImage verificada (PGP)
+□ Feather Wallet verificada (PGP)
+□ Subendereço XMR virgem anotado no KeePassXC
+□ Endereço BTC change virgem anotado no KeePassXC
+□ UTXO isolado em Swap_Ready_Whonix
+□ Coldcard pronto com bateria
+□ MicroSD formatado e vazio para PSBT
+□ Tempo disponível: 2+ horas ininterruptas
+□ Alimentação elétrica estável</code></pre>
+        <h3>11.3 Verificação Pós-Swap</h3><pre><code class="language-text-x-trilium-auto">□ XMR recebido no Feather (verificar valor)
+□ TXIDs anotados no KeePassXC
+□ Intervalo de 24h+ iniciado (anotar timestamp)
+□ Tails desligado completamente (se foi o ambiente)
+□ Snapshot da VM Whonix salvo (se foi o ambiente)
+□ Backup do KeePassXC atualizado</code></pre>
+        <h3>11.4 Verificação Mensal</h3><pre><code class="language-text-x-trilium-auto">□ Backup da VM Whonix copiado para HD externo
+□ Snapshot "saudável" verificado (restaurar e testar)
+□ Placa de aço inspecionada (corrosão, legibilidade)
+□ Coldcard firmware verificou atualização disponível
+□ Lista de .onion atualizada (coordinator, EPS)
+□ Teste de restore PARCIAL (recriar carteira no Sparrow)
+□ Limpeza de UTXOs dust (consolidar se seguro)</code></pre>
+        <hr>
+        <h2>12. Referências e Fontes</h2>
+        <h3>12.1 Sites Oficiais</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Projeto</th>
+                <th>URL</th>
+                <th>Verificação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Coldcard</td>
+                <td>coinkite.com</td>
+                <td>PGP + bag antiviolação</td>
+              </tr>
+              <tr>
+                <td>Sparrow Wallet</td>
+                <td>sparrowwallet.com</td>
+                <td>PGP Craig Raw</td>
+              </tr>
+              <tr>
+                <td>Feather Wallet</td>
+                <td>featherwallet.org</td>
+                <td>PGP devs</td>
+              </tr>
+              <tr>
+                <td>eigenwallet</td>
+                <td>eigenwallet.org</td>
+                <td>PGP binarybaron</td>
+              </tr>
+              <tr>
+                <td>Whonix</td>
+                <td>whonix.org</td>
+                <td>PGP 2EEACCDA</td>
+              </tr>
+              <tr>
+                <td>Tails</td>
+                <td>tails.boum.org</td>
+                <td>PGP OpenPGP</td>
+              </tr>
+              <tr>
+                <td>CalyxOS</td>
+                <td>calyxos.org</td>
+                <td>Assinatura oficial</td>
+              </tr>
+              <tr>
+                <td>GrapheneOS</td>
+                <td>grapheneos.org</td>
+                <td>Assinatura oficial</td>
+              </tr>
+              <tr>
+                <td>Ian Coleman BIP39</td>
+                <td>iancoleman.io/bip39</td>
+                <td>PGP + uso OFFLINE</td>
+              </tr>
+              <tr>
+                <td>RoboSats</td>
+                <td>github.com/RoboSats</td>
+                <td>PGP + .onion</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>12.2 Canais de Verificação Cruzada</h3>
+        <ul>
+          <li data-list-item-id="e7ab576499700581e1ed95d1d6ac61401"><strong>Twitter/X:</strong> @SparrowWallet, @FeatherWallet, @binarybaron,
+            @Whonix, @Tails_live</li>
+          <li data-list-item-id="e89bb1e5f5b4ddfc61c6dd03c5483bd6c"><strong>GitHub:</strong> Repositórios oficiais com commits assinados</li>
+          <li
+          data-list-item-id="eddfc54d81289a656999ead9cb7bb423b"><strong>Matrix/SimpleX:</strong> Canais das comunidades para anúncios de
+            fingerprint</li>
+            <li data-list-item-id="e5cc1125496c04f9772648b2a527d2977"><strong>YouTube:</strong> @Bitcoinheiros (Allan) — tutoriais em português</li>
+        </ul>
+        <h3>12.3 Comandos de Verificação Rápida</h3><pre><code class="language-text-x-trilium-auto"># Verificar Tor
+curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org
+
+# Verificar assinatura de AppImage genérica
+gpg --verify aplicativo.AppImage.asc aplicativo.AppImage
+
+# Verificar fingerprint de chave importada
+gpg --fingerprint "Nome ou Key ID"
+
+# Verificar checksum
+sha256sum --check SHA256SUMS --ignore-missing
+
+# Verificar integridade do Tails
+gpg --keyid-format long --verify tails-amd64-*.img.sig tails-amd64-*.img
+
+# Verificar conexão Sparrow ao servidor (Console Sparrow)
+getinfo
+
+# Verificar saúde Bitcoin Core
+bitcoin-cli getblockchaininfo
+
+# Verificar serviço EPS
+sudo journalctl -u eps -f</code></pre>
+        <hr>
+        <h2>📌 Resumo de Comandos Essenciais</h2>
+        <h3>Iniciar Ambiente Whonix</h3><pre><code class="language-text-x-trilium-auto"># Host
+VBoxManage startvm "Whonix-Gateway" --type headless
+sleep 30  # Aguardar Tor
+VBoxManage startvm "Whonix-Workstation" --type headless
+VBoxManage startvm "Bitcoin-Node" --type headless</code></pre>
+        <h3>Iniciar Aplicações na Workstation</h3><pre><code class="language-text-x-trilium-auto"># Na Workstation
+~/Applications/sparrow-*.AppImage &amp;
+~/Applications/feather-*.AppImage &amp;
+keepassxc ~/Documents/whonix_crypto.kdbx &amp;</code></pre>
+        <h3>Criar Snapshot antes de Operação Crítica</h3><pre><code class="language-text-x-trilium-auto"># Host
+VBoxManage snapshot "Whonix-Workstation" take "pre_swap_$(date +%Y%m%d)"</code></pre>
+        <h3>Restaurar Snapshot</h3><pre><code class="language-text-x-trilium-auto"># Host
+VBoxManage snapshot "Whonix-Workstation" restore "pre_swap_20260623"</code></pre>
+        <hr>
+        <h2>🎯 Evolução Futura (Roadmap Pessoal)</h2>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Fase</th>
+                <th>Meta</th>
+                <th>Complexidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Fase 1 (Atual)</strong>
+                </td>
+                <td>Ambiente soberano funcional (este documento)</td>
+                <td>✅ Concluído</td>
+              </tr>
+              <tr>
+                <td><strong>Fase 2</strong>
+                </td>
+                <td>Node Bitcoin em hardware dedicado (Raspi 5)</td>
+                <td>Média</td>
+              </tr>
+              <tr>
+                <td><strong>Fase 3</strong>
+                </td>
+                <td>JoinMarket no Whonix (alternativa ao Whirlpool)</td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td><strong>Fase 4</strong>
+                </td>
+                <td>PayJoin + CoinJoin combinados</td>
+                <td>Alta</td>
+              </tr>
+              <tr>
+                <td><strong>Fase 5</strong>
+                </td>
+                <td>Lightning Network autônomo (LND + Tor)</td>
+                <td>Muito Alta</td>
+              </tr>
+              <tr>
+                <td><strong>Fase 6</strong>
+                </td>
+                <td>Automação de swaps com scripts seguros</td>
+                <td>Muito Alta</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>⚠️ Advertências Finais</h2>
+        <ol>
+          <li data-list-item-id="e74353c9a246c9ebae83fc2f83dce88fe"><strong>Nunca digite sua seed em nenhum dispositivo eletrônico conectado à rede.</strong>
+            <br>O Coldcard existe para isso.</li>
+          <li data-list-item-id="efca91d8c0aa48be2be549b69b6d93821"><strong>Nunca pule a verificação PGP.</strong>
+            <br>Um AppImage falso pode roubar todos os fundos.</li>
+          <li data-list-item-id="ee26e68d6787a3769e192080e1af786d5"><strong>Nunca reutilize endereços.</strong>
+            <br>Cada transação merece um endereço virgem.</li>
+          <li data-list-item-id="e85e926bd69bffd92f4de9fd5662516bc"><strong>Nunca consolide UTXOs pós-coinjoin com UTXOs não-misturados.</strong>
+            <br>Isso desfaz todo o anonimato conquistado.</li>
+          <li data-list-item-id="e7c61974ab76db90bba19c7b1d9ef321e"><strong>Nunca mova XMR imediatamente após um swap.</strong>
+            <br>Aguarde no mínimo 24 horas.</li>
+          <li data-list-item-id="eff4f52c76003eabb4d9fc0166f3c5226"><strong>Mantenha backups físicos em locais diferentes.</strong>
+            <br>Incêndio, inundação ou roubo não podem destruir todos ao mesmo tempo.</li>
+          <li
+          data-list-item-id="e7333f9527a3c89fe32d62b0c4e2b0f6d"><strong>Verifique o coordinator Whirlpool a cada nova sessão.</strong>
+            <br>Coordenadores podem mudar sem aviso.</li>
+            <li data-list-item-id="e10243b770a0cf886b3d3b130fed70f42"><strong>Teste a recuperação periodicamente.</strong>
+              <br>Recuperar de mentira uma vez por semestre salva da recuperação real no
+              desespero.</li>
+        </ol>
+        <hr><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   "Not your keys, not your coins."                          │
+│   "Not your node, not your privacy."                        │
+│   "Not your verification, not your security."               │
+│                                                             │
+│   Este ecossistema é soberano porque VOCÊ controla:         │
+│   🔑 As chaves (Coldcard + aço)                             │
+│   📡 O node (Bitcoin Core + EPS)                            │
+│   🧅 A rede (Tor via Whonix)                                │
+│   🔀 A mixagem (Whirlpool com coordinator .onion)          │
+│   🔄 Os swaps (eigenwallet P2P)                             │
+│   💾 Os backups (snapshots + aço + KeePassXC)               │
+│                                                             │
+│   Nenhum terceiro tem acesso a tudo ao mesmo tempo.         │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <hr>
+        <p><strong>Documento compilado em 23 de Junho de 2026.</strong>
+          <br><strong>Baseado no protocolo original de pesquisa e nas respostas técnicas fornecidas.</strong>
+          <br><strong>Para referência futura e estudos contínuos em auto-custódia soberana.</strong>
+        </p>
+        <hr>
+        <p>Esta documentação cobre todo o ecossistema. Você pode salvá-la como
+          <code
+          spellcheck="false">ecossistema_soberano_cripto.md</code>e mantê-la no KeePassXC (como notas
+            seguras) ou imprimir partes para referência offline.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

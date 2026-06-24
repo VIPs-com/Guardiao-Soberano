@@ -1,0 +1,532 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <base target="_parent">
+    <title data-trilium-title>MANUAL DA FORTALEZA</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>MANUAL DA FORTALEZA</h1>
+
+      <div class="ck-content">
+        <h2>🏴‍☠️ **MANUAL DA FORTALEZA**</h2>
+        <h3>Curso para Cypherpunks Operacionais · Edição Monero &amp; Tails</h3>
+        <blockquote>
+          <p><em>"A privacidade não é um produto que se compra, é uma fortaleza que se constrói tijolo por tijolo, com as próprias mãos."</em>
+          </p>
+        </blockquote>
+        <hr>
+        <h2>🧭 Prefácio – Quem precisa deste curso?</h2>
+        <p>Você já sentiu o incômodo de ter que mostrar documentos para mexer com
+          seu próprio dinheiro? Já percebeu que, na maioria das plataformas, cada
+          clique deixa um rastro eterno? Este curso é para quem decidiu <strong>cortar os intermediários</strong>,
+          assumir a custódia real de seus ativos e operar com privacidade que não
+          depende de promessas, mas de matemática e disciplina.</p>
+        <p>Aqui você vai construir sua <strong>fortaleza digital</strong> — do básico
+          ao avançado. Vamos usar <strong>Monero (XMR)</strong>, a única moeda verdadeiramente
+          privada, com ferramentas que transformam o computador comum em uma estação
+          de soberania financeira. Tudo <em>na mão na massa</em>, com comandos, arquivos
+          de configuração e dicas que livros técnicos não contam.</p>
+        <hr>
+        <h2>🧱 Estrutura do curso</h2>
+        <p>O Manual está dividido em <strong>8 módulos sequenciais</strong>. Cada
+          um entrega uma camada da fortaleza. Não pule etapas: a segurança de hoje
+          depende do que você fixou ontem.</p>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Módulo</th>
+                <th>Nome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td><strong>Mentalidade &amp; Modelagem de Ameaças</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td><strong>Arsenal Base – Feather Wallet</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong>Liberdade sem KYC – Haveno DEX</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><strong>O Fantasma na Máquina – Tails e Persistência</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><strong>A Fortaleza Móvel – Resiliência do Pendrive</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><strong>Campo Minado – Disputas e Provas de Pagamento</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><strong>O Cofre Frio – Seeds e Armazenamento Offline</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><strong>Bastião Isolado – Whonix (Avançado)</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><strong>Rotina do Operador – Verificações e Limpeza</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <p>Cada módulo tem:</p>
+        <ul>
+          <li data-list-item-id="ed7468b8d180287fef088127cd99b52f1">🎯 <strong>Objetivo</strong>
+          </li>
+          <li data-list-item-id="e6a000432b9afda73db765aa23b9946a5">🛠️ <strong>Prática passo a passo</strong> (com comandos)</li>
+          <li data-list-item-id="ec5538b10e0eb3035326299ed96574b0d">🧠 <strong>Dicas de novato</strong>
+          </li>
+          <li data-list-item-id="e37168095a21dad4c0da2a86b64df2342">⚠️ <strong>Perigos reais</strong>
+          </li>
+        </ul>
+        <hr>
+        <h2>⚙️ Módulo 0 – Mentalidade &amp; Modelagem de Ameaças</h2>
+        <p><strong>Antes de abrir o terminal, abra a cabeça.</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ee23af50eea3b8bc21464c56a63ffef06"><strong>Quem é seu adversário?</strong> Exchange bisbilhoteira, governo
+            autoritário, criminoso na mesma rede, ou todos acima?</li>
+          <li data-list-item-id="ee8d416d343519f983ccb4e638c6754d8"><strong>O que você protege?</strong> Saldo, identidade, histórico, localização
+            física, metadados.</li>
+          <li data-list-item-id="e3a371972d505b7107dd8b5c102d55bd8"><strong>Soberania ≠ isolamento.</strong> Soberania é poder fazer transações
+            sem pedir licença, mas com capacidade de se defender.</li>
+          <li data-list-item-id="eba9dad5b5fbe1ed981ff2307ab529042"><strong>A fortaleza é em camadas.</strong> Se uma falha, outra segura.
+            Nenhuma ferramenta é mágica.</li>
+        </ul>
+        <blockquote>
+          <p>🔰 <strong>Dica de novato:</strong> Anote seus objetivos de privacidade
+            num papel. Ex: "Quero comprar XMR sem enviar selfie" ou "Quero viajar com
+            minha carteira e que ninguém saiba que tenho cripto". O resto do curso
+            será guiado por essas metas.</p>
+        </blockquote>
+        <hr>
+        <h2>⚙️ Módulo 1 – Arsenal Base: Feather Wallet</h2>
+        <p><strong>Seu cofre Monero, rápido e discreto.</strong>
+        </p>
+        <h3>🎯 Objetivo</h3>
+        <p>Instalar a Feather, gerar carteira, conectar via Tor e entender o básico
+          de saldo e transações.</p>
+        <h3>🛠️ Mão na massa (Windows / Linux / macOS)</h3>
+        <ol>
+          <li data-list-item-id="e2c239496689287d7feab1277a4429e61"><strong>Baixe apenas do site oficial:</strong>  <a href="https://feather-wallet.org">feather-wallet.org</a> e
+            verifique a assinatura GPG (se possível).</li>
+          <li data-list-item-id="e3f07225093f0d19ce88b267b476577e9"><strong>Instale e execute.</strong> Na primeira tela, escolha:
+            <ul>
+              <li data-list-item-id="e457e18bab3173c6db3134380af645d61"><em>Network:</em>  <strong>Tor (recomendado)</strong> – a Feather gerencia
+                o proxy automaticamente.</li>
+              <li data-list-item-id="ee6c8bc8e1ad79ea2f8490d5918c145cb"><em>Node:</em> Deixe o padrão (auto).</li>
+            </ul>
+          </li>
+          <li class="ck-list-marker-bold" data-list-item-id="e73bb68218cc2bd635b7d4cef91f90acf"><strong>Crie nova carteira:</strong>
+            <ul>
+              <li data-list-item-id="e64384ff4d6b7976570d14db184fc0fde">Nome: <code spellcheck="false">fortaleza_quente</code> (exemplo)</li>
+              <li
+              data-list-item-id="e115e1385bcce630352b4db17beb52d74">Seed de 25 palavras – <strong>copie à mão num papel resistente</strong>,
+                nunca salve digitalmente sem criptografia.</li>
+          </ul>
+          </li>
+          <li class="ck-list-marker-bold" data-list-item-id="e750f0ebefd8be77369d0a0c0fa8d629a"><strong>Configure o gasto rápido:</strong>
+            <ul>
+              <li data-list-item-id="e33d42efcdf124d430d1339bbfdc72219">Vá em <em>Settings → Nodes → Quality</em> e marque "Use lightweight wallet
+                mode" se quiser sincronização instantânea.</li>
+              <li data-list-item-id="e62a36241b162cafc30d8e675cdeb1ed5">Ajuste o <em>lock time</em> para evitar rastreio por intervalo entre transações
+                (opcional avançado).</li>
+            </ul>
+          </li>
+          <li class="ck-list-marker-bold" data-list-item-id="ebdabe73592905bf872dfe48b03f9cfe1"><strong>Faça seu primeiro teste:</strong>
+            <ul>
+              <li data-list-item-id="e052d19e235250bcbe690d0b0ea3f55b5">Receba uma fração de XMR de uma faucet ou amigo.</li>
+              <li data-list-item-id="eab2d96c0de20a74f7ba50434ee2c0886">Envie de volta com prioridade baixa (taxa menor). Observe o tempo de confirmação.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>🧠 Dicas de novato</h3>
+        <ul>
+          <li data-list-item-id="eb1c0114f4da62901cc7e6bbbe0e8b30a"><strong>Sempre anote a altura de criação da carteira</strong> (a data/hora
+            em que foi gerada). Ajuda a restaurar mais rápido.</li>
+          <li data-list-item-id="e1b6b6369bc92eceec6bce6ffe5eb9986"><strong>Cuidado com print da tela</strong> – muitos malwares capturam clipboard.
+            Prefira papel.</li>
+          <li data-list-item-id="e33c5b098afd2ba47525920dc725d6d59"><strong>Não faça transações com a carteira aberta em Wi-Fi público sem VPN/Tor</strong> –
+            a Feather já força Tor, mas certifique-se na barra inferior.</li>
+        </ul>
+        <h3>⚠️ Perigo</h3>
+        <p>Se você perder a seed e o computador quebrar, <em>nunca mais recupera os fundos</em>.
+          A responsabilidade é toda sua.</p>
+        <hr>
+        <h2>⚙️ Módulo 2 – Liberdade sem KYC: Haveno DEX</h2>
+        <p><strong>A exchange que não pede seu nome, só pede honestidade.</strong>
+        </p>
+        <h3>🎯 Objetivo</h3>
+        <p>Instalar a Haveno, criar conta P2P e realizar a primeira compra/venda
+          de XMR sem identificação.</p>
+        <h3>🛠️ Mão na massa</h3>
+        <ol>
+          <li data-list-item-id="ed143cdced70883645038568df6959a3b"><strong>Baixe a Haveno</strong> do site oficial (haveno.exchange) — ainda
+            em desenvolvimento ativo, use a versão estável para sua plataforma.</li>
+          <li
+          data-list-item-id="e3738e9ce4eb988cd2f7c5203dcb0c3f4"><strong>Inicie o aplicativo</strong> e mantenha a Feather aberta (a Haveno
+            usa a carteira Feather como backend).</li>
+            <li class="ck-list-marker-bold"
+            data-list-item-id="eef631b67a6eab71127efb97baba91cdb"><strong>Crie uma conta:</strong>
+              <ul>
+                <li data-list-item-id="ea88dbd8d5af51022b0369f3d37a54d14">Escolha uma senha FORTE (frase longa).</li>
+                <li data-list-item-id="e1bd8422c40877981cf0f944d1606e25a">Backup da conta: vá em <em>Account → Backup</em> e salve o arquivo
+                  <code
+                  spellcheck="false">.zip</code>criptografado em lugar seguro.</li>
+                <li data-list-item-id="edffd282fbfee9f393e1463c7fb923025">Configure moeda fiduciária desejada (EUR, USD, etc.) e conta de pagamento
+                  (ex: "Revolut", "PayPal", "Dinheiro vivo"). As ofertas são P2P.</li>
+              </ul>
+            </li>
+            <li class="ck-list-marker-bold" data-list-item-id="ea4995bea9ed8c96aec2c35341ccb3983"><strong>Explorando o mercado:</strong>
+              <ul>
+                <li data-list-item-id="e98ec7b8837608f9a9dcaf610a9530891">Sempre filtre por ofertas com alta reputação do vendedor.</li>
+                <li data-list-item-id="ee3bec3aa2e72b8a62fae6f8f27e4c55f">Use o chat da Haveno (end-to-end encriptado, rodando sobre Tor) para combinar
+                  os detalhes.</li>
+              </ul>
+            </li>
+            <li class="ck-list-marker-bold" data-list-item-id="e232218e278cb850d6aeb02d5d4d16691"><strong>Executando uma compra:</strong>
+              <ul>
+                <li data-list-item-id="e774dede35c825e924e80831e058688ab">Pegue uma oferta de "comprar XMR" que use o método de pagamento que você
+                  tem.</li>
+                <li data-list-item-id="e65b0d22fa26676529c675b3cbf3d0501">Clique em <em>Take offer</em> — o valor do vendedor é bloqueado no contrato
+                  multifirma (2-de-2 com árbitro).</li>
+                <li data-list-item-id="ecda2ee13e2f0f479e31c6229d53b89bf">Faça o pagamento fiat <strong>exatamente como descrito</strong> (ex: transferência
+                  bancária) e, <strong>IMPORTANTE</strong>: clique em <em>Payment sent</em>.</li>
+                <li
+                data-list-item-id="e39e5cd1e8f7913bceea7fdf11cbb866b">Aguarde o vendedor confirmar. Se não confirmar, você abre disputa.</li>
+            </ul>
+            </li>
+            <li class="ck-list-marker-bold" data-list-item-id="e5169b67cf396e25c8095cbcd4c269d29"><strong>Primeira venda (se tiver saldo):</strong>
+              <ul>
+                <li data-list-item-id="e78ce03aafb67de17a3839942a7e3f966">Crie uma oferta de venda de XMR por fiat.</li>
+                <li data-list-item-id="ea86d8d044043421534a13463be4a3f2b">Ao receber a notificação de pagamento, confira o extrato do seu banco/carteira
+                  fiat e libere os XMR.</li>
+              </ul>
+            </li>
+        </ol>
+        <h3>🧠 Dicas de novato</h3>
+        <ul>
+          <li data-list-item-id="e0c969583c79d25eaa7dcecb11a138779"><strong>Nunca feche o computador enquanto um trade está aberto.</strong> A
+            Haveno precisa ficar online para receber mensagens do árbitro.</li>
+          <li
+          data-list-item-id="ed102025a1df11fd596c88f3a1936ad6b"><strong>O chat da Haveno é sua prova.</strong> Salve os logs (automático)
+            se o pagamento deu problema.</li>
+            <li data-list-item-id="effd1cdbc98d8e6bede55889174245d20"><strong>Comece com valores pequenos</strong> para ganhar confiança no sistema
+              e no par.</li>
+        </ul>
+        <h3>⚠️ Perigo</h3>
+        <p>Se você perder o arquivo de backup da conta Haveno e o pendrive queimar,
+          perde o acesso à sua identidade de negociação, ordens abertas e chats. <strong>Você ficará sem provas em caso de disputa.</strong>
+        </p>
+        <hr>
+        <h2>⚙️ Módulo 3 – O Fantasma na Máquina: Tails + Persistência</h2>
+        <p><strong>O sistema operacional que não deixa rastro no hardware.</strong>
+        </p>
+        <h3>🎯 Objetivo</h3>
+        <p>Criar um pendrive Tails com persistência criptografada, instalar Feather
+          e Haveno nela, e entender as limitações.</p>
+        <h3>🛠️ Mão na massa</h3>
+        <p><strong>Material necessário:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eef7a90614c0a1fdb17df6b3ca29858de">2 pendrives USB de alta qualidade (mínimo 16 GB, recomendado 64 GB SSD-like).</li>
+          <li
+          data-list-item-id="e2d3645ea6c47e426601a8dacb7fc8f5a">Computador limpo.</li>
+        </ul>
+        <p><strong>Passo 1: Gravar Tails no primeiro pendrive</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e8b6f9a77f6765590f036332e6fd78bb6">Baixe a ISO do Tails de tails.net, verifique com GPG ou checksum.</li>
+          <li
+          data-list-item-id="ebeb94311e32dc58f4c3d818baf51a7ea">
+            <p>Use o <strong>balenaEtcher</strong> (Windows/macOS) ou <code spellcheck="false">dd</code> (Linux):</p><pre><code class="language-text-x-trilium-auto">sudo dd if=tails.iso of=/dev/sdX bs=16M status=progress</code></pre>
+            </li>
+            <li data-list-item-id="ebd95176286de7f83b58d449bb697c1c4">Dê boot pelo USB (configurar BIOS/UEFI).</li>
+        </ul>
+        <p><strong>Passo 2: Criar persistência</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ec7ddfa618b835a57e0df6e7792920142">No Tails inicial, menu <em>Applications → Tails → Configure persistent volume</em>.</li>
+          <li
+          data-list-item-id="e234523d3e6adbc482a301e3609dbc167">Ligue as opções: <em>Personal Data</em>, <em>Network Connections</em> (opcional), <em>Tor Bridge</em> (opcional), <em>Dotfiles</em>.</li>
+            <li
+            data-list-item-id="e7cc11dda6de0ffe92d21cf9e6699fff1"><strong>Crie uma senha de persistência LONGA e complexa.</strong> Anote
+              em local seguro.</li>
+        </ul>
+        <p><strong>Passo 3: Instalar Feather e Haveno na persistência</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ef2eac46c580b5ed676311f5d8944fae9">Reinicie o Tails com a persistência desbloqueada.</li>
+          <li data-list-item-id="e7fa164863cf0756d4c9bb1196765c080">Baixe o AppImage da Feather e o Haveno dentro do Tails (usar Tor Browser
+            para download).</li>
+          <li data-list-item-id="ef689284f1b8bbd7ae23cc552e8db70d4">Movê-los para <code spellcheck="false">/home/amnesia/Persistent/Apps/</code> (crie
+            a pasta).</li>
+          <li data-list-item-id="e8b09cebcc585a1fdb1557c504bf8ae61">
+            <p>Torne o AppImage executável:</p><pre><code class="language-text-x-trilium-auto">chmod +x /home/amnesia/Persistent/Apps/feather.AppImage</code></pre>
+          </li>
+          <li data-list-item-id="eea081584ebfc327f4797c0ac28365400">Execute a partir daí. A carteira será criada automaticamente dentro do
+            diretório persistente (<code spellcheck="false">.config/feather</code>).</li>
+          <li
+          data-list-item-id="ee83a802432a457c7599b146e11af91f6">
+            <p>A Haveno você pode descompactar o tarball na mesma pasta. Execute via
+              terminal:</p><pre><code class="language-text-x-trilium-auto">/home/amnesia/Persistent/Apps/haveno/bin/Haveno</code></pre>
+            </li>
+        </ul>
+        <p><strong>Passo 4: Ajustes para o dia a dia</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e2fa693a159d28aeafe5ca8eeeaccfaef">Configure a Feather para usar a rede Tor local (já em andamento).</li>
+          <li
+          data-list-item-id="e0334871ed861c8db7421f12578749712">Desabilite qualquer log desnecessário se possível, mas mantenha logs de
+            negociação da Haveno (eles são sua defesa).</li>
+        </ul>
+        <h3>🧠 Dicas de novato</h3>
+        <ul>
+          <li data-list-item-id="e274bf23197fd010e48a9d8fc3d9d5cac"><strong>Nunca conecte impressoras ou outros dispositivos</strong> que possam
+            armazenar logs durante a sessão Tails.</li>
+          <li data-list-item-id="ebfe267f6e57ea46547f209dc6cea4d28"><strong>Desative o JavaScript no Tor Browser por padrão</strong> para evitar
+            vazamento de identidade ao navegar.</li>
+          <li data-list-item-id="e9ab293a9496d5f12677ef8ce2bc6eaf4"><strong>Relógio da máquina host errado pode quebrar o Tor.</strong> Se
+            o Tails não conectar, ajuste a hora do BIOS.</li>
+        </ul>
+        <hr>
+        <h2>⚙️ Módulo 4 – A Fortaleza Móvel: Resiliência do Pendrive</h2>
+        <p><strong>Aqui está o ouro do curso: não morrer no meio de um trade.</strong>
+        </p>
+        <h3>🎯 Objetivo</h3>
+        <p>Aprender a clonar a persistência do Tails, extrair os dados críticos da
+          Haveno/Feather e se recuperar de um pendrive queimado em 30 minutos.</p>
+        <h3>🛠️ Procedimento de backup da Persistência (Mão na massa)</h3>
+        <p><strong>Importante:</strong> Faça isso periodicamente em casa, com o Tails
+          offline.</p>
+        <ol>
+          <li data-list-item-id="eb3305a05b0ef2730dd031bee6a6e3af8">
+            <p><strong>Prepare um segundo pendrive</strong> criptografado com LUKS. No
+              Tails:</p><pre><code class="language-text-x-trilium-auto">sudo cryptsetup luksFormat /dev/sdY
+sudo cryptsetup open /dev/sdY backupdrive
+sudo mkfs.ext4 /dev/mapper/backupdrive</code></pre>
+            <p>Monte-o em <code spellcheck="false">/media/backup</code>.</p>
+          </li>
+          <li data-list-item-id="ecb615eeb94a6c005a6ad9b44324be78f">
+            <p><strong>Clone a partição persistente</strong> (<code spellcheck="false">TailsData</code>):</p><pre><code class="language-text-x-trilium-auto">sudo dd if=/dev/sdX2 of=/media/backup/tails_persistencia.img bs=64K status=progress</code></pre>
+            <p>Se a unidade backup for confiável, pode-se comprimir e criptografar novamente:</p><pre><code class="language-text-x-trilium-auto">sudo dd if=/dev/sdX2 bs=64K | gpg --symmetric --cipher-algo AES256 --output /media/backup/tails_persistencia.img.gpg</code></pre>
+          </li>
+          <li data-list-item-id="e3c71848578020796070477b3570043d7">
+            <p><strong>Backup apenas dos dados da Haveno e Feather</strong> (método leve):</p><pre><code class="language-text-x-trilium-auto">tar czf - /home/amnesia/.config/feather /home/amnesia/.local/share/haveno | gpg --symmetric --output /media/backup/fortaleza_dados_$(date +%F).tar.gz.gpg</code></pre>
+          </li>
+        </ol>
+        <h3>🛠️ Restauração de emergência</h3>
+        <ul>
+          <li data-list-item-id="ee0100ad71ce8f2bccbfc150e2222c46a">
+            <p>Em Tails novo (com persistência já ativada e desbloqueada):</p><pre><code class="language-text-x-trilium-auto">gpg --decrypt /media/backup/fortaleza_dados_2025-01-01.tar.gz.gpg | tar xzvf - -C /</code></pre>
+            <p>Reinicie a Feather e a Haveno – tudo deve reaparecer.</p>
+          </li>
+        </ul>
+        <h3>🧠 Dicas de novato</h3>
+        <ul>
+          <li data-list-item-id="e060fcf86f27c07e1bf7a76987e03828c"><strong>Tenha 3 pendrives:</strong> o principal, o backup idêntico, e um
+            terceiro “esqueleto” com Tails limpo pronto para receber a restauração.</li>
+          <li
+          data-list-item-id="e428753f505a1e657d011d886f65f2fcf"><strong>Teste a restauração no terceiro pendrive</strong> antes de precisar
+            de verdade. Simulado de incêndio.</li>
+            <li data-list-item-id="e86385f4cf3ca47337185a2ce110b36fe"><strong>Substitua o pendrive principal a cada 12 meses</strong> se usar
+              diariamente, ou ao primeiro sinal de lentidão estranha.</li>
+        </ul>
+        <h3>⚠️ Perigo</h3>
+        <p>Se você não fez backup e o pendrive pifa durante uma disputa na Haveno,
+          o vendedor pode alegar que você nunca pagou. Você perde o dinheiro fiat
+          e os XMR do colateral.</p>
+        <hr>
+        <h2>⚙️ Módulo 5 – Campo Minado: Disputas e Provas de Pagamento</h2>
+        <p><strong>Como vencer uma arbitragem sem intermediário.</strong>
+        </p>
+        <h3>🎯 Objetivo</h3>
+        <p>Saber quais evidências coletar durante cada trade e como usá-las no sistema
+          de disputa da Haveno.</p>
+        <h3>🛠️ Procedimento padrão para cada negociação</h3>
+        <ol>
+          <li data-list-item-id="e15ef286e7698735b03bc7005de2f2e44"><strong>Print da tela? Não.</strong> Use o próprio registro da Haveno.</li>
+          <li
+          data-list-item-id="e04b60e6f21cbb96b6a01e1667507f0af">O chat da Haveno guarda todas as mensagens trocadas. Mas você deve <strong>salvar o comprovante externo de pagamento</strong> (ex:
+            PDF do banco) num local que o Tails consiga acessar.</li>
+            <li data-list-item-id="eb1e6a58f55dbbb116d7cb5044c8d7596"><strong>Pasta de evidências:</strong> Crie <code spellcheck="false">/home/amnesia/Disputas/</code> e,
+              ao fazer o pagamento:
+              <ul>
+                <li data-list-item-id="e66411f578866a44d2babdb68d4fc63ad">Salve o comprovante lá.</li>
+                <li data-list-item-id="ee73e457aed9082022a54e512564bd22f">Renomeie o arquivo com o ID da oferta (visível na Haveno).</li>
+              </ul>
+            </li>
+            <li class="ck-list-marker-bold" data-list-item-id="e56bd70f89eccb6ee36ca241820b2fe3b"><strong>Quando abrir disputa:</strong>
+              <ul>
+                <li data-list-item-id="ed6c1a5dd6972f073031c92b67f0ab8df">Descreva claramente o ocorrido.</li>
+                <li data-list-item-id="e56d5d89a5cebba0a410f14a10a71f992">Anexe o comprovante (upload pela interface da Haveno).</li>
+                <li data-list-item-id="e3cff77c92e5875c7f6f744f64acf806c">Mantenha a Haveno aberta e responda rápido às perguntas do árbitro.</li>
+              </ul>
+            </li>
+        </ol>
+        <h3>🧠 Dicas de novato</h3>
+        <ul>
+          <li data-list-item-id="e18c4f2138ce49039b81a222383deba38">Árbitros são voluntários, não máquinas. Seja educado e objetivo.</li>
+          <li
+          data-list-item-id="e2083f9039b544fd2844ea0fb40181781">Se o vendedor pediu dados por fora do chat da Haveno, recuse – você perde
+            o registro.</li>
+            <li data-list-item-id="e005a905b84a09facd748a69560c1295a"><strong>Nunca libere os XMR antes de confirmar o dinheiro na sua conta</strong>,
+              mesmo que o comprador insista.</li>
+        </ul>
+        <hr>
+        <h2>⚙️ Módulo 6 – O Cofre Frio: Seeds e Armazenamento Offline</h2>
+        <p><strong>Seu Monero além da rede.</strong>
+        </p>
+        <h3>🎯 Objetivo</h3>
+        <p>Manter a maior parte dos fundos inacessível enquanto online, e recuperar
+          com segurança.</p>
+        <h3>🛠️ Criação da carteira fria (Offline)</h3>
+        <ol>
+          <li data-list-item-id="e1d2adaf3c1432ce5095ada1550a0392d">Em um Tails <strong>sem conexão de rede</strong> (desligue Wi-Fi/Bluetooth):
+            <ul>
+              <li data-list-item-id="e4337b053fdc73801435efb7634738ad6">Abra a Feather.</li>
+              <li data-list-item-id="eb60154b681c4e64da302baccdbfadce3">Crie nova carteira, escolha "Standard wallet".</li>
+              <li data-list-item-id="e0b3bf10b0366d8a4872731ce50e7252a">Anote a seed e a data de criação.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e276d52f55c667f54326759f6938b508e">
+            <p><strong>Exporte o endereço público</strong> (receber):</p><pre><code class="language-text-x-trilium-auto">feather-cli --wallet-file /home/amnesia/fortaleza_fria.keys address</code></pre>
+            <p>Ou copie manualmente do menu "Receive".</p>
+          </li>
+          <li data-list-item-id="e454c3fc4ccf30e6a23a37f55f85aa1bb">Transfira fundos para essa carteira usando o endereço público.</li>
+          <li
+          data-list-item-id="e5105ed1f17fb8f7af3011defeb70fddc">Para gastar depois:
+            <ul>
+              <li data-list-item-id="e022e360da98360d4ec68818807a502b1">Transfira o saldo desejado para a carteira quente (Tails online) em pequenas
+                quantidades.</li>
+            </ul>
+            </li>
+        </ol>
+        <h3>🧠 Dicas de novato</h3>
+        <ul>
+          <li data-list-item-id="e27e19324b57e12e485f3b892993c037b">A seed da carteira fria deve ser <strong>armazenada em aço</strong> (kit
+            de gravação metálica), protegida contra fogo e água.</li>
+          <li data-list-item-id="ed81143693a0dc435a9d8043112650da9"><strong>Nunca digite essa seed em um computador conectado.</strong> Apenas
+            no ambiente offline.</li>
+          <li data-list-item-id="edee556c83b78fdfe694bd223acc98009">Verifique o saldo da carteira fria usando <em>view-only wallet</em> na Feather
+            online (exige a chave de visualização, não a seed).</li>
+        </ul>
+        <hr>
+        <h2>⚙️ Módulo 7 – Bastião Isolado: Whonix (Avançado)</h2>
+        <p><strong>Para quando o adversário controla a rede local.</strong>
+        </p>
+        <h3>🎯 Objetivo</h3>
+        <p>Criar uma máquina virtual que separa o tráfego Monero do sistema host,
+          usando Workstation + Gateway.</p>
+        <h3>🛠️ Visão geral</h3>
+        <ul>
+          <li data-list-item-id="e7cb90c0f149d8b8c4c1ddf7f1112b86b">Instale o VirtualBox, baixe as imagens Whonix (Gateway e Workstation).</li>
+          <li
+          data-list-item-id="e181405827b9f9e451f0f62321251695d">Configure para usar apenas rede interna.</li>
+            <li data-list-item-id="ee89c31cff3879104519fa052915eed43">Dentro da Workstation, instale Feather e Haveno.</li>
+            <li data-list-item-id="eeabaccf9caa24c4749c94e19642a4a9e">Agora todo o tráfego passa pelo Gateway, que força Tor e impede vazamentos
+              de IP, mesmo se o app tentar ignorar proxy.</li>
+        </ul>
+        <blockquote>
+          <p><strong>Nota:</strong> O Whonix não é amnésico como o Tails, mas oferece
+            isolamento superior para uso contínuo. Combine com criptografia completa
+            do disco do host.</p>
+        </blockquote>
+        <hr>
+        <h2>⚙️ Módulo 8 – Rotina do Operador: Verificações e Limpeza</h2>
+        <p><strong>O ritual que mantém a fortaleza de pé.</strong>
+        </p>
+        <h3>✅ Checklist diário</h3>
+        <ul class="todo-list">
+          <li data-list-item-id="e6eb0ca0f5fd9fa7b16fbd3db207eed69">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Sincronizei a Feather completamente antes de enviar/receber?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e390435cb9b60249ffb12fff41f0b0722">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Verifiquei a reputação do par na Haveno antes de aceitar oferta?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e4e51d7e576c09edea9d7df90a7d13220">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Salvei comprovantes da transação na pasta de evidências?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e7f79040690df6482589f6121e358c18e">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Fiz logout de serviços extras, limpei clipboard?</span>
+            </label>
+          </li>
+          <li data-list-item-id="e7134c6f3fc92241b57e5545604c0a5d8">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">O pendrive principal está sem erros de leitura? (Use <em>Disks</em> no Tails para checar SMART)</span>
+            </label>
+          </li>
+        </ul>
+        <h3>🧹 Limpeza semanal</h3>
+        <ul class="todo-list">
+          <li data-list-item-id="e2d5caf390b015888555577b1e844eb61">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Backup da persistência conforme Módulo 4.</span>
+            </label>
+          </li>
+          <li data-list-item-id="e12fe7d38afad6d53f77989b141b8ef9c">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Teste de restauração no terceiro pendrive.</span>
+            </label>
+          </li>
+          <li data-list-item-id="e6209d926aab4cc9732eab5e8035871c4">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Atualizei o Tails para a versão mais recente (com backup antes!).</span>
+            </label>
+          </li>
+          <li data-list-item-id="ea9c56281b245df8dde6db12e52fec3f4">
+            <label class="todo-list__label">
+              <input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Transferi saldos excedentes da carteira quente para a fria.</span>
+            </label>
+          </li>
+        </ul>
+        <hr>
+        <h2>🧱 Palavras finais – A Soberania é uma Prática</h2>
+        <p>Você agora tem o mapa. Cada comando executado, cada backup testado, cada
+          transação P2P bem-sucedida ergue as muralhas da sua fortaleza. Lembre-se:
+          o elo mais fraco sempre será você, mas a disciplina corrige isso.</p>
+        <p>Guarde este manual em local seguro — de preferência, impresso e dentro
+          de um envelope lacrado, ou como um arquivo <code spellcheck="false">.txt</code> criptografado
+          no seu cofre digital offline.</p>
+        <blockquote>
+          <p><strong>"Quem abre mão da privacidade por segurança, não merece nem uma nem outra."</strong> —
+            Adaptado de Benjamin Franklin</p>
+        </blockquote>
+        <p><em>Boa jornada, cypherpunk operacional.</em>
+        </p>
+      </div>
+    </div>
+  </body>
+
+</html>

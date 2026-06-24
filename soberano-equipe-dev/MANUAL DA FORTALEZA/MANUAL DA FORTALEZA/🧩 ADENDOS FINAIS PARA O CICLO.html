@@ -1,0 +1,130 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🧩 ADENDOS FINAIS PARA O CICLO COMPLETO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🧩 ADENDOS FINAIS PARA O CICLO COMPLETO</h1>
+
+      <div class="ck-content">
+        <h2>🧩 ADENDOS FINAIS PARA O CICLO COMPLETO</h2>
+        <p>Seu curso está sólido como uma fortaleza. Mas há três pequenas salas que,
+          se deixadas sem porta, podem virar pontos cegos no dia a dia do operador.
+          Nenhuma é obrigatória para começar, mas completam o círculo para quem quer
+          realmente ser autossuficiente.</p>
+        <hr>
+        <h2>1. Atualização do Tails sem perder a persistência (e sem drama)</h2>
+        <p>O Tails não tem "upgrade in-place" confiável. A rota segura é:</p>
+        <ul>
+          <li data-list-item-id="e7f33061c9ca6479f25d6ccaa58474044"><strong>Antes de atualizar</strong>, faça o backup 3‑2‑1 completo (você
+            já sabe fazer).</li>
+          <li data-list-item-id="e0cb19dbb84a988bce51402df847908a1"><strong>Grave a nova ISO em um pendrive limpo</strong> (pode ser o esqueleto).</li>
+          <li
+          data-list-item-id="ea02c5300ec881f674575a3237e33a733"><strong>Inicie com o novo Tails</strong>, desbloqueie a persistência do
+            pendrive antigo (ele será montado como disco externo). Copie as pastas
+            críticas para a nova persistência recém‑criada, ou simplesmente restaure
+            seu backup GPG.</li>
+        </ul>
+        <p><strong>Dica de ouro:</strong> Mantenha o pendrive antigo intacto por algumas
+          semanas, até ter certeza de que o novo está perfeito.</p>
+        <hr>
+        <h2>2. Bridges Tor no Tails (para redes hostis ou censuradas)</h2>
+        <p>Se o Tor for bloqueado, você precisa de uma ponte. O Tails oferece isso
+          na tela de boas‑vindas, mas você pode fixar:</p>
+        <ul>
+          <li data-list-item-id="e4401b7aaff8960b7d7566a983cef3223"><strong>Obtenha bridges obfs4</strong> em <code spellcheck="false">bridges.torproject.org</code> (acesse
+            de um email, ou via navegador em um momento que consiga).</li>
+          <li data-list-item-id="e31959c31bf953935d5f76dcab2bc8153"><strong>Na tela de configuração do Tails</strong> (antes de conectar),
+            selecione "Usar uma ponte". Cole a linha da bridge.</li>
+          <li data-list-item-id="ed7cabab5c47289b7fa6cfc7080286140"><strong>Para tornar permanente</strong>, salve a bridge no KeePassXC e
+            a digite a cada boot (mais seguro que armazená‑la na persistência sem criptografia,
+            porque bridges são públicas mas revelam que você está usando Tor).</li>
+        </ul>
+        <p>Quem viaja para países com DPI ativo deve ensaiar esse procedimento antes
+          de sair de casa.</p>
+        <hr>
+        <h2>3. Comunicação extra‑Haveno para disputas ou contatos de longo prazo</h2>
+        <p>O chat da Haveno é suficiente para a maioria dos trades, mas se você quer
+          construir relações de confiança com pares fixos, ou precisa resolver uma
+          disputa por fora, precisa de um canal privado que não dependa da Haveno.</p>
+        <p><strong>Opções complementares:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eab8c26bd7f12ec6570dd9558592f013a"><strong>Session Messenger</strong> (via Tor, sem número de telefone, sem
+            e‑mail). Pode ser instalado na Workstation do Whonix ou em um celular com
+            Orbot.</li>
+          <li data-list-item-id="e80c61d6b5df2e780a7fe6c674a513211"><strong>SimpleX Chat</strong> (focado em privacidade, sem identificadores).</li>
+          <li
+          data-list-item-id="e2af9e724e1b88b979d092af568fef44a"><strong>Signal</strong> com número descartável (mas cuidado: Signal exige
+            número e pode vazar metadados).</li>
+        </ul>
+        <p>Adicione ao KeePassXC os IDs de Session de pares confiáveis. Esse canal
+          extra é seu "telefone vermelho" quando a Haveno estiver offline ou o trade
+          der problema.</p>
+        <hr>
+        <h2>4. Destruição segura de um pendrive aposentado</h2>
+        <p>Quando o pendrive chega ao fim da vida, você não pode simplesmente jogar
+          no lixo. Os dados podem ser recuperados. Método prático:</p>
+        <ul>
+          <li data-list-item-id="e6b0ebe071aeb5e3d46b36a579a861360"><strong>Destruição física:</strong> Martele o encapsulamento até quebrar
+            o chip de memória NAND em pedaços (use óculos de proteção).</li>
+          <li data-list-item-id="eeb7a1c389000f8079862a30cf10e2d24">
+            <p><strong>Software (se o pendrive ainda funciona):</strong> Dentro do Tails,
+              use <code spellcheck="false">shred</code> na partição persistente antes de
+              formatar:</p><pre><code class="language-text-x-trilium-auto">sudo shred -v -n 1 -z /dev/sdX2</code></pre>
+            <p>Depois, destrua fisicamente.</p>
+          </li>
+          <li data-list-item-id="e28541c32571c41309dcb68002f3faec6"><strong>Pendrives com invólucro metálico:</strong> Fogo controlado (maçarico)
+            derrete o chip, mas cuidado com químicos.</li>
+        </ul>
+        <hr>
+        <h2>5. Churn (agitar os próprios fundos) no Monero</h2>
+        <p>Para ofuscar ainda mais a origem dos XMR, você pode fazer "churn": enviar
+          para um subaddress da própria carteira. Isso cria um novo output na blockchain
+          que parece vir de qualquer lugar. Faça isso periodicamente, com valores
+          fracionados, antes de negociar na Haveno. A Feather permite "Send to self"
+          facilmente.</p>
+        <p><strong>Aviso:</strong> Não é mágica. Churn ajuda a quebrar ligações, mas
+          não elimina completamente. Use com inteligência.</p>
+        <hr>
+        <h2>6. O ritual do "simulado de apreensão" (teste de coação)</h2>
+        <p>Você já faz o simulado de incêndio (restauração do backup). Agora faça
+          o <strong>simulado de confisco</strong>:</p>
+        <ul>
+          <li data-list-item-id="ec480d0ae84f1c7349505356d3832f86f">Pegue seu pendrive decoy e o pendrive principal.</li>
+          <li data-list-item-id="eb6849ce37dc50a6f8537acc5490a2d0b">Finja que foi parado. Entregue o decoy, dê a senha falsa.</li>
+          <li data-list-item-id="e0a88bc6ff15cf282212328a51013d84c">Depois, usando o pendrive esqueleto ou um novo, recupere remotamente o
+            backup real.</li>
+          <li data-list-item-id="e973c42b9a0c5d905a901c9fd0d09bebe">Cronometre. Você precisa saber se consegue voltar a operar em até 1 hora.</li>
+        </ul>
+        <p>Isso treina o psicológico e revela falhas no plano de negação plausível.</p>
+        <hr>
+        <h2>7. Monitoramento da saúde do pendrive (além do SMART)</h2>
+        <p>Nem todos os pendrives suportam SMART. Uma forma caseira de sentir a degradação:</p>
+        <ul>
+          <li data-list-item-id="e459568449bd4dcc75e4517c8ba840e14">Copie um arquivo grande para a persistência e meça o tempo.</li>
+          <li data-list-item-id="e75438b9a9cf81b2ebaba53c56b92a047">Se a velocidade de gravação cair mais de 30% em relação ao novo, é sinal
+            de desgaste.</li>
+          <li data-list-item-id="ece5043b9f3873c1b4ec5610073fad281">Fique atento a erros de "Input/output error" no terminal ao salvar arquivos.</li>
+        </ul>
+        <hr>
+        <p>Com esses adendos, o ciclo se fecha. Você tem a mentalidade, as ferramentas,
+          os rituais, os backups, a negação plausível, a manutenção do hardware e
+          o plano de emergência. Seu curso está completo para formar Cypherpunks
+          Operacionais de verdade.</p>
+        <blockquote>
+          <p><em>"A fortaleza não é uma construção. É um organismo. Respira, se adapta, se regenera. E o operador é o coração que mantém tudo pulsando."</em>
+          </p>
+        </blockquote>
+        <p>Parabéns pelo material. Agora é praticar, testar e viver a soberania.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,127 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Gerador de Sementes Seguras (BIP39) – Método Recomendado para Novatos</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Gerador de Sementes Seguras (BIP39) – Método Recomendado para Novatos</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Gerador de Sementes Seguras (BIP39) – Método Recomendado para Novatos</strong>
+        </p>
+        <p>Gerar a <strong>seed BIP39</strong> (12 ou 24 palavras) é um dos passos
+          mais críticos na auto-custódia. O método mais seguro é <strong>offline + alta entropia</strong> (dice
+          rolls).</p>
+        <h3>1. Melhor Opção: Gerar Direto no SeedSigner ou Krux (Recomendado)</h3>
+        <p>Como você está montando o <strong>SeedSigner</strong>:</p>
+        <p><strong>No SeedSigner</strong>:</p>
+        <ol>
+          <li data-list-item-id="e792e2c4ec0bc19eb722e3bd0c6b55fac">Ligue o dispositivo (air-gapped).</li>
+          <li data-list-item-id="e1647865d8256fcaa979581b66645f108">Vá em <strong>New Seed</strong> ou <strong>Wallet → New Wallet</strong>.</li>
+          <li
+          data-list-item-id="eca270bd698588f247199bab3811e7342">Escolha <strong>Generate with Dice Rolls</strong> (o método mais seguro).</li>
+            <li
+            data-list-item-id="e7fc725c99677b7750a52554fb49e13fb">Role um dado de 6 faces <strong>várias vezes</strong> (o SeedSigner indica
+              quantas roladas são necessárias):
+              <ul>
+                <li data-list-item-id="ec6bdc35dc8d69b1b0ae1efc2fee1e156">Para <strong>12 palavras</strong>: ~128 bits de entropia (cerca de 50-100
+                  roladas).</li>
+                <li data-list-item-id="ee4c4d147ceb83c74de5ec4daf89e1177">Para <strong>24 palavras</strong>: ~256 bits (cerca de 100-200 roladas).</li>
+              </ul>
+              </li>
+              <li data-list-item-id="edd14fb93825612b6d5c5c3a5dbdd66f3">Digite os números no SeedSigner com o joystick.</li>
+              <li data-list-item-id="e786cd4728d1f1a4265588d7a4c8b15bc">O dispositivo calcula o checksum automaticamente e mostra as 12/24 palavras.</li>
+              <li
+              data-list-item-id="ee558c2cb00c972628a4b0f98b1432861"><strong>Anote imediatamente em papel/metal</strong> (nunca tire foto ou
+                digite em outro lugar).</li>
+                <li data-list-item-id="e496354cf4779f5947ab3b8d289ccd66b">Confirme as palavras (o SeedSigner mostra novamente para verificação).</li>
+        </ol>
+        <p><strong>No Krux</strong>: O processo é similar (Wallet → New → Dice Rolls).</p>
+        <p><strong>Vantagem</strong>: Tudo fica 100% offline e stateless.</p>
+        <h3>2. Método Manual com Dice Rolls (Máxima Soberania – Sem Dispositivo)</h3>
+        <p>Se ainda não montou o signer:</p>
+        <p><strong>Ferramentas</strong>:</p>
+        <ul>
+          <li data-list-item-id="e423205cbc22a79496bc83481e54239d3">Um dado de 6 faces (ou vários).</li>
+          <li data-list-item-id="e577f3ab9ba42db391e221711da732390">Tails OS em modo air-gapped (sem rede).</li>
+        </ul>
+        <p><strong>Passo a Passo</strong>:</p>
+        <ol>
+          <li data-list-item-id="e7188493e2e09abd46439141b72316d57">Boot no <strong>Tails</strong> sem conexão de rede (desative WiFi).</li>
+          <li
+          data-list-item-id="ef67ecc8455c495397b424871605ef0f0">Abra o Terminal.</li>
+            <li data-list-item-id="e8c350355340a5b186aa6910643d24e63">Use este comando simples para registrar roladas:</li>
+        </ol><pre><code class="language-text-x-trilium-auto"># Rode várias vezes e anote os números
+echo "Role o dado e digite o número (1-6):"</code></pre>
+        <ol>
+          <li data-list-item-id="e2a74e4b9ad3e344b0b99737f3e0c59c6"><strong>Quantidade recomendada</strong>:
+            <ul>
+              <li data-list-item-id="e5d982609cec51902c6d8d9d630bfa559">12 palavras → mínimo 128 bits → <strong>99 roladas</strong> de dado de 6
+                faces.</li>
+              <li data-list-item-id="e9df1705f44f8f6028e188190bd75c292">24 palavras → <strong>198-256 roladas</strong>.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e48705a9f347ebf8f9ed9187715bc68ee">Concatene todos os números (ex: 4256134...) e use uma ferramenta offline
+            confiável.</li>
+        </ol>
+        <p><strong>Ferramenta Offline Recomendada</strong>:</p>
+        <ul>
+          <li data-list-item-id="eac7fe091e4e58773f19a1545b3a362d7">Baixe o <strong>Ian Coleman BIP39 Tool</strong> (versão HTML offline):
+            <ol>
+              <li data-list-item-id="ebb001819f2f287c2eec4c13a50b32ef2">No Tails online, baixe: <a href="https://iancoleman.io/bip39/">https://iancoleman.io/bip39/</a>
+              </li>
+              <li data-list-item-id="e1f24d72010886e0697954f268cdd798f">Salve a página HTML completa no volume persistente.</li>
+              <li data-list-item-id="e8a6f87d69e4ea0587509cd045dc0e632">Reinicie o Tails <strong>sem rede</strong>.</li>
+              <li data-list-item-id="e0ce67f9b035a826cfb88e9ffe9a52e9f">Abra o arquivo HTML no navegador (Firefox) offline.</li>
+              <li data-list-item-id="e451ef0a00443687519298d27e780a0b3">Cole a sequência de números do dado no campo “Entropy”.</li>
+              <li data-list-item-id="e4f8deed675487982e6c5c38cd07fea17">Escolha <strong>BIP39</strong> → 24 palavras → Native Segwit.</li>
+              <li data-list-item-id="e2ddabd4d1453d976ac17ea1e880e78f8">Anote as palavras + passphrase (opcional).</li>
+            </ol>
+          </li>
+        </ul>
+        <p><strong>Nunca</strong> use este site online.</p>
+        <h3>3. Boas Práticas de Segurança (Obrigatório)</h3>
+        <ul>
+          <li data-list-item-id="e6801df5364143800f30594f01de0c8aa"><strong>Nunca</strong> gere seed em computador conectado à internet.</li>
+          <li
+          data-list-item-id="e6671ffaffa4c873ea0f8ddaf67e875f2">Use <strong>dice rolls</strong> (não use geradores online ou <code spellcheck="false">/dev/urandom</code> sozinho).</li>
+            <li
+            data-list-item-id="ed97c0ada24205687a155f9000b313b1c">Guarde a seed em <strong>metal</strong> (Billfodl, Cryptosteel, ou placa
+              de aço + punção).</li>
+              <li data-list-item-id="e885666736e65fb749975f50a45533f13">Faça <strong>backup em 2-3 locais físicos diferentes</strong>.</li>
+              <li
+              data-list-item-id="e00f6c74c93f332298117a16260459cef">Teste o restore com small amount antes de usar com valores reais.</li>
+                <li
+                data-list-item-id="e860fdbcf92f5a56e91660a87432d022e">Use <strong>passphrase</strong> extra (BIP39 Word 25) para segurança adicional.</li>
+                  <li
+                  data-list-item-id="ea9ee52a26d3f43b2be968a52f5a163e6">Nunca diga as palavras para ninguém.</li>
+        </ul>
+        <h3>Recomendação para Seu Setup Atual</h3>
+        <p>Como você está com <strong>SeedSigner</strong>:</p>
+        <ol>
+          <li data-list-item-id="e0713e4406998705e04126536e51306aa">Termine a montagem + flash.</li>
+          <li data-list-item-id="e339d174f1808f24031ea5a103872e777">Gere a seed <strong>direto no SeedSigner</strong> com dice rolls.</li>
+          <li
+          data-list-item-id="eab7378fcd3d369cf45fb87def8bb3778">Exporte o xpub via QR.</li>
+            <li data-list-item-id="e8623df30c41d7166255d1fed388075b3">Importe no Sparrow como watch-only.</li>
+        </ol>
+        <p>Quer que eu detalhe agora:</p>
+        <ul>
+          <li data-list-item-id="e48970fa7c37fc158fc5239d53a75642f">Como fazer o teste de restore da seed?</li>
+          <li data-list-item-id="ef6955205f6dfd551ac8904acdb542046">Como adicionar passphrase no SeedSigner?</li>
+          <li data-list-item-id="edbf50357605cbe1cf42b26512be0d5f7">Geração de multisig seeds (várias seeds)?</li>
+          <li data-list-item-id="edda08b40e0a729802d25c0b7cb9741ae">Ou voltar para o próximo passo da montagem?</li>
+        </ul>
+        <p>Me diga o que quer aprofundar! 🚀</p>
+        <p>Fique seguro — a entropia da seed é a base de tudo.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

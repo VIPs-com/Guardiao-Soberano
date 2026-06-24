@@ -1,0 +1,1220 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>📚 MANUSCRITO COMPLETO — GUARDIÃO SOBERANO</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>📚 MANUSCRITO COMPLETO — GUARDIÃO SOBERANO</h1>
+
+      <div class="ck-content">
+        <h2>📚 MANUSCRITO COMPLETO — GUARDIÃO SOBERANO</h2>
+        <h2>Instruções para o Obsidian</h2>
+        <ol>
+          <li data-list-item-id="eb8604e80ba2cffb312501068b3ac208b">Crie uma pasta <code spellcheck="false">guardião-soberano</code> no seu
+            Vault</li>
+          <li data-list-item-id="ee31b26eb3619e9767c2749ffd5284dd2">Dentro dela, crie as pastas: <code spellcheck="false">manuscrito</code>,
+            <code
+            spellcheck="false">recursos</code>, <code spellcheck="false">imagens</code>, <code spellcheck="false">imagens/icones</code>
+          </li>
+          <li data-list-item-id="ef405510977f0044dae9ae26392718ac7">Copie cada bloco de código abaixo para um arquivo <code spellcheck="false">.md</code> separado
+            na pasta correspondente</li>
+          <li data-list-item-id="e13090ce97f0b533065f18108a135c6ce">O nome do arquivo está no cabeçalho <code spellcheck="false">ARQUIVO:</code> antes
+            de cada bloco</li>
+        </ol>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/00-prefacio.md`</h2><pre><code class="language-text-x-trilium-auto"># Prefácio
+
+## Por que este livro existe
+
+Em 2008, uma pessoa ou grupo sob o pseudônimo Satoshi Nakamoto publicou um artigo de nove páginas propondo um sistema de dinheiro eletrônico ponto a ponto. Quinze anos depois, o Bitcoin é uma realidade que movimenta trilhões de dólares, é reconhecido como moeda legal em países soberanos e oferece a milhões de pessoas uma alternativa ao sistema financeiro tradicional.
+
+Mas há um abismo entre "ter Bitcoin" e "ser soberano sobre seu Bitcoin".
+
+A maioria das pessoas compra criptomoedas em exchanges, deixa lá guardado, e acredita que está participando da revolução. Não está. Está apenas trocando um intermediário por outro. A exchange pode ser hackeada, pode falir, pode bloquear seu acesso, pode entregar seus dados ao governo. Você não tem Bitcoin — você tem uma promessa de Bitcoin.
+
+Este livro nasceu da convicção de que a auto-custódia não é um privilégio de especialistas. É um direito e uma responsabilidade de qualquer pessoa que deseje verdadeiramente controlar seu próprio dinheiro.
+
+A jornada que você está prestes a começar vai muito além de "comprar uma hardware wallet". Vamos construir juntos um ecossistema completo: desde a geração da semente em aço até a operação de um nó próprio, passando por técnicas de privacidade que protegem não apenas seus fundos, mas sua identidade.
+
+---
+
+## Para quem é este livro
+
+**Para o iniciante curioso** que ouviu falar de Bitcoin mas não sabe por onde começar. Os primeiros capítulos explicam os fundamentos sem jargão desnecessário.
+
+**Para o bitcoiner que tem fundos em exchange** e sente um incômodo que ainda não sabe nomear. Você sabe que "not your keys, not your coins", mas não sabe como dar o primeiro passo. Este livro é sua ponte.
+
+**Para o desenvolvedor que quer rodar aplicações cripto em ambiente protegido.** Você já entende de código, mas precisa entender de opsec (segurança operacional). A Parte II foi escrita pensando em você.
+
+**Para o idealista da privacidade** que entende que transparência total da blockchain não é uma falha — é uma feature. Mas que também entende que privacidade financeira é um direito humano fundamental.
+
+**Para o sobrevivente** que vive em um país com inflação galopante, controle de capitais ou perseguição política. O Bitcoin pode ser sua tábua de salvação — mas só se você souber protegê-lo.
+
+---
+
+## Como usar este livro
+
+Este livro está organizado em três partes e deve ser lido em sequência na primeira vez:
+
+**Parte I — Fundamentos:** Estabelece a base teórica. Se você já sabe o que é Bitcoin, chaves públicas e privadas, e a diferença entre privacidade e anonimato, pode ir direto para a Parte II. Mas não pule se tiver dúvidas — cada conceito aqui será usado na prática depois.
+
+**Parte II — A Trilha do Guardião:** O coração do livro. Sete níveis progressivos que transformam você de um curioso em um soberano. Cada nível tem passos concretos, verificações e uma conquista. Não pule níveis. A pressa é inimiga da segurança.
+
+**Parte III — Referência Permanente:** Depois de completar a trilha, esta parte será seu guia de consulta rápida. Checklists, tabelas, glossário e troubleshooting para o dia a dia.
+
+**Apêndices:** Material complementar que você não precisa memorizar, mas vai querer ter à mão.
+
+---
+
+## Avisos importantes
+
+**Este livro não é consultoria financeira.** Não digo o que você deve comprar, vender ou manter. Digo como proteger o que você decidir ter.
+
+**Este livro não é consultoria jurídica.** Os aspectos legais mencionados se baseiam na legislação brasileira de 2026 e podem mudar. Consulte um profissional.
+
+**A tecnologia evolui.** As ferramentas e endereços .onion mencionados aqui são atuais em junho de 2026. Verifique as fontes oficiais antes de usar.
+
+**Você é o elo mais forte e mais fraco.** A tecnologia pode ser impecável. Um descuido humano — fotografar a seed, reutilizar endereço, logar em conta pessoal na sessão errada — anula tudo. A privacidade é um hábito, não uma configuração.
+
+---
+
+## Agradecimentos
+
+Este livro é fruto do conhecimento acumulado pela comunidade de Bitcoiners ao redor do mundo. Em especial:
+
+- Aos desenvolvedores que mantêm as ferramentas que usamos: Sparrow, Whonix, Feather, eigenwallet, Coldcard, Krux, e tantas outras.
+- Aos pesquisadores que publicam papers como o ABCTracer, nos forçando a evoluir nossas defesas.
+- Aos criadores de conteúdo como Allan do canal Bitcoinheiros, que traduzem conceitos complexos para nossa língua.
+- A cada bitcoiner anônimo que testa, quebra, conserta e compartilha.
+
+Se este livro ajudar uma pessoa a dormir mais tranquila sabendo que seu dinheiro está seguro, já terá valido a pena.
+
+---
+
+**Boa jornada, Guardião.**</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/01-dinheiro-era-digital.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 1 — O Dinheiro na Era Digital
+
+## 1.1 O que é dinheiro?
+
+Antes de falar de Bitcoin, precisamos nos entender sobre o que é dinheiro. Não o que você carrega na carteira — mas o conceito.
+
+Dinheiro tem três funções clássicas:
+
+**Meio de troca.** Você troca seu trabalho por dinheiro, e troca dinheiro por comida. Sem dinheiro, você precisaria encontrar um padeiro que queira exatamente o serviço que você oferece — o que os economistas chamam de "dupla coincidência de desejos". O dinheiro resolve isso.
+
+**Unidade de conta.** Você sabe que um café custa R$ 5 e um carro custa R$ 50.000. O dinheiro permite comparar valores de coisas completamente diferentes usando uma mesma régua.
+
+**Reserva de valor.** Você pode guardar dinheiro hoje e gastá-lo daqui a um ano. Ele preserva seu poder de compra ao longo do tempo — ou pelo menos deveria.
+
+---
+
+## 1.2 A história do dinheiro é a história da confiança
+
+Por milênios, usamos coisas físicas como dinheiro: conchas, sal, ouro, prata. Eram valiosas porque eram escassas, duráveis e aceitas.
+
+Depois veio o papel-moeda lastreado em ouro. Você depositava ouro no banco e recebia um papel que dizia "vale ouro". Era mais prático que carregar barras.
+
+Em 1971, os Estados Unidos romperam a conversibilidade do dólar em ouro. Desde então, todo dinheiro do mundo é fiduciário — vale porque o governo diz que vale. A confiança migrou do metal para a caneta.
+
+O problema: governos imprimem dinheiro. A inflação corrói seu poder de compra. Em países como Venezuela, Argentina, Líbano, a moeda nacional derreteu em poucos anos. Pessoas que guardaram suas economias em dinheiro perderam tudo.
+
+---
+
+## 1.3 A era digital e o problema do gasto duplo
+
+Com a internet, tentamos criar dinheiro digital. Mas dinheiro digital tem um problema: informação pode ser copiada.
+
+Se eu tenho um arquivo representando "1 real" e envio para você, nada impede que eu copie esse arquivo e envie para outra pessoa também. Isso se chama "gasto duplo" — o mesmo dinheiro gasto duas vezes.
+
+Até 2008, toda tentativa de dinheiro digital dependia de um intermediário central (um servidor, uma empresa) para verificar que cada unidade não foi gasta duas vezes. Esse intermediário era o ponto único de falha — e de controle.
+
+---
+
+## 1.4 Outubro de 2008
+
+Em 31 de outubro de 2008, um email chegou a uma lista de discussão sobre criptografia. O remetente assinava como Satoshi Nakamoto. O assunto: "Bitcoin P2P e-cash paper".
+
+O artigo descrevia um sistema que resolvia o problema do gasto duplo sem intermediário central. Usava criptografia, teoria dos jogos e uma rede ponto a ponto.
+
+Em 3 de janeiro de 2009, o primeiro bloco do Bitcoin foi minerado. Nele, Satoshi gravou uma mensagem: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks" — uma manchete sobre o resgate de bancos durante a crise financeira.
+
+O Bitcoin nasceu como resposta a um sistema financeiro que socializa prejuízos e privatiza lucros.
+
+---
+
+## 1.5 O que torna o Bitcoin diferente
+
+**Descentralizado.** Nenhuma empresa, governo ou pessoa controla o Bitcoin. A rede é mantida por milhares de nós espalhados pelo mundo.
+
+**Escasso.** Existirão no máximo 21 milhões de bitcoins. Essa regra está no código e não pode ser alterada sem consenso da rede.
+
+**Resistente à censura.** Ninguém pode impedir você de enviar uma transação. Ninguém pode confiscar seus bitcoins se você proteger suas chaves.
+
+**Sem permissão.** Você não precisa de autorização para criar uma carteira, receber ou enviar Bitcoin. Basta baixar o software.
+
+**Global.** Funciona 24 horas por dia, 7 dias por semana, em qualquer lugar com internet.
+
+**Pseudônimo.** Suas transações são públicas, mas não contêm seu nome. Apenas endereços alfanuméricos.
+
+---
+
+## 1.6 O que o Bitcoin NÃO é
+
+**Não é anônimo.** É pseudônimo. Todas as transações estão na blockchain para sempre. Se alguém vincular seu nome a um endereço, verá todo seu histórico.
+
+**Não é rápido para pagamentos diários.** Uma transação leva em média 10 minutos para ser confirmada. Para pagamentos instantâneos, existe a Lightning Network — mas isso é assunto para outro livro.
+
+**Não é gratuito.** Você paga taxa de mineração para ter sua transação incluída em um bloco. Em momentos de congestionamento, as taxas podem ser altas.
+
+**Não é mágica.** Bitcoin é código. Código pode ter bugs. A rede pode ser atacada. Sua chave privada pode ser roubada. A tecnologia reduz riscos — não os elimina.
+
+---
+
+## 1.7 Por que auto-custódia?
+
+Quando você compra Bitcoin em uma exchange e deixa lá, você tem uma conta na exchange — não Bitcoin. A exchange deve Bitcoin a você. Se ela for hackeada (Mt. Gox, 2014), falir (FTX, 2022), ou decidir bloquear seu acesso, você perde tudo.
+
+Auto-custódia significa que VOCÊ — e apenas você — controla as chaves privadas. Ninguém pode confiscar. Ninguém pode bloquear. Ninguém pode perder.
+
+Mas com grande poder vem grande responsabilidade. Se você perder suas chaves, perde seus bitcoins. Não há "esqueci minha senha". Não há suporte ao cliente. Não há chargeback.
+
+Este livro vai te ensinar a ter o poder sem o perigo.
+
+---
+
+## Resumo do Capítulo
+
+| Conceito | Significado |
+|----------|-------------|
+| Dinheiro | Meio de troca, unidade de conta, reserva de valor |
+| Problema do gasto duplo | Impedir que dinheiro digital seja copiado e gasto duas vezes |
+| Bitcoin | Sistema descentralizado que resolve o gasto duplo sem intermediário |
+| Auto-custódia | Você controla suas chaves privadas |
+| Trade-off | Liberdade total = responsabilidade total |
+
+---
+
+No próximo capítulo, vamos entender como o Bitcoin funciona por dentro: o que é uma transação, o que é mineração, e como a blockchain garante a segurança da rede.</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/02-entendendo-bitcoin.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 2 — Entendendo o Bitcoin
+
+## 2.1 O livro-razão global
+
+Imagine um caderno onde são registradas todas as transações financeiras do mundo. Cada página é um bloco. Cada bloco contém várias transações. Quando uma página fica cheia, ela é numerada, carimbada e anexada às páginas anteriores.
+
+Esse caderno é público. Qualquer pessoa pode ler. Está em milhões de computadores ao redor do mundo. Ninguém pode arrancar uma página ou alterar o que já foi escrito.
+
+Isso é a blockchain do Bitcoin: um livro-razão público, distribuído, imutável.
+
+---
+
+## 2.2 Como funciona uma transação
+
+Quando você envia Bitcoin, não está "transferindo moedas" como quem passa uma nota de mão em mão. Na verdade, você está criando uma mensagem que diz:
+
+"Eu, dono do endereço X, autorizo que o valor Y seja enviado para o endereço Z."
+
+Essa mensagem é assinada digitalmente com sua chave privada. Qualquer pessoa pode verificar que a assinatura é válida — sem precisar conhecer sua chave privada.
+
+---
+
+## 2.3 Chaves: a base de tudo
+
+Existem dois tipos de chaves:
+
+**Chave privada:** Um número secreto. Quem conhece esse número pode gastar os bitcoins associados a ele. Deve ser guardada com máxima segurança.
+
+**Chave pública:** Derivada da chave privada. Pode ser compartilhada. Serve para receber bitcoins e verificar assinaturas.
+
+A relação entre elas é matemática: é fácil gerar a chave pública a partir da privada. É impossível (computacionalmente inviável) fazer o contrário.
+
+Pense assim: a chave privada é a senha do seu cofre. A chave pública é o número da sua conta. Você divulga o número da conta para receber dinheiro, mas guarda a senha para ninguém abrir o cofre.
+
+---
+
+## 2.4 Endereços: identidades na rede
+
+Um endereço Bitcoin é derivado da chave pública. Parece algo assim:
+
+`bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq`
+
+Não contém seu nome. Não contém sua localização. É apenas um identificador na rede.
+
+Você pode — e DEVE — gerar um novo endereço para cada transação que receber. Isso protege sua privacidade. Se você reutilizar o mesmo endereço, todas as pessoas que lhe pagaram saberão quanto você recebeu no total.
+
+---
+
+## 2.5 Carteiras: gerenciando chaves
+
+Uma carteira Bitcoin é um software que gerencia suas chaves. Ela:
+
+- Gera novos endereços para receber pagamentos
+- Mantém registro do seu saldo (consultando a blockchain)
+- Cria transações para enviar Bitcoin
+- Assina transações com sua chave privada
+
+Existem vários tipos de carteira, que veremos em detalhes no próximo capítulo. O importante agora é entender que a carteira não "guarda" seus bitcoins. Seus bitcoins estão na blockchain. A carteira guarda as chaves que permitem gastá-los.
+
+---
+
+## 2.6 Mineração: o motor da rede
+
+Mineração é o processo que mantém a blockchain segura e adiciona novos blocos.
+
+Mineradores competem para resolver um problema matemático. O primeiro que resolve ganha o direito de adicionar o próximo bloco — e recebe uma recompensa em bitcoins.
+
+Esse mecanismo se chama Prova de Trabalho (Proof of Work). Ele torna extremamente caro e difícil alterar blocos passados. Para reescrever a história, um atacante precisaria de mais poder computacional que toda a rede honesta somada.
+
+A cada 210.000 blocos (aproximadamente 4 anos), a recompensa dos mineradores cai pela metade. Esse evento se chama halving. É assim que o Bitcoin atinge seu limite de 21 milhões de unidades.
+
+---
+
+## 2.7 Nós: a espinha dorsal
+
+Um nó é um computador que roda o software Bitcoin Core e mantém uma cópia completa da blockchain. Ele verifica cada transação, cada bloco, cada regra do protocolo.
+
+Qualquer pessoa pode rodar um nó. Você não ganha dinheiro com isso — mas ganha a capacidade de verificar suas próprias transações sem confiar em terceiros.
+
+Rodar um nó próprio é um dos pilares da soberania que construiremos neste livro.
+
+---
+
+## 2.8 A Lightning Network
+
+O Bitcoin tem uma limitação: processa cerca de 7 transações por segundo. Para comparação, a Visa processa milhares. Isso torna o Bitcoin inviável para pagamentos diários — como comprar um café.
+
+A Lightning Network é uma camada adicional sobre o Bitcoin. Ela permite transações instantâneas e com taxas mínimas, usando canais de pagamento entre os participantes.
+
+Neste livro, mencionaremos a Lightning Network principalmente como ferramenta para adquirir Bitcoin sem KYC (RoboSats), mas não aprofundaremos sua operação.
+
+---
+
+## 2.9 O que é um UTXO?
+
+UTXO significa Unspent Transaction Output — "saída de transação não gasta".
+
+Quando você recebe Bitcoin, na verdade recebe um ou mais UTXOs. Pense neles como notas de dinheiro: você pode ter uma nota de R$ 50, duas de R$ 20 e três de R$ 10. Seu saldo é a soma de todas as notas.
+
+Quando você gasta, seleciona quais UTXOs usar. Se o valor for menor que a soma, recebe "troco" — um novo UTXO de volta para sua carteira.
+
+Entender UTXOs é fundamental para a privacidade. Analistas de blockchain usam o agrupamento de UTXOs para inferir quais endereços pertencem à mesma pessoa. A Parte II ensinará como gerenciar UTXOs com maestria.
+
+---
+
+## Resumo do Capítulo
+
+| Conceito | Significado |
+|----------|-------------|
+| Blockchain | Livro-razão público, distribuído e imutável |
+| Chave privada | Número secreto que permite gastar bitcoins |
+| Chave pública | Derivada da privada, permite receber e verificar |
+| Endereço | Identificador derivado da chave pública |
+| Carteira | Software que gerencia chaves |
+| Mineração | Prova de Trabalho que protege a rede |
+| Nó | Computador que valida a blockchain |
+| UTXO | "Nota" de Bitcoin não gasta |
+
+---
+
+No próximo capítulo, mergulharemos nas chaves: como gerá-las com segurança, o que é BIP39, e por que uma passphrase pode salvar seus fundos.</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/03-chaves-carteiras-sementes.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 3 — Chaves, Carteiras e Sementes
+
+## 3.1 O que é uma seed (semente)?
+
+Gerar uma chave privada diretamente é complicado. Ela é um número de 256 bits — algo como uma sequência interminável de zeros e uns. Ninguém consegue memorizar ou digitar isso sem errar.
+
+A solução veio com o BIP39 (Bitcoin Improvement Proposal 39): um padrão que converte entropia (aleatoriedade) em palavras humanas.
+
+Sua seed (semente) é uma lista de 12 ou 24 palavras comuns em inglês. A lista BIP39 tem 2048 palavras. A posição de cada palavra na lista representa 11 bits da sua chave privada.
+
+24 palavras = 24 × 11 = 264 bits = 256 bits de entropia + 8 bits de checksum (verificação de integridade).
+
+---
+
+## 3.2 Por que 24 palavras?
+
+Você pode usar 12 palavras (128 bits de entropia) ou 24 palavras (256 bits).
+
+12 palavras já são extremamente seguras contra força bruta. Mas 24 palavras oferecem uma margem de segurança muito maior contra avanços futuros em computação quântica.
+
+Neste livro, padronizamos 24 palavras. É o que as melhores hardware wallets usam por padrão.
+
+---
+
+## 3.3 A passphrase (25ª palavra)
+
+A passphrase é uma palavra ou frase que VOCÊ escolhe. Ela é adicionada à sua seed para gerar uma carteira completamente diferente.
+
+**Seed pura (24 palavras):** Gera a Carteira A.
+**Seed + passphrase:** Gera a Carteira B (totalmente diferente).
+
+Por que isso é poderoso?
+
+**Proteção contra coerção:** Se alguém roubar sua seed ou te obrigar a revelá-la, verá apenas a Carteira A. Você pode colocar um valor pequeno nela. Sua carteira real é a Carteira B, que só existe com a passphrase.
+
+**Negabilidade plausível:** Você pode honestamente dizer "minha seed é essa" e entregar as 24 palavras. Sem a passphrase, a carteira real permanece invisível.
+
+**Segurança adicional:** Mesmo que alguém encontre sua placa de aço com as 24 palavras, não poderá acessar seus fundos sem a passphrase.
+
+---
+
+## 3.4 Tipos de carteira
+
+### Carteira quente (hot wallet)
+A chave privada está em um dispositivo conectado à internet (celular, computador). Mais conveniente, menos segura. Use apenas para valores pequenos do dia a dia.
+
+### Carteira fria (cold wallet)
+A chave privada NUNCA toca um dispositivo conectado. Pode ser uma hardware wallet, um pedaço de papel (paper wallet), ou um dispositivo dedicado offline. Mais segura, menos conveniente.
+
+### Carteira watching-only (somente leitura)
+Conhece apenas a chave PÚBLICA. Pode ver seu saldo e criar transações para assinar, mas NÃO pode gastar. Ideal para monitorar sua carteira fria sem expor as chaves.
+
+### Carteira multisig (múltiplas assinaturas)
+Requer duas ou mais chaves privadas para autorizar uma transação. Exemplo: "2 de 3" — qualquer combinação de 2 entre 3 chaves pode gastar. Útil para organizações, herança e segurança adicional.
+
+---
+
+## 3.5 Hardware wallets
+
+Uma hardware wallet é um dispositivo dedicado que guarda suas chaves privadas e assina transações offline.
+
+As melhores hardware wallets NUNCA expõem a chave privada ao computador. Elas recebem a transação não assinada (PSBT), mostram os detalhes na tela para você revisar, e devolvem a transação assinada. A chave privada nunca sai do dispositivo.
+
+No Nível 1, escolheremos e configuraremos uma hardware wallet.
+
+---
+
+## 3.6 O padrão BIP39 na prática
+
+Sua seed BIP39 pode ser restaurada em qualquer carteira compatível. Isso significa que você não está preso a um fabricante. Se sua Coldcard quebrar, você pode restaurar a mesma seed em uma Jade, uma Passport, ou até em software (apenas em emergência e offline).
+
+A interoperabilidade é uma das maiores forças do Bitcoin. Suas chaves são suas — independentemente de quem fabricou o dispositivo.
+
+---
+
+## Resumo do Capítulo
+
+| Conceito | Significado |
+|----------|-------------|
+| BIP39 | Padrão que converte entropia em palavras |
+| Seed | 24 palavras que geram suas chaves |
+| Passphrase | 25ª palavra escolhida por você |
+| Hot wallet | Chave privada online |
+| Cold wallet | Chave privada offline |
+| Watching-only | Apenas chave pública |
+| Hardware wallet | Dispositivo dedicado para assinar offline |
+
+---
+
+No próximo capítulo, entenderemos a diferença entre privacidade e anonimato, e por que a blockchain transparente do Bitcoin exige cuidados especiais.</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/04-privacidade-vs-anonimato.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 4 — Privacidade vs. Anonimato
+
+## 4.1 A diferença fundamental
+
+**Privacidade** é a capacidade de manter certas informações restritas a um círculo de confiança. Você pode ter privacidade sem ser anônimo — por exemplo, uma conversa com seu médico.
+
+**Anonimato** é a condição de ter sua identidade completamente desconhecida. Ninguém sabe quem você é.
+
+No Bitcoin, você é pseudônimo: seus endereços são públicos, mas não contêm seu nome. Isso não é anonimato — é um véu que pode ser levantado.
+
+---
+
+## 4.2 A blockchain é transparente por design
+
+Toda transação Bitcoin é pública. Para sempre. Qualquer pessoa pode ver:
+
+- O endereço de origem
+- O endereço de destino
+- O valor transferido
+- O horário aproximado
+
+Com ferramentas de análise, empresas como Chainalysis e CipherTrace vinculam endereços entre si e a identidades do mundo real.
+
+Se você comprou Bitcoin em uma exchange com KYC (Know Your Customer), aquela exchange sabe que o endereço X pertence a você. Se você enviar Bitcoin do endereço X para o endereço Y, um analista pode inferir que Y também é seu.
+
+---
+
+## 4.3 Heurísticas de análise
+
+Analistas usam várias heurísticas (regras práticas) para desanonimizar usuários:
+
+**Common-input-ownership:** Todos os inputs de uma transação pertencem à mesma pessoa. Se você gasta dois UTXOs juntos, o analista assume que ambos são seus.
+
+**Address reuse:** Se você reutiliza o mesmo endereço para receber pagamentos, todos os pagadores sabem quanto você recebeu no total — e podem cruzar informações.
+
+**Change detection:** Quando você gasta um UTXO e recebe troco, o analista tenta identificar qual output é o troco (seu) e qual é o pagamento. Com o tempo, isso revela sua carteira.
+
+**Timing analysis:** Horários de transações podem ser correlacionados com eventos do mundo real.
+
+---
+
+## 4.4 O que é CoinJoin?
+
+CoinJoin é uma técnica que mistura bitcoins de várias pessoas em uma única transação.
+
+Imagine 10 pessoas, cada uma colocando 0.01 BTC em um pote. O pote é chacoalhado, e cada pessoa tira 0.01 BTC de volta — mas de um endereço novo, diferente do que colocou.
+
+Depois do CoinJoin, um analista vê 10 pessoas colocando dinheiro e 10 pessoas tirando. Ele não sabe qual output pertence a qual input.
+
+A efetividade se mede pelo **anonymity set** (conjunto de anonimato): quantas pessoas participaram da mistura? Anonset 10 = o analista vê 10 possíveis donos para aquele output. Anonset 50 = 50 possíveis donos.
+
+---
+
+## 4.5 Monero: privacidade por padrão
+
+Monero (XMR) é uma criptomoeda construída do zero para privacidade. Diferente do Bitcoin, onde todas as transações são públicas, no Monero:
+
+- **Ring Signatures:** A transação é assinada por um grupo de 16 possíveis remetentes. O observador externo não sabe qual dos 16 realmente assinou.
+- **Stealth Addresses:** Um endereço único é gerado para cada transação. Mesmo que você receba 100 pagamentos no mesmo "endereço", a blockchain mostra 100 endereços diferentes.
+- **RingCT:** Os valores das transações são ocultos. Ninguém vê quanto foi enviado.
+
+Em 2026, está previsto o upgrade **FCMP++** (Full-Chain Membership Proofs), que expande o anonimato para a blockchain inteira — não apenas 16 decoys, mas todas as transações já feitas.
+
+---
+
+## 4.6 A ponte de privacidade
+
+A comunidade Bitcoin desenvolveu uma estratégia poderosa:
+
+1. **Entrar no Bitcoin** (com KYC ou sem)
+2. **Misturar os bitcoins** com CoinJoin (aumentar anonimato)
+3. **Trocar BTC por XMR** via atomic swap (cortar o rastro)
+4. **Esperar** (defesa contra correlação temporal)
+5. **Trocar XMR de volta por BTC** (receber em endereço novo, sem vínculo com o passado)
+
+O resultado: BTC "limpo", sem vínculo criptográfico com sua identidade original.
+
+---
+
+## 4.7 ABCTracer: a ameaça da correlação temporal
+
+Em abril de 2025, pesquisadores publicaram o paper ABCTracer (arXiv:2504.01822), demonstrando 91,75% de rastreabilidade em pontes cross-chain.
+
+O ataque usa três sinais:
+1. **Intervalo de tempo:** Se 1 BTC entra em um swap e ~1 BTC sai em XMR minutos depois, a correlação é forte.
+2. **Proporção valor/taxa:** Valores quase idênticos são uma assinatura.
+3. **Endereço de destino:** Padrões de reutilização ou agrupamento.
+
+**Nossas defesas:**
+- **Intervalo mínimo de 24 horas** entre entrada e saída (ideal: dias)
+- **Valores diferentes** em cada swap
+- **Múltiplos swaps em paralelo** para confundir
+- **Nunca reutilizar endereços**
+
+---
+
+## Resumo do Capítulo
+
+| Conceito | Significado |
+|----------|-------------|
+| Privacidade | Controlar quem vê suas informações |
+| Anonimato | Ter identidade desconhecida |
+| Heurísticas | Regras que analistas usam para desanonimizar |
+| CoinJoin | Misturar bitcoins com outras pessoas |
+| Monero | Criptomoeda com privacidade por padrão |
+| ABCTracer | Ataque de correlação temporal cross-chain |
+| Ponte de privacidade | BTC → XMR → esperar → BTC limpo |
+
+---
+
+Com os fundamentos estabelecidos, começamos agora a jornada prática. A Parte II vai transformar teoria em ação.
+
+Bem-vindo à Trilha do Guardião.</code></pre>
+        <hr>
+        <h2>⚠️ NOTA IMPORTANTE</h2>
+        <p>Os <strong>Capítulos 5 a 12</strong> (Níveis 0 a 7) correspondem ao conteúdo
+          integral da <strong>"Trilha do Guardião Soberano — Versão 1.1 Consolidada"</strong> que
+          foi entregue anteriormente. Em vez de repetir todo aquele conteúdo aqui
+          (que já ocupa ~25.000 palavras), você deve:</p>
+        <ol>
+          <li data-list-item-id="e1cac70f5a2bf5cc7fb6b0472213a3a44">Abrir a resposta que contém a <strong>Trilha Consolidada</strong>
+          </li>
+          <li data-list-item-id="ee75edc1592b5d91c46a84dd91ed9b481">Extrair cada nível (do Nível 1 ao Nível 7) para seu respectivo arquivo
+            <code
+            spellcheck="false">.md</code>
+          </li>
+          <li data-list-item-id="e25672883d22119ede4cfebad7bc02a9d">O Nível 0 já foi entregue separadamente como <code spellcheck="false">05-nivel-0-semente.md</code>
+          </li>
+        </ol>
+        <p><strong>Mapeamento:</strong>
+        </p>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Arquivo</th>
+                <th>Extrair da Trilha Consolidada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code spellcheck="false">06-nivel-1-cofre.md</code>
+                </td>
+                <td>Seção "🔒 NÍVEL 1: O COFRE"</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">07-nivel-2-carteira-fria.md</code>
+                </td>
+                <td>Seção "👁️ NÍVEL 2: A CARTEIRA FRIA"</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">08-nivel-3-observador.md</code>
+                </td>
+                <td>Seção "🏰 NÍVEL 3: O OBSERVADOR"</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">09-nivel-4-misturador.md</code>
+                </td>
+                <td>Seção "🔀 NÍVEL 4: O MISTURADOR"</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">10-nivel-5-trocador.md</code>
+                </td>
+                <td>Seção "🔄 NÍVEL 5: O TROCADOR"</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">11-nivel-6-soberano.md</code>
+                </td>
+                <td>Seção "👑 NÍVEL 6: O SOBERANO"</td>
+              </tr>
+              <tr>
+                <td><code spellcheck="false">12-nivel-7-mestre.md</code>
+                </td>
+                <td>Seção "🧙 NÍVEL 7: O MESTRE"</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <p>Cada arquivo começa com <code spellcheck="false"># Capítulo X — [Nome do Nível]</code> e
+          termina com a conquista <code spellcheck="false">🏅</code>.</p>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/13-ecossistema-completo.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 13 — O Ecossistema Completo
+
+&gt; "Nenhum terceiro tem acesso a todas as informações ao mesmo tempo"
+
+---
+
+## Objetivo
+
+Apresentar o diagrama completo do ecossistema soberano, explicando como cada componente se conecta e qual sua função na arquitetura geral.
+
+---
+
+## 13.1 Visão Geral
+
+Após completar os sete níveis da trilha, você construiu um ecossistema completo de auto-custódia com privacidade. Este capítulo serve como mapa de referência — quando você precisar explicar seu setup para alguém, ou quando quiser revisar se todas as peças estão no lugar.
+
+O ecossistema tem um princípio fundamental: **nenhum terceiro tem acesso a todas as informações ao mesmo tempo.**
+
+- Seu dispositivo air-gapped guarda as chaves, mas nunca vê a internet
+- Seu computador vê a blockchain, mas nunca vê as chaves
+- Seu nó valida transações, mas não conhece sua identidade
+- Seu ambiente de swap opera sobre Tor, mas não guarda estado entre sessões
+- Seus backups físicos garantem recuperação mesmo se todos os dispositivos forem perdidos
+
+---
+
+## 13.2 O Diagrama
+
+&gt; **Nota do Editor:** Inserir aqui o arquivo `imagens/diagrama-ecossistema.png`. Este diagrama mostra três camadas: Internet (rede Tor), Host Físico (três VMs: Whonix-Gateway, Whonix-Workstation e Bitcoin-Node), e Dispositivos Físicos (Coldcard, placas de aço, celular, pendrive Tails).
+
+---
+
+## 13.3 Inventário de Componentes
+
+### Hardware Físico
+
+| Componente | Função | Custo Estimado |
+|------------|--------|----------------|
+| Coldcard MK5 | Assinar transações offline | US$ 150 |
+| Placas de aço (2x) | Backup da seed | R$ 100-300 |
+| Dados de casino (2x) | Gerar entropia | R$ 10-20 |
+| MicroSD (2x) | Ponte PSBT | R$ 40-60 |
+| Pendrive USB (2x) | Tails OS | R$ 40-60 |
+| Celular Pixel | CalyxOS/GrapheneOS | R$ 1.000-2.000 |
+| PC Host (16+ GB RAM) | Virtualização | R$ 3.000-6.000 |
+
+### Máquinas Virtuais
+
+| VM | SO | RAM | Disco | Função |
+|----|----|-----|-------|--------|
+| Whonix-Gateway | Debian (Whonix) | 2 GB | 20 GB | Forçar Tor |
+| Whonix-Workstation | Debian (Whonix) | 6 GB | 50 GB | Operação cripto |
+| Bitcoin-Node | Debian minimal | 4-8 GB | 400 GB | Validação + EPS |
+
+### Aplicações
+
+| Aplicação | Local | Função |
+|-----------|-------|--------|
+| Sparrow Wallet | Whonix, Tails, Mobile | Coordinator BTC |
+| Whirlpool | Whonix (Sparrow) | CoinJoin |
+| eigenwallet | Whonix, Tails | Swap BTC→XMR |
+| RetoSwap | Whonix | Swap XMR→BTC, fiat |
+| Feather Wallet | Whonix, Tails, Mobile | Carteira XMR |
+| KeePassXC/DX | Todos | Senhas e metadados |
+| Electrum | Tails (pré-instalado) | Alternativa BTC |
+| Bitcoin Core | Node VM | Validação |
+| EPS | Node VM | Servidor Electrum próprio |
+
+---
+
+## 13.4 Fluxos Principais
+
+### Fluxo 1: Depósito → Mixagem → Swap → Cold Storage
+
+1. Adquirir BTC (RoboSats, RetoSwap, venda direta)
+2. Sparrow mostra UTXO na aba Transactions
+3. Whirlpool: criar Premix → assinar → aguardar rounds
+4. UTXO pós-coinjoin (anonset ≥ 5) → Postmix_Whonix
+5. Isolar 1 UTXO → Swap_Ready_Whonix
+6. eigenwallet: BTC→XMR
+7. Aguardar 24h+ (defesa ABCTracer)
+8. RetoSwap: XMR→BTC (endereço virgem Coldcard)
+9. BTC limpo em cold storage
+
+### Fluxo 2: Recuperação de Desastre
+
+1. Perdeu VM Whonix → restaurar snapshot/backup
+2. Perdeu Persistent Storage → Restore from Seed no Sparrow
+3. Perdeu Coldcard → comprar novo, restaurar seed do aço
+4. Perdeu placa de aço (local A) → usar backup do local B
+5. Esqueceu passphrase → sem recuperação (memorize!)
+
+---
+
+## 13.5 Matriz de Resiliência
+
+| Cenário | Impacto | Recuperação | Tempo |
+|---------|---------|-------------|-------|
+| VM corrompida | Perda do ambiente | Restaurar snapshot | Minutos |
+| Persistent Storage perdido | Perda do estado Whirlpool | Restore from Seed | 10-40 min |
+| Pendrive Tails quebrado | Perda do ambiente cirúrgico | Recriar em novo USB | 30 min |
+| Coldcard perdido | Sem capacidade de assinar | Comprar novo + restaurar seed | 1-7 dias |
+| Placa de aço perdida | Sem backup primário | Usar backup local B | Imediato |
+| Passphrase esquecida | Carteira real inacessível | Sem recuperação | ∞ |
+| Host físico apreendido | Perda das VMs | Restaurar VMs de backup externo | Dias |
+
+---
+
+## 13.6 Custos Totais Estimados
+
+| Categoria | Custo (Brasil) |
+|-----------|----------------|
+| Hardware (Coldcard + aço + dados) | R$ 800-1.200 |
+| PC Host (se não tiver) | R$ 3.000-6.000 |
+| Celular dedicado (usado) | R$ 1.000-2.000 |
+| Pendrives e MicroSDs | R$ 100-150 |
+| **TOTAL (sem PC)** | **~R$ 2.000-3.500** |
+| **TOTAL (com PC)** | **~R$ 5.000-9.500** |
+
+Comparado com o custo de ter fundos confiscados, hackeados ou bloqueados, é um investimento mínimo.
+
+---
+
+No próximo capítulo, exploraremos as ferramentas alternativas — o que fazer se o Coldcard não estiver disponível, se o Whirlpool cair, ou se você precisar de um caminho diferente para a soberania.</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/14-ferramentas-alternativas.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 14 — Ferramentas e Alternativas
+
+&gt; "Não dependa de uma única ferramenta. A soberania exige opções"
+
+---
+
+## Objetivo
+
+Apresentar alternativas para cada componente do ecossistema, garantindo que você tenha opções se sua ferramenta principal estiver indisponível.
+
+---
+
+## 14.1 Hardware Wallets — Alternativas ao Coldcard
+
+O Coldcard MK5 é nossa recomendação principal, mas existem outras opções excelentes:
+
+### Blockstream Jade
+- **Preço:** ~US$ 65
+- **Diferencial:** Câmera integrada para QR code, preço acessível
+- **Quando usar:** Orçamento limitado
+- **Open source:** Sim
+
+### Foundation Passport Batch 2
+- **Preço:** ~US$ 150-200
+- **Diferencial:** QR nativo, UX mais amigável, design modular
+- **Quando usar:** Prefere QR a SD card
+- **Open source:** Sim
+
+### Keystone 3 Pro
+- **Preço:** ~US$ 130
+- **Diferencial:** Tela touchscreen grande, multi-coin, compatível com MetaMask
+- **Quando usar:** Precisa de multi-coin
+- **Open source:** Sim (firmware Bitcoin-only disponível)
+
+### SeedSigner (DIY)
+- **Preço:** ~US$ 50 em peças
+- **Diferencial:** Stateless (apaga tudo ao desligar), você monta
+- **Quando usar:** Quer construir o próprio dispositivo
+- **Open source:** 100%
+
+### Krux (DIY Firmware)
+- **Preço:** ~US$ 40-60 (hardware Maix Amigo ou M5StickV)
+- **Diferencial:** Stateless, suporte a Taproot, Miniscript, builds reproduzíveis
+- **Quando usar:** Alternativa moderna ao SeedSigner
+- **Open source:** Sim, com builds verificáveis
+
+### AirGap Vault (Mobile)
+- **Preço:** Gratuito (usa celular velho)
+- **Diferencial:** Dois dispositivos (um offline, um online), comunicação via QR
+- **Quando usar:** Já tem celular velho dedicado
+- **Open source:** Sim
+
+---
+
+## 14.2 Software — Alternativas ao Sparrow
+
+### Electrum
+- **Função:** Carteira Bitcoin
+- **Diferencial:** Pré-instalado no Tails, leve, Lightning Network
+- **Quando usar:** Operações simples, já vem pronto no Tails
+
+### Specter Desktop
+- **Função:** Interface para Bitcoin Core
+- **Diferencial:** Multisig avançado, integração com hardware wallets
+- **Quando usar:** Configurar multisig com múltiplos dispositivos
+
+### Liana Wallet
+- **Função:** Carteira com herança programável
+- **Diferencial:** Miniscript + timelocks para sucessão
+- **Quando usar:** Planejamento de herança
+
+---
+
+## 14.3 Swaps — Alternativas ao eigenwallet
+
+### RetoSwap (Haveno)
+- **Direção:** XMR ↔ Fiat, XMR ↔ BTC
+- **Diferencial:** P2P descentralizado, escrow multisig
+- **Quando usar:** Swap reverso (XMR→BTC) ou entrada fiat sem KYC
+
+### BasicSwap DEX
+- **Direção:** BTC ↔ XMR (e mais pares futuros)
+- **Diferencial:** Atomic swap trustless total, sem taxas de maker/taker
+- **Quando usar:** Trustlessness máxima (requer Docker + ~400GB)
+- **Complexidade:** Alta
+
+### RoboSats
+- **Direção:** Fiat → BTC (Lightning)
+- **Diferencial:** P2P sobre Tor, avatares descartáveis, sem KYC
+- **Quando usar:** Comprar BTC com Pix sem criar conta
+
+---
+
+## 14.4 Mixagem — Alternativas ao Whirlpool
+
+### JoinMarket
+- **Tipo:** CoinJoin P2P descentralizado
+- **Diferencial:** Sem coordenador central, makers ganham fees
+- **Quando usar:** Backup se o coordenador Whirlpool cair
+
+### WabiSabi (Wasabi Wallet)
+- **Tipo:** CoinJoin com coordenador
+- **Diferencial:** Pool de valores iguais, anonset alto
+- **Quando usar:** Alternativa madura ao ecossistema Whirlpool/Sparrow
+
+---
+
+## 14.5 Carteiras Monero — Alternativas ao Feather
+
+### Cake Wallet
+- **Plataforma:** iOS e Android
+- **Diferencial:** Multi-coin (BTC, XMR, ETH, LTC, SOL), swap integrado
+- **Quando usar:** Uso mobile casual (não para grandes valores)
+
+### Monero GUI
+- **Plataforma:** Desktop (Windows, Mac, Linux)
+- **Diferencial:** Carteira oficial, nó completo ou simples
+- **Quando usar:** Máxima compatibilidade com a rede Monero
+
+---
+
+## 14.6 Matriz de Decisão Rápida
+
+| Situação | Ferramenta Principal | Alternativa |
+|----------|---------------------|-------------|
+| Melhor segurança BTC | Coldcard MK5 | Jade, Passport, Krux |
+| Coordinator BTC | Sparrow | Electrum, Specter |
+| CoinJoin | Whirlpool (Sparrow) | JoinMarket |
+| Swap BTC→XMR | eigenwallet | BasicSwap |
+| Swap XMR→BTC | RetoSwap | BasicSwap |
+| Entrada fiat sem KYC | RoboSats | RetoSwap, venda direta |
+| Carteira XMR | Feather | Cake (mobile), Monero GUI |
+| Ambiente principal | Whonix | Tails (ocasional) |
+| Ambiente cirúrgico | Tails | Whonix |
+
+---
+
+## 14.7 O que NÃO usar
+
+Algumas ferramentas foram descontinuadas ou apresentaram vulnerabilidades:
+
+| Ferramenta | Motivo |
+|------------|--------|
+| Samourai Wallet | Apreendida em 2024, sem atualizações |
+| Whirlpool CLI original | Coordenador desligado |
+| MyMonero | Encerrado em janeiro de 2026 |
+| Ferramentas sem PGP | Risco de malware |
+| Forks não auditados | Risco de backdoor |
+
+---
+
+## Resumo do Capítulo
+
+Ter alternativas não é paranoia — é preparação. Cada ferramenta deste capítulo resolve o mesmo problema por um caminho diferente. Se uma falhar, você continua operando.
+
+A diversidade de ferramentas é uma defesa. A dependência de uma única ferramenta é uma vulnerabilidade.
+
+---
+
+No próximo capítulo, falaremos dos itens que literalmente salvam vidas — conceitos e técnicas que protegem contra as ameaças mais avançadas.</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/15-itens-que-salvam-vidas.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 15 — Itens que Salvam Vidas
+
+&gt; "ABCTracer, JoinMarket, PayJoin e Coin Control — as defesas que separam a privacidade real da ilusão"
+
+---
+
+## Objetivo
+
+Apresentar conceitos avançados de defesa que protegem contra ameaças sofisticadas de análise de blockchain e correlação.
+
+---
+
+## 15.1 ABCTracer — A Ameaça de Correlação Temporal
+
+Em abril de 2025, pesquisadores publicaram o paper ABCTracer (arXiv:2504.01822), demonstrando 91,75% de eficácia em rastrear fundos através de pontes cross-chain.
+
+O ataque usa três sinais simultâneos:
+
+1. **Intervalo de tempo:** Se 1 BTC entra em um swap e ~1 BTC em XMR aparece minutos depois, a proximidade temporal é uma assinatura.
+2. **Proporção valor/taxa:** O valor de saída é quase idêntico ao de entrada (menos a taxa), criando uma correspondência numérica.
+3. **Endereço de destino:** Padrões de reutilização ou agrupamento de endereços revelam o destinatário.
+
+### Como se defender
+
+| Ataque | Defesa |
+|--------|--------|
+| Correlação temporal | Aguardar MÍNIMO 24 horas (ideal 3-7 dias) entre entrada e saída |
+| Fingerprint de valor | Usar valores DIFERENTES em cada swap |
+| Endereço de destino | Usar endereço VIRGEM para cada recebimento |
+| Múltiplos swaps | Fazer vários swaps em paralelo com valores diferentes |
+
+---
+
+## 15.2 JoinMarket — CoinJoin Descentralizado
+
+O Whirlpool depende de um coordenador central (.onion). Se esse coordenador sair do ar — como aconteceu com o Samourai em 2024 — você perde a capacidade de fazer CoinJoin.
+
+JoinMarket resolve isso: é totalmente P2P, sem ponto único de falha.
+
+### Como funciona
+
+- **Makers:** Pessoas que oferecem BTC para misturar, ganhando fees
+- **Takers:** Pessoas que iniciam os coinjoins, pagando fees
+- **Mercado:** O preço é determinado pela oferta e demanda
+
+**Recomendação:** Instale e TESTE o JoinMarket com um valor pequeno. Não espere o Whirlpool cair para descobrir que você não sabe usar a alternativa.
+
+---
+
+## 15.3 PayJoin — Privacidade Colaborativa
+
+PayJoin (Pay-to-EndPoint) é uma transação onde o pagador e o recebedor contribuem inputs para a mesma transação, quebrando a heurística de common-input-ownership.
+
+**Transação normal:** Input 0.05 BTC → Output 0.03 BTC (pagamento) + Output 0.0199 BTC (troco). Analista vê: "1 pessoa gastou, recebeu troco".
+
+**PayJoin:** Input 0.05 BTC (seu) + Input 0.02 BTC (recebedor) → Output 0.03 BTC (pagamento) + Output 0.0398 BTC (troco). Analista vê: "2 pessoas consolidaram — não sei quem pagou quem".
+
+---
+
+## 15.4 Coin Control — A Arte de Gerenciar UTXOs
+
+Coin Control é a prática de selecionar manualmente quais UTXOs gastar em cada transação.
+
+### Regras de Ouro
+
+**✅ FAÇA:**
+- Rotule cada UTXO por origem (KYC, RoboSats, CoinJoin Round 3, Swap)
+- Congele UTXOs "sujos" para não gastar sem querer
+- Gaste 1 UTXO por vez quando possível
+
+**❌ NÃO FAÇA:**
+- Consolidar 2+ UTXOs pós-coinjoin (reduz anonimato)
+- Misturar UTXO de exchange KYC com UTXO de coinjoin (contaminação)
+- Usar "Send Max" sem verificar quais UTXOs foram selecionados
+
+---
+
+## 15.5 Vulnerabilidade Haveno 2025
+
+Em maio de 2025, pesquisadores identificaram que certas transações do Haveno podem ser detectadas on-chain (arXiv:2505.02392).
+
+**Mitigações:** Usar eigenwallet ou BasicSwap para trustlessness total. Aguardar correções do Haveno/RetoSwap. Diversificar entre ferramentas de swap.
+
+---
+
+## 15.6 FCMP++ — O Futuro do Monero
+
+FCMP++ (Full-Chain Membership Proofs) é um upgrade do protocolo Monero previsto para 2026.
+
+**Antes:** Cada transação é misturada com 16 decoys.
+**Depois:** O anonimato se expande para TODA a blockchain Monero.
+
+**Ação necessária:** Nenhuma. O upgrade é automático na rede Monero.
+
+---
+
+## 15.7 Servidores Electrum .onion
+
+Servidores Electrum públicos podem correlacionar todos os seus endereços. Seu EPS próprio resolve isso. Mas se precisar usar um servidor público, use apenas .onion:
+</code></pre>
+        <p>electrumx.hodlister.co.onion:50002 fortress.qtornado.com.onion:50002 electrum.anonymize.net.onion:50002</p><pre><code class="language-text-x-trilium-auto">
+⚠️ Prefira SEMPRE seu EPS próprio.
+
+---
+
+## Resumo do Capítulo
+
+| Ameaça | Defesa |
+|--------|--------|
+| ABCTracer (correlação temporal) | Intervalo 24h+, valores diferentes, endereços virgens |
+| Coordenador Whirlpool offline | JoinMarket instalado e testado |
+| Heurística de propriedade comum | PayJoin + Coin Control |
+| Vulnerabilidade Haveno | Diversificar ferramentas de swap |
+| Privacidade Monero limitada (16 decoys) | FCMP++ (automático em 2026) |
+
+---
+
+No próximo capítulo, apresentaremos o checklist operacional de 28 itens — seu guia rápido para verificar se tudo está em ordem antes de qualquer operação crítica.</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/16-checklist-28-itens.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 16 — Checklist Operacional (28 Itens)
+
+&gt; "Não confie na memória. Confira a lista"
+
+---
+
+## Objetivo
+
+Fornecer um checklist completo e acionável para verificar cada componente do ecossistema antes de operações críticas.
+
+---
+
+## 🔐 A — Hardware (antes de qualquer software)
+
+| # | Item |
+|---|------|
+| A1 | Adquirir Coldcard MK5 (ou SeedSigner/Krux/Jade/Passport) |
+| A2 | Verificar integridade física (bag antiviolação, número de série) |
+| A3 | Preparar material de backup físico (placa de aço, kit de arruelas) |
+| A4 | Preparar dados de casino para entropia (99+ lançamentos) |
+
+---
+
+## 🌱 B — Geração de Seed (air-gapped, offline)
+
+| # | Item |
+|---|------|
+| B1 | Inicializar dispositivo com dice rolls (99 lançamentos mínimo) |
+| B2 | Anotar e gravar seed BIP39 em metal (24 palavras) |
+| B3 | Configurar passphrase BIP39 forte (25ª palavra) |
+| B4 | Validar seed com Ian Coleman OFFLINE (Tails sem rede) |
+| B5 | Testar recuperação: apagar dispositivo e restaurar com seed |
+
+---
+
+## 💻 C — Ambiente Tails (por sessão)
+
+| # | Item |
+|---|------|
+| C1 | Baixar e verificar Tails OS (OpenPGP) |
+| C2 | Configurar Persistent Storage com senha forte |
+| C3 | Confirmar conexão Tor (check.torproject.org) |
+
+---
+
+## ⚡ D — Instalar e verificar ferramentas
+
+| # | Item |
+|---|------|
+| D1 | Electrum (pré-instalado) conectado a servidor .onion |
+| D2 | Sparrow Wallet AppImage verificada (PGP Craig Raw) |
+| D3 | Feather Wallet AppImage verificada (PGP) |
+| D4 | eigenwallet AppImage verificada (PGP binarybaron) |
+| D5 | RoboSats acessível via Tor Browser (.onion verificado) |
+| D6 | KeePassXC configurado com banco cifrado (AES-256) |
+
+---
+
+## 🔗 E — Watching-only wallet (Sparrow + dispositivo)
+
+| # | Item |
+|---|------|
+| E1 | Exportar xpub do dispositivo para Sparrow (.json ou QR) |
+| E2 | Sparrow configurado em modo watching-only (sem chave privada) |
+| E3 | Testar ciclo PSBT completo com valor mínimo (0.00005 BTC) |
+
+---
+
+## 🔀 F — Primeiro swap BTC→XMR (teste)
+
+| # | Item |
+|---|------|
+| F1 | Gerar subendereço XMR fresco no Feather |
+| F2 | Preparar endereço BTC de change virgem no Sparrow |
+| F3 | Executar swap de teste (~0.003 BTC) no eigenwallet |
+| F4 | Confirmar recebimento XMR no Feather (10 confirmações) |
+| F5 | Aguardar intervalo mínimo de 24h antes de qualquer saída do XMR |
+
+---
+
+## 📊 Resumo
+
+| Seção | Itens |
+|-------|-------|
+| A — Hardware | 4 |
+| B — Geração de Seed | 5 |
+| C — Ambiente Tails | 3 |
+| D — Ferramentas | 6 |
+| E — Watching-only | 3 |
+| F — Primeiro swap | 5 |
+| **TOTAL** | **28** |
+
+---
+
+## Instruções de Uso
+
+1. **Antes de cada operação crítica** (swap, transferência grande), revise este checklist.
+2. **Marque mentalmente** cada item. Se algo falhar, PARE e resolva antes de prosseguir.
+3. **Atualize o checklist** quando novas ferramentas ou procedimentos forem adicionados ao ecossistema.
+
+---
+
+No próximo capítulo, as 12 Leis do Guardião — regras imutáveis que, se quebradas, anulam toda a proteção técnica.</code></pre>
+        <hr>
+        <h2>ARQUIVO: `manuscrito/17-12-leis-do-guardiao.md`</h2><pre><code class="language-text-x-trilium-auto"># Capítulo 17 — As 12 Leis do Guardião
+
+&gt; "A tecnologia protege contra atacantes externos. Ela não protege contra você mesmo"
+
+---
+
+## Objetivo
+
+Estabelecer os princípios comportamentais que sustentam toda a arquitetura técnica. Se estas leis forem quebradas, nenhuma tecnologia salvará sua privacidade.
+
+---
+
+## 🔑 As Leis da Seed e das Chaves
+
+### Lei 1: A seed será gerada SEMPRE offline, em hardware dedicado
+
+Nunca gere sua seed em um computador, celular ou máquina virtual conectada à internet.
+
+### Lei 2: O backup será em metal, em dois locais físicos diferentes
+
+Nunca use papel como backup permanente. Nunca armazene a seed em apenas um local.
+
+### Lei 3: A recuperação será testada ANTES de enviar fundos
+
+Após gravar a seed em metal, apague o dispositivo e restaure a carteira.
+
+### Lei 4: A seed jamais será fotografada, digitalizada ou armazenada em nuvem
+
+Nunca tire foto. Nunca salve em email, WhatsApp, Google Drive ou qualquer serviço digital.
+
+---
+
+## 🌐 As Leis da Rede e da Identidade
+
+### Lei 5: Toda operação cripto usará Tor — nunca clearnet
+
+Use Tails ou Whonix para todas as operações.
+
+### Lei 6: Nenhuma conta pessoal será acessada durante uma sessão cripto
+
+Não faça login em Gmail, redes sociais ou qualquer plataforma que vincule sua identidade.
+
+### Lei 7: Nenhum endereço Bitcoin será reutilizado
+
+Gere um novo endereço para cada transação que receber.
+
+### Lei 8: Nenhum subendereço Monero será reutilizado entre swaps
+
+Gere um novo subendereço XMR para cada swap.
+
+---
+
+## 🔀 As Leis dos Swaps e da Privacidade
+
+### Lei 9: Jamais se fará swap de volta imediatamente
+
+Aguarde no MÍNIMO 24 horas. Ideal: 3 a 7 dias.
+
+### Lei 10: Toda ferramenta será verificada via PGP antes da execução
+
+Nunca execute um AppImage sem verificar a assinatura PGP do desenvolvedor.
+
+### Lei 11: Usar-se-á nó .onion próprio ou servidor confiável
+
+Conecte seu Sparrow ao seu EPS próprio (.onion) ou a um servidor .onion de confiança.
+
+### Lei 12: Começar-se-á SEMPRE com valor de teste mínimo
+
+Antes de qualquer operação com valor significativo, faça um teste com o valor mínimo possível.
+
+---
+
+## 🧠 A Lei Mestra
+
+&gt; **A tecnologia protege contra atacantes externos. Ela não protege contra você mesmo.**
+&gt;
+&gt; Um descuido momentâneo desfaz meses de configuração em segundos.
+&gt;
+&gt; A privacidade é um hábito, não uma configuração.
+
+---
+
+## Resumo das 12 Leis
+
+| # | Categoria | Lei |
+|---|-----------|-----|
+| 1 | Seed | Gerar offline em hardware dedicado |
+| 2 | Seed | Backup em metal, 2 locais |
+| 3 | Seed | Testar recuperação antes de enviar fundos |
+| 4 | Seed | Nunca digitalizar |
+| 5 | Rede | Sempre Tor |
+| 6 | Rede | Nunca logar conta pessoal na sessão |
+| 7 | Rede | Nunca reutilizar endereço BTC |
+| 8 | Rede | Nunca reutilizar subendereço XMR |
+| 9 | Swap | Nunca swap de volta imediato |
+| 10 | Swap | Verificar PGP de tudo |
+| 11 | Swap | Usar nó .onion próprio |
+| 12 | Swap | Começar com valor de teste |
+
+---
+
+Com estas leis, encerramos a Parte III. Os apêndices a seguir fornecem referência rápida para consulta: glossário, servidores .onion, comandos essenciais e mais.</code></pre>
+        <hr>
+        <p>Os apêndices A-G e os arquivos de recursos (<code spellcheck="false">stylesheet.css</code>,
+          <code
+          spellcheck="false">metadata.opf</code>) já foram entregues em respostas anteriores. Agora
+            você tem o livro completo e organizado para o Obsidian.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

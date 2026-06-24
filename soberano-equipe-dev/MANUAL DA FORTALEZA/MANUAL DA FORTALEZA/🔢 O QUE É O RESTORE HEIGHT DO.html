@@ -1,0 +1,129 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🔢 O QUE É O RESTORE HEIGHT DO MONERO E COMO ANOTAR</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🔢 O QUE É O RESTORE HEIGHT DO MONERO E COMO ANOTAR</h1>
+
+      <div class="ck-content">
+        <h2>🔢 O QUE É O RESTORE HEIGHT DO MONERO E COMO ANOTAR</h2>
+        <blockquote>
+          <p><em>"A seed é a chave do cofre. O restore height é o atalho que evita que você cave a montanha inteira para encontrá-lo."</em>
+          </p>
+        </blockquote>
+        <hr>
+        <h2>🧠 O Conceito</h2>
+        <p>O Monero funciona sobre uma blockchain — um livro-caixa gigante com milhões
+          de blocos. Quando você cria uma carteira, ela não precisa ler a blockchain
+          inteira desde o bloco 0 (ano 2014), apenas a partir do momento em que <strong>sua carteira passou a existir</strong>.
+          O <strong>restore height</strong> é exatamente isso: o número do bloco no
+          qual sua carteira foi criada (ou o primeiro bloco a partir do qual ela
+          pode ter recebido fundos).</p>
+        <p>Se você precisar restaurar sua carteira um dia (usando a seed), informar
+          esse número faz com que a sincronização leve <strong>minutos em vez de horas ou dias</strong>.</p>
+        <hr>
+        <h2>🎯 Por que isso importa para você, operador?</h2>
+        <ul>
+          <li data-list-item-id="e4d1e327b50fe044ca74a438a8074beb3"><strong>Velocidade de recuperação:</strong> Imagine perder o pendrive Tails
+            durante uma viagem. Você pega o backup, restaura a seed no Feather, mas
+            sem o restore height, a carteira vai escanear a blockchain inteira. Com
+            ele, a sincronização é quase instantânea.</li>
+          <li data-list-item-id="e34c6598ba3ff1180d4c5ed3529741787"><strong>Privacidade:</strong> Se você restaurar a partir do bloco 0, o
+            nó remoto pode saber que sua carteira é muito antiga e inferir que você
+            é um usuário de longa data. Dar a altura correta limita a janela de observação
+            ao mínimo necessário.</li>
+          <li data-list-item-id="e4d79d19b266172b877d5e8bfbca9bc09"><strong>Precisão:</strong> Se você errar para menos (altura muito antiga),
+            não perde nada — só fica mais lento. Se errar para mais (altura depois
+            da primeira transação), a carteira pode não "ver" fundos recebidos antes
+            dessa altura e você pode achar que perdeu saldo (não perdeu, mas não aparecerá
+            até ajustar).</li>
+        </ul>
+        <hr>
+        <h2>📝 Como anotar corretamente</h2>
+        <h3>1. No momento da criação da carteira (Feather)</h3>
+        <p>Assim que você cria uma nova carteira na Feather, a tela final de confirmação
+          mostra:</p><pre><code class="language-text-x-trilium-auto">Wallet created successfully!
+
+Restore height: 3185000</code></pre>
+        <p><strong>Anote imediatamente</strong> esse número junto com a seed. Escreva
+          assim no seu papel ou caderno de aço:</p><pre><code class="language-text-x-trilium-auto">Nome da carteira: fortaleza_fria
+Data: 12/06/2026
+Seed: [as 25 palavras]
+Restore height: 3185000</code></pre>
+        <blockquote>
+          <p>📌 <strong>Dica:</strong> Escreva também a data por extenso. A Feather aceita
+            tanto o número do bloco quanto a data no formato <code spellcheck="false">YYYYMMDD</code>.
+            A data é mais fácil de lembrar, mas a altura é exata.</p>
+        </blockquote>
+        <h3>2. Se você já criou a carteira e não anotou</h3>
+        <p>Abra a Feather, vá em <strong>Wallet → Information</strong> (ou clique com
+          o botão direito na carteira e selecione "Information"). Lá estará o campo <strong>"Restore height"</strong> ou <strong>"Wallet creation height"</strong>.
+          Anote-o agora.</p>
+        <hr>
+        <h2>🔁 Como usar o restore height na restauração</h2>
+        <p>Quando você restaura uma carteira a partir da seed na Feather:</p>
+        <ol>
+          <li data-list-item-id="e965b2bc7c3207693eebbf82d4e24527d">Escolha "Restore wallet from seed".</li>
+          <li data-list-item-id="ee4fbb9aa73419eed26904495b3a092f7">Cole as 25 palavras.</li>
+          <li data-list-item-id="eecd3a2fca4d8e670dc50f1b4b1030bb7">No campo <strong>Restore height</strong>, insira o número do bloco (ex:
+            <code
+            spellcheck="false">3185000</code>) <strong>ou</strong> a data no formato <code spellcheck="false">AAAAMMDD</code> (ex:
+              <code
+              spellcheck="false">20260612</code>).</li>
+          <li data-list-item-id="e1229321070f8348559a44110b8493826">Avance. A Feather começará a escanear a partir desse ponto.</li>
+        </ol>
+        <p>Se você usar uma data, a Feather converte automaticamente para a altura
+          do bloco do primeiro dia daquela data (que é seguro, pois sempre pega um
+          pouco antes).</p>
+        <hr>
+        <h2>⚠️ E se eu não tiver anotado e já perdi tudo?</h2>
+        <p>Você pode estimar o restore height se lembrar da data aproximada em que
+          criou a carteira ou da data da primeira transação recebida. Use uma ferramenta
+          de conversão de data para altura de bloco Monero, como:</p>
+        <ul>
+          <li data-list-item-id="ea363fe2cb361bb7dd75f16c480de7d50"><a href="https://www.exploremonero.com/tools/date-to-height">https://www.exploremonero.com/tools/date-to-height</a>
+          </li>
+          <li data-list-item-id="e660f1f67261503a15e601701b6c8aec8">Ou no próprio explorador local da Feather (se tiver outro nó), mas é mais
+            fácil na web.</li>
+        </ul>
+        <p>Coloque a data estimada e pegue a altura. Sempre escolha uma altura <strong>um pouco antes</strong> (alguns
+          dias a mais) para garantir que nenhuma transação fique de fora. A segurança
+          &gt; velocidade.</p>
+        <hr>
+        <h2>🧪 Exercício prático (na sua fortaleza de testes)</h2>
+        <ol>
+          <li data-list-item-id="e948074650fb59f10a8940a479ef241cd">Crie uma carteira de teste chamada <code spellcheck="false">teste_restore</code>.</li>
+          <li
+          data-list-item-id="efe095219bef4297c048c25ae19f6478a">Anote a seed e o restore height.</li>
+            <li data-list-item-id="e5bad31fba32f59c5d333e6728a7cc5ad">Mande uma pequena fração de XMR para ela.</li>
+            <li data-list-item-id="ef64d7746077926670e3945be6951c270">Delete a carteira da Feather (ou apenas restaure do zero em outra máquina
+              ou pendrive).</li>
+            <li data-list-item-id="ee0cacb5147027726179da33c76bb004d">Restaure-a usando a seed, mas deixe o restore height em branco. Veja quanto
+              tempo demora.</li>
+            <li data-list-item-id="ed72c2457dba28ec6bafa035397dfa733">Agora restaure de novo usando o restore height correto. <strong>Sinta a diferença.</strong>
+            </li>
+        </ol>
+        <hr>
+        <h2>🧠 Dica de novato que virou operador</h2>
+        <p>Guarde o restore height <strong>junto com a seed</strong> — mas não no mesmo
+          local se a segurança máxima for o objetivo. Se a seed está em aço num cofre,
+          o restore height pode estar anotado num papel comum junto da descrição
+          da carteira (não é segredo, é apenas um número de bloco público). A perda
+          do restore height não compromete os fundos, apenas sua paciência.</p>
+        <hr>
+        <blockquote>
+          <p><em>"O profissional não espera o desastre para descobrir o número do bloco. Ele o anota antes, como quem guarda o mapa do tesouro junto com a chave."</em>
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </body>
+
+</html>

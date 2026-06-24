@@ -1,0 +1,659 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Parte 1: eigenwallet no Whonix — Swaps BTC↔XMR direto da Workstation</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Parte 1: eigenwallet no Whonix — Swaps BTC↔XMR direto da Workstation</h1>
+
+      <div class="ck-content">
+        <p>Perfeito. Vamos fechar o ciclo completo com duas configurações de alto
+          nível: <strong>eigenwallet no Whonix</strong> (para swaps BTC↔XMR direto
+          da Workstation) e <strong>EPS com Tor hidden service</strong> (para eliminar
+          dependência de servidores Electrum públicos). No final, você terá um ambiente
+          Whonix totalmente autônomo.</p>
+        <hr>
+        <h2>Parte 1: eigenwallet no Whonix — Swaps BTC↔XMR direto da Workstation</h2>
+        <h2>Pré-requisitos específicos</h2>
+        <ul>
+          <li data-list-item-id="e69890484c22e4c11eec8f1ebb729d18d">Whonix Workstation já configurada (como no guia anterior)</li>
+          <li data-list-item-id="e230ab681263ba2397f87c05e2cf24fc0">Sparrow Wallet funcionando com carteira watching-only</li>
+          <li data-list-item-id="e4cd3182a1b6331ea59800c34337b3124">Feather Wallet instalada na Workstation</li>
+          <li data-list-item-id="e70ccabfcdddac0cf5f4f660a28148732">Pelo menos um output BTC pós-coinjoin disponível</li>
+          <li data-list-item-id="e1639065409de57a50b055a6f7035aab7">Coldcard pronto para assinar PSBTs</li>
+          <li data-list-item-id="ea600611d908ed136f5e611ca99c9c602">2-3 horas para o primeiro swap (entre configuração e execução)</li>
+        </ul>
+        <h2>Passo 1 — Entender o modelo de ameaça do eigenwallet</h2>
+        <p>O eigenwallet é um cliente de atomic swap <strong>on-chain</strong>. Isso
+          significa que:</p>
+        <ul>
+          <li data-list-item-id="ee7b72385f8b79af31f6a9d970a2db624">A transação Bitcoin do swap é <strong>pública na blockchain</strong> — visível
+            para qualquer um</li>
+          <li data-list-item-id="e11d90c50cb07a19f7baac4865cc6c717">A transação Monero é privada, mas o vínculo entre o UTXO BTC de entrada
+            e o XMR de saída pode ser inferido se você não tomar cuidados</li>
+          <li data-list-item-id="e5e914e2ad6393488d16b9f4b7c2372a6"><strong>Por isso você só deve alimentar o eigenwallet com BTC pós-coinjoin</strong> —
+            UTXOs com anonset ≥ 5</li>
+          <li data-list-item-id="eedf229a1171761c1d4be3376f14c406f">O eigenwallet atua como "taker" (você pega ofertas de "makers" que já
+            anunciaram)</li>
+        </ul>
+        <p>No Whonix, o tráfego de rede do eigenwallet sai pelo Tor automaticamente
+          (herdado do Gateway). Isso é bom, mas não suficiente — você precisa garantir
+          que o swap não vaze metadados.</p>
+        <h2>Passo 2 — Instalar e verificar o eigenwallet</h2>
+        <h3>2.1 Download e verificação PGP</h3>
+        <p>Na Whonix Workstation:</p><pre><code class="language-text-x-trilium-auto"># Criar diretório para ferramentas
+mkdir -p ~/Applications
+cd ~/Applications
+
+# Baixar eigenwallet
+wget https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage
+
+# Baixar assinatura
+wget https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage.asc
+
+# Importar chave do binarybaron (verificar fingerprint em múltiplas fontes!)
+curl https://eigenwallet.org/binarybaron.asc | gpg --import
+
+# Verificar fingerprint (deve bater com a publicada no Twitter/GitHub/Matrix do dev)
+gpg --fingerprint binarybaron
+
+# Verificar assinatura
+gpg --verify eigenwallet-linux.AppImage.asc eigenwallet-linux.AppImage
+
+# Tornar executável
+chmod +x eigenwallet-linux.AppImage</code></pre>
+        <h3>2.2 Criar lançador para conveniência</h3>
+        <p>Crie um script <code spellcheck="false">~/start_eigenwallet.sh</code>:</p><pre><code class="language-text-x-trilium-auto">#!/bin/bash
+echo "Verificando Tor..."
+curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org 2&gt;/dev/null | grep -q "Congratulations" &amp;&amp; echo "Tor OK" || echo "TOR FALHOU - ABORTE"
+echo "Iniciando eigenwallet..."
+~/Applications/eigenwallet-linux.AppImage &amp;</code></pre><pre><code class="language-text-x-trilium-auto">chmod +x ~/start_eigenwallet.sh</code></pre>
+        <hr>
+        <h2>Passo 3 — Configurar o ambiente de swap</h2>
+        <h3>3.1 Estrutura de carteiras no Sparrow</h3>
+        <p>Você vai precisar de três "zonas" na sua carteira Sparrow:</p>
+        <figure
+        class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Zona</th>
+                <th>Carteira Sparrow</th>
+                <th>Função</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Premix</strong>
+                </td>
+                <td><code spellcheck="false">Whirlpool_Whonix</code>
+                </td>
+                <td>UTXOs em processo de coinjoin</td>
+              </tr>
+              <tr>
+                <td><strong>Postmix</strong>
+                </td>
+                <td><code spellcheck="false">Postmix_Whonix</code>
+                </td>
+                <td>UTXOs pós-coinjoin, prontos para uso</td>
+              </tr>
+              <tr>
+                <td><strong>Swap Ready</strong>
+                </td>
+                <td><code spellcheck="false">Swap_Ready_Whonix</code>
+                </td>
+                <td>UTXO específico reservado para o swap atual</td>
+              </tr>
+            </tbody>
+          </table>
+          </figure>
+          <p><strong>Por que separar:</strong> Se o swap falhar ou você precisar cancelar,
+            o UTXO volta para <code spellcheck="false">Swap_Ready</code> e você não contamina
+            os outros UTXOs pós-coinjoin.</p>
+          <p>Todas as três carteiras usam a <strong>mesma xpub do Coldcard</strong> —
+            são só visões diferentes dos mesmos fundos.</p>
+          <h3>3.2 Preparar um UTXO para swap</h3>
+          <ol>
+            <li data-list-item-id="e54b9e76d701779a417bc67f32d5fba17">Na carteira <code spellcheck="false">Postmix_Whonix</code>, selecione um
+              UTXO com anonset ≥ 5 e valor adequado (ex: 0.01 BTC para teste)</li>
+            <li
+            data-list-item-id="e2390521947e2828dae113921b664bb12">Botão direito → <strong>Send to → Swap_Ready_Whonix</strong> (carteira de
+              destino)</li>
+              <li data-list-item-id="e0d0dda1864b50acf1dd20b185cbf680b">Crie PSBT, assine no Coldcard, transmita</li>
+              <li data-list-item-id="e66d3f1bc9ce9b60f887edc258e0b037d">Aguarde 1 confirmação</li>
+          </ol>
+          <p>Agora o UTXO está isolado e rotulado para swap.</p>
+          <hr>
+          <h2>Passo 4 — Gerar endereços para o swap</h2>
+          <h3>4.1 Endereço XMR (recebimento)</h3>
+          <p>No Feather Wallet (aberto na mesma Workstation):</p>
+          <ul>
+            <li data-list-item-id="edb386baaecd2a0b1ece6c741761e0860">Receive → New address</li>
+            <li data-list-item-id="ec3b7ba155202f7b036ea73504e7b4463">Anote o subendereço no KeePassXC com label: <code spellcheck="false">Swap eigen 2026-06-23 #1</code>
+            </li>
+          </ul>
+          <h3>4.2 Endereço BTC de change (troco)</h3>
+          <p>O eigenwallet precisa de um endereço Bitcoin para onde enviar o troco
+            (se o valor do swap for menor que o UTXO de entrada).</p>
+          <p>No Sparrow, carteira <code spellcheck="false">Swap_Ready_Whonix</code>:</p>
+          <ul>
+            <li data-list-item-id="ea641049a70573cdbe5d30edf5cd8ac79">Aba Addresses → selecione um endereço <strong>nunca usado</strong> com derivação
+              BIP84</li>
+            <li data-list-item-id="ea120f60445beae8f6348686cf97d9b13">Copie o endereço</li>
+            <li data-list-item-id="e70dd9a851ae372b1e271534dbe10b1c5">Anote no KeePassXC: <code spellcheck="false">Change eigen swap 2026-06-23 #1</code>
+            </li>
+          </ul>
+          <p><strong>Crítico:</strong> Use SEMPRE um endereço virgem. Reutilizar endereço
+            de change queima privacidade e pode invalidar o anonimato do coinjoin.</p>
+          <hr>
+          <h2>Passo 5 — Executar o swap no eigenwallet</h2>
+          <h3>5.1 Iniciar o eigenwallet</h3><pre><code class="language-text-x-trilium-auto">~/start_eigenwallet.sh</code></pre>
+          <p>O eigenwallet abrirá com interface gráfica (Electron). Ele automaticamente
+            usa Tor (herda do sistema Whonix).</p>
+          <h3>5.2 Escolher o par e direção</h3>
+          <ul>
+            <li data-list-item-id="ec851105787a03d90da969f4aca30b34c">Selecione: <strong>BTC → XMR</strong> (você está vendendo BTC, comprando
+              XMR)</li>
+            <li data-list-item-id="e51d9636e55e93de4a412f6c319637f21">O eigenwallet mostrará uma lista de "makers" (ofertas disponíveis)</li>
+          </ul>
+          <h3>5.3 Analisar as ofertas</h3>
+          <p>Cada maker mostra:</p>
+          <figure class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Campo</th>
+                  <th>Significado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Price</strong>
+                  </td>
+                  <td>Taxa de câmbio BTC/XMR</td>
+                </tr>
+                <tr>
+                  <td><strong>Amount</strong>
+                  </td>
+                  <td>Valor mínimo e máximo do swap</td>
+                </tr>
+                <tr>
+                  <td><strong>Reputation</strong>
+                  </td>
+                  <td>Histórico de swaps completos</td>
+                </tr>
+                <tr>
+                  <td><strong>Bond</strong>
+                  </td>
+                  <td>Caução depositada pelo maker (penalidade se trapacear)</td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <p>Escolha um maker com:</p>
+          <ul>
+            <li data-list-item-id="ed3ae1a6f935de415c90cb8b427d68017">Pelo menos 10 swaps completos</li>
+            <li data-list-item-id="eb7ab432e6f97639a1249db21da088c89">Bond alto (mostra compromisso)</li>
+            <li data-list-item-id="e92e0aee8b0d7c8ed21490f7aa2d0ac1e">Preço dentro do mercado</li>
+            <li data-list-item-id="e261203981bdd15a53de999f8a2bf1459">Valor compatível com seu UTXO</li>
+          </ul>
+          <h3>5.4 Inserir os dados do swap</h3>
+          <p>O eigenwallet pedirá:</p>
+          <ol>
+            <li data-list-item-id="e1ea8c947a1cddff9a7e693726dcf790e"><strong>Bitcoin Amount:</strong> Valor do UTXO que você vai usar (ex: 0.01
+              BTC)</li>
+            <li data-list-item-id="e2e516cb7889ad24e3478ec8dc7f01198"><strong>Bitcoin Address (Refund):</strong> O endereço de change que você
+              gerou no Sparrow</li>
+            <li data-list-item-id="e5e20e60ee1cb125a04405f2a646597a9"><strong>Monero Address:</strong> O subendereço do Feather Wallet</li>
+          </ol>
+          <p>Revise três vezes. Um erro no endereço Monero = perda permanente dos fundos.</p>
+          <h3>5.5 Criar a transação Bitcoin do swap</h3>
+          <p>O eigenwallet gerará uma transação Bitcoin que bloqueia seus fundos num
+            contrato atômico.</p>
+          <p><strong>Você verá:</strong> "Transaction created. Please sign with your
+            wallet."</p>
+          <h3>5.6 Assinar com Coldcard (PSBT via pasta compartilhada)</h3>
+          <p>O eigenwallet exporta a transação como PSBT ou transação raw. Você precisa:</p>
+          <ol>
+            <li data-list-item-id="e35422d76f70018595784e8f2a8299795">Salvar o PSBT na pasta compartilhada: <code spellcheck="false">/mnt/psbt_bridge/swap_psbt.psbt</code>
+            </li>
+            <li data-list-item-id="ed0377f09cbd542f0cdf74ebdf25a8afc">No host, copiar para o MicroSD</li>
+            <li data-list-item-id="eb1ce128ef97705c349ea3e21a53dd4bd">Coldcard → Ready to Sign → selecionar <code spellcheck="false">swap_psbt.psbt</code> →
+              assinar</li>
+            <li data-list-item-id="e807896cadfe0a3dcfc97ee495837c821">Copiar PSBT assinado de volta para <code spellcheck="false">/mnt/psbt_bridge/swap_signed.psbt</code>
+            </li>
+            <li data-list-item-id="ef138c3e0f1ab1d83a4f1e88def847aa6">No eigenwallet, carregar a transação assinada</li>
+          </ol>
+          <p><strong>Alternativa:</strong> Se você configurou USB passthrough, pode
+            conectar o Coldcard direto na VM e assinar sem MicroSD. Mas o método MicroSD
+            é mais seguro (air-gapped).</p>
+          <h3>5.7 Transmitir e aguardar</h3>
+          <p>Após carregar a transação assinada, o eigenwallet:</p>
+          <ol>
+            <li data-list-item-id="e7a2e40a496cc39b62683ca7f79bdb8e4">Transmite a transação Bitcoin (via Tor)</li>
+            <li data-list-item-id="e6474dff0f00dbc823b497303e4a05c61">Monitora a blockchain Monero (via Tor)</li>
+            <li data-list-item-id="ea68ca74e91687240ea4276793cb9125f">Aguarda o maker cumprir a parte dele</li>
+          </ol>
+          <p><strong>Tempo típico:</strong> 25-90 minutos, dependendo:</p>
+          <ul>
+            <li data-list-item-id="e855de38d70f86077b6ab72cefe2acba5">Congestionamento da rede Bitcoin</li>
+            <li data-list-item-id="ef8bdf1f20204c52707eea6d0312a6a50">Confirmações necessárias (geralmente 10 confirmações Bitcoin + 10 confirmações
+              Monero)</li>
+            <li data-list-item-id="e442a187c0ce526ac897e8899bc721069">Velocidade do maker</li>
+          </ul>
+          <h3>5.8 Confirmar recebimento</h3>
+          <p>No Feather Wallet:</p>
+          <ul>
+            <li data-list-item-id="eab2270c32c4b4f30a90cac38bc7001f1">Aguardar aparecer o XMR (com 10 confirmações Monero, ~20 min)</li>
+            <li
+            data-list-item-id="e5186079ace62f7e5a83e250c0a383198">Verificar se o valor bate (menos a taxa do maker, geralmente 1-3%)</li>
+          </ul>
+          <hr>
+          <h2>Passo 6 — Pós-swap: intervalo de segurança e limpeza</h2>
+          <h3>6.1 Intervalo mínimo obrigatório</h3>
+          <p>Como você bem sabe: <strong>nunca mova o XMR imediatamente após o swap</strong>.</p>
+          <ul>
+            <li data-list-item-id="ea9a71fd810b1f70d63043a8dc986aa0d">Mínimo: 24 horas</li>
+            <li data-list-item-id="eadc53bb06bb67890b68a4ca99bb0bb29">Ideal: 3-7 dias, período em que você pode fazer OUTROS swaps com outros
+              UTXOs</li>
+            <li data-list-item-id="eb3b6cdde475f1e7b9dbaf703288a9d44">Durante esse intervalo, o XMR fica parado no subendereço do Feather</li>
+          </ul>
+          <h3>6.2 Churn Monero (opcional mas recomendado)</h3>
+          <p>Após o intervalo, para quebrar qualquer possível correlação temporal residual:</p>
+          <ol>
+            <li data-list-item-id="e3e782f469bd2d190d4a26b7c9c2bf48d">No Feather, crie uma <strong>nova carteira</strong> (seed nova, derivada
+              na hora)</li>
+            <li data-list-item-id="edcb2b7406c06fd34a1cb16e50835cddd">Envie o XMR da carteira do swap para essa nova carteira</li>
+            <li data-list-item-id="e4cfa16daaa2d9c6ffe4d07883aaadaa3">Aguarde mais 1 hora</li>
+            <li data-list-item-id="e84513a21285825abcd4fb96c717c558b">Agora o XMR está "limpo" para uso</li>
+          </ol>
+          <h3>6.3 Registrar o swap no KeePassXC</h3>
+          <p>Crie uma entrada detalhada:</p><pre><code class="language-text-x-trilium-auto">=== SWAP EIGENWALLET ===
+Data: 2026-06-23 15:30 UTC
+Maker: (onion do maker ou ID)
+UTXO BTC entrada: txid:index (0.01 BTC, anonset 5)
+Endereço BTC change: bc1q...
+Subendereço XMR: 8...
+Txid swap BTC: abc...
+Txid recebimento XMR: def...
+Valor recebido XMR: 0.42 XMR
+Fee maker: 2%
+Status: Concluído</code></pre>
+          <hr>
+          <h2>Parte 2: EPS com Tor Hidden Service — Ciclo Completo</h2>
+          <p>Agora vamos configurar o <strong>Electrum Personal Server (EPS)</strong> com
+            um <strong>Tor hidden service</strong>, para que seu Sparrow (no Whonix
+            ou no Tails) se conecte diretamente ao SEU node Bitcoin, sem intermediários.</p>
+          <h2>Arquitetura do sistema completo</h2><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────┐
+│                     HOST FÍSICO                         │
+│                                                         │
+│  ┌──────────────────┐  ┌──────────────────────────┐    │
+│  │ Whonix-Gateway   │  │ VM Node Bitcoin + EPS    │    │
+│  │ (Tor, rede)      │  │                          │    │
+│  │                  │  │ - Bitcoin Core (pruned)  │    │
+│  │ Rede interna:    │  │ - EPS                    │    │
+│  │ 10.152.152.0/24  │  │ - Tor hidden service     │    │
+│  └────────┬─────────┘  │ - .onion: xyz.onion      │    │
+│           │            └────────────┬─────────────┘    │
+│           │                         │                   │
+│  ┌────────┴─────────┐              │                   │
+│  │ Whonix-Workstation│              │                   │
+│  │                   │              │                   │
+│  │ - Sparrow         │──────────────┘                   │
+│  │ - eigenwallet     │  Conexão via .onion              │
+│  │ - Feather         │  (passa pelo Gateway)            │
+│  │ - KeePassXC       │                                  │
+│  └───────────────────┘                                  │
+│                                                         │
+│  ┌──────────────────┐                                   │
+│  │ Pasta compart.   │                                   │
+│  │ /psbt_bridge     │ ← Coldcard troca PSBTs aqui       │
+│  └──────────────────┘                                   │
+└─────────────────────────────────────────────────────────┘</code></pre>
+          <h2>Pré-requisitos para o EPS</h2>
+          <ul>
+            <li data-list-item-id="e3728c971d10350a2f395fbb9e85d195c"><strong>Bitcoin Core instalado e sincronizado</strong> (pode ser no host,
+              numa VM separada, ou num Raspberry Pi)</li>
+            <li data-list-item-id="eb8295d49d96a7c412f8ba36391b6853a"><strong>200+ GB livres</strong> para blockchain pruned (ou 600+ GB para
+              full node)</li>
+            <li class="ck-list-marker-bold" data-list-item-id="ef6c61901e2194568f0572267eda2b6f8"><strong>Python 3.8+</strong>
+            </li>
+            <li class="ck-list-marker-bold" data-list-item-id="e2dcc7b676ddcc5d2b728e35691c036db"><strong>Git</strong>
+            </li>
+          </ul>
+          <h2>Opção de hardware para o node</h2>
+          <figure class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Opção</th>
+                  <th>Prós</th>
+                  <th>Contras</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>VM separada no mesmo host</strong>
+                  </td>
+                  <td>Tudo num só hardware, snapshot fácil</td>
+                  <td>Consome RAM e disco do host</td>
+                </tr>
+                <tr>
+                  <td><strong>Raspberry Pi 4/5 dedicado</strong>
+                  </td>
+                  <td>Isolamento físico, 24/7 silencioso</td>
+                  <td>Custo extra, manutenção separada</td>
+                </tr>
+                <tr>
+                  <td><strong>Node no próprio host Linux</strong>
+                  </td>
+                  <td>Performance máxima</td>
+                  <td>EPS exposto no host (menos isolamento)</td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <p>Vou assumir <strong>VM separada no mesmo host</strong> (Debian minimal,
+            só Bitcoin Core + EPS + Tor).</p>
+          <hr>
+          <h2>Passo 1 — Criar VM para o Node Bitcoin</h2>
+          <h3>1.1 Criar VM Debian minimal</h3>
+          <p>No VirtualBox:</p>
+          <ul>
+            <li data-list-item-id="e98c9f4bb213f0a1f5f60e1189e53bd3c">New VM → nome: <code spellcheck="false">Bitcoin-Node</code>
+            </li>
+            <li data-list-item-id="e8351aa7ec4e19ce8e3a1b73f8e2a00b5">RAM: 4096 MB (8192 MB se full node)</li>
+            <li data-list-item-id="e08740184b3b0f8beac2af41f619b34ec">Disco: 400 GB dinâmico (pruned 10 GB) ou 800 GB (full)</li>
+            <li data-list-item-id="e5a9e9a32b7e90cdf6098ecba11bdbbbc">Rede: NAT (para baixar blockchain inicial) + Internal Network <code spellcheck="false">Whonix</code> (para
+              comunicação com Workstation)</li>
+          </ul>
+          <h3>1.2 Instalar Debian e dependências</h3><pre><code class="language-text-x-trilium-auto"># No Debian minimal
+sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install git python3 python3-pip tor ufw -y
+
+# Criar usuário dedicado
+sudo useradd -m -s /bin/bash bitcoin
+sudo usermod -aG sudo bitcoin</code></pre>
+          <hr>
+          <h2>Passo 2 — Instalar Bitcoin Core</h2><pre><code class="language-text-x-trilium-auto"># Como usuário bitcoin
+su - bitcoin
+
+# Baixar e verificar Bitcoin Core
+wget https://bitcoincore.org/bin/bitcoin-core-27.0/bitcoin-27.0-x86_64-linux-gnu.tar.gz
+wget https://bitcoincore.org/bin/bitcoin-core-27.0/SHA256SUMS
+wget https://bitcoincore.org/bin/bitcoin-core-27.0/SHA256SUMS.asc
+
+# Verificar (importar chaves dos devs Bitcoin Core)
+gpg --keyserver hkps://keys.openpgp.org --recv-keys ...
+gpg --verify SHA256SUMS.asc SHA256SUMS
+sha256sum --check SHA256SUMS --ignore-missing
+
+# Instalar
+tar -xzf bitcoin-27.0-x86_64-linux-gnu.tar.gz
+sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-27.0/bin/*
+
+# Criar diretório de dados
+mkdir -p ~/.bitcoin</code></pre>
+          <h3>2.1 Configurar bitcoin.conf</h3><pre><code class="language-text-x-trilium-auto">nano ~/.bitcoin/bitcoin.conf</code></pre><pre><code class="language-text-x-trilium-auto"># Configuração para node pruned + Tor
+prune=10000
+txindex=0
+
+# Conexão via rede interna Whonix (Gateway)
+proxy=10.152.152.10:9050
+
+# Escutar na rede interna para EPS
+rpcbind=127.0.0.1
+rpcallowip=127.0.0.1
+
+# Autenticação RPC
+rpcauth=seuuser:hash_gerado_com_rpcauth.py
+
+# Não sair para clearnet
+onlynet=onion
+listen=1
+listenonion=1
+
+# Forçar Tor
+dnsseed=0
+dns=0</code></pre>
+          <p><strong>Gerar rpcauth:</strong>
+          </p><pre><code class="language-text-x-trilium-auto">wget https://raw.githubusercontent.com/bitcoin/bitcoin/master/share/rpcauth/rpcauth.py
+python3 rpcauth.py seuuser
+# Copiar a linha rpcauth= gerada para o bitcoin.conf</code></pre>
+          <h3>2.2 Iniciar Bitcoin Core e sincronizar</h3><pre><code class="language-text-x-trilium-auto">bitcoind -daemon
+tail -f ~/.bitcoin/debug.log</code></pre>
+          <p>A sincronização inicial pode levar <strong>2-7 dias</strong> via Tor. Para
+            acelerar, você pode sincronizar via clearnet primeiro e depois ativar
+            <code
+            spellcheck="false">onlynet=onion</code>.</p>
+          <hr>
+          <h2>Passo 3 — Instalar EPS (Electrum Personal Server)</h2>
+          <h3>3.1 Clonar e configurar</h3><pre><code class="language-text-x-trilium-auto">su - bitcoin
+cd ~
+git clone https://github.com/chris-belcher/electrum-personal-server.git
+cd electrum-personal-server
+
+# Instalar dependências
+pip3 install -r requirements.txt
+
+# Criar arquivo de configuração
+cp config.ini.sample config.ini
+nano config.ini</code></pre>
+          <h3>3.2 Configuração do EPS</h3><pre><code class="language-text-x-trilium-auto">[master-public-keys]
+# Adicione sua xpub aqui (a mesma do Coldcard que você usa no Sparrow)
+sua_carteira = xpub6...
+
+[bitcoin-rpc]
+host = 127.0.0.1
+port = 8332
+user = seuuser
+password = senha_gerada_pelo_rpcauth
+
+# Intervalo de polling (mais baixo = mais rápido, mais CPU)
+poll_interval_listening = 30
+poll_interval_connected = 5
+
+[electrum-server]
+host = 127.0.0.1
+port = 50002
+use_ssl = no
+
+# Tor
+tor_host = 127.0.0.1
+tor_port = 9050
+tor_hidden_service = yes</code></pre>
+          <p><strong>Importante:</strong> O EPS só escuta transações relacionadas à
+            sua xpub. Ele não expõe dados de outros endereços.</p>
+          <h3>3.3 Primeira execução e teste</h3><pre><code class="language-text-x-trilium-auto">python3 electrum-personal-server.py config.ini</code></pre>
+          <p>O EPS fará um scan inicial da blockchain (pode levar 1-2 horas) para indexar
+            as transações da sua carteira.</p>
+          <p>Logs de sucesso:</p><pre><code class="language-text-x-trilium-auto">INFO:electrumpersonalserver:Starting Electrum Personal Server
+INFO:electrumpersonalserver:Listening on 127.0.0.1:50002
+INFO:electrumpersonalserver:Tor hidden service: xyz.onion:50002</code></pre>
+          <p><strong>Anote o endereço .onion gerado.</strong> Ele estará em:</p><pre><code class="language-text-x-trilium-auto">cat /var/lib/tor/electrum_hidden_service/hostname</code></pre>
+          <hr>
+          <h2>Passo 4 — Configurar o Tor hidden service (se não automático)</h2>
+          <p>Se o EPS não gerou o .onion automaticamente, configure manualmente:</p><pre><code class="language-text-x-trilium-auto">sudo nano /etc/tor/torrc</code></pre>
+          <p>Adicione:</p><pre><code class="language-text-x-trilium-auto">HiddenServiceDir /var/lib/tor/electrum_hidden_service/
+HiddenServicePort 50002 127.0.0.1:50002</code></pre><pre><code class="language-text-x-trilium-auto">sudo systemctl restart tor
+sudo cat /var/lib/tor/electrum_hidden_service/hostname
+# Exemplo: abcdef123456.onion</code></pre>
+          <hr>
+          <h2>Passo 5 — Criar serviços systemd para Bitcoin Core e EPS</h2>
+          <p>Para que tudo inicie automaticamente no boot da VM:</p>
+          <h3>5.1 Serviço Bitcoin Core</h3><pre><code class="language-text-x-trilium-auto">sudo nano /etc/systemd/system/bitcoind.service</code></pre><pre><code class="language-text-x-trilium-auto">[Unit]
+Description=Bitcoin Core
+After=network.target
+
+[Service]
+User=bitcoin
+Group=bitcoin
+Type=forking
+ExecStart=/usr/local/bin/bitcoind -daemon
+ExecStop=/usr/local/bin/bitcoin-cli stop
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+          <h3>5.2 Serviço EPS</h3><pre><code class="language-text-x-trilium-auto">sudo nano /etc/systemd/system/eps.service</code></pre><pre><code class="language-text-x-trilium-auto">[Unit]
+Description=Electrum Personal Server
+After=bitcoind.service tor.service
+Wants=bitcoind.service tor.service
+
+[Service]
+User=bitcoin
+Group=bitcoin
+WorkingDirectory=/home/bitcoin/electrum-personal-server
+ExecStart=/usr/bin/python3 /home/bitcoin/electrum-personal-server/electrum-personal-server.py /home/bitcoin/electrum-personal-server/config.ini
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+          <h3>5.3 Ativar serviços</h3><pre><code class="language-text-x-trilium-auto">sudo systemctl daemon-reload
+sudo systemctl enable bitcoind eps
+sudo systemctl start bitcoind eps
+sudo systemctl status bitcoind eps</code></pre>
+          <hr>
+          <h2>Passo 6 — Conectar Sparrow (Whonix Workstation) ao seu EPS .onion</h2>
+          <p>Na Whonix Workstation:</p>
+          <h3>6.1 Configurar servidor no Sparrow</h3>
+          <ul>
+            <li data-list-item-id="e7b2f4f5c44eab2a03f9812a835fe2c3f">Preferences → Server → Private Electrum</li>
+            <li data-list-item-id="e223a370c3d95fb9996c5742623d13acd">URL: <code spellcheck="false">abcdef123456.onion:50002</code> (seu .onion)</li>
+            <li
+            data-list-item-id="ebdaf4cdd1ae1a78952d2b871199ef5f9">Use Tor: Marcado</li>
+              <li data-list-item-id="e0b18959d2bb49223629b663a6a0480ca">Use SSL: Não (a menos que tenha configurado certificado no EPS)</li>
+          </ul>
+          <h3>6.2 Testar conexão</h3>
+          <p>Clique em <strong>Test Connection</strong>. Deve ficar verde.</p>
+          <p><strong>Tempo de conexão inicial:</strong> 30-60 segundos (primeira vez
+            que o Tor resolve o .onion).</p>
+          <h3>6.3 Verificar independência total</h3>
+          <p>No Sparrow, vá em <strong>View → Console</strong> e digite:</p><pre><code class="language-text-x-trilium-auto">getinfo</code></pre>
+          <p>Deve retornar informações do servidor. Se o <code spellcheck="false">server</code> for
+            seu .onion, você está 100% independente.</p>
+          <hr>
+          <h2>Passo 7 — Integração completa: Whirlpool + EPS + eigenwallet</h2>
+          <p>Agora você tem o ciclo completo autônomo:</p><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────┐
+│                  CICLO OPERACIONAL                   │
+│                                                     │
+│  1. Bitcoin Core + EPS (VM Node)                    │
+│     ↓                                               │
+│  2. Sparrow conecta ao EPS .onion                   │
+│     ↓                                               │
+│  3. Whirlpool mixa BTC (coordinator .onion)         │
+│     ↓                                               │
+│  4. UTXOs pós-coinjoin → Postmix_Whonix             │
+│     ↓                                               │
+│  5. UTXO isolado → Swap_Ready_Whonix                │
+│     ↓                                               │
+│  6. eigenwallet: swap BTC → XMR                     │
+│     ↓                                               │
+│  7. Feather Wallet recebe XMR                       │
+│     ↓                                               │
+│  8. Intervalo 24h+ → Churn Monero (opcional)        │
+│     ↓                                               │
+│  9. XMR privado pronto para uso                     │
+│                                                     │
+│  TUDO sobre Tor, TUDO com chaves próprias,          │
+│  NENHUM servidor Electrum público                   │
+└─────────────────────────────────────────────────────┘</code></pre>
+          <hr>
+          <h2>Passo 8 — Manutenção e monitoramento</h2>
+          <h3>8.1 Verificar saúde do EPS</h3>
+          <p>Na VM do node:</p><pre><code class="language-text-x-trilium-auto">sudo journalctl -u eps -f
+# Deve mostrar polling e conexões</code></pre>
+          <h3>8.2 Verificar saúde do Bitcoin Core</h3><pre><code class="language-text-x-trilium-auto">bitcoin-cli getblockchaininfo
+bitcoin-cli getnetworkinfo</code></pre>
+          <h3>8.3 Backup do EPS</h3>
+          <p>O EPS não guarda dados críticos (tudo é derivado da blockchain). Mas faça
+            backup do <code spellcheck="false">config.ini</code> (contém sua xpub).</p>
+          <h3>8.4 Atualizações</h3>
+          <ul>
+            <li data-list-item-id="e2fbfb9962de82b84dc281bc84f6487ca"><strong>Bitcoin Core:</strong> A cada release, baixar, verificar PGP, substituir
+              binários</li>
+            <li data-list-item-id="e3c0c102f6a0187e9eef7b53c65d05152"><strong>EPS:</strong>  <code spellcheck="false">git pull</code> no repositório,
+              revisar changelog</li>
+            <li data-list-item-id="ed8ec53051c89689d7add717267266390"><strong>Whonix:</strong>  <code spellcheck="false">sudo apt update &amp;&amp; sudo apt full-upgrade</code> na
+              Workstation</li>
+          </ul>
+          <hr>
+          <h2>Resumo do ecossistema autônomo</h2>
+          <figure class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Componente</th>
+                  <th>Localização</th>
+                  <th>Função</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bitcoin Core</strong>
+                  </td>
+                  <td>VM <code spellcheck="false">Bitcoin-Node</code>
+                  </td>
+                  <td>Full node (pruned), valida transações</td>
+                </tr>
+                <tr>
+                  <td><strong>EPS</strong>
+                  </td>
+                  <td>VM <code spellcheck="false">Bitcoin-Node</code>
+                  </td>
+                  <td>Servidor Electrum pessoal, escuta via .onion</td>
+                </tr>
+                <tr>
+                  <td><strong>Whonix-Gateway</strong>
+                  </td>
+                  <td>VM <code spellcheck="false">Whonix-Gateway</code>
+                  </td>
+                  <td>Força Tor para toda rede interna</td>
+                </tr>
+                <tr>
+                  <td><strong>Whonix-Workstation</strong>
+                  </td>
+                  <td>VM <code spellcheck="false">Whonix-Workstation</code>
+                  </td>
+                  <td>Sparrow, eigenwallet, Feather, KeePassXC</td>
+                </tr>
+                <tr>
+                  <td><strong>Coldcard</strong>
+                  </td>
+                  <td>Hardware físico</td>
+                  <td>Assina PSBTs, guarda seed offline</td>
+                </tr>
+                <tr>
+                  <td><strong>Pasta compartilhada</strong>
+                  </td>
+                  <td>Host ↔ Workstation</td>
+                  <td>Ponte para PSBTs entre Coldcard e Sparrow</td>
+                </tr>
+              </tbody>
+            </table>
+          </figure>
+          <p><strong>Você não depende mais de:</strong>
+          </p>
+          <ul>
+            <li data-list-item-id="e142ccf3789e4d81e0dbba675e3a729be">Servidores Electrum públicos (que podem logar seus endereços)</li>
+            <li
+            data-list-item-id="ec13cab7e66ed8853df738d47db92d7b3">Coordenadores Whirlpool (só o coordinator, que é inevitável, mas seu node
+              não vaza metadados)</li>
+              <li data-list-item-id="e5db53ebc4b018e4899e0a1703fc0b746">Servidores de swap (eigenwallet é P2P, você conecta direto ao maker via
+                Tor)</li>
+              <li data-list-item-id="ef4ea23d8e4be5516a5271506cb5f1ca9">Qualquer serviço clearnet</li>
+          </ul>
+          <p>Seu ambiente está totalmente soberano, anônimo e resiliente.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,72 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>O risco mais crítico que a maioria ignora no Electrum:</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>O risco mais crítico que a maioria ignora no Electrum:</h1>
+
+      <div class="ck-content">
+        <p>Ótimo material. Vou montar um guia visual e interativo completo sobre
+          Whonix + cripto.O guia tem quatro abas — vale explorar cada uma. Mas aqui
+          vão os pontos-chave para o seu contexto de desenvolvedor:</p>
+        <hr>
+        <p><strong>O que torna o Whonix ideal para auto-custódia com uso diário:</strong>
+        </p>
+        <p>O Whonix se destaca para fluxos cripto contínuos graças à persistência
+          nativa e ao stream isolation, que separa circuitos Tor por aplicação —
+          reduzindo ataques de correlação. É possível "torificar" ferramentas como
+          Electrum e Sparrow sem configuração extra.</p>
+        <p><strong>O risco mais crítico que a maioria ignora no Electrum:</strong>
+        </p>
+        <p>Quando o Electrum conecta nos servidores públicos padrão, um deles é escolhido
+          como "servidor principal" e passa a receber todos os endereços da carteira
+          — o que permite a esse servidor inferir razoavelmente que todos pertencem
+          à mesma entidade. A solução documentada pela própria equipe do Whonix é
+          a cadeia: Electrum → ElectrumX → Bitcoin Core → Tor → rede Bitcoin, onde
+          nenhuma das partes consegue conectar à internet diretamente.</p>
+        <p><strong>Para quem quer o nível máximo de isolamento:</strong>
+        </p>
+        <p>A abordagem Qubes + Whonix permite que cada aplicação rode em sua própria
+          VM Whonix, e que as carteiras (Electrum, JoinMarket) tenham funcionalidade
+          completa sem nenhuma conexão de rede — o que é possível via qrexec do Qubes.</p>
+        <hr>
+        <p><strong>Próximos passos sugeridos por nível:</strong>
+        </p>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Nível</th>
+                <th>Caminho</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Iniciante</td>
+                <td>Whonix + Electrum (servidor .onion manual) + HW wallet</td>
+              </tr>
+              <tr>
+                <td>Intermediário</td>
+                <td>Whonix + Sparrow + nó próprio via .onion</td>
+              </tr>
+              <tr>
+                <td>Avançado</td>
+                <td>Qubes + Whonix + Split Wallet + ElectrumX local</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <p>Quer que eu monte um guia de instalação passo a passo mais detalhado para
+          algum desses níveis?</p>
+      </div>
+    </div>
+  </body>
+
+</html>

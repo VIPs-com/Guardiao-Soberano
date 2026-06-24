@@ -1,0 +1,153 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Tutorial Completo: Sparrow Wallet no Tails OS (com Persistência – 2026)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Tutorial Completo: Sparrow Wallet no Tails OS (com Persistência – 2026)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Tutorial Completo: Sparrow Wallet no Tails OS (com Persistência – 2026)</strong>
+        </p>
+        <p>Este é um guia prático e seguro para <strong>novatos</strong> no nível que
+          estamos trabalhando. O objetivo é ter o Sparrow persistente no volume criptografado
+          do Tails, sem precisar reinstalar toda vez.</p>
+        <h3>⚠️ Avisos Importantes Antes de Começar</h3>
+        <ul>
+          <li data-list-item-id="ee55b8a96a498c106cc36fc9ee9521d31"><strong>Nunca</strong> armazene seeds ou chaves privadas diretamente no
+            Sparrow no Tails com persistência (use como <strong>Watch-Only</strong> +
+            hardware wallet).</li>
+          <li data-list-item-id="e0d8a70caedf952a75628877f97d057b2">Sempre <strong>verifique</strong> as assinaturas e hashes dos downloads.</li>
+          <li
+          data-list-item-id="e6c8981a1649c23ca07dbcaf3f515df35">Use quantias pequenas no início para testar.</li>
+            <li data-list-item-id="eb1e9095a1274c735c98ec923617aa9ea">Tails é amnésico: sem persistência, tudo desaparece ao desligar.</li>
+        </ul>
+        <h3>Passo 1: Prepare o Tails com Persistência</h3>
+        <ol>
+          <li data-list-item-id="e3e6f31a7e0a5b306940c23da37c39fd1">Boot no Tails (USB live).</li>
+          <li data-list-item-id="e6bfa8eb481d2083bf431c081fc3761aa">Vá em <strong>Applications → Tails → Persistent Storage</strong> (ou Configure
+            Persistent Volume).</li>
+          <li data-list-item-id="ea5505987b4b9a6e4e60cdc744f4e9511">Crie o volume persistente com uma <strong>senha forte</strong> (5-7 palavras
+            aleatórias).</li>
+          <li data-list-item-id="eacb16862c709c45d98c23fe9f9aee5e0">Ative as seguintes opções:
+            <ul>
+              <li data-list-item-id="ea70a876b71c893aaadf4c665c09d82de"><strong>Persistent Folder</strong> (Personal Documents)</li>
+              <li data-list-item-id="ec126ea4ff3cad51d5578e0ddaf989cf7"><strong>Dotfiles</strong> (Advanced Settings)</li>
+              <li data-list-item-id="e3b3392287e12901bb0b4e8497879a6dd">Opcional: Network Connections e Welcome Screen</li>
+            </ul>
+          </li>
+          <li data-list-item-id="ed54ce93652e85763f78f3ffab21698e6"><strong>Reinicie</strong> o Tails e desbloqueie o Persistent Storage ao
+            boot.</li>
+        </ol>
+        <p>O diretório <code spellcheck="false">~/Persistent</code> aparecerá no File
+          Browser.</p>
+        <h3>Passo 2: Baixe e Verifique o Sparrow (Muito Importante!)</h3>
+        <ol>
+          <li data-list-item-id="e014a474db9441681f039de447395c705">Abra o Tor Browser no Tails.</li>
+          <li data-list-item-id="ecf69048f6cc2b1f0209b5a7d19257064">Acesse: <a href="https://sparrowwallet.com/download/">https://sparrowwallet.com/download/</a>
+          </li>
+          <li data-list-item-id="e9d2af0a5420890a7ed699655b8b5c101">Baixe a versão <strong>Linux (Intel/AMD) Standalone</strong> (<code spellcheck="false">sparrowwallet-2.x.x-x86_64.tar.gz</code>).</li>
+          <li
+          data-list-item-id="e79c366667e1e363f548233fff367c8e7">Baixe também:
+            <ul>
+              <li data-list-item-id="eb482ba212abc39284381902e0429bcdd"><code spellcheck="false">sparrow-2.x.x-manifest.txt</code>
+              </li>
+              <li data-list-item-id="e5841094c3454e1bbf38c2c6daaa78cd0"><code spellcheck="false">sparrow-2.x.x-manifest.txt.asc</code>
+              </li>
+            </ul>
+            </li>
+        </ol>
+        <p><strong>Verificação</strong> (recomendado):</p>
+        <ul>
+          <li data-list-item-id="ecb17341b54d58eb473c9ba4c9013af99">No Tails, abra Terminal.</li>
+          <li data-list-item-id="e59571f9667805513c79f9a6def082bfb">
+            <p>Importe a chave (se necessário):</p><pre><code class="language-text-x-trilium-auto">curl https://keybase.io/craigraw/pgp_keys.asc | gpg --import</code></pre>
+          </li>
+          <li data-list-item-id="e3059ec17d19e1d577cff762460ae63c6">
+            <p>Verifique assinatura:</p><pre><code class="language-text-x-trilium-auto">gpg --verify sparrow-*.manifest.txt.asc</code></pre>
+            <p>(Deve mostrar “Good signature”)</p>
+          </li>
+          <li data-list-item-id="ec7cd3f1fa09b143ad8b5b8ecdb5f8bd6">
+            <p>Verifique hash:</p><pre><code class="language-text-x-trilium-auto">sha256sum --check sparrow-*-manifest.txt --ignore-missing</code></pre>
+            <p>(Deve mostrar “OK”)</p>
+          </li>
+        </ul>
+        <h3>Passo 3: Organize e Instale no Persistent Storage</h3>
+        <p>No Terminal:</p><pre><code class="language-text-x-trilium-auto"># Crie pastas
+mkdir -p ~/Persistent/Programas/Sparrow/data
+
+# Extraia o Sparrow (substitua pelo nome exato do arquivo baixado)
+tar -xvzf ~/Downloads/sparrowwallet-*-x86_64.tar.gz -C ~/Persistent/Programas/Sparrow --strip-components=1</code></pre>
+        <p>Teste se funciona:</p><pre><code class="language-text-x-trilium-auto">~/Persistent/Programas/Sparrow/bin/Sparrow -d ~/Persistent/Programas/Sparrow/data</code></pre>
+        <p>Feche o Sparrow após o teste.</p>
+        <h3>Passo 4: Crie Atalho no Menu de Aplicativos</h3><pre><code class="language-text-x-trilium-auto">mkdir -p /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications
+nano /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/Sparrow.desktop</code></pre>
+        <p>Cole o seguinte conteúdo no nano (<code spellcheck="false">Ctrl+O</code> para
+          salvar, <code spellcheck="false">Ctrl+X</code> para sair):</p><pre><code class="language-text-x-trilium-auto">[Desktop Entry]
+Name=Sparrow
+Comment=Sparrow Bitcoin Wallet
+Exec=/home/amnesia/Persistent/Programas/Sparrow/bin/Sparrow -d /home/amnesia/Persistent/Programas/Sparrow/data %U
+Icon=/home/amnesia/Persistent/Programas/Sparrow/lib/Sparrow.png
+Terminal=false
+Type=Application
+Categories=Unknown
+MimeType=application/psbt;application/bitcoin-transaction;x-scheme-handler/bitcoin;x-scheme-handler/auth47;x-scheme-handler/lightning</code></pre>
+        <p>Copie o atalho para o diretório atual (para testar sem reboot):</p><pre><code class="language-text-x-trilium-auto">cp /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/Sparrow.desktop ~/.local/share/applications/</code></pre>
+        <h3>Passo 5: Configure o Sparrow</h3>
+        <ol>
+          <li data-list-item-id="ed8580e9d458e126cb93f3c67fbfc2cca">Abra o Sparrow pelo menu (ou terminal).</li>
+          <li data-list-item-id="e2197e0e44a08fdce333713a461f82060">No primeiro boot, configure o servidor:
+            <ul>
+              <li data-list-item-id="ed95df871415e0216b094953f7e0d0629">Vá em <strong>File → Preferences → Server</strong>
+              </li>
+              <li data-list-item-id="e5fda7344e06dda881b767c735a757866">Marque <strong>Use proxy</strong>
+              </li>
+              <li data-list-item-id="e8a6f3aac8a070142e4bcdfb6ac328f0c">Proxy URL: <code spellcheck="false">127.0.0.1</code> ou <code spellcheck="false">localhost</code>
+              </li>
+              <li data-list-item-id="e124eec6f352c2a791093d0919aa1adb8">Port: <code spellcheck="false">9050</code> (Tor do Tails)</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e561dcc13573fd45c6d3ccf9de1394aaf">Recomendado: Use um servidor Electrum próprio ou público via Tor para
+            mais privacidade.</li>
+          <li data-list-item-id="eca31f98eb349b7f05c2b87148401d4b6">Crie uma wallet <strong>Watch-Only</strong> (importe xpub/zpub do hardware
+            wallet).</li>
+        </ol>
+        <h3>Atualização Futura do Sparrow</h3>
+        <ol>
+          <li data-list-item-id="e21b53c876a04a4eeb917a2d728cb584a">Baixe a nova versão Standalone + verifique.</li>
+          <li data-list-item-id="e7a539f72e4d359f1b71c315b5ac6657d">Delete as pastas <code spellcheck="false">bin</code> e <code spellcheck="false">lib</code> antigas
+            em <code spellcheck="false">~/Persistent/Programas/Sparrow/</code>.</li>
+          <li
+          data-list-item-id="e20503dc5195e890f9e2488649aa581d6">Extraia a nova versão no lugar.</li>
+            <li data-list-item-id="eec3c50f4ac726e3071f5f3b4b35385a8">Mantenha a pasta <code spellcheck="false">data</code> intacta (ela tem suas
+              wallets e configs).</li>
+        </ol>
+        <h3>Dicas Extras de Segurança</h3>
+        <ul>
+          <li data-list-item-id="e14323ccdbe413824525989cbbf933a2b">Use sempre com <strong>hardware wallet</strong> (Trezor/Coldcard) para assinatura
+            offline (PSBT).</li>
+          <li data-list-item-id="e93a52f29cd86ed8c218f76a38a53ee2e">Para hardware: vá em <strong>Tools → Install udev rules</strong> (execute
+            o comando mostrado).</li>
+          <li data-list-item-id="ed6ead5d1d1c35e1ed4ddb58c0e39a462">Faça backup do volume persistente periodicamente.</li>
+          <li data-list-item-id="e32423aef36ecabf93b5e7608f887c906">Teste tudo com valores pequenos primeiro.</li>
+          <li data-list-item-id="e5f666f57143676a83a007c277e7bcf76">Combine com node próprio (mais avançado).</li>
+        </ul>
+        <p><strong>Fontes principais</strong>: Guia oficial Sparrow, documentação
+          Tails e tutorial atualizado de danielpcostas.dev (fevereiro 2026).</p>
+        <hr>
+        <p><strong>Funcionou?</strong> Qual parte você quer que eu detalhe mais (ex:
+          integração com Trezor, criação de wallet watch-only, PSBT, etc.)? Ou prefere
+          fotos/prints conceituais?</p>
+        <p>Vamos passo a passo — me diga onde está ou o que deu erro! 🚀</p>
+        <p>Fique seguro!</p>
+      </div>
+    </div>
+  </body>
+
+</html>

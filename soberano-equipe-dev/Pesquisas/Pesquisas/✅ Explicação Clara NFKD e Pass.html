@@ -1,0 +1,133 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Explicação Clara: NFKD e Passphrase no BIP39</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Explicação Clara: NFKD e Passphrase no BIP39</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Explicação Clara: NFKD e Passphrase no BIP39</strong>
+        </p>
+        <h3>1. O que é a <strong>Passphrase</strong> (BIP39 Word 25)?</h3>
+        <p>A <strong>passphrase</strong> é uma senha extra que você adiciona à sua
+          seed BIP39 (as 12 ou 24 palavras).</p>
+        <ul>
+          <li data-list-item-id="ef660b2855ed0349bad2d7a9f2e4a93f3">Ela transforma sua seed em uma wallet <strong>completamente diferente</strong>.</li>
+          <li
+          data-list-item-id="e6d30807b5ddc49d2b8ccf4a60ee20de1">Mesma seed + passphrase diferente = wallets diferentes.</li>
+            <li data-list-item-id="ecb0748be606df59b502540d141cbd514">É como uma “segunda chave” secreta.</li>
+        </ul>
+        <p><strong>Exemplo prático:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ec8f5b67e807055b8ede83f06d384f0f0">Seed: <code spellcheck="false">abacaxi tigre elefante ...</code> → Wallet
+            A (sem passphrase)</li>
+          <li data-list-item-id="e1efeb9a4a1a2c31ea4505077e6bb5d08">Seed + Passphrase <code spellcheck="false">Bitcoin2026!Soberania</code> →
+            Wallet B (diferente)</li>
+        </ul>
+        <p><strong>Vantagens:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ef474d3a60f58613529ba9d4e99f845e1">Proteção extra contra roubo físico da seed (quem encontrar a seed ainda
+            precisa da passphrase).</li>
+          <li data-list-item-id="ee8b48e1d3ed8c0887c169bba04c817c2">Permite criar várias wallets a partir da mesma seed.</li>
+          <li data-list-item-id="e4e338f8779297f0ffc8e1b207d5261f1">Muito usado em multisig.</li>
+        </ul>
+        <p><strong>Riscos:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e248672ce5304a0abe0da1dcad7c6621c">Se esquecer a passphrase → fundos perdidos para sempre.</li>
+          <li data-list-item-id="ecb6cd8bcbb5b231c3b3030653ff18803">Deve ser guardada <strong>separada</strong> da seed.</li>
+        </ul>
+        <h3>2. O que é <strong>NFKD</strong>?</h3>
+        <p><strong>NFKD</strong> = <em>Normalization Form Compatibility Decomposition</em>
+        </p>
+        <p>É uma regra técnica de <strong>normalização de texto</strong> (Unicode)
+          que o padrão BIP39 exige que todos os wallets sigam ao usar a passphrase.</p>
+        <h4>Por que isso existe?</h4>
+        <p>Alguns caracteres (principalmente com acentos) podem ser representados
+          de formas diferentes no computador. Sem normalização, a mesma frase pode
+          gerar wallets diferentes dependendo do dispositivo.</p>
+        <p><strong>Exemplos:</strong>
+        </p>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Frase digitada</th>
+                <th>Após NFKD (normalizado)</th>
+                <th>Resultado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>café</td>
+                <td>café (e + acento separado)</td>
+                <td>Wallet diferente</td>
+              </tr>
+              <tr>
+                <td>João</td>
+                <td>João</td>
+                <td>Wallet diferente</td>
+              </tr>
+              <tr>
+                <td>Straße</td>
+                <td>Strasse</td>
+                <td>Wallet diferente</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>3. Como NFKD afeta a Passphrase?</h3>
+        <p>O BIP39 <strong>obriga</strong> o uso de NFKD na passphrase para que <strong>todos os programas</strong> (SeedSigner,
+          Krux, Sparrow, Electrum, etc.) gerem a <strong>mesma wallet</strong>.</p>
+        <p>Se um dispositivo usar NFKD e outro não, você teria duas wallets diferentes
+          com a mesma frase visual.</p>
+        <h3>Recomendação Forte para Novatos</h3>
+        <p><strong>Use apenas caracteres ASCII na passphrase</strong> (evita qualquer
+          problema com NFKD):</p>
+        <ul>
+          <li data-list-item-id="e3340a45456adf684e30accea8f8f42bc">Letras: A-Z a-z</li>
+          <li data-list-item-id="e60306ea9c7dc48060ab190cb43342d12">Números: 0-9</li>
+          <li data-list-item-id="e8f14c12de7b9e8849d484f1fc22fe0f3">Símbolos: ! @ # $ % * ( ) - _ + =</li>
+        </ul>
+        <p><strong>Exemplos bons de passphrase:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="eea6af295714e93e88b03440f2554a252"><code spellcheck="false">BitcoinSoberaniaForte2026!</code>
+          </li>
+          <li data-list-item-id="e33f99a778ad108bac86e8166b81b0574"><code spellcheck="false">tigre-abacaxi-montanha-praia-elefante-2026</code>
+          </li>
+          <li data-list-item-id="e5c26e72c1310cafe9b9a14353bbe0066"><code spellcheck="false">w7N8bZ39CfyFYD2TWpuby3wu6hYaoQWO</code>
+          </li>
+        </ul>
+        <p><strong>Evite:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="ee025e33b5a48fc23e8158cabfe0b5441">Acentos (á é ç ã õ ü)</li>
+          <li data-list-item-id="e3b3cac34e404ce4028e895aac4567b75">Emojis</li>
+          <li data-list-item-id="eb53d3bf46a3edf167d7fe0436c52d6fc">Letras de outros alfabetos</li>
+        </ul>
+        <h3>Resumo Prático</h3>
+        <ul>
+          <li data-list-item-id="e3ae244f20a1f70e826e02a5ff2f218e2"><strong>Passphrase</strong> = senha extra de segurança (Word 25).</li>
+          <li
+          data-list-item-id="efc03f431501b745520e8db628f761651"><strong>NFKD</strong> = regra técnica que padroniza a passphrase para funcionar
+            igual em todos os wallets.</li>
+            <li data-list-item-id="e76f84bbf89ae0a95b527232c9b77772d"><strong>Melhor prática</strong>: Crie uma passphrase forte em ASCII puro
+              + guarde separada da seed + teste restore sempre.</li>
+        </ul>
+        <p>Quer que eu gere mais exemplos de passphrases fortes ou explique como
+          testar uma passphrase com NFKD no Sparrow?</p>
+      </div>
+    </div>
+  </body>
+
+</html>

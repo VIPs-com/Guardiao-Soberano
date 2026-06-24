@@ -1,0 +1,124 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Explicação Completa: Normalização NFKD no BIP39 (Passphrase)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Explicação Completa: Normalização NFKD no BIP39 (Passphrase)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Explicação Completa: Normalização NFKD no BIP39 (Passphrase)</strong>
+        </p>
+        <p>A <strong>NFKD</strong> (Normalization Form Compatibility Decomposition)
+          é uma regra técnica importante do padrão <strong>BIP39</strong> para garantir
+          que a passphrase funcione de forma idêntica em todos os wallets (Sparrow,
+          SeedSigner, Krux, Electrum, etc.).</p>
+        <h3>O que é NFKD?</h3>
+        <p>É um processo de <strong>normalização Unicode</strong> que transforma caracteres
+          especiais de uma forma padronizada antes de usar a passphrase para derivar
+          a seed.</p>
+        <h4>Exemplos práticos:</h4>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Caracteres Originais</th>
+                <th>Após NFKD (Normalizado)</th>
+                <th>Exemplo de Impacto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>café → café</td>
+                <td>café (e + acento separado)</td>
+                <td>Pode mudar o resultado</td>
+              </tr>
+              <tr>
+                <td>João</td>
+                <td>João</td>
+                <td>Pode gerar wallet diferente</td>
+              </tr>
+              <tr>
+                <td>Straße</td>
+                <td>Strasse</td>
+                <td>Decomposição de ligaduras</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Por que isso importa no BIP39?</h3>
+        <ul>
+          <li data-list-item-id="ebf01707d206cf23158297dbab9202e6d">A passphrase é usada junto com a seed para derivar as chaves privadas.</li>
+          <li
+          data-list-item-id="e7cf3be3c5b4e1eb4a9961e2477f477e4">Se dois wallets aplicarem a normalização de forma diferente, eles geram <strong>wallets distintas</strong> (mesma
+            seed + mesma passphrase visual = fundos diferentes!).</li>
+            <li data-list-item-id="eca1fdc5ea887710933aee4f3e81f407e">O padrão BIP39 <strong>exige</strong> que todos os wallets usem <strong>NFKD</strong> na
+              passphrase.</li>
+        </ul>
+        <h3>Como os Dispositivos Lidam com Isso</h3>
+        <ul>
+          <li data-list-item-id="ef57a2394b91d51130c6feb88bf90c2aa"><strong>SeedSigner</strong>: Aplica NFKD automaticamente (boa implementação).</li>
+          <li
+          data-list-item-id="ed9caffc2c97a861240bb22dda992ac8b"><strong>Krux</strong>: Também aplica NFKD e tem avisos recentes sobre
+            o tema.</li>
+            <li data-list-item-id="e725149d7addc68a06763e9d28f4c3ff5"><strong>Sparrow Wallet</strong>: Aplica corretamente quando você importa
+              via xpub (o xpub já carrega o resultado normalizado).</li>
+            <li data-list-item-id="e41b140f7db24f10a3c7318d5f525f379"><strong>Outros wallets</strong> (menos confiáveis): Alguns apps mobile
+              ou sites antigos podem não seguir o padrão corretamente.</li>
+        </ul>
+        <h3>Recomendações Práticas para Você (Novato)</h3>
+        <ol>
+          <li data-list-item-id="e51ffbc8ba643e32288bbf9e96df74369">
+            <p><strong>Use apenas caracteres ASCII</strong> na passphrase (mais seguro
+              e simples):</p>
+            <ul>
+              <li data-list-item-id="e95eaeb1f7db7bbab5e278a58ea6c77f2">Letras maiúsculas/minúsculas (A-Z, a-z)</li>
+              <li data-list-item-id="e998d38b85a2d5a3a8145038e7befe408">Números (0-9)</li>
+              <li data-list-item-id="eeea9ac27ce8512b6f65623c4f1b21b5a">Símbolos comuns: <code spellcheck="false">! @ # $ % &amp; * ( ) - _ = +</code>
+              </li>
+            </ul>
+            <p><strong>Exemplo bom</strong>:</p><pre><code class="language-text-x-trilium-auto">BitcoinSoberania2026!Segura</code></pre>
+          </li>
+          <li data-list-item-id="eed9276f5dd7fefd0465bce8b7ef30d34"><strong>Evite</strong>:
+            <ul>
+              <li data-list-item-id="e7f0c583e1dfe967428fd201ff77e14ea">Acentos (á, é, ç, ã, õ)</li>
+              <li data-list-item-id="e017be21e6755bbda4b51e0fe7332b9d2">Caracteres especiais Unicode (emoji, letras de outros alfabetos)</li>
+              <li
+              data-list-item-id="e5dfea25bbc6dbb1a95afc477e8393427">Espaços no início/fim</li>
+          </ul>
+          </li>
+          <li data-list-item-id="ea4e6e34aa9a447fbc0ccb3bf65aa8ebc"><strong>Se precisar usar acentos</strong>:
+            <ul>
+              <li data-list-item-id="ef9f209ea5f56598cbac7c8c088010b58">Teste sempre com small amount.</li>
+              <li data-list-item-id="ecf8901668d2f38481e957559f0fddbad">Use a mesma ferramenta/dispositivo para gerar e restaurar.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Resumo Importante</h3>
+        <ul>
+          <li data-list-item-id="e8139850777632c319a55971957cd8332"><strong>NFKD = Regra de compatibilidade</strong> para que “a mesma passphrase”
+            produza o mesmo resultado em qualquer wallet compatível com BIP39.</li>
+          <li
+          data-list-item-id="e61d8b65d2968e497fd33f866eeb35b94"><strong>Melhor prática</strong>: Mantenha a passphrase em <strong>ASCII puro</strong> →
+            zero dor de cabeça com normalização.</li>
+            <li data-list-item-id="e83003140de62543f35009d5c5ea8c61d">Sempre que você digitar a passphrase no SeedSigner/Krux, o dispositivo
+              já faz a normalização NFKD internamente.</li>
+        </ul>
+        <p>Quer que eu mostre:</p>
+        <ul>
+          <li data-list-item-id="e590fb9b4e61d7537cec327eb1afa0c3c">Um exemplo prático de teste com passphrase + NFKD?</li>
+          <li data-list-item-id="ea784092a5cb5fc2b88adc7dd102f00ee">Como escolher uma passphrase forte em ASCII?</li>
+          <li data-list-item-id="e137b1a82e46fbfe71b7e8e9b28d22f6b">Diferença entre NFKD e NFC (outra forma de normalização)?</li>
+        </ul>
+        <p>É só falar! 🚀</p>
+      </div>
+    </div>
+  </body>
+
+</html>

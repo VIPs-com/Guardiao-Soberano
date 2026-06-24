@@ -1,0 +1,115 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Uso Completo da BIP39 Word 25 (Passphrase)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Uso Completo da BIP39 Word 25 (Passphrase)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Uso Completo da BIP39 Word 25 (Passphrase)</strong>
+        </p>
+        <p>A <strong>BIP39 Word 25</strong> (ou <strong>passphrase</strong>) é uma funcionalidade
+          poderosa da padrão BIP39. Ela transforma sua seed de 12/24 palavras em
+          uma wallet <strong>totalmente diferente</strong>. É como adicionar uma senha
+          extra que ninguém consegue adivinhar.</p>
+        <h3>Como Funciona</h3>
+        <ul>
+          <li data-list-item-id="ed08ae57f2f5f1ba8017f53b37662c18e">Seed normal (12/24 palavras) → Wallet A</li>
+          <li data-list-item-id="ef9624b409b5adaed84d67287068250c3">Seed + Passphrase → Wallet B (diferente)</li>
+        </ul>
+        <p>Mesmo que alguém roube sua seed física, <strong>sem a passphrase exata</strong> não
+          consegue acessar os fundos.</p>
+        <h3>Vantagens</h3>
+        <ul>
+          <li data-list-item-id="e5b22d8edfe38e97a5b4c153d50a1c917">Proteção extra contra roubo físico da seed.</li>
+          <li data-list-item-id="e8f216c7079f84d98e3504beb9e6c3028">Permite ter várias wallets a partir da mesma seed (ex: uma com passphrase
+            para holdings grandes, outra sem para testes).</li>
+          <li data-list-item-id="ebe8a38696409881d0354c84ae0ce6c58">Muito usado em multisig (colocar passphrase em apenas um dos 3 keystores).</li>
+        </ul>
+        <h3>Desvantagens / Riscos</h3>
+        <ul>
+          <li data-list-item-id="e2f43b4375f1f8092d6057cbccc7170b4">Se esquecer a passphrase → fundos perdidos para sempre.</li>
+          <li data-list-item-id="e89301de69c7f3441cb2e5fea377d6825">Digitação errada = wallet errada.</li>
+          <li data-list-item-id="e5302bbb2712857210e1f8ba76dfb5104">Mais um item para fazer backup seguro.</li>
+        </ul>
+        <h3>Recomendação para Novatos</h3>
+        <p><strong>Use uma passphrase forte</strong>, mas <strong>teste tudo</strong> com
+          valores pequenos antes de colocar dinheiro real.</p>
+        <p><strong>Exemplos de boas passphrases</strong> (nunca use estes!):</p>
+        <ul>
+          <li data-list-item-id="ebda4aedebfe0fb490a086a279c77774b">Frase longa: <code spellcheck="false">MinhaCasaVerde2026BitcoinSoberania</code>
+          </li>
+          <li data-list-item-id="ed431cb52b6417bb39b33a5d1f00938e0">Palavras aleatórias: <code spellcheck="false">correct horse battery staple purple</code>
+          </li>
+          <li data-list-item-id="e4daf640f929a6a7cb3a35445c0495d92">Mistura: <code spellcheck="false">T3st3S3gur0!2026@Bitcoin</code>
+          </li>
+        </ul>
+        <h3>Como Usar no Seu Setup</h3>
+        <h4>1. No SeedSigner (como vimos antes)</h4>
+        <ul>
+          <li data-list-item-id="e5bf01cafed7fa0a85046578cdd6777f2">Ao criar ou carregar a seed → <strong>Apply Passphrase</strong>.</li>
+          <li
+          data-list-item-id="e2411c4c1306537d1f5b469750aba93c7">Digite com joystick e confirme.</li>
+            <li data-list-item-id="e4fff58332ac12d251c092519a78b8b0b">Exporte o xpub (esse xpub já inclui o efeito da passphrase).</li>
+        </ul>
+        <h4>2. No Krux</h4>
+        <ul>
+          <li data-list-item-id="e3aeacfe4c8205edc1f7adb73dbcc742c">Mais fácil: teclado virtual na maioria dos modelos.</li>
+          <li data-list-item-id="e3199eefc34c57417e40efbbc439ca85c"><strong>Wallet → Customize → Passphrase</strong>.</li>
+          <li data-list-item-id="eeac1776b36a63790b90d71e7a6fe5a2c">Digite e confirme.</li>
+        </ul>
+        <h4>3. No Sparrow Wallet (Tails)</h4>
+        <ul>
+          <li data-list-item-id="efb66d4e6daffd4faa7e31a7d70be5caa">Você <strong>não digita</strong> a passphrase no Sparrow.</li>
+          <li data-list-item-id="ed24246eb67be4795b7455bf0bb8dcf60">O xpub exportado do SeedSigner/Krux <strong>já carrega</strong> a wallet
+            com a passphrase.</li>
+          <li data-list-item-id="ecc5537081dda0608c64db133cd0bbaa1">Basta importar o xpub normalmente (watch-only ou multisig).</li>
+          <li data-list-item-id="edb484591486460e575c196a09ef5137f">Sparrow trata a passphrase como parte da wallet.</li>
+        </ul>
+        <h3>Backup Seguro (Obrigatório)</h3>
+        <ol>
+          <li data-list-item-id="ed6c76b3bb4f3637734b91f38c471d86f">Anote a <strong>seed de 12/24 palavras</strong> em um local.</li>
+          <li data-list-item-id="ecb73d5f7d150f8ea368115ab123c7841">Anote a <strong>passphrase</strong> em <strong>local completamente separado</strong> (outro
+            país, casa de familiar de confiança, cofre etc.).</li>
+          <li data-list-item-id="ee8deb45201f6595e7a0b863e778dfbfb">Grave <strong>ambos em metal</strong> (ex: duas placas diferentes).</li>
+          <li
+          data-list-item-id="ee9ed429a1d2a34ccdf455e953477c2a9">Escreva também o <strong>Output Descriptor</strong> completo do Sparrow.</li>
+        </ol>
+        <h3>Teste de Restore (Faça Isso!)</h3>
+        <ol>
+          <li data-list-item-id="edbfb8ac119b436e9cdd078b03d9d7b3e">Crie uma wallet de teste com passphrase.</li>
+          <li data-list-item-id="e579c068100dbbf488d3fb13f9a6413cb">Envie uma quantia pequena (ex: 0.0001 BTC).</li>
+          <li data-list-item-id="e27504c541d3354b1e79310ba38ea8c5b">Apague a wallet do Sparrow.</li>
+          <li data-list-item-id="ec937b6088b5c5dde5c48238d14c209e5">Recrie a wallet importando o xpub do signer (com passphrase ativa).</li>
+          <li
+          data-list-item-id="e148c268331896e56f4988333032154b5">Verifique se o saldo aparece.</li>
+        </ol>
+        <h3>Dicas Finais de OPSEC</h3>
+        <ul>
+          <li data-list-item-id="eb2a1f4242cf2056ac4001dba01bd19b8"><strong>Nunca</strong> digite a passphrase em qualquer computador online.</li>
+          <li
+          data-list-item-id="edc1333e145623d458ac466ec97ea74bd">Use o SeedSigner/Krux para aplicar a passphrase.</li>
+            <li data-list-item-id="e1f14c33327df6696289a971aaec6a81d">Em multisig 2-of-3: coloque a passphrase em apenas <strong>um</strong> dos
+              keystores (melhor equilíbrio).</li>
+            <li data-list-item-id="e404903532424ad61b05ed4a9b370c131">Comece <strong>sem passphrase</strong> para aprender o fluxo, depois adicione.</li>
+        </ul>
+        <p>Quer que eu detalhe agora:</p>
+        <ul>
+          <li data-list-item-id="e9a68623868495cd34bf285bbf71daaea">Como criar uma multisig com passphrase em um dos signers?</li>
+          <li data-list-item-id="eaaa54a83d544796066038894d6f1de10">Exemplo prático de backup da passphrase?</li>
+          <li data-list-item-id="efceef51b0f0d299e97f8bcd4cf7c8a1e">Como testar restore completo no Sparrow?</li>
+        </ul>
+        <p>Me diga o próximo passo que deseja aprofundar! 🚀</p>
+        <p>Estamos construindo um setup bem sólido.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

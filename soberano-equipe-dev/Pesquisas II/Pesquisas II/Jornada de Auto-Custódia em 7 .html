@@ -1,0 +1,1234 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>Jornada de Auto-Custódia em 7 Cumes — Versão 1.1 Consolidada</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>Jornada de Auto-Custódia em 7 Cumes — Versão 1.1 Consolidada</h1>
+
+      <div class="ck-content">
+        <h2>🏔️ TRILHA DO GUARDIÃO SOBERANO</h2>
+        <h2>Da Semente ao Ecossistema Completo</h2>
+        <h3>Jornada de Auto-Custódia em 7 Cumes — Versão 1.1 Consolidada</h3>
+        <hr>
+        <h2>🧭 Sobre Esta Trilha</h2>
+        <p>Esta é a versão final e consolidada da jornada de auto-custódia. Cada
+          nível foi revisado, testado contra o conhecimento da comunidade em 2026,
+          e organizado para ser seguido por qualquer pessoa — do iniciante ao avançado.</p>
+        <p><strong>O que mudou da versão 1.0 para 1.1:</strong> Incorporamos ferramentas
+          alternativas (Krux, Jade, RetoSwap), corrigimos o fluxo XMR→BTC, adicionamos
+          entrada sem KYC, aspectos legais e atualizações tecnológicas (FCMP++).
+          Nada foi removido — apenas expandido.</p>
+        <hr>
+        <h2>🎯 Como Usar Esta Trilha</h2>
+        <p>Cada nível tem:</p>
+        <ul>
+          <li data-list-item-id="e4b5db41ffda8d70a0fbeeefba9872cc8"><strong>Objetivo:</strong> O que você vai conquistar</li>
+          <li data-list-item-id="e03d675930823874693541c61f89ebb96"><strong>Pré-requisitos:</strong> O que precisa ter antes</li>
+          <li data-list-item-id="eb206e897189d429ada2cf7ff823262f3"><strong>Passos:</strong> Ações concretas e ordenadas</li>
+          <li data-list-item-id="ecca16e2289705334fc2719c02834a47d"><strong>Verificação:</strong> Como saber que fez certo</li>
+          <li data-list-item-id="e87c10139b070b54190f54cdf5d1f3f26"><strong>Conquista:</strong> Selo que você ganha</li>
+          <li data-list-item-id="e2ecf7e7c2d477205b05517fd849bff67"><strong>Tempo estimado:</strong> Quanto reservar</li>
+        </ul>
+        <p><strong>Regra de ouro:</strong> Não pule níveis. Cada um é fundamento do
+          próximo. Se travar, volte um nível e revise. A pressa é inimiga da segurança.</p>
+        <hr>
+        <h2>🌱 NÍVEL 0: A SEMENTE</h2>
+        <h3>"Tudo começa com entropia verdadeira"</h3>
+        <p><strong>Tempo estimado:</strong> 2-4 dias | <strong>Dificuldade:</strong> ★★☆☆☆</p>
+        <p><strong>Objetivo:</strong> Gerar uma seed BIP39 com entropia própria, sem
+          confiar em nenhum software. Adquirir os primeiros satoshis sem KYC.</p>
+        <hr>
+        <h3>Passo 0.1 — Comprar os materiais físicos</h3>
+        <p>Antes de qualquer software, você precisa de coisas tangíveis.</p><pre><code class="language-text-x-trilium-auto">□ Comprar 2 dados de casino (6 faces, cores diferentes)
+  - Qualquer loja de jogos ou internet
+  - Cores diferentes ajudam a não confundir
+
+□ Comprar material para backup físico:
+  Opção A: Placa de aço inox + gravador elétrico (~R$100)
+  Opção B: Kit de arruelas (washers) inox + estilete (~R$50)
+  Opção C: Cryptosteel ou similar (~R$500)
+  Opção D: SeedQR estampado em metal (~R$150)
+
+□ Comprar envelope pardo (para papel intermediário)
+
+□ Nunca use APENAS papel. Fogo e água destroem papel.</code></pre>
+        <hr>
+        <h3>Passo 0.2 — Estudar o básico</h3>
+        <p>Antes de gerar sua seed, entenda o que está fazendo. Pesquise estes conceitos:</p><pre><code class="language-text-x-trilium-auto">□ O que são palavras BIP39?
+  - Lista de 2048 palavras padronizadas
+  - Cada palavra = 11 bits de entropia
+  - 24 palavras = 256 bits = segurança astronômica
+
+□ Por que 24 palavras?
+  - 12 palavras = 128 bits (seguro, mas margem menor)
+  - 24 palavras = 256 bits (padrão ouro)
+
+□ O que é uma passphrase (25ª palavra)?
+  - É uma palavra ou frase que VOCÊ escolhe
+  - Sem ela, sua seed gera uma carteira VAZIA
+  - Com ela, gera sua carteira REAL
+  - Protege contra coerção: entregue a seed sem passphrase
+
+□ Por que NUNCA gerar seed em software?
+  - Computadores podem ser comprometidos
+  - RNG (gerador de números aleatórios) pode ser previsível
+  - Dados físicos = entropia verdadeira</code></pre>
+        <hr>
+        <h3>Passo 0.3 — Gerar entropia com dados físicos</h3>
+        <p>Este é o momento mais importante do Nível 0. Faça com calma.</p><pre><code class="language-text-x-trilium-auto">□ Sentar em local sem câmeras (celular longe)
+□ Pegar os 2 dados de casino
+□ Lançar os dois simultaneamente
+□ Anotar EM PAPEL o resultado (ex: Dado vermelho=3, Dado azul=5 → anote "35")
+□ Repetir 100 vezes (50 pares de lançamentos)
+□ Você terá 100 números entre 11 e 66
+
+⚠️ NUNCA:
+- Filmar ou fotografar os lançamentos
+- Ditar os números para um dispositivo
+- Fazer perto de webcam ou celular
+- Pular lançamentos ("99 está bom")</code></pre>
+        <hr>
+        <h3>Passo 0.4 — Converter entropia em seed (SIMULAÇÃO OFFLINE)</h3>
+        <p>Agora você vai simular a geração da seed para VALIDAR o processo. A seed
+          REAL será gerada no Coldcard (Nível 1).</p><pre><code class="language-text-x-trilium-auto">□ Em um computador COM INTERNET:
+  - Baixar o arquivo de iancoleman.io/bip39
+  - É um único arquivo .html (standalone)
+  - Copiar para um pendrive
+
+□ DESCONECTAR o computador da internet:
+  - Desligar WiFi
+  - Remover cabo ethernet
+  - Modo avião LIGADO
+
+□ Abrir o bip39.html no navegador (funciona offline)
+□ Na seção "Entropy", colar seus 100 números de dados
+□ O site gera 24 palavras BIP39
+□ Copiar as palavras EM PAPEL (manualmente, sem imprimir)
+□ Fechar o navegador
+□ Desligar o computador (isso limpa a memória)
+□ Agora você tem 24 palavras no papel</code></pre>
+        <hr>
+        <h3>Passo 0.5 — Gravar seed em metal</h3><pre><code class="language-text-x-trilium-auto">□ Conferir as 24 palavras (3 leituras em voz alta)
+□ Gravar na placa de aço com gravador elétrico
+  Ou gravar nas arruelas (uma palavra por arruela)
+□ Conferir novamente (mais 2 leituras)
+□ Guardar placa em Local Físico A (seguro, discreto)
+
+□ Fazer SEGUNDA CÓPIA:
+  - Gravar outra placa/kit de arruelas
+  - Guardar em Local Físico B (diferente do A)
+  - Ex: A = sua casa, B = casa de familiar confiável
+  - Incêndio não pode destruir os dois ao mesmo tempo
+
+□ Opção complementar: SeedQR
+  - Gerar QR code compacto da seed
+  - Estampar em metal
+  - Compatível com SeedSigner, Krux, Jade, Passport
+  - Ter palavras + SeedQR = redundância
+
+□ Queimar/picar o papel intermediário
+□ NUNCA: foto, nuvem, email, WhatsApp, PDF da seed</code></pre>
+        <hr>
+        <h3>Passo 0.6 — Criar passphrase (25ª palavra)</h3><pre><code class="language-text-x-trilium-auto">□ Criar uma frase memorável e ÚNICA
+  Exemplo BOM: "MinhaAvóNasceuEm1920NoInterior"
+  Exemplo RUIM: "123456" ou "bitcoin"
+
+□ Regras para passphrase forte:
+  - Mínimo 8 caracteres (ideal 20+)
+  - Misturar maiúsculas, minúsculas, números
+  - NUNCA usar dados pessoais reais (data nascimento, nome)
+  - NUNCA usar frases de livros, filmes, músicas
+  - Pode incluir espaços ("Minha Avó Nasceu em 1920")
+
+□ Anotar passphrase em papel SEPARADO da seed
+□ Guardar em Local Físico C (diferente de A e B)
+□ Memorizar (repetir 10x por dia durante 1 semana)
+□ Peça a 1 pessoa de confiança para também memorizar
+  (mas NUNCA revele a seed junto)</code></pre>
+        <hr>
+        <h3>Passo 0.7 — Como adquirir os primeiros satoshis sem KYC</h3>
+        <p>Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu
+          nome e documentos ficam vinculados ao primeiro endereço Bitcoin. Isso cria
+          um elo permanente entre sua identidade civil e seus fundos.</p><pre><code class="language-text-x-trilium-auto">□ Opção A: RoboSats (Pix → BTC Lightning)
+  - Abra o Tor Browser
+  - Acesse o .onion oficial do RoboSats
+  - Gere um avatar (token único para este trade)
+  - Escolha oferta: comprar BTC, pagar com Pix
+  - BTC fica em escrow Lightning
+  - Faça o Pix para o vendedor
+  - Vendedor confirma → BTC liberado
+  - Transfira para Sparrow (on-chain)
+  ⚠️ Pix tem registro bancário. Para anonimato máximo, use conta sem vínculo óbvio.
+
+□ Opção B: RetoSwap/Haveno (dinheiro físico → XMR → BTC)
+  - Instale o RetoSwap (nível 5)
+  - Procure oferta "cash by mail" (dinheiro por correio)
+  - XMR entra em escrow multisig
+  - Envie dinheiro físico pelo correio
+  - Vendedor confirma → XMR liberado
+  - Depois: swap XMR→BTC (nível 5)
+  ✅ Zero registro digital do pagamento
+
+□ Opção C: Venda direta
+  - Comprar de conhecido que tem BTC
+  - Pagar em dinheiro físico
+  - Encontro presencial
+  ✅ Mais simples, requer confiança
+
+□ Opção D: Trabalho/freelance
+  - Oferecer serviços e receber em BTC
+  - Cliente envia diretamente para seu endereço
+  ✅ BTC entra sem exchange
+
+□ Para começar, qualquer valor serve (R$50-100)
+□ Anote no KeePassXC: método, valor, data (para controle próprio)</code></pre>
+        <hr>
+        <h3>Verificação do Nível 0</h3><pre><code class="language-text-x-trilium-auto">□ Placa de aço (ou arruelas) gravada e guardada em 2 locais
+□ Passphrase memorizada e backup em local separado
+□ Entendo o que é BIP39 e por que 24 palavras
+□ Sei que passphrase gera carteira diferente da seed pura
+□ Tenho meus primeiros satoshis (de preferência sem KYC)
+□ Nunca digitalizei a seed (foto, nuvem, email)</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "A Semente"</h3>
+        <blockquote>
+          <p>Plantei minha soberania em aço. Nenhum software gerou minhas chaves. Nenhuma
+            câmera viu minhas palavras. O fundamento está fincado. Os primeiros satoshis
+            chegaram sem que ninguém soubesse meu nome.</p>
+        </blockquote>
+        <hr>
+        <h2>🔒 NÍVEL 1: O COFRE</h2>
+        <h3>"O dispositivo que guarda o segredo"</h3>
+        <p><strong>Tempo estimado:</strong> 1-2 semanas | <strong>Dificuldade:</strong> ★★★☆☆</p>
+        <p><strong>Objetivo:</strong> Adquirir e configurar um dispositivo air-gapped
+          como guardião das chaves privadas. A seed NUNCA tocará um computador conectado
+          à rede.</p>
+        <hr>
+        <h3>Passo 1.0 — Escolher seu dispositivo</h3>
+        <p>Você tem opções. Escolha UMA:</p><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                    GUIA DE ESCOLHA                           │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ⭐ COLDCARD MK5 (Recomendado) — ~US$150                    │
+│  • Padrão ouro da comunidade                                │
+│  • Assina via SD card (PSBT) ou QR                          │
+│  • Trick PIN, Brick PIN, duress wallet                      │
+│  • Bitcoin-only, open source firmware                       │
+│  • Ideal: quem quer o melhor                                │
+│                                                             │
+│  💰 BLOCKSTREAM JADE (Econômico) — ~US$65                   │
+│  • Câmera para QR airgap                                   │
+│  • Open source, preço acessível                             │
+│  • Ideal: orçamento limitado                                │
+│                                                             │
+│  📱 FOUNDATION PASSPORT BATCH 2 (QR) — ~US$150-200         │
+│  • QR nativo, UX mais amigável                              │
+│  • Open source, modular                                     │
+│  • Ideal: prefere QR a SD card                              │
+│                                                             │
+│  🔧 SEEDSIGNER (DIY) — ~US$50 em peças                      │
+│  • Raspberry Pi Zero + câmera                               │
+│  • Stateless (apaga tudo ao desligar)                       │
+│  • Você monta e verifica cada componente                    │
+│  • Ideal: quer construir o próprio                          │
+│                                                             │
+│  🔧 KRUX (DIY Firmware) — ~US$40-60 em hardware             │
+│  • Firmware para Maix Amigo, M5StickV                       │
+│  • Stateless, suporte a Taproot                             │
+│  • Builds reproduzíveis                                     │
+│  • Ideal: alternativa moderna ao SeedSigner                  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <hr>
+        <h3>Passo 1.1 — Adquirir sem vínculo ao seu nome</h3><pre><code class="language-text-x-trilium-auto">□ Coldcard: coinkite.com (fabricante oficial)
+□ Jade: blockstream.com
+□ Passport: foundationdevices.com
+□ SeedSigner: comprar peças em lojas de eletrônica
+□ Krux: comprar Maix Amigo/M5StickV + flashear firmware
+
+□ Se possível, pagar com BTC (mais privacidade)
+□ Ou cartão presente (gift card)
+□ Enviar para endereço sem seu nome:
+  - PO Box (caixa postal)
+  - Casa de amigo/familiar
+  - Receber em mãos (se loja física)</code></pre>
+        <hr>
+        <h3>Passo 1.2 — Verificar integridade física</h3><pre><code class="language-text-x-trilium-auto">□ Conferir embalagem:
+  - Bag antiviolação intacta (Coldcard/Jade)
+  - Sem rasgos, furos, sinais de abertura
+  - Número de série na caixa = número na tela do dispositivo
+
+□ Se for DIY (SeedSigner/Krux):
+  - Comprar peças de fornecedores diferentes
+  - Verificar se os chips não estão adulterados
+  - Flashear firmware você mesmo
+  - Verificar hash do firmware (build reproduzível)
+
+□ Se HOUVER suspeita: DEVOLVER, não usar</code></pre>
+        <hr>
+        <h3>Passo 1.3 — Atualizar firmware (air-gapped)</h3><pre><code class="language-text-x-trilium-auto">□ Em computador COM internet:
+  - Baixar firmware mais recente do site oficial
+  - Verificar assinatura PGP do firmware
+  - Copiar para MicroSD
+
+□ MicroSD → dispositivo → opção Upgrade Firmware
+□ Confirmar versão na tela
+□ NUNCA conectar o dispositivo à internet via USB</code></pre>
+        <hr>
+        <h3>Passo 1.4 — Inicializar com dice rolls</h3><pre><code class="language-text-x-trilium-auto">□ Dispositivo → New Wallet → Dice Rolls
+□ Usar seus 100+ lançamentos de dados do Nível 0
+□ Inserir um por um, conferindo na tela
+□ Dispositivo gera 24 palavras BIP39
+□ NUNCA usar "Quick Generate" (usa RNG interno, menos confiável)
+□ Anotar as 24 palavras EM PAPEL (depois gravará em metal)</code></pre>
+        <hr>
+        <h3>Passo 1.5 — Adicionar passphrase</h3><pre><code class="language-text-x-trilium-auto">□ Dispositivo → Passphrase → Add Passphrase
+□ Digitar a passphrase que você criou no Nível 0
+□ Dispositivo mostra "Passphrase: Set"
+□ Agora sua carteira REAL está ativa
+□ Sem passphrase = carteira vazia (proteção contra coerção)</code></pre>
+        <hr>
+        <h3>Passo 1.6 — Validar com Ian Coleman (OFFLINE)</h3><pre><code class="language-text-x-trilium-auto">□ Exportar xpub (chave pública) do dispositivo para MicroSD
+□ Em computador OFFLINE com bip39.html (Nível 0):
+  - Inserir 24 palavras + passphrase
+  - Verificar se o primeiro endereço BIP84 (m/84'/0'/0'/0/0)
+    BATE EXATAMENTE com o endereço mostrado no dispositivo
+  - Verificar 5º e 15º endereços também
+  - Se NÃO bater: ALGO ERRADO. Recomece.</code></pre>
+        <hr>
+        <h3>Passo 1.7 — Teste de recuperação (CRÍTICO)</h3><pre><code class="language-text-x-trilium-auto">□ Dispositivo → Advanced → Danger Zone → Destroy Seed
+□ Dispositivo apagado (sem seed)
+□ Dispositivo → Import Existing → Restore from 24 words
+□ Digitar 24 palavras + passphrase
+□ Exportar endereços novamente
+□ Comparar com os endereços anotados no Passo 1.6
+□ DEVEM BATER EXATAMENTE
+
+□ Se NÃO bater: sua seed anotada está ERRADA
+  - Regrave a seed em metal
+  - Refaça o teste
+  - NUNCA envie fundos antes deste teste passar
+
+□ Se SIM: seu backup FUNCIONA. Pode confiar.</code></pre>
+        <hr>
+        <h3>Verificação do Nível 1</h3><pre><code class="language-text-x-trilium-auto">□ Dispositivo air-gapped configurado e funcional
+□ Firmware atualizado (PGP verificado)
+□ Seed gerada com dados físicos, não RNG interno
+□ Teste de restauração bem-sucedido (ANTES de enviar fundos)
+□ Sei que sem passphrase = carteira vazia
+□ Nunca conectei o dispositivo à internet
+□ Tenho 2 backups físicos da seed em locais diferentes
+□ Tenho 1 backup da passphrase em local separado</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "O Cofre"</h3>
+        <blockquote>
+          <p>Meu dispositivo é uma fortaleza offline. Se perdê-lo, a semente de aço
+            me salva. Se me coagirem, a passphrase me protege. O cofre está selado
+            e testado.</p>
+        </blockquote>
+        <hr>
+        <h2>👁️ NÍVEL 2: A CARTEIRA FRIA</h2>
+        <h3>"Enxergar sem tocar"</h3>
+        <p><strong>Tempo estimado:</strong> 2-3 dias | <strong>Dificuldade:</strong> ★★★☆☆</p>
+        <p><strong>Objetivo:</strong> Criar uma carteira watching-only no computador
+          para monitorar saldo e criar transações sem expor a seed. Fazer a primeira
+          transação de teste.</p>
+        <hr>
+        <h3>Passo 2.1 — Instalar Tails OS (primeiro ambiente)</h3><pre><code class="language-text-x-trilium-auto">□ Em computador COM internet e Tor Browser:
+  - Acessar tails.boum.org
+  - Baixar a ISO do Tails
+  - Baixar a assinatura OpenPGP (.sig)
+  - Verificar: gpg --verify tails*.img.sig tails*.img
+
+□ Gravar em pendrive USB (8GB ou mais):
+  - Usar balenaEtcher (gráfico) ou dd (terminal)
+  - Este será seu "Tails Final"
+
+□ Boot pelo pendrive:
+  - Reiniciar computador
+  - Entrar na BIOS/UEFI (F2, F12, Del)
+  - Selecionar boot pelo USB
+  - Tails inicia
+
+□ Configurar Persistent Storage:
+  - Applications → Tails → Persistent Storage
+  - Marcar: Personal Data, GnuPG, Bitcoin Client, Additional Software
+  - Criar senha forte (20+ caracteres, sem dados pessoais)
+  - Anotar esta senha em Local Físico D (separado de tudo)</code></pre>
+        <hr>
+        <h3>Passo 2.2 — Baixar ferramentas no Tails</h3><pre><code class="language-text-x-trilium-auto">□ Abrir Tor Browser (já está no Tails)
+□ Baixar Sparrow Wallet:
+  - sparrowwallet.com
+  - Baixar AppImage + assinatura .asc
+  - Importar chave PGP do Craig Raw
+  - Verificar: gpg --verify sparrow*.AppImage.asc sparrow*.AppImage
+  - Tornar executável: chmod +x sparrow*.AppImage
+
+□ Alternativa: use scurl-download (wrapper seguro do Tails)
+  - scurl-download https://sparrowwallet.com/downloads/sparrow*.AppImage
+
+□ Instalar KeePassXC (já vem no Tails):
+  - Applications → Accessories → KeePassXC
+  - Criar banco de dados cifrado (AES-256)
+  - Guardar aqui: PINs, endereços .onion, metadados
+  - NUNCA guardar a seed aqui</code></pre>
+        <hr>
+        <h3>Passo 2.3 — Exportar xpub do dispositivo air-gapped</h3><pre><code class="language-text-x-trilium-auto">□ No seu dispositivo (Coldcard/Krux/SeedSigner/Jade):
+  - Opção Export Wallet → Sparrow Wallet
+  - Arquivo .json gerado no MicroSD ou via QR
+
+□ NUNCA abrir este arquivo em computador COM internet
+□ Copiar para computador com Tails (ainda offline ou já com Tor)
+
+□ O arquivo contém APENAS a chave PÚBLICA (xpub)
+□ Não contém seed, não contém chave privada
+□ É seguro usar em computador com internet</code></pre>
+        <hr>
+        <h3>Passo 2.4 — Criar carteira watching-only</h3><pre><code class="language-text-x-trilium-auto">□ Sparrow → File → New Wallet
+□ Nome: "Minha_Carteira_Fria"
+□ Import File → selecionar arquivo .json
+□ Verificar:
+  - Aba "Signing" deve estar VAZIA (sem chave privada)
+  - Aba "Addresses" mostra endereços
+  - Aba "Transactions" vazia (ainda)
+□ Sua carteira está PRONTA para monitorar e criar transações</code></pre>
+        <hr>
+        <h3>Passo 2.5 — Receber primeiro BTC (teste)</h3><pre><code class="language-text-x-trilium-auto">□ Sparrow → Receive → copiar primeiro endereço
+□ Enviar PEQUENO valor de teste:
+  - ~R$50-100 em BTC
+  - Do RoboSats, RetoSwap, ou conhecido
+  - NÃO use exchange KYC para este teste
+□ Aguardar 1 confirmação (~10 minutos)
+□ Sparrow mostra transação na aba Transactions
+□ PRIMEIRA TRANSAÇÃO AUTO-CUSTODIADA!</code></pre>
+        <hr>
+        <h3>Passo 2.6 — Testar envio (ciclo PSBT completo)</h3><pre><code class="language-text-x-trilium-auto">□ Sparrow → Send → criar transação de 0.00005 BTC
+  - Enviar para outro endereço seu (ou de amigo)
+  - Salvar PSBT no MicroSD
+
+□ MicroSD → dispositivo air-gapped → Ready to Sign
+  - Dispositivo mostra detalhes: endereço destino, valor, fee
+  - Verificar NA TELA DO DISPOSITIVO (não no computador)
+  - Se estiver correto, confirmar e assinar
+
+□ MicroSD de volta → Sparrow → Load Transaction
+  - Sparrow carrega PSBT assinado
+  - Broadcast Transaction (transmitir)
+
+□ Aguardar confirmação
+□ CICLO COMPLETO: criar → assinar offline → transmitir</code></pre>
+        <hr>
+        <h3>Verificação do Nível 2</h3><pre><code class="language-text-x-trilium-auto">□ Tails instalado e funcionando com Persistent Storage
+□ Sparrow Wallet verificado (PGP) e funcional
+□ KeePassXC configurado com banco cifrado
+□ Carteira watching-only mostra saldo corretamente
+□ PSBT criado, assinado no dispositivo offline, transmitido
+□ Sei que a seed NUNCA tocou o computador
+□ Entendo: computador cria, dispositivo assina, computador transmite</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "A Carteira Fria"</h3>
+        <blockquote>
+          <p>Meu computador vê meus Bitcoins mas nunca toca minhas chaves. A ponte
+            PSBT conecta dois mundos sem expor o segredo. Sou guardião, não portador.</p>
+        </blockquote>
+        <hr>
+        <h2>🏰 NÍVEL 3: O OBSERVADOR</h2>
+        <h3>"Construindo a fortaleza digital"</h3>
+        <p><strong>Tempo estimado:</strong> 1-2 semanas | <strong>Dificuldade:</strong> ★★★★☆</p>
+        <p><strong>Objetivo:</strong> Migrar para ambiente Whonix com node próprio,
+          eliminando dependência de servidores públicos. Construir independência
+          total de rede.</p>
+        <hr>
+        <h3>Passo 3.1 — Instalar VirtualBox no host</h3><pre><code class="language-text-x-trilium-auto">□ Baixar VirtualBox de virtualbox.org
+□ Instalar no seu sistema operacional principal
+
+□ Conceitos para entender:
+  - Máquina Virtual (VM): computador dentro do computador
+  - Rede NAT: VM acessa internet via host
+  - Rede Interna: VMs conversam entre si, sem internet direta
+  - Snapshots: "foto" do estado da VM para voltar atrás
+
+□ Se seu host é Linux, considere KVM:
+  - Mais performance que VirtualBox
+  - Hypervisor nativo do Linux
+  - VirtualBox é mais simples para começar
+  - KVM é para quando você estiver confortável</code></pre>
+        <hr>
+        <h3>Passo 3.2 — Instalar Whonix</h3><pre><code class="language-text-x-trilium-auto">□ Baixar Whonix de whonix.org (via Tor Browser)
+□ Baixar assinatura .asc e verificar (chave 2EEACCDA)
+□ VirtualBox → Import Appliance → selecionar arquivo .ova
+□ Duas VMs são criadas:
+  - Whonix-Gateway (força Tor)
+  - Whonix-Workstation (onde você trabalha)
+
+□ INICIAR GATEWAY PRIMEIRO
+  - Aguardar ícone Tor ficar verde
+  - Só depois iniciar a Workstation
+
+□ Na Workstation, verificar Tor:
+  curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org
+  Deve mostrar: "Congratulations. You are using Tor."
+
+□ Trocar senha padrão (changeme → sua senha forte)
+  passwd</code></pre>
+        <hr>
+        <h3>Passo 3.3 — Instalar ferramentas na Workstation</h3><pre><code class="language-text-x-trilium-auto">□ Sparrow Wallet (mesmo processo do Tails):
+  - Baixar AppImage + verificar PGP
+  - Tornar executável e rodar
+
+□ KeePassXC:
+  sudo apt install keepassxc -y
+  Criar banco "whonix_crypto.kdbx"
+  Guardar: senhas, .onions, metadados
+  NUNCA guardar seed
+
+□ Electrum (opcional, já que Sparrow é o foco):
+  Pode instalar para ter alternativa</code></pre>
+        <hr>
+        <h3>Passo 3.4 — Entender Stream Isolation</h3><pre><code class="language-text-x-trilium-auto">□ Conceito: cada app usa circuito Tor SEPARADO
+□ Impede que um app revele identidade de outro
+□ Sparrow: Tor integrado nativo (automático)
+□ Electrum: --oneserver --server .onion (isolado)
+□ Whonix: uwt (Usability Wrapper for Tor) gerencia isso
+□ Verificar: cada conexão de app deve ter circuito diferente</code></pre>
+        <hr>
+        <h3>Passo 3.5 — Criar VM para Bitcoin Core + EPS</h3><pre><code class="language-text-x-trilium-auto">□ VirtualBox → New VM → "Bitcoin-Node"
+□ SO: Debian minimal
+□ RAM: 4-8 GB (full node: 8 GB, pruned: 4 GB)
+□ Disco: 400 GB (pruned) ou 800 GB (full)
+□ Rede: Internal Network "Whonix"
+
+□ Instalar Debian, atualizar sistema
+□ Instalar Bitcoin Core:
+  - Baixar de bitcoincore.org
+  - Verificar PGP (chaves dos desenvolvedores)
+  - Configurar bitcoin.conf para Tor (onlynet=onion)
+
+□ Instalar EPS (Electrum Personal Server):
+  - git clone do repositório oficial
+  - Configurar com sua xpub
+  - Configurar Tor hidden service
+  - Anotar endereço .onion gerado
+
+□ Sincronização inicial: 2-7 dias via Tor
+  - Pode acelerar sincronizando via clearnet primeiro
+  - Depois ativar onlynet=onion</code></pre>
+        <hr>
+        <h3>Passo 3.6 — Conectar Sparrow ao seu EPS</h3><pre><code class="language-text-x-trilium-auto">□ Sparrow → Preferences → Server → Private Electrum
+□ URL: seu_onion.onion:50002
+□ Test Connection → VERDE
+□ Console Sparrow → getinfo → confirmar servidor
+
+□ AGORA VOCÊ É INDEPENDENTE
+  - Nenhum servidor público sabe seus endereços
+  - Nenhum terceiro correlaciona suas transações
+  - Seu node, seu EPS, sua privacidade</code></pre>
+        <hr>
+        <h3>Passo 3.7 — Configurar pasta compartilhada para PSBT</h3><pre><code class="language-text-x-trilium-auto">□ Criar pasta no host: /psbt_bridge
+□ VirtualBox → Settings → Shared Folders → adicionar
+□ Workstation acessa em: /mnt/psbt_bridge
+□ Testar: criar arquivo no host, ver na Workstation
+□ Fluxo PSBT: Sparrow → /mnt/psbt_bridge → MicroSD → Dispositivo</code></pre>
+        <hr>
+        <h3>Passo 3.8 — Entender o risco do Host OS</h3><pre><code class="language-text-x-trilium-auto">⚠️ ADVERTÊNCIA IMPORTANTE:
+
+□ Whonix protege DENTRO das VMs
+□ Mas se o HOST (seu Windows/Linux/macOS) estiver comprometido:
+  → Keylogger pode capturar tudo que você digita na VM
+  → Malware pode ver sua tela
+  → Senhas, endereços, metadados podem vazar
+
+□ Mitigações:
+  → Manter host LIMPO e ATUALIZADO
+  → Não instalar software pirata ou suspeito
+  → Ideal: host Linux dedicado só para isso
+  → Máximo: Qubes OS (Nível 7) resolve esse problema
+  → As CHAVES PRIVADAS nunca estão no computador
+    (Coldcard assina offline — isso salva mesmo com host comprometido)</code></pre>
+        <hr>
+        <h3>Verificação do Nível 3</h3><pre><code class="language-text-x-trilium-auto">□ Whonix Gateway + Workstation funcionando
+□ Stream Isolation compreendido
+□ Node Bitcoin sincronizado (ou sincronizando)
+□ EPS rodando com .onion próprio
+□ Sparrow conectado ao SEU servidor, não público
+□ Fluxo PSBT funcionando via pasta compartilhada
+□ Sei fazer snapshot da VM antes de operações críticas
+□ Entendo o risco do host OS e como mitigar</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "O Observador"</h3>
+        <blockquote>
+          <p>Não dependo de servidores alheios. Meu node valida minhas transações.
+            Meu EPS responde só a mim. A fortaleza digital está de pé — e sei onde
+            estão suas muralhas e suas brechas.</p>
+        </blockquote>
+        <hr>
+        <h2>🔀 NÍVEL 4: O MISTURADOR</h2>
+        <h3>"Desaparecendo na multidão"</h3>
+        <p><strong>Tempo estimado:</strong> 2-4 semanas | <strong>Dificuldade:</strong> ★★★★☆</p>
+        <p><strong>Objetivo:</strong> Dominar CoinJoin com Whirlpool. Ter alternativa
+          funcional com JoinMarket. Aprender Coin Control para nunca se auto-sabotar.</p>
+        <hr>
+        <h3>Passo 4.1 — Estudar CoinJoin</h3><pre><code class="language-text-x-trilium-auto">Conceitos para pesquisar antes de começar:
+
+□ O que é CoinJoin?
+  - Transação onde várias pessoas misturam seus Bitcoins
+  - Depois da mistura, não dá para saber qual input veio de quem
+  - Como jogar moedas num pote, chacoalhar, e cada um tirar de volta
+
+□ O que é anonset (anonymity set)?
+  - Número de pessoas com quem você se misturou
+  - Anonset 5 = analista vê 5 possíveis donos
+  - Anonset 50 = analista vê 50 possíveis donos
+  - Quanto maior, melhor
+
+□ O que é common-input-ownership heuristic?
+  - Regra que analistas usam: "todos os inputs de uma transação
+    pertencem à mesma pessoa"
+  - CoinJoin quebra essa regra
+  - Mas se você CONSOLIDAR outputs pós-coinjoin, recria o vínculo
+
+□ Diferença: Whirlpool vs JoinMarket
+  - Whirlpool: coordenador central (.onion), pools fixos, mais fácil
+  - JoinMarket: P2P descentralizado, qualquer valor, makers ganham fees</code></pre>
+        <hr>
+        <h3>Passo 4.2 — Criar estrutura de 3 carteiras</h3><pre><code class="language-text-x-trilium-auto">□ Todas usam a MESMA xpub (mesmo Coldcard)
+□ São só "visões" diferentes dos mesmos fundos
+
+□ Carteira 1: "Whirlpool_Whonix"
+  - UTXOs que serão misturados
+  - Status: "sujo" — NÃO gaste fora do Whirlpool
+
+□ Carteira 2: "Postmix_Whonix"
+  - UTXOs que já completaram CoinJoin (anonset ≥ 5)
+  - Status: "limpo" — pronto para uso privado
+
+□ Carteira 3: "Swap_Ready_Whonix"
+  - UTXO isolado e rotulado, pronto para swap
+  - Status: "reservado"
+
+□ REGRA DE OURO:
+  NUNCA consolidar UTXO pós-coinjoin com UTXO não-misturado
+  Isso desfaz TODO o anonimato conquistado</code></pre>
+        <hr>
+        <h3>Passo 4.3 — Configurar Whirlpool no Sparrow</h3><pre><code class="language-text-x-trilium-auto">□ Aba Whirlpool → Settings
+□ Coordinator: [.onion oficial do Sparrow — verificar no site]
+□ Escolher pool: 0.01 BTC (recomendado para começar)
+□ Target anonset: 5 (mínimo), 10+ (ideal)
+□ Modo: Remix automático (continua misturando após cada round)</code></pre>
+        <hr>
+        <h3>Passo 4.4 — Primeira transação Premix</h3><pre><code class="language-text-x-trilium-auto">□ Selecionar 1 UTXO não-misturado (0.01 BTC ou mais)
+□ Botão direito → Mix to Whirlpool
+□ Escolher pool 0.01 BTC
+□ Revisar:
+  - Outputs de pool (ex: 1 output de 0.01 BTC)
+  - Change (troco que volta para você)
+  - Coordinator fee (taxa do coordenador)
+□ Criar PSBT → Coldcard assinar → transmitir
+□ Aguardar 1 confirmação</code></pre>
+        <hr>
+        <h3>Passo 4.5 — Mixagem (deixar rodando)</h3><pre><code class="language-text-x-trilium-auto">□ Aba Whirlpool → Start
+□ Aguardar:
+  - "Registered" → output registrado no coordenador
+  - "Signing" → round em andamento
+  - "Remixing" → completou 1 round, voltou para mais
+
+□ Tempos típicos:
+  - 1 round: 20-60 minutos
+  - 5 rounds: 2-8 horas
+  - 10 rounds: 5-20 horas
+
+□ Deixar a VM rodando (não desligar durante round ativo)
+□ Whonix é ideal para isso — pode ficar 24/7
+□ Usar snapshots: tirar antes de cada sessão longa</code></pre>
+        <hr>
+        <h3>Passo 4.6 — Mover para Postmix</h3><pre><code class="language-text-x-trilium-auto">□ UTXOs com anonset ≥ 5 → ícone azul no Sparrow
+□ Selecionar → Send to Postmix_Whonix
+□ Assinar com Coldcard → transmitir
+□ Agora você tem BTC "limpo"!
+□ NUNCA gastar este BTC junto com BTC não-misturado</code></pre>
+        <hr>
+        <h3>Passo 4.7 — Instalar e TESTAR JoinMarket (backup)</h3><pre><code class="language-text-x-trilium-auto">□ NÃO basta instalar — precisa TESTAR
+□ git clone JoinMarket no Whonix
+□ Configurar para Tor
+□ Fazer 1 coinjoin de teste (valor pequeno)
+□ Confirmar que funciona como alternativa
+
+□ Se o coordenador Whirlpool cair:
+  - Você NÃO fica parado
+  - Abre o JoinMarket e continua mixando
+
+□ Anotar comandos essenciais no KeePassXC:
+  - wallet-tool.py generate
+  - sendpayment.py (taker)
+  - yield-generator.py (maker, opcional)</code></pre>
+        <hr>
+        <h3>Passo 4.8 — Praticar Coin Control</h3><pre><code class="language-text-x-trilium-auto">□ Congelar UTXOs "sujos" (Freeze no Sparrow)
+□ Rotular TUDO:
+  - "KYC Exchange X" (se algum dia usou)
+  - "RoboSats 2026-06"
+  - "CJ Round 3" (coinjoin)
+  - "Swap Ready"
+□ NUNCA usar "Send Max" sem verificar quais UTXOs selecionados
+□ Auto-auditar: OXT Explorer via Tor para ver clusters</code></pre>
+        <hr>
+        <h3>Verificação do Nível 4</h3><pre><code class="language-text-x-trilium-auto">□ Primeiro UTXO pós-coinjoin com anonset ≥ 5
+□ JoinMarket instalado E TESTADO com valor real
+□ Estrutura de 3 carteiras funcionando
+□ Coin Control dominado (congelar, rotular, não consolidar)
+□ Entendo o que é anonset e como ele sobe
+□ Sei que consolidar UTXOs pós-coinjoin = PERDER anonimato</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "O Misturador"</h3>
+        <blockquote>
+          <p>Meus Bitcoins dançam na multidão. A cada rodada, somem mais entre os pares.
+            O analista olha e vê dezenas — não sabe qual sou eu. E se o maestro parar,
+            tenho outra dança pronta.</p>
+        </blockquote>
+        <hr>
+        <h2>🔄 NÍVEL 5: O TROCADOR</h2>
+        <h3>"A ponte entre mundos"</h3>
+        <p><strong>Tempo estimado:</strong> 1-2 semanas | <strong>Dificuldade:</strong> ★★★★★</p>
+        <p><strong>Objetivo:</strong> Executar swaps BTC↔XMR com segurança e proteção
+          contra correlação temporal (ABCTracer).</p>
+        <hr>
+        <h3>Passo 5.1 — Estudar atomic swaps e Monero</h3><pre><code class="language-text-x-trilium-auto">Conceitos para pesquisar:
+
+□ O que é um atomic swap?
+  - Troca entre blockchains sem intermediário
+  - Contrato HTLC garante que ninguém rouba ninguém
+  - Se falhar, reembolso automático
+
+□ Por que Monero para privacidade?
+  - Bitcoin: blockchain pública, todas as transações visíveis
+  - Monero: Ring Signatures (16 decoys), Stealth Addresses, RingCT
+  - Ninguém vê: quem enviou, quanto enviou, para quem
+
+□ O que é ABCTracer?
+  - Paper de 2025 (arXiv:2504.01822)
+  - Demonstrou 91,75% de rastreabilidade cross-chain
+  - Usa 3 sinais: intervalo de tempo, proporção valor/fee, endereço destino
+  - NOSSA DEFESA: esperar, variar valores, usar endereços virgens
+
+□ O que é FCMP++?
+  - Upgrade do Monero previsto para 2026
+  - Expande anonimato para blockchain INTEIRA
+  - Quando ativado, privacidade fica ainda mais forte</code></pre>
+        <hr>
+        <h3>Passo 5.2 — Instalar Feather Wallet (XMR)</h3><pre><code class="language-text-x-trilium-auto">□ Baixar Feather de featherwallet.org
+□ Verificar assinatura PGP
+□ Instalar no Whonix
+□ Criar carteira Monero:
+  - Seed Monero de 25 palavras (PADRÃO DIFERENTE do Bitcoin)
+  - NUNCA usar a mesma seed do Bitcoin
+  - Anotar seed XMR no KeePassXC
+  - Senha forte para abrir a carteira
+□ Conectar a nó .onion (Tor integrado nativo)</code></pre>
+        <hr>
+        <h3>Passo 5.3 — Instalar eigenwallet (BTC→XMR)</h3><pre><code class="language-text-x-trilium-auto">□ Baixar de eigenwallet.org
+□ Verificar assinatura PGP (binarybaron)
+□ No Whonix, usar scurl-download:
+  scurl-download https://github.com/eigenwallet/core/releases/latest/download/eigenwallet-x86_64.AppImage
+  scurl-download https://github.com/eigenwallet/core/releases/latest/download/eigenwallet-x86_64.AppImage.asc
+  gpg --verify eigenwallet*.AppImage.asc eigenwallet*.AppImage
+
+□ Tornar executável e rodar
+□ eigenwallet detecta Tor automaticamente (porta 9050)</code></pre>
+        <hr>
+        <h3>Passo 5.4 — Instalar RetoSwap (XMR→BTC e fiat)</h3><pre><code class="language-text-x-trilium-auto">□ Baixar RetoSwap (interface do Haveno)
+□ Verificar assinatura PGP
+□ Instalar no Whonix (persistente)
+□ Criar conta (avatar, sem email)
+□ Familiarizar-se com a interface
+
+□ PARA QUE SERVE:
+  - Swap XMR→BTC (caminho inverso)
+  - Comprar XMR com dinheiro físico/fiat
+  - Vender XMR por dinheiro físico/fiat</code></pre>
+        <hr>
+        <h3>Passo 5.5 — Preparar primeiro swap BTC→XMR (TESTE)</h3><pre><code class="language-text-x-trilium-auto">□ Sparrow: isolar 0.003 BTC (pós-coinjoin) em Swap_Ready_Whonix
+□ Feather: Receive → New address (subendereço VIRGEM)
+  - Anotar no KeePassXC com timestamp
+□ Sparrow: Addresses → endereço VIRGEM para change (troco)
+  - Anotar no KeePassXC
+
+□ eigenwallet:
+  - List Sellers → escolher maker com boa reputação
+  - Inserir endereço XMR (Feather) e endereço BTC change
+  - Criar transação swap</code></pre>
+        <hr>
+        <h3>Passo 5.6 — Assinar e aguardar swap</h3><pre><code class="language-text-x-trilium-auto">□ Salvar PSBT do eigenwallet
+□ Coldcard → assinar PSBT
+□ Carregar PSBT assinado → transmitir
+□ AGUARDAR (25-90 minutos)
+  - Não fechar o Whonix/Tails
+  - Não suspender o computador
+  - Monitorar status no eigenwallet
+
+□ Feather → History → XMR aparece
+□ Aguardar 10 confirmações Monero (~20 min)
+□ Verificar valor (menos fee do maker, 1.5-20%)
+□ Registrar TUDO no KeePassXC:
+  - TXID swap BTC, TXID recebimento XMR
+  - Valor, timestamp, maker usado</code></pre>
+        <hr>
+        <h3>Passo 5.7 — Aplicar intervalo de segurança</h3><pre><code class="language-text-x-trilium-auto">⚠️ DEFESA CRÍTICA CONTRA ABCTRACER:
+
+□ NUNCA fazer o swap de volta imediatamente
+□ Aguardar MÍNIMO 24 horas (ideal: 3-7 dias)
+□ Durante este intervalo:
+  - Fechar Whonix/Tails
+  - Fazer OUTROS swaps com outros UTXOs
+  - Usar valores DIFERENTES em cada swap
+□ Depois do intervalo: churn Monero (opcional)
+  - Feather → nova carteira → enviar XMR para ela
+  - Aguardar +1 hora
+  - Quebra vínculo de valor</code></pre>
+        <hr>
+        <h3>Passo 5.8 — Swap reverso XMR→BTC</h3><pre><code class="language-text-x-trilium-auto">⚠️ CORREÇÃO IMPORTANTE (v1.1):
+eigenwallet atualmente tem BTC→XMR como taker.
+Para XMR→BTC, use RetoSwap ou BasicSwap.
+
+□ Opção A: RetoSwap
+  - Procurar oferta XMR→BTC
+  - Verificar reputação do comprador
+  - XMR entra em escrow multisig
+  - Receber BTC em endereço VIRGEM do Coldcard
+  - Tempo: horas a dias (depende de contraparte)
+
+□ Opção B: BasicSwap DEX (avançado)
+  - Atomic swap trustless total
+  - Requer Docker + nós completos (~400GB)
+  - Sem taxas de maker/taker
+  - Instalar só se realmente precisar
+
+□ BTC recebido é "virgem" (sem histórico KYC)
+□ Vai DIRETO para cold storage (Coldcard)</code></pre>
+        <hr>
+        <h3>Passo 5.9 — Conhecer FCMP++ (futuro próximo)</h3><pre><code class="language-text-x-trilium-auto">□ FCMP++ = Full-Chain Membership Proofs
+□ Expande anonymity set Monero de 16 para blockchain INTEIRA
+□ Stressnet desde outubro 2025
+□ Mainnet prevista para 2026
+□ Quando ativado:
+  - Swaps ficam ainda mais privados
+  - Defesa contra ABCTracer fica criptograficamente mais forte
+□ NÃO requer ação sua — upgrade automático do Monero
+□ Mas ENTENDA o impacto: sua privacidade vai melhorar</code></pre>
+        <hr>
+        <h3>Verificação do Nível 5</h3><pre><code class="language-text-x-trilium-auto">□ Primeiro swap BTC→XMR concluído com sucesso
+□ Intervalo de 24h+ respeitado
+□ Entendo ABCTracer e minhas defesas (tempo, valor, endereços)
+□ RetoSwap instalado para swap reverso XMR→BTC
+□ Todas as TXIDs registradas no KeePassXC
+□ Sei que eigenwallet é para BTC→XMR, RetoSwap para XMR→BTC
+□ Conheço FCMP++ e seu impacto futuro</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "O Trocador"</h3>
+        <blockquote>
+          <p>Atravesso a ponte entre blockchains sem pedir licença. Meu Bitcoin some
+            como Monero. Meu Monero renasce como Bitcoin limpo. O rastro se perde na
+            névoa — e a névoa vai ficar ainda mais densa.</p>
+        </blockquote>
+        <hr>
+        <h2>👑 NÍVEL 6: O SOBERANO</h2>
+        <h3>"O ecossistema completo"</h3>
+        <p><strong>Tempo estimado:</strong> 1-2 meses | <strong>Dificuldade:</strong> ★★★★★</p>
+        <p><strong>Objetivo:</strong> Integrar todos os componentes em um sistema
+          coeso, adicionar camada mobile, dominar entrada/saída sem KYC, e conhecer
+          aspectos legais.</p>
+        <hr>
+        <h3>Passo 6.1 — Mapear seu ecossistema pessoal</h3><pre><code class="language-text-x-trilium-auto">□ Desenhar seu diagrama completo:
+  - Dispositivo air-gapped (Coldcard/Krux/Jade/SeedSigner)
+  - Placas de aço (2 locais) + passphrase (local separado)
+  - Whonix Workstation (mixagem, carteira)
+  - Bitcoin Node VM (validação)
+  - EPS .onion (servidor Electrum próprio)
+  - Tails USB (swaps cirúrgicos)
+  - Mobile (watch-only)
+
+□ Entender como cada peça se conecta
+□ Identificar: se X falhar, o que fazer?
+□ Guardar este diagrama no KeePassXC</code></pre>
+        <hr>
+        <h3>Passo 6.2 — Configurar ambiente mobile</h3><pre><code class="language-text-x-trilium-auto">□ Adquirir celular dedicado:
+  - Pixel 6a ou superior (usado, desbloqueado)
+  - NÃO use seu celular pessoal do dia a dia
+
+□ Instalar CalyxOS ou GrapheneOS
+□ Travar bootloader após instalação
+□ Criptografia completa ativada
+
+□ Instalar apps (via F-Droid ou Aurora Store):
+  - Sparrow Wallet (watch-only, mesma xpub)
+  - Feather Wallet (watch-only, monitorar XMR)
+  - KeePassDX (senhas)
+  - Orbot (Tor forçado)
+
+□ Alternativa: Cake Wallet
+  - Multi-coin (BTC, XMR, ETH, LTC)
+  - Swap integrado
+  - Para uso CASUAL e valores PEQUENOS
+  - NÃO para cold storage
+
+□ Função do mobile:
+  - Ver saldo (watch-only, sem chaves)
+  - Criar PSBT (QR code)
+  - Escanear QR do dispositivo air-gapped
+  - Transmitir transação assinada</code></pre>
+        <hr>
+        <h3>Passo 6.3 — Dominar entrada e saída sem KYC</h3><pre><code class="language-text-x-trilium-auto">□ Ferramentas que você deve saber usar:
+
+□ RoboSats (Pix → BTC Lightning):
+  - Tor Browser → .onion oficial
+  - Avatar único por trade
+  - Escrow Lightning (hold invoices)
+  - Ideal para: comprar BTC com Pix
+
+□ RetoSwap/Haveno (fiat → XMR):
+  - Dinheiro físico, transferência, Pix
+  - Escrow multisig XMR
+  - Ideal para: entrada totalmente anônima
+
+□ Venda direta:
+  - Conhecido, encontro presencial
+  - Ideal para: simplicidade
+
+□ Diversificar: use TODOS os métodos
+  - Não dependa de um só
+  - Se um falhar, tem outros</code></pre>
+        <hr>
+        <h3>Passo 6.4 — Criar rotina de backups</h3><pre><code class="language-text-x-trilium-auto">□ Semanal:
+  - Backup da VM Whonix para HD externo
+  - Copiar KeePassXC para HD externo
+
+□ Pré-operação crítica:
+  - Snapshot da VM no VirtualBox
+  - Nome: "pre_swap_2026-06-23"
+
+□ Mensal:
+  - Verificar placas de aço (corrosão, legibilidade)
+  - Testar se lembra da passphrase (recitar mentalmente)
+
+□ Trimestral:
+  - Atualizar firmware do dispositivo air-gapped
+  - Verificar novos .onions (coordenador, EPS)
+  - Revisar lista de servidores Electrum
+
+□ Semestral:
+  - Simulação de desastre: apagar tudo e restaurar
+  - Testar recuperação da seed em dispositivo diferente</code></pre>
+        <hr>
+        <h3>Passo 6.5 — Conhecer aspectos legais (Brasil)</h3><pre><code class="language-text-x-trilium-auto">□ IN 1888/2019 (Receita Federal):
+  - Operações &gt; R$ 30.000/mês em exchanges estrangeiras: declarar
+  - Carteira própria &gt; R$ 5.000: consta no IRPF anual (Bens e Direitos)
+  - Ganho de capital: fato gerador de imposto
+
+□ Swaps e CoinJoin:
+  - Tecnicamente são alienações de BTC
+  - Se houver ganho de capital, é tributável
+  - Consulte contador especializado em criptoativos
+
+⚠️ IMPORTANTE:
+□ Privacidade técnica ≠ sonegação fiscal
+□ Você PODE ter privacidade E declarar
+□ A declaração não revela seus endereços, só valores
+□ Este adendo NÃO é consultoria jurídica
+□ Consulte um profissional para sua situação</code></pre>
+        <hr>
+        <h3>Passo 6.6 — Ensinar outra pessoa</h3><pre><code class="language-text-x-trilium-auto">□ Escolher 1 pessoa de confiança
+□ Guiar pelo Nível 0 (Semente)
+□ Guiar pelo Nível 1 (Cofre)
+□ Verificar que a pessoa ENTENDEU, não só copiou
+□ Ensinar solidifica seu próprio conhecimento
+□ Se a pessoa não entender "por que", não passa
+
+□ Critério de sucesso:
+  - A pessoa consegue restaurar a seed sozinha
+  - A pessoa explica o que é PSBT
+  - A pessoa sabe por que nunca fotografar a seed</code></pre>
+        <hr>
+        <h3>Passo 6.7 — Diversificar ferramentas</h3><pre><code class="language-text-x-trilium-auto">□ Não depender de UMA única ferramenta por função:
+
+  Mixagem:    Whirlpool + JoinMarket
+  Swap:       eigenwallet + RetoSwap
+  XMR wallet: Feather + Cake (mobile)
+  Entrada:    RoboSats + RetoSwap + venda direta
+  Ambiente:   Whonix + Tails
+
+□ Se uma ferramenta sair do ar, você continua operando
+□ Atualizar lista de .onions trimestralmente
+□ Acompanhar anúncios oficiais (Twitter, GitHub, Matrix)</code></pre>
+        <hr>
+        <h3>Verificação do Nível 6</h3><pre><code class="language-text-x-trilium-auto">□ Diagrama pessoal desenhado e compreendido
+□ Ambiente mobile funcional (watch-only)
+□ Rotina de backups estabelecida
+□ Checklist diário, semanal, mensal
+□ Entrada/saída sem KYC dominada (RoboSats + RetoSwap)
+□ Aspectos legais conhecidos
+□ Pelo menos 1 pessoa ensinada nos Níveis 0-1
+□ Ferramentas diversificadas (sem ponto único de falha)
+□ Consigo restaurar TUDO se perder qualquer componente</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "O Soberano"</h3>
+        <blockquote>
+          <p>Não peço permissão a exchanges. Não confio em servidores públicos. Não
+            exponho minhas chaves. Cada peça do ecossistema tem backup. Cada operação
+            segue um protocolo. Sou soberano sobre meu dinheiro — e a lei conheço,
+            para a liberdade não se confundir com o crime.</p>
+        </blockquote>
+        <hr>
+        <h2>🧙 NÍVEL 7: O MESTRE</h2>
+        <h3>"Além da soberania pessoal"</h3>
+        <p><strong>Tempo estimado:</strong> Jornada contínua | <strong>Dificuldade:</strong> ★★★★★</p>
+        <p><strong>Objetivo:</strong> Expandir conhecimento, contribuir com a comunidade,
+          adaptar-se a novas ameaças e construir legado.</p>
+        <hr>
+        <h3>Trilhas de Especialização</h3>
+        <p>Escolha uma ou mais. Não precisa fazer todas.</p>
+        <hr>
+        <h4>Trilha A: Infraestrutura Avançada</h4><pre><code class="language-text-x-trilium-auto">□ Migrar node Bitcoin para hardware dedicado (Raspberry Pi 5)
+□ Rodar Lightning Network (LND + Tor)
+□ Ser maker no JoinMarket (ganhar fees fornecendo liquidez)
+□ Automatizar swaps com scripts seguros
+□ Adicionar Liana Wallet:
+  - Miniscript + timelocks para herança
+  - "Se eu não mover por 6 meses, herdeiro pode resgatar"
+  - Compatível com Coldcard</code></pre>
+        <hr>
+        <h4>Trilha B: Privacidade Avançada</h4><pre><code class="language-text-x-trilium-auto">□ Estudar WabiSabi (Wasabi Wallet) como alternativa
+□ Explorar Silent Payments (BIP352)
+□ Acompanhar FCMP++ (Monero)
+□ Ler papers: ABCTracer, Haveno vulnerability
+□ Entender limites: não existe "privacidade absoluta"</code></pre>
+        <hr>
+        <h4>Trilha C: Comunidade</h4><pre><code class="language-text-x-trilium-auto">□ Traduzir documentação para português
+□ Criar tutoriais (texto ou vídeo)
+□ Participar de fóruns (Reddit, Matrix, SimpleX)
+□ Revisar código de ferramentas open-source
+□ Reportar bugs com responsabilidade
+□ Mentorar iniciantes na trilha</code></pre>
+        <hr>
+        <h4>Trilha D: Defesa Máxima</h4><pre><code class="language-text-x-trilium-auto">□ Migrar para Qubes OS como host:
+  - VM separada para cada função
+  - VM offline só para assinatura (split wallet)
+  - VM para eigenwallet, VM para Feather, VM para Sparrow
+  - Comunicação via qrexec
+  - Nenhuma VM acessa outra diretamente
+  - Resolve o problema do "host comprometido"</code></pre>
+        <hr>
+        <h3>Hábitos do Mestre</h3><pre><code class="language-text-x-trilium-auto">□ Ler changelogs de todas as ferramentas que usa
+□ Verificar PGP de cada atualização
+□ Testar recuperação semestralmente (de verdade)
+□ Revisar coordinators .onion trimestralmente
+□ Participar de 1 discussão técnica por mês
+□ Ensinar 1 pessoa nova por ano
+□ Questionar sempre: "Isso ainda é seguro em 2026? 2027?"
+□ Adaptar a trilha conforme novas ameaças e ferramentas surgem</code></pre>
+        <hr>
+        <h3>Verificação do Nível 7</h3><pre><code class="language-text-x-trilium-auto">□ Escolhi pelo menos 1 trilha e avancei nela
+□ Contribuí com a comunidade de alguma forma
+□ Revisei meu ecossistema este ano
+□ Ensinei pelo menos 2 pessoas
+□ Sei que a jornada NUNCA termina
+□ O Guardião Soberano não é um destino — é um caminho</code></pre>
+        <hr>
+        <h3>🏅 Conquista: "O Mestre"</h3>
+        <blockquote>
+          <p>Não acumulo apenas moedas — acumulo conhecimento. Não protejo apenas a
+            mim — protejo a rede. Ensino o que aprendi. Questiono o que sei. O Guardião
+            Soberano é um caminho que se renova a cada bloco.</p>
+        </blockquote>
+        <hr>
+        <h2>📊 Tabela Resumo da Trilha</h2>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Nível</th>
+                <th>Nome</th>
+                <th>Tempo</th>
+                <th>Dificuldade</th>
+                <th>Essência</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>🌱 A Semente</td>
+                <td>2-4 dias</td>
+                <td>★★☆☆☆</td>
+                <td>Gerar seed com dados, backup em aço, primeiros sats sem KYC</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>🔒 O Cofre</td>
+                <td>1-2 sem</td>
+                <td>★★★☆☆</td>
+                <td>Dispositivo air-gapped, teste de restauração</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>👁️ A Carteira Fria</td>
+                <td>2-3 dias</td>
+                <td>★★★☆☆</td>
+                <td>Watching-only, primeiro PSBT completo</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>🏰 O Observador</td>
+                <td>1-2 sem</td>
+                <td>★★★★☆</td>
+                <td>Whonix, node próprio, EPS .onion</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>🔀 O Misturador</td>
+                <td>2-4 sem</td>
+                <td>★★★★☆</td>
+                <td>Whirlpool, JoinMarket, Coin Control</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>🔄 O Trocador</td>
+                <td>1-2 sem</td>
+                <td>★★★★★</td>
+                <td>eigenwallet, RetoSwap, defesa ABCTracer</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>👑 O Soberano</td>
+                <td>1-2 meses</td>
+                <td>★★★★★</td>
+                <td>Mobile, backups, legal, diversificação, ensino</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>🧙 O Mestre</td>
+                <td>Contínuo</td>
+                <td>★★★★★</td>
+                <td>Comunidade, Qubes, herança, contribuição</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>🎓 Rituais de Passagem</h2>
+        <p>Ao completar cada nível:</p>
+        <ol>
+          <li data-list-item-id="e4b7bd583e0605f15c1c51d6ed3b8a142"><strong>Anote a data</strong> no KeePassXC: "Nível X conquistado em DD/MM/AAAA"</li>
+          <li
+          data-list-item-id="ed63b4ba4b4811ba866952c12c1589504"><strong>Revise o que aprendeu</strong> (15 minutos de reflexão)</li>
+            <li
+            data-list-item-id="e0b92c8a2c0a5ce5473caef541aa44685"><strong>Compartilhe</strong> com 1 pessoa de confiança</li>
+              <li data-list-item-id="e33c28438119b8d8d04529457ca4d5d64"><strong>Descanse</strong> 1 dia antes de começar o próximo nível</li>
+              <li
+              data-list-item-id="e0bb321fb3bcf4c113a8ec035ad4d9c81"><strong>Nunca delete</strong> o ambiente do nível anterior (são camadas,
+                não substituições)</li>
+        </ol>
+        <hr>
+        <h2>⚠️ As 12 Leis do Guardião</h2>
+        <h3>🔑 Seed &amp; Chaves</h3>
+        <ol>
+          <li data-list-item-id="e1698c98d5f5c7a2026158fbc495aa6e0">Seed gerada SEMPRE offline, em hardware dedicado</li>
+          <li data-list-item-id="eec1213871c29b451eaa465529f53405d">Backup em metal, 2 locais físicos diferentes</li>
+          <li data-list-item-id="e2a2a6de6c65fc0523b2e1f4f4289e916">Testar recuperação ANTES de enviar fundos</li>
+          <li data-list-item-id="eae6f0cba39787533088fd6a8afb7ae04">Nunca foto, nuvem, email, WhatsApp da seed</li>
+        </ol>
+        <h3>🌐 Rede &amp; Identidade</h3>
+        <ol>
+          <li data-list-item-id="e85ca8f3e126150bc35f5a4349784a140">Sempre Tor. Nunca clearnet para operações cripto</li>
+          <li data-list-item-id="ed24d7ed0b93f2e59400176bf31ad096d">Nunca logar em conta pessoal durante sessão cripto</li>
+          <li data-list-item-id="e6118b239a2b293ee644480119b07c95c">Endereço Bitcoin NUNCA reutilizado</li>
+          <li data-list-item-id="ea243fc06cac073e1c58d6f5335ebfc81">Subendereço XMR NUNCA reutilizado entre swaps</li>
+        </ol>
+        <h3>🔀 Swaps &amp; Privacidade</h3>
+        <ol>
+          <li data-list-item-id="e52f7bcccc288ee1ba1377582c0917279">Nunca fazer swap de volta imediatamente (defesa ABCTracer)</li>
+          <li data-list-item-id="e4952f351ea9c39f93ede3681ca30c1ac">Verificar PGP de TUDO antes de executar</li>
+          <li data-list-item-id="e4ef606471c3eb679eb5efd30071593c2">Usar node .onion próprio ou servidor confiável</li>
+          <li data-list-item-id="e76ff85dec6ba846de5240c490e4a1126">Começar SEMPRE com valor de teste mínimo</li>
+        </ol>
+        <h3>🧠 A Lei Mestra</h3>
+        <blockquote>
+          <p>A tecnologia protege contra atacantes externos. Ela não protege contra
+            você mesmo. Um descuido momentâneo desfaz meses de setup em segundos. A
+            privacidade é um hábito, não uma configuração.</p>
+        </blockquote>
+        <hr>
+        <h2>📚 Documentos Complementares</h2>
+        <p>Esta trilha faz parte de um ecossistema de documentação:</p>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Documento</th>
+                <th>Conteúdo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Trilha do Guardião Soberano</strong> (este)</td>
+                <td>Jornada progressiva em 7 níveis</td>
+              </tr>
+              <tr>
+                <td><strong>Ecossistema Soberano</strong>
+                </td>
+                <td>Diagrama completo e arquitetura</td>
+              </tr>
+              <tr>
+                <td><strong>Itens que Salvam Vidas</strong>
+                </td>
+                <td>ABCTracer, JoinMarket, PayJoin, Coin Control</td>
+              </tr>
+              <tr>
+                <td><strong>Adendo Final</strong>
+                </td>
+                <td>Ferramentas alternativas, legal, checklist 28 itens</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <hr>
+        <h2>🌟 Palavras Finais</h2>
+        <blockquote>
+          <p>Esta trilha não é uma corrida. É uma peregrinação.</p>
+          <p>Alguns levarão meses. Outros, anos. O tempo não importa — a solidez importa.</p>
+          <p>Cada nível conquistado é uma camada de liberdade que ninguém pode tirar
+            de você. Não há banco que confisque. Não há governo que congele. Não há
+            exchange que bloqueie.</p>
+          <p>Mas lembre-se: <strong>com grande poder vem grande responsabilidade</strong>.
+            Você é o único responsável por seus backups. O único guardião de suas chaves.
+            O único auditor de sua segurança.</p>
+          <p>Plante em aço. Guarde em silício. Misture na multidão. Troque na névoa.</p>
+          <p><strong>Seja o Guardião. Seja Soberano. Seja Livre.</strong>
+          </p>
+        </blockquote>
+        <hr><pre><code class="language-text-x-trilium-auto">┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   🌱 NÍVEL 0: A SEMENTE          🏅                       │
+│   🔒 NÍVEL 1: O COFRE            🏅                       │
+│   👁️ NÍVEL 2: A CARTEIRA FRIA    🏅                       │
+│   🏰 NÍVEL 3: O OBSERVADOR       🏅                       │
+│   🔀 NÍVEL 4: O MISTURADOR       🏅                       │
+│   🔄 NÍVEL 5: O TROCADOR         🏅                       │
+│   👑 NÍVEL 6: O SOBERANO         🏅                       │
+│   🧙 NÍVEL 7: O MESTRE           🏅                       │
+│                                                             │
+│   Versão 1.1 — Consolidada após revisão da comunidade      │
+│   Junho de 2026                                             │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+        <hr>
+        <p><strong>Documento finalizado. Agora é com você.</strong>
+        </p>
+      </div>
+    </div>
+  </body>
+
+</html>

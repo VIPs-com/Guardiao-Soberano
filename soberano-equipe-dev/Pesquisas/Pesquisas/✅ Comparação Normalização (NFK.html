@@ -1,0 +1,138 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Comparação: Normalização (NFKD) de Passphrase no Electrum vs BIP39 (Sparrow
+      / SeedSigner / Krux)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Comparação: Normalização (NFKD) de Passphrase no Electrum vs BIP39 (Sparrow / SeedSigner / Krux)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Comparação: Normalização (NFKD) de Passphrase no Electrum vs BIP39 (Sparrow / SeedSigner / Krux)</strong>
+        </p>
+        <p>Aqui está uma comparação clara e prática entre como o <strong>Electrum</strong> trata
+          a normalização de passphrase BIP39 em comparação com wallets BIP39 padrão
+          (como Sparrow, SeedSigner e Krux).</p>
+        <h3>Resumo Rápido</h3>
+        <figure class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspecto</th>
+                <th><strong>BIP39 Padrão</strong> (Sparrow, SeedSigner, Krux)</th>
+                <th><strong>Electrum</strong>
+                </th>
+                <th>Impacto Prático</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Normalização principal</strong>
+                </td>
+                <td><strong>NFKD</strong> (exigido pelo BIP39)</td>
+                <td><strong>NFKD</strong> + processamento extra</td>
+                <td>Diferente em alguns casos</td>
+              </tr>
+              <tr>
+                <td><strong>Passphrase com acentos</strong>
+                </td>
+                <td>NFKD (decompõe caracteres)</td>
+                <td>NFKD + remove acentos + converte para base letter</td>
+                <td>Pode gerar wallets diferentes</td>
+              </tr>
+              <tr>
+                <td><strong>Maiúsculas / Minúsculas</strong>
+                </td>
+                <td>Mantém (case-sensitive)</td>
+                <td>Converte tudo para <strong>lowercase</strong>
+                </td>
+                <td><strong>Diferença grande</strong>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Espaços</strong>
+                </td>
+                <td>Mantém múltiplos espaços</td>
+                <td>Reduz múltiplos espaços para um só</td>
+                <td>Diferença possível</td>
+              </tr>
+              <tr>
+                <td><strong>Símbolos</strong>
+                </td>
+                <td>Mantém intacto</td>
+                <td>Pode tratar de forma diferente</td>
+                <td>Diferença em casos com símbolos</td>
+              </tr>
+              <tr>
+                <td><strong>Compatibilidade</strong>
+                </td>
+                <td>Alta entre wallets BIP39</td>
+                <td>Pode diferir de wallets BIP39 puras</td>
+                <td>Cuidado ao migrar</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+        <h3>Detalhes Importantes</h3>
+        <ul>
+          <li data-list-item-id="e2867689843993c4fcab8c737a84b3a89"><strong>BIP39 Padrão (Sparrow etc.)</strong>: Segue rigorosamente o BIP39
+            → aplica <strong>NFKD</strong> na mnemonic e na passphrase. Mantém maiúsculas,
+            símbolos e acentos (decompostos).</li>
+          <li data-list-item-id="e6ed40eb2e9c5e822d672deb18361c27c"><strong>Electrum</strong>: Usa NFKD, mas aplica uma função extra de normalização
+            (<code spellcheck="false">normalize_text</code>) tanto na seed quanto na
+            passphrase. Isso inclui:
+            <ul>
+              <li data-list-item-id="e221263de1aff51c26ef1396bf498ec6d">Converter tudo para <strong>minúsculas</strong>.</li>
+              <li data-list-item-id="e4ded3bda95c1b6ed2b6ba4b206610cb3">Remover/remover acentos (ex: <code spellcheck="false">café</code> vira
+                <code
+                spellcheck="false">cafe</code>).</li>
+              <li data-list-item-id="eb9d1e93596a02492c881c94bc20a4cbb">Reduzir espaços múltiplos.</li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>Consequência</strong>: Uma passphrase com maiúsculas ou acentos <strong>pode gerar wallets diferentes</strong> entre
+          Electrum e Sparrow/SeedSigner.</p>
+        <h3>Recomendação para Seu Setup (Novato)</h3>
+        <ol>
+          <li data-list-item-id="ecc122bffe7cbac95c4f66f7e71065791"><strong>Para máxima compatibilidade</strong>:
+            <ul>
+              <li data-list-item-id="e55dc2a9a1d312940197fefc4663ed43d">Use <strong>apenas caracteres ASCII</strong> (sem acentos).</li>
+              <li data-list-item-id="e29e0172d552eb815c9adcc5e1ef72745">Prefira <strong>minúsculas</strong> se for usar Electrum no futuro.</li>
+              <li
+              data-list-item-id="e555d820191b6f41c073b86c7a333de7a">Exemplo seguro: <code spellcheck="false">bitcoinsoberaniaforte2026!</code>
+          </li>
+          </ul>
+          </li>
+          <li data-list-item-id="e5738cf8afadc87b72fea82d2ceb64368"><strong>Melhor prática</strong>:
+            <ul>
+              <li data-list-item-id="e53bee3fc3152ae964f465f14c4d62deb">Evite maiúsculas e acentos na passphrase.</li>
+              <li data-list-item-id="e4e17389a336f026aaa28aace80c0ae92">Sempre <strong>teste restore</strong> no Sparrow (seu principal) e, se precisar,
+                teste também no Electrum.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Quando usar Electrum?</h3>
+        <ul>
+          <li data-list-item-id="e69ab8df5848d14fa038d157c13a066fc">Electrum é ótimo, leve e confiável, mas <strong>não é 100% compatível</strong> com
+            BIP39 puro em passphrases complexas.</li>
+          <li data-list-item-id="eb10521e6c8c82d6b2fe007fd57583c10">Sparrow é geralmente mais “padrão BIP39” e recomendado para workflows
+            com hardware air-gapped e PSBT.</li>
+        </ul>
+        <p><strong>Quer que eu</strong>:</p>
+        <ul>
+          <li data-list-item-id="ef9d7103e420f239a92c5c9451fab44f5">Gere exemplos de passphrase que funcionam bem nos dois?</li>
+          <li data-list-item-id="e443f3d5ba139c46b427e50efc40133b9">Mostre um teste prático comparando Sparrow x Electrum?</li>
+          <li data-list-item-id="e015600d6fc6b53b85900ae73e3b3f290">Explique como importar seed + passphrase do Sparrow para Electrum?</li>
+        </ul>
+        <p>Me diga! 🚀</p>
+      </div>
+    </div>
+  </body>
+
+</html>

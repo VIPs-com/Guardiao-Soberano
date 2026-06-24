@@ -1,0 +1,142 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Tutorial Detalhado: Montagem do SeedSigner (Atualizado 2026)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Tutorial Detalhado: Montagem do SeedSigner (Atualizado 2026)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Tutorial Detalhado: Montagem do SeedSigner (Atualizado 2026)</strong>
+        </p>
+        <p>O <strong>SeedSigner</strong> é montado com componentes off-the-shelf baratos
+          (geralmente &lt; US$ 50-80). É um processo DIY simples, mas exige cuidado
+          com os cabos e conexões.</p>
+        <h3>1. Lista de Componentes Essenciais (oficial)</h3>
+        <ul>
+          <li data-list-item-id="e4c31845081d9c6ca45109c2bd0698a96"><strong>Raspberry Pi Zero v1.3</strong> (sem WiFi/BT — preferencial para
+            air-gap máximo). Versão W também funciona (com remoção de WiFi).</li>
+          <li
+          data-list-item-id="e31930984878ac52703284133e14c23f6"><strong>Waveshare 1.3" LCD HAT</strong> (240x240 pixels — confirme a resolução!).</li>
+            <li
+            data-list-item-id="e3a3cd22b39bc2c421b25208cf90b1026"><strong>Câmera compatível com Pi Zero</strong> (ex: AuviPal 5MP ou similar
+              com cabo flat flex).</li>
+              <li data-list-item-id="e07c3e88844d253fe177008a87cac8088"><strong>MicroSD Card</strong> (mínimo 64MB, classe 10 recomendada).</li>
+              <li
+              data-list-item-id="e995386e164543ad24a2353f9441316f1"><strong>Enclosure</strong> (case 3D printed — várias opções open-source,
+                como "Orange Pill").</li>
+                <li data-list-item-id="e9fc33346670909f231fc58832c116276">Opcionais: GPIO Hammer Headers (solderless), cabo MicroUSB para alimentação.</li>
+        </ul>
+        <p><strong>Onde comprar</strong> (links oficiais no seedsigner.com/hardware/):
+          Adafruit, Waveshare, AliExpress, The Pi Hut, etc. No Brasil, procure StackBit
+          para cases ou componentes importados.</p>
+        <h3>2. Preparação Antes da Montagem</h3>
+        <ol>
+          <li data-list-item-id="e474c532960531a143ccb6a3d93876a90"><strong>Flash da SD Card</strong> (faça isso antes de montar):
+            <ul>
+              <li data-list-item-id="ec499e70c127578c79e81fd6cac4209fb">Baixe a imagem mais recente em: <a href="https://github.com/SeedSigner/seedsigner/releases">github.com/SeedSigner/seedsigner/releases</a>.</li>
+              <li
+              data-list-item-id="e3f94f718b03bf48c41c1ef4051cf035c">Use Raspberry Pi Imager (ou <code spellcheck="false">dd</code> no Linux/Tails)
+                para gravar na SD.</li>
+          <li data-list-item-id="e5b30a2dd1a6e4ec9957bf1cba3e1ac06">Verifique o hash da imagem.</li>
+          </ul>
+          </li>
+          <li data-list-item-id="e2d7fe908e1bfdc190d6e132cac08e5be"><strong>Teste os componentes</strong> (recomendado):
+            <ul>
+              <li data-list-item-id="e6f6efc32730d4b05855d1dcd1bc51f44">Monte temporariamente sem o case.</li>
+              <li data-list-item-id="e19e5bcb22c8c38eaf66c5941163c10f1">Insira a SD, conecte alimentação → verifique se bootou e a tela/câmera
+                funcionam.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>3. Passos de Montagem (Fluxo Típico)</h3>
+        <p>Baseado nos guias oficiais e vídeos de assembly (ex: Open Pill demo):</p>
+        <ol>
+          <li data-list-item-id="e94e7785ea69c1f140a56d665b25ec240"><strong>Prepare o Raspberry Pi Zero</strong>:
+            <ul>
+              <li data-list-item-id="efd1a474a73095847e1135a8d7f07e571">Se os pinos GPIO não estiverem soldados, instale (solda ou use Hammer
+                Headers solderless).</li>
+              <li data-list-item-id="e01cfcd388e0691e3a713d371c328d4b7">(Opcional para Pi Zero W): Remova/desabilite o módulo WiFi/BT para air-gap
+                máximo.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="ebc3bebcccb64171c8a9b1372b973c683"><strong>Instale a Câmera</strong>:
+            <ul>
+              <li data-list-item-id="e45ea4fff5262ae033f6ac585bff456c4">Conecte o cabo flat flex da câmera ao conector CSI do Pi Zero (contatos
+                brilhantes virados para a placa verde).</li>
+              <li data-list-item-id="e30d22725de3bfef6e06ae26f0bc80b36">Trave o cabo.</li>
+              <li data-list-item-id="e3f90d1d5db0df5f9483703f9965b4ca6">Remova a proteção da lente da câmera.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e2c8dc71d5efe32919e26f8711b37cd00"><strong>Instale o Waveshare LCD HAT</strong>:
+            <ul>
+              <li data-list-item-id="e2d7cd7cc8b731c365c605bb6b68b50cb">Alinhe o HAT com os pinos GPIO do Pi Zero.</li>
+              <li data-list-item-id="ef0e76b94ab41f39e99de4103592002f2">Pressione firmemente para encaixar (não force demais).</li>
+              <li data-list-item-id="eff613f2d12887476af6acc465e8da5f6">O HAT tem joystick e botões integrados.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e1e2acb9a47ffbb15066d7c71b14067b2"><strong>Monte no Enclosure (Case)</strong>:
+            <ul>
+              <li data-list-item-id="e12cb56d9ad67120580a130e9c3c59afc">Coloque o Pi Zero na base do case.</li>
+              <li data-list-item-id="ec7241629adad960b7cb13109e202ae55">Posicione a câmera no slot correspondente (geralmente com clipes).</li>
+              <li
+              data-list-item-id="e544ad80ff0c83b72efbee8d7e2309cea">Encaixe o LCD HAT por cima.</li>
+          <li data-list-item-id="e3334b4be7505f4b5f8f8422c765099bc">Feche o case (muitos designs têm parafusos ou encaixe snap).</li>
+          <li data-list-item-id="eed659eebb9423b15b81fe5df6aff6ec6">Exemplos populares: Open Pill (clássico laranja), Mini, ou cases mais
+            robustos.</li>
+          </ul>
+          </li>
+          <li data-list-item-id="e4dd2252a5f3a69611c8c8b3b797a94f2"><strong>Teste Final</strong>:
+            <ul>
+              <li data-list-item-id="e848451ab15c2f030d24cdb5ed3e3678c">Insira a MicroSD.</li>
+              <li data-list-item-id="e3cee5b0768488b849cc89f1a41191dc4">Conecte alimentação MicroUSB.</li>
+              <li data-list-item-id="ebb7dbf76d6d1acfac70429de4f5c7106">O dispositivo deve bootar no menu do SeedSigner.</li>
+              <li data-list-item-id="ead74a83c92ffb33a098d36e07795aee8">Teste câmera (scan QR), tela e joystick.</li>
+            </ul>
+          </li>
+        </ol>
+        <p><strong>Vídeos recomendados para ver na prática</strong> (assista antes
+          de montar):</p>
+        <ul>
+          <li data-list-item-id="e7ce1067c846b8bb2e01c25624666f6c9">Assembly Demo oficial: <a href="https://youtu.be/6-5cDneXoWs">Open Pill Assembly</a>
+          </li>
+          <li data-list-item-id="e6b0e4d5fbffc3c1ff6978680f092ab31">Tutorial completo: Southern Bitcoiner ou BTC Sessions no YouTube.</li>
+        </ul>
+        <h3>Dicas Importantes</h3>
+        <ul>
+          <li data-list-item-id="ed1af383f2781fab212826d7913290036"><strong>Cuidado com cabos</strong>: O flat flex da câmera é delicado —
+            não dobre em ângulos fechados.</li>
+          <li data-list-item-id="ef7aa4694c53f41cb677a7a0159a53903"><strong>Air-gap</strong>: Use Pi Zero 1.3. Nunca conecte rede.</li>
+          <li
+          data-list-item-id="e189ca4f108f725375a2612a66ee47de7"><strong>Enclosure</strong>: Baixe STL no GitHub do SeedSigner e imprima
+            em 3D (muitos makers no Brasil oferecem).</li>
+            <li data-list-item-id="e4e770cdf43db6135869fc0850b4fc693"><strong>Kits prontos</strong>: Se preferir menos trabalho, vendedores
+              como StackBit (Brasil), GoBrrr, etc., vendem kits ou montados (verifique
+              reputação).</li>
+        </ul>
+        <p>Após montado, siga para:</p>
+        <ul>
+          <li data-list-item-id="e88ea13900b96dcb104c58e9b395cd6cc">Gerar seed offline (dice rolls).</li>
+          <li data-list-item-id="e20f87dd2d601cb665fe57a490081b54b">Exportar xpub via QR.</li>
+          <li data-list-item-id="ecbe3dea1fcbf84a09c47d162d7f3d7ef">Integrar com Sparrow no Tails.</li>
+        </ul>
+        <p><strong>Quer que eu detalhe agora</strong>:</p>
+        <ul>
+          <li data-list-item-id="ee77bba89c6c970eb430088c4305ba60a">Como flashar a SD Card passo a passo?</li>
+          <li data-list-item-id="e6df0e963812bacd56f2dd6f9918ef1fd">Geração de seed no SeedSigner?</li>
+          <li data-list-item-id="e82945892cb317b01d772eb5628c66aff">Montagem de um modelo específico de case (ex: Orange Pill)?</li>
+          <li data-list-item-id="ef69be6f058e233d40c6fe5ded9295a1b">Problemas comuns e troubleshooting?</li>
+        </ul>
+        <p>Me diga o próximo foco! Estamos quase com o setup completo. 🚀</p>
+        <p>Fique seguro — monte com calma e teste tudo.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

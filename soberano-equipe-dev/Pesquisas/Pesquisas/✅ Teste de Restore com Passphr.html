@@ -1,0 +1,129 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Teste de Restore com Passphrase no Sparrow Wallet (Tails + Air-Gapped)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Teste de Restore com Passphrase no Sparrow Wallet (Tails + Air-Gapped)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Teste de Restore com Passphrase no Sparrow Wallet (Tails + Air-Gapped)</strong>
+        </p>
+        <p>Este é um <strong>teste obrigatório</strong> antes de usar com valores reais.
+          Vamos usar <strong>Testnet</strong> para zerar o risco.</p>
+        <h3>Preparação (Faça Isso Primeiro)</h3>
+        <ol>
+          <li data-list-item-id="e7e060b0514d7379e4266c2e99ce95f12">Boot no <strong>Tails</strong> com persistência desbloqueada.</li>
+          <li data-list-item-id="efee1dbc9a0eadec164aacd3bac45db30">Abra o Sparrow.</li>
+          <li data-list-item-id="eb24203f81b809f20b58bacecd7f75945">Vá em <strong>File → Preferences</strong>:
+            <ul>
+              <li data-list-item-id="eb34ba42790b763e3d6ba02e49e7e5dd5">Marque <strong>Testnet</strong> (ou Signet).</li>
+              <li data-list-item-id="ec3855803c48d082153be5039b4b171f8">Configure servidor via Tor (localhost:9050).</li>
+            </ul>
+          </li>
+          <li data-list-item-id="eafddea8fa766d3a37c1a8bdc10705968">Tenha sua <strong>seed + passphrase</strong> anotadas em papel/metal.</li>
+          <li
+          data-list-item-id="efaa1d7e3ea2bfdc4ed3794cee83d8a91">Tenha o <strong>Output Descriptor</strong> salvo (do Sparrow original: Settings
+            → Output Descriptor → Copy).</li>
+        </ol>
+        <h3>Método 1: Restore via xpub do Signer (Mais Recomendado para Seu Setup)</h3>
+        <ol>
+          <li data-list-item-id="ee8c25c794d5f6de81edd90570028560f">No <strong>SeedSigner</strong> ou <strong>Krux</strong> (air-gapped):
+            <ul>
+              <li data-list-item-id="ef5cfb6052063d05d0af921b0573a1574">Carregue a seed de 12/24 palavras.</li>
+              <li data-list-item-id="ed3f6814a8d42652b26d8e5825ccf3bbd">Aplique exatamente a <strong>mesma passphrase</strong> (BIP39 Word 25).</li>
+              <li
+              data-list-item-id="ef5fcde6c71e51cc7b42faf8b425b1f7e">Exporte o <strong>xpub/zpub</strong> via QR (Native Segwit).</li>
+          </ul>
+          </li>
+          <li data-list-item-id="eca353ee38342bd79d2c65d954c3ef159">No Sparrow:
+            <ul>
+              <li data-list-item-id="eeff8ef891b71d46d6aa5b94a25141766"><strong>File → New Wallet</strong>.</li>
+              <li data-list-item-id="e266676922be6a72fedf179a5893b1548">Dê um nome (ex: “TesteRestorePassphrase”).</li>
+              <li data-list-item-id="e656b2656c91ec83a0dee144119426021">Escolha <strong>Single Signature</strong> ou <strong>Multi Signature</strong> (dependendo
+                do seu caso).</li>
+              <li data-list-item-id="ea13399e4797e92642bf7e921697b953e">Adicione o Keystore:
+                <ul>
+                  <li data-list-item-id="e7623016dd93937ab5954be3069147b3a"><strong>Air Gapped Hardware Wallet</strong> → SeedSigner ou Krux.</li>
+                  <li
+                  data-list-item-id="e0981ef82b1a3e6edee726a7cef391dd3"><strong>Scan QR</strong> do xpub (com passphrase já aplicada no signer).</li>
+              </ul>
+          </li>
+          <li data-list-item-id="eca32d663ad67e02d89cdaff4a6e97066">Clique <strong>Apply</strong> / Create.</li>
+          </ul>
+          </li>
+          <li data-list-item-id="e8aeb702dd9443e233980fe5965f0f15e">Verifique:
+            <ul>
+              <li data-list-item-id="e7c01abe7924686e17b12c224c9547d40">Vá na aba <strong>Receive</strong> → gere um endereço.</li>
+              <li data-list-item-id="ead69e7345382d1df3ca036f332eee2d1">Compare com o endereço original (se tiver).</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Método 2: Restore via Output Descriptor (Mais Rápido)</h3>
+        <ol>
+          <li data-list-item-id="e142824e9966fa19bfb580ee0bce61f5d">No Sparrow:
+            <ul>
+              <li data-list-item-id="e3b67c9e556d3b44a204a201a30bc029c"><strong>File → New Wallet</strong>.</li>
+              <li data-list-item-id="ee16df69bf0d6712f1f5491e0c8d01d49">Nome → <strong>Continue</strong>.</li>
+              <li data-list-item-id="ea95d031af10f24c35459459f9eead784">Em vez de adicionar keystores manualmente, clique em <strong>Edit</strong> ao
+                lado de <strong>Output Descriptor</strong>.</li>
+              <li data-list-item-id="e2cf9ddbab05d832e454d95dcdbb5111f">Cole o descriptor completo que você salvou anteriormente.</li>
+              <li data-list-item-id="ee14732a8f88a8e4dec723e81c1438a49">Clique <strong>OK</strong>.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="ec425a134b899450b831f22f2b721e275">Sparrow vai carregar a wallet com todos os keystores.</li>
+          <li data-list-item-id="ec556cfbfca3f31edd22d1e598a88f284">Se for uma wallet com passphrase, o descriptor já inclui o efeito dela
+            (não precisa digitar novamente).</li>
+        </ol>
+        <h3>Passo Final: Teste Prático com Fundos de Testnet</h3>
+        <ol>
+          <li data-list-item-id="e03ea6e450b0acda49c6425caf8c6aa56">Gere um endereço na wallet restaurada.</li>
+          <li data-list-item-id="efab14a959bd5c2332f0033825b6406a2">Consiga Testnet BTC grátis (faucets como testnet-faucet.mempool.co ou
+            outros).</li>
+          <li data-list-item-id="ece1ac99daf1d7c719f7a829330719c01">Envie para o endereço.</li>
+          <li data-list-item-id="e94763fbc94f0d072463ac87e4d408da8">Aguarde confirmações (use Blockstream Testnet Explorer).</li>
+          <li data-list-item-id="e56fd5a09121cdbdd55dfa055bad52799">Verifique o saldo no Sparrow.</li>
+          <li data-list-item-id="e97fcf8a9bc1978c89c222724211e09f1">Crie uma transação de saída (small amount) usando PSBT + QR com o signer.</li>
+          <li
+          data-list-item-id="e5f3cb06872b6447ee8077af578a10aa4">Broadcast e confirme que funciona.</li>
+        </ol>
+        <h3>Problemas Comuns e Soluções</h3>
+        <ul>
+          <li data-list-item-id="ef0c1c2af7b688eb5b2216482cb1938aa"><strong>Saldo não aparece</strong> → Quase sempre <strong>passphrase errada</strong>.
+            Feche a wallet, reabra e digite a passphrase com cuidado (Sparrow não guarda
+            a passphrase derivada por segurança).</li>
+          <li data-list-item-id="e28e987fffec634c82a71f50c6c10a433"><strong>Endereços diferentes</strong> → Passphrase incorreta ou derivation
+            path errado (<code spellcheck="false">m/84'/0'/0'</code> para Native Segwit).</li>
+          <li
+          data-list-item-id="e98a3debe2fd5f5624ec03e1516d6b930"><strong>Erro ao importar</strong> → Verifique se o signer está com a passphrase
+            aplicada no momento da exportação do xpub.</li>
+        </ul>
+        <p><strong>Após o teste em Testnet</strong>:</p>
+        <ul>
+          <li data-list-item-id="ecf47f26b8115523a96719344463fffb0">Delete a wallet de teste.</li>
+          <li data-list-item-id="eff082972547031588b25ba31bd435635">Repita o processo em <strong>Mainnet</strong> só com small amount real.</li>
+          <li
+          data-list-item-id="efb16e31618a149f9b7092fd606e24363">Faça backup do novo Output Descriptor.</li>
+        </ul>
+        <p><strong>Dica de Ouro</strong>: Sempre teste restore completo (seed + passphrase)
+          antes de colocar valores significativos.</p>
+        <p>Funcionou? Teve algum erro durante o teste?
+          <br>Quer que eu detalhe:</p>
+        <ul>
+          <li data-list-item-id="e04b9d155d82948933bcafa76ac4a5dc4">Como salvar o Output Descriptor corretamente?</li>
+          <li data-list-item-id="e136a2cf3b5fc99f0c30dbd262744b208">Restore completo de multisig com passphrase?</li>
+          <li data-list-item-id="e62b3ddd30f275c594d943f6654408def">Como apagar e recriar a wallet de teste?</li>
+        </ul>
+        <p>Me diga o resultado ou o próximo passo! 🚀</p>
+        <p>Fique seguro — esse teste é o que separa os novatos dos confiantes.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

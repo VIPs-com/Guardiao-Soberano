@@ -1,0 +1,164 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Nível Novato: Setup Híbrido Simples, Seguro e com Baixo Risco de Erro
+      (2026)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Nível Novato: Setup Híbrido Simples, Seguro e com Baixo Risco de Erro (2026)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Nível Novato: Setup Híbrido Simples, Seguro e com Baixo Risco de Erro (2026)</strong>
+        </p>
+        <p>Este é o ponto de entrada ideal para quem está começando na auto-custódia.
+          O foco é <strong>simplicidade</strong>, <strong>segurança básica</strong> e <strong>processos que minimizam erros humanos</strong>.
+          Comece com quantias pequenas (ex: R$ 500–5.000) para praticar e ganhar
+          confiança antes de escalar.</p>
+        <h3>Componentes Recomendados (Mais Usados pela Comunidade Iniciante)</h3>
+        <ul>
+          <li data-list-item-id="ed60351240cdd2efa1fa6001564987d71"><strong>Desktop (gerenciamento principal)</strong>:
+            <br><strong>Tails OS</strong> (live USB) + <strong>Sparrow Wallet</strong> ou <strong>Electrum</strong>.
+            <ul>
+              <li data-list-item-id="e21c5baef5c09d6d21bd9820381f471c1">Tails força Tor, é amnésico (apaga rastros ao desligar) e vem com Electrum
+                pré-instalado.</li>
+              <li data-list-item-id="eedbffe80772f86a92f826d1e764969f7">Sparrow é o “canivete suíço” atual para Bitcoin (melhor que Electrum em
+                coin control e privacidade para muitos).</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e97cb52a03d1f92844d328b297d54e84b"><strong>Mobile (transações rápidas/daily)</strong>:
+            <br><strong>GrapheneOS</strong> ou <strong>CalyxOS</strong> em um Google Pixel
+            (6a ou mais novo recomendado).
+            <ul>
+              <li data-list-item-id="eb5501b7f7cd5e9cbeaee016ea3a1f9fc">GrapheneOS prioriza segurança máxima (hardening).</li>
+              <li data-list-item-id="e90b625eeba18acc11cb8c7f132563d13">CalyxOS é mais amigável para iniciantes (mais “pronto para usar”).</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e18096f92fb4703e61b1aacefc2c54605"><strong>Hardware Wallet (cold storage – o mais importante)</strong>:
+            <br><strong>Trezor Safe 3</strong> ou <strong>Trezor Safe 5</strong> (mais fácil
+            para novatos).
+            <ul>
+              <li data-list-item-id="ed6317d2e2a1142f8bb1c0d1eb7a7e886">Alternativa: Coldcard Mk4/Q se quiser Bitcoin-only e air-gapped desde
+                o início (um pouco mais complexo).
+                <br>Trezor é open-source, interface amigável e amplamente recomendado para
+                beginners.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Passo a Passo Detalhado (Fluxo Seguro)</h3>
+        <ol>
+          <li class="ck-list-marker-bold" data-list-item-id="eb1afad04df6eef9fa05c03093ad1cc31"><strong>Prepare o Desktop (Tails OS)</strong>
+            <ul>
+              <li data-list-item-id="e5320615b509ddbce908150778890850d">Baixe Tails do site oficial (tails.boum.org) e verifique a assinatura
+                GPG.</li>
+              <li data-list-item-id="e9a933a0d7d36adc639e3b351de9c1fbd">Crie um USB bootável (use Rufus no Windows ou <code spellcheck="false">dd</code> no
+                Linux/Mac).</li>
+              <li data-list-item-id="e651a894576fe70b38f4fadcf2deb1122">Boot no Tails → Configure <strong>Persistência Criptografada</strong> (Applications
+                → Tails → Configure Persistent Volume).
+                <ul>
+                  <li data-list-item-id="ea2897eac76678d2e875b295f159b1835">Ative: Personal Documents, Dotfiles, e opcionalmente Network Connections.</li>
+                  <li
+                  data-list-item-id="e042bf676cfb14c4245985191b06025de">Use uma senha forte para o volume persistente.</li>
+              </ul>
+          </li>
+          <li data-list-item-id="e2a52bbfc5899251cac920d9a036fdb11">No volume persistente, baixe e instale <strong>Sparrow Wallet</strong> (versão
+            Standalone Linux).</li>
+          </ul>
+          </li>
+          <li class="ck-list-marker-bold" data-list-item-id="e7274cf7aee4e8ede3cdcf17e3768f3ab"><strong>Configure a Hardware Wallet</strong>
+            <ul>
+              <li data-list-item-id="ee9db990131aafd6a8b6fed8fc38663b8">Compre direto do fabricante (trezor.io ou coldcard.com).</li>
+              <li data-list-item-id="e45837a39e13916edf174be189be0c309">Inicialize o dispositivo <strong>offline</strong>.</li>
+              <li data-list-item-id="e7c672dd3c87cf8d28aa118d7fe9dbb97">Gere a seed BIP39 (24 palavras) → Anote em papel/metal (nunca digital).</li>
+              <li
+              data-list-item-id="e1cab2d7bffb5552c8278c9c3241b992d">Teste o restore com uma seed de teste pequena.</li>
+          <li data-list-item-id="eca942b50cd6a2d633d30233afec5abef">Crie uma <strong>passphrase</strong> extra (BIP39) para segurança adicional
+            (guarde separada).</li>
+          </ul>
+          </li>
+          <li class="ck-list-marker-bold" data-list-item-id="e702a2df1977d7fc064a2093e6ddf6912"><strong>Crie a Wallet no Sparrow/Electrum</strong>
+            <ul>
+              <li data-list-item-id="e09911fbb461c2bb380d3c8626ae78ee0">No Tails + Sparrow:
+                <ul>
+                  <li data-list-item-id="e9ae7a53714011a2716ad93e707795be1">Crie uma wallet <strong>watch-only</strong> (só endereços públicos) conectada
+                    ao seu hardware.</li>
+                  <li data-list-item-id="e1f49d73a12483bb81b3f404800066417">Ou use o modo hardware direto (USB ou QR no Coldcard).</li>
+                </ul>
+              </li>
+              <li data-list-item-id="e10e75c60f78809a8717e7c65257b4f03">Prefira <strong>Single Sig</strong> no início (mais simples). Depois migre
+                para 2-of-3 multisig.</li>
+              <li data-list-item-id="e69e69214a29775fd3fb6e938af104c54">Conecte preferencialmente a um <strong>Electrum Server privado</strong> ou
+                Bitcoin node (pode configurar depois).</li>
+            </ul>
+          </li>
+          <li class="ck-list-marker-bold" data-list-item-id="eb77881b94e65a2585ea92745c29075d8"><strong>Mobile Setup</strong>
+            <ul>
+              <li data-list-item-id="e38de2646cb2933ffd7afa834887af304">Instale GrapheneOS ou CalyxOS no Pixel (siga o guia oficial – leva ~30-60
+                min).</li>
+              <li data-list-item-id="e6553697e3aacdae551437e52864ece0a">Apps recomendados:
+                <ul>
+                  <li data-list-item-id="eae879df88c1d61b1c690590e9667a554">BlueWallet ou Electrum (para Bitcoin).</li>
+                  <li data-list-item-id="e75d9bbffc3750b1bebb75f4f55980c75">Use <strong>watch-only</strong> (só vê saldo, não gasta sem hardware).</li>
+                  <li
+                  data-list-item-id="eb821473d7051792e1c655613551b6ec4">Orbot para rotear via Tor.</li>
+              </ul>
+          </li>
+          <li data-list-item-id="e02489bd25f8578122489f5f051ec44de">Mantenha só valores pequenos no mobile (hot wallet).</li>
+          </ul>
+          </li>
+          <li class="ck-list-marker-bold" data-list-item-id="e6726f927a71bc9fc924ce1034d452f0f"><strong>Primeira Transação Segura (Teste)</strong>
+            <ul>
+              <li data-list-item-id="e89a0a6ca48fbd870af38393e4f6386f5">Envie uma quantia pequena da exchange para o endereço gerado no Sparrow
+                (watch-only).</li>
+              <li data-list-item-id="e76ea37e78629ace2b39de694c0ece0fe">Use PSBT (Partially Signed Bitcoin Transaction): assine offline com hardware.</li>
+              <li
+              data-list-item-id="e7ed3e9adfa5609d61624738d5c1f1330">Transmita a transação assinada do Tails.</li>
+          </ul>
+          </li>
+        </ol>
+        <h3>Melhores Práticas de Segurança (Baixo Risco)</h3>
+        <ul>
+          <li data-list-item-id="e9bb7812e0c4b17270e0ac5b949e585b9"><strong>Nunca</strong> digite a seed em qualquer computador online.</li>
+          <li
+          data-list-item-id="ebfd96b29676859846e2c891848e4cf4a">Verifique sempre hashes e assinaturas GPG dos downloads.</li>
+            <li data-list-item-id="ecf03c5015d40c5b0f9e8eb041ef15151">Use o Tails para todas as operações sensíveis.</li>
+            <li data-list-item-id="e832772c44a5e532e1e4d6cbae6b4ba79">Backups: Seed em metal (ex: Billfodl ou placa de aço), guardada em locais
+              diferentes. Teste o restore periodicamente.</li>
+            <li data-list-item-id="e5617976c4ae9e87d18d763633d1f57f8">Senhas fortes + passphrase na hardware wallet.</li>
+            <li data-list-item-id="eff8cf79563c26e884e4eccb23df66cb3">Comece pequeno e aumente gradualmente (conforme tabela Sparrow: até ~US$10k
+              em single sig).</li>
+            <li data-list-item-id="e718ad04fdc1c23119739409239d5a281">Evite Wi-Fi público; use Ethernet ou Tor no Tails.</li>
+        </ul>
+        <h3>Vantagens deste Setup Novato</h3>
+        <ul>
+          <li data-list-item-id="e0f81836f8250f7dc2b8115e75ed9bc68">Baixo custo inicial (~R$ 800–1.500 para Trezor + Pixel usado + USBs).</li>
+          <li
+          data-list-item-id="e49ece01f168d88ea9ac52bea4d9e247f">Tutoriais em português abundantes no canal <strong>Bitcoinheiros</strong>.</li>
+            <li
+            data-list-item-id="e2f4e3c3d47f7d809afaff2b9a6192799">Fácil de evoluir para níveis intermediário (adicionar Qubes/Whonix, multisig,
+              node próprio).</li>
+              <li data-list-item-id="ebed70259885d4655e4546862b3fd58e2">Forte proteção contra malware comum (Tails amnésico + hardware).</li>
+        </ul>
+        <p><strong>Tempo estimado para setup inicial</strong>: 4–8 horas + prática.</p>
+        <p>Quer que eu detalhe <strong>qualquer passo específico</strong> agora?
+          <br>Exemplos:</p>
+        <ul>
+          <li data-list-item-id="ed527a724b7920897eac92d18a1d9c903">Guia completo de instalação do Sparrow no Tails com persistência.</li>
+          <li
+          data-list-item-id="ebf7bed408e2b75687da8573f6865a8bd">Como configurar Trezor com Sparrow.</li>
+            <li data-list-item-id="e31db7b6e8356bdd935416648514f8e13">Passo a passo de GrapheneOS no Pixel.</li>
+            <li data-list-item-id="ef3280d11302bbffece2a10463a518452">Como fazer backup em metal ou multisig simples.</li>
+        </ul>
+        <p>Me diga o que quer aprofundar primeiro ou qual hardware você já tem/pretende
+          comprar! Vamos passo a passo para você não errar. 🚀</p>
+        <p>Fique seguro — o segredo é <strong>praticar com pouco</strong> e <strong>nunca ter pressa</strong>.</p>
+      </div>
+    </div>
+  </body>
+
+</html>

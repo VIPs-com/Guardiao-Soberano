@@ -1,0 +1,176 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>🪶 FEATHER WALLET NO TAILS: INSTALAÇÃO PERSISTENTE E SEGURA</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>🪶 FEATHER WALLET NO TAILS: INSTALAÇÃO PERSISTENTE E SEGURA</h1>
+
+      <div class="ck-content">
+        <h2>🪶 FEATHER WALLET NO TAILS: INSTALAÇÃO PERSISTENTE E SEGURA</h2>
+        <blockquote>
+          <p><em>"A Feather é o canivete suíço do Monero. No Tails, ela se torna o canivete invisível."</em>
+          </p>
+        </blockquote>
+        <p>Você já sabe que a Feather é a carteira Monero leve e integrada ao Tor.
+          Agora vamos ancorá‑la na persistência do Tails para que suas carteiras,
+          histórico de transações e configurações sobrevivam a cada boot — sem jamais
+          tocar o disco rígido do computador hospedeiro.</p>
+        <hr>
+        <h2>🎯 Objetivo</h2>
+        <p>Instalar a Feather Wallet como AppImage na partição persistente, forçar
+          o armazenamento dos dados da carteira nessa mesma partição, conectar via
+          Tor (automático) e integrar tudo ao seu ritual de backup 3‑2‑1.</p>
+        <hr>
+        <h2>🧱 Pré‑requisitos</h2>
+        <ul>
+          <li data-list-item-id="efdf2963d490c4fcdec67200453e996f5">Tails iniciado com <strong>persistência desbloqueada</strong> e a opção <strong>"Personal Data"</strong> ativada
+            (necessária para acessar <code spellcheck="false">/home/amnesia/Persistent/</code>).</li>
+          <li
+          data-list-item-id="e2865623ecb97b35ab3e2a81d7eba47c6">Pasta de aplicativos criada (se não existir, crie: <code spellcheck="false">mkdir -p /home/amnesia/Persistent/Apps</code>).</li>
+            <li
+            data-list-item-id="ef8b9edf0ecbc938cfb2f4e78a8a4383b">Conexão Tor funcionando (o Tails já faz o trabalho pesado).</li>
+        </ul>
+        <hr>
+        <h2>🛠️ Passo a passo</h2>
+        <h3>1. Baixar a AppImage oficial e verificar a assinatura</h3>
+        <p>Obtenha a versão mais recente diretamente do site oficial, usando o navegador
+          Tor <strong>ou</strong> o terminal com <code spellcheck="false">torsocks</code>:</p><pre><code class="language-text-x-trilium-auto"># Defina a versão (verifique em feather-wallet.org/download)
+VERSION=2.7.0
+
+# Baixe a AppImage e a assinatura .asc
+torsocks wget -P /home/amnesia/Persistent/Apps/ \
+  https://feather-wallet.org/files/releases/linux/feather-$VERSION-x86_64.AppImage \
+  https://feather-wallet.org/files/releases/linux/feather-$VERSION-x86_64.AppImage.asc</code></pre>
+        <p><strong>Verifique a assinatura GPG</strong> (a chave pública do desenvolvedor
+          está no site; no primeiro uso você precisará importá‑la). No terminal:</p><pre><code class="language-text-x-trilium-auto"># Importar a chave pública (substituir pelo fingerprint real, ex: "tobtoht@featherwallet" etc.)
+gpg --keyserver hkps://keys.openpgp.org --recv-keys 0x...  # ou use o arquivo .asc da chave
+gpg --verify /home/amnesia/Persistent/Apps/feather-$VERSION-x86_64.AppImage.asc \
+             /home/amnesia/Persistent/Apps/feather-$VERSION-x86_64.AppImage</code></pre>
+        <p>Se a verificação for bem‑sucedida, o binário é autêntico. Torne‑o executável:</p><pre><code class="language-text-x-trilium-auto">chmod +x /home/amnesia/Persistent/Apps/feather-$VERSION-x86_64.AppImage</code></pre>
+        <hr>
+        <h3>2. Forçar a persistência dos dados da carteira</h3>
+        <p>Por padrão, a Feather salva tudo em <code spellcheck="false">~/.config/feather</code> (no
+          tmpfs, que evapora no desligamento). Vamos criar um script que aponte para
+          uma pasta segura.</p><pre><code class="language-text-x-trilium-auto"># Criar diretório para os dados da Feather na persistência
+mkdir -p /home/amnesia/Persistent/feather-data
+
+# Criar o script de inicialização
+cat &gt; /home/amnesia/Persistent/start-feather.sh &lt;&lt; 'EOF'
+#!/bin/bash
+/home/amnesia/Persistent/Apps/feather-*-x86_64.AppImage \
+    --datadir /home/amnesia/Persistent/feather-data \
+    --use-tor &amp;
+EOF
+
+chmod +x /home/amnesia/Persistent/start-feather.sh</code></pre>
+        <p><strong>Explicação:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e7513e139344788d2cca4e2589b6517fb"><code spellcheck="false">--datadir</code> força a Feather a usar o diretório
+            persistente.</li>
+          <li data-list-item-id="ec247ccb3f306e1591be117927ffc17a6"><code spellcheck="false">--use-tor</code> garante que ela roteie tudo pelo
+            Tor (embora o Tails já force a rede, essa flag reforça a configuração interna).</li>
+        </ul>
+        <hr>
+        <h3>3. Primeira execução e criação da carteira</h3>
+        <ol>
+          <li data-list-item-id="e51c329a425ec1179b854a34f13582126">
+            <p>Execute o script:</p><pre><code class="language-text-x-trilium-auto">/home/amnesia/Persistent/start-feather.sh</code></pre>
+          </li>
+          <li data-list-item-id="e54834870b634000c0eb572639acb37e5">A primeira tela perguntará sobre a conexão de rede. Escolha <strong>"Tor (recommended)"</strong>.
+            A Feather configurará automaticamente o proxy Tor do sistema (<code spellcheck="false">127.0.0.1:9050</code>).</li>
+          <li
+          data-list-item-id="e8e570d1336e578baedd366722d257088">Escolha o modo de carteira:
+            <ul>
+              <li data-list-item-id="ed47eabc151cf190c4f30fb97e93f20e4"><strong>Create new wallet</strong> se for começar do zero.</li>
+              <li data-list-item-id="e30d5db8cca32f785fc7ea31b8e39e1b9"><strong>Restore wallet from seed</strong> para importar uma seed existente.</li>
+            </ul>
+            </li>
+            <li data-list-item-id="e5e5443345caf5283a63609e83f3d03f1">Ao criar uma nova carteira:
+              <ul>
+                <li data-list-item-id="ea4be85f1d5a1539bfc4acb203ca49818">Dê um nome sugestivo (ex: <code spellcheck="false">fortaleza_quente</code>).</li>
+                <li
+                data-list-item-id="ef6a54fb0d73648dcf664580e3503f7f5"><strong>Anote imediatamente as 25 palavras (seed) e o Restore Height</strong> que
+                  aparecerão na tela final. Escreva em papel resistente ou grave em metal.
+                  O Restore Height é o número do bloco no momento da criação (ex: <code spellcheck="false">3185000</code>).
+                  Ele acelera futuras restaurações.</li>
+            </ul>
+            </li>
+            <li data-list-item-id="e6b3fe5aae8b34564543244e464b05f99">Continue. A Feather sincronizará com a blockchain via nó remoto sobre
+              Tor. Em poucos minutos você terá seu saldo visível.</li>
+        </ol>
+        <hr>
+        <h3>4. Verificar a localização dos dados</h3>
+        <p>Após criar a carteira, feche a Feather e liste o conteúdo:</p><pre><code class="language-text-x-trilium-auto">ls /home/amnesia/Persistent/feather-data/
+# Você verá pastas como: wallets, logs, config.json</code></pre>
+        <p>Isso confirma que as carteiras estão salvas na persistência LUKS.</p>
+        <p><strong>Teste de sobrevivência:</strong>
+        </p>
+        <ul>
+          <li data-list-item-id="e7dba826a256c2d474ad216f40673b74f">Reinicie o Tails.</li>
+          <li data-list-item-id="e7a426b74e32891a629266226ea356440">Desbloqueie a persistência.</li>
+          <li data-list-item-id="e345e6603e7b0f9c8c03a5f9a1dd8a72c">Execute <code spellcheck="false">start-feather.sh</code>.</li>
+          <li data-list-item-id="efa83384720b307f303802bc1805f739c">Sua carteira deve reaparecer exatamente como estava, com histórico e saldo.</li>
+        </ul>
+        <hr>
+        <h2>🧠 Dicas essenciais para o operador</h2>
+        <ul>
+          <li data-list-item-id="edbd69e6cb160ee044900fab73368668a"><strong>Use a seed como último recurso, não como rotina.</strong> A Feather
+            na persistência é cômoda, mas se o pendrive falhar ou for confiscado, a
+            seed (guardada offline) é seu plano de fuga.</li>
+          <li data-list-item-id="e5ee3c35de5744290456c5edaa48d75e0"><strong>Restore Height é seu amigo.</strong> Anote‑o junto com a seed.
+            Sem ele, uma restauração pode levar horas. Com ele, minutos.</li>
+          <li data-list-item-id="ecdd15c93770a177a237c8fa5a2579e2a"><strong>Cuidado com o teclado em computadores públicos.</strong> Use o
+            Onboard (teclado virtual) para digitar a seed na primeira restauração,
+            se estiver em local suspeito.</li>
+          <li data-list-item-id="eebb25df3502bae4caf18f8a479578624"><strong>Não reutilize a mesma senha de persistência para a carteira.</strong> Se
+            você definir uma senha adicional para gastar fundos, escolha algo diferente.</li>
+        </ul>
+        <hr>
+        <h2>🔗 Integração com o backup 3‑2‑1</h2>
+        <p>Sua rotina de backup já deve estar incluindo a pasta <code spellcheck="false">feather-data</code>.
+          Atualize o script de backup:</p><pre><code class="language-text-x-trilium-auto">tar czf - \
+  /home/amnesia/Persistent/feather-data \
+  /home/amnesia/Persistent/electrum-data \
+  /home/amnesia/.local/share/haveno \
+  /home/amnesia/Persistent/fortaleza_cofre.kdbx \
+  /home/amnesia/Persistent/haveno_backup_amnesia.zip \
+| gpg --symmetric --cipher-algo AES256 --output /media/backup/fortaleza_backup_$(date +%Y%m%d).tar.gz.gpg</code></pre>
+        <p>A seed em si <strong>não</strong> deve estar dentro desse backup, a menos
+          que você a armazene apenas no KeePassXC (que já está incluído, mas com
+          senha separada). O ideal é que a seed física (papel/metal) fique em local
+          geograficamente separado.</p>
+        <hr>
+        <h2>⚠️ Perigos e más práticas</h2>
+        <ul>
+          <li data-list-item-id="edbefed3e69d9a2bebddff5c301bb41b8"><strong>Nunca execute a Feather sem o </strong><code spellcheck="false"><strong>--datadir</strong></code><strong>.</strong> Se
+            você abrir a AppImage diretamente, ela criará <code spellcheck="false">~/.config/feather</code> no
+            tmpfs. No próximo boot, sua carteira sumirá. Use sempre o script.</li>
+          <li
+          data-list-item-id="eae5ae0e83609a532318d9d3648191145"><strong>Não mantenha a Feather aberta durante a remoção do pendrive.</strong> Feche‑a
+            antes de desligar para evitar corrupção do arquivo da carteira.</li>
+            <li
+            data-list-item-id="e47bbf3a117996ed773ea19c348fecfa4"><strong>Atualizações da Feather:</strong> Ao baixar uma nova versão, substitua
+              a AppImage antiga, mas <strong>não apague a pasta </strong><code spellcheck="false"><strong>feather-data</strong></code>.
+              Faça backup antes de atualizar.</li>
+        </ul>
+        <hr>
+        <p>Com a Feather ancorada na persistência, sua carteira Monero é tão portátil
+          quanto seu pendrive e tão privada quanto a rede Tor. A cada boot, ela renasce
+          pronta para negociar, sem deixar rastros no mundo físico.</p>
+        <blockquote>
+          <p><em>"A carteira está no bolso, mas a chave está na mente e no aço."</em>
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </body>
+
+</html>

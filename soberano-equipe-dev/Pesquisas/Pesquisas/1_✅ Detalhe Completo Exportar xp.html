@@ -1,0 +1,140 @@
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <base target="_parent">
+    <title data-trilium-title>✅ Detalhe Completo: Exportar xpub no SeedSigner (para Sparrow Wallet)</title>
+  </head>
+  
+  <body>
+    <div class="content">
+       <h1 data-trilium-h1>✅ Detalhe Completo: Exportar xpub no SeedSigner (para Sparrow Wallet)</h1>
+
+      <div class="ck-content">
+        <p><strong>✅ Detalhe Completo: Exportar xpub no SeedSigner (para Sparrow Wallet)</strong>
+        </p>
+        <p>Aqui está o fluxo atualizado (2026) para exportar o <strong>xpub/zpub</strong> do
+          SeedSigner via QR code, perfeito para configurar <strong>watch-only</strong> ou <strong>multisig</strong> no
+          Sparrow no Tails.</p>
+        <h3>Passos no SeedSigner (Air-Gapped)</h3>
+        <ol>
+          <li data-list-item-id="e0692aa2b9cde63eb3a6c10f3dc2dd57c"><strong>Ligue o SeedSigner</strong> e carregue sua seed:
+            <ul>
+              <li data-list-item-id="e98d17a6db0cb29882bc7950c5611b32c">Selecione a seed desejada (ou gere uma nova com dice rolls).</li>
+              <li data-list-item-id="eee0d2154264482859a6ff18ae146c086">Confirme a seed (ele mostra as palavras).</li>
+            </ul>
+          </li>
+          <li data-list-item-id="eb781d3794220d28a5aa8b529a5c1d0b1"><strong>Acesse o menu de Exportação</strong>:
+            <ul>
+              <li data-list-item-id="e507048ec71de8a636f6889663339a076">Vá em: <strong>Seeds</strong> → selecione sua seed → <strong>Export Xpub</strong>
+              </li>
+            </ul>
+          </li>
+          <li data-list-item-id="e2fe8ab4e9c577446ab5f660aceac0be3"><strong>Escolha o tipo de wallet</strong>:
+            <ul>
+              <li data-list-item-id="e37943ce59de57f90e5bb578ac0b0cd27"><strong>Single Signature</strong> (para wallets simples / watch-only)</li>
+              <li
+              data-list-item-id="e6d03c489956b79dcc2de5dedbd650534"><strong>Multisig</strong> (para 2-of-3 ou 2-of-2)</li>
+          </ul>
+          </li>
+          <li data-list-item-id="ea92b1d35059d27334621c2673b3d0300"><strong>Escolha o Script Type</strong> (muito importante para compatibilidade):
+            <ul>
+              <li data-list-item-id="e4337ba1bc152c046ba1c56374b6ed3ee"><strong>Native Segwit</strong> (recomendado – começa com <code spellcheck="false">zpub</code>,
+                fees mais baixas)</li>
+              <li data-list-item-id="e761be24edb9595a45979caa6792b189e">Outras opções: Nested Segwit, Taproot, Legacy (evite Legacy se possível)</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e8576c1463eb9f5599b6497c831676a1a"><strong>Escolha o Software/Alvo</strong>:
+            <ul>
+              <li data-list-item-id="e68166537b17c30510cfa0202018f8d21">Selecione <strong>Sparrow</strong>
+              </li>
+              <li data-list-item-id="e07f449bc860e4dbc7fcab29de99d3b00">Ele pode mostrar um aviso de privacidade (expor xpub revela o histórico
+                de transações do seu wallet). Clique <strong>I Understand</strong>.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="ed8738ada92de476412f7dba24a9917b0"><strong>Revise os Detalhes do xpub</strong>:
+            <ul>
+              <li data-list-item-id="ea4c49536e5b2dd2731f946583b532821">O SeedSigner mostra:
+                <ul>
+                  <li data-list-item-id="ea3eefa65f25926fe4b5e8473ab720eb1">Derivation path (ex: <code spellcheck="false">m/84'/0'/0'</code>)</li>
+                  <li
+                  data-list-item-id="e3c5c6a3508ca63d444584ad5d95c164c">Fingerprint</li>
+              <li data-list-item-id="e6becbf39630337a409388379967dc666">O xpub/zpub completo</li>
+              </ul>
+          </li>
+          <li data-list-item-id="e063e4834ac3cd3c4d9aa40f043c84a8c"><strong>Verifique com atenção</strong> antes de prosseguir.</li>
+          </ul>
+          </li>
+          <li data-list-item-id="edbe4b83b697cac1645b3abb150dc57f1"><strong>Exportar como QR Code</strong>:
+            <ul>
+              <li data-list-item-id="e19a3c1e8cbc50a75bbb14515923e847e">Clique em <strong>Export Xpub</strong> ou <strong>Show QR</strong>.</li>
+              <li
+              data-list-item-id="e3747125518b2dc10afac3b43d3a887d3">Ele gera <strong>QR codes animados</strong> (UR / BBQR) — pode ser uma sequência
+                ou animação.</li>
+          <li data-list-item-id="ee595c9d0265faa36675304f7ca2d4e41">Ajuste densidade/brightness se necessário (no menu Settings) para melhor
+            escaneamento.</li>
+          </ul>
+          </li>
+        </ol>
+        <p>O SeedSigner agora está exibindo o QR code do xpub.</p>
+        <hr>
+        <h3>No Sparrow (Tails – Online)</h3>
+        <ol>
+          <li data-list-item-id="e1bcdcefbeaebbbc247404be36da3b538">Abra sua wallet (ou crie uma nova multisig/watch-only).</li>
+          <li data-list-item-id="e025501455d74d1fc0ccfc5c41bc3adea">No momento de adicionar um <strong>Keystore</strong>:
+            <ul>
+              <li data-list-item-id="e09a8e8280a8a500ec5bb981fea1295fe">Escolha <strong>Air Gapped Hardware Wallet</strong> → <strong>SeedSigner</strong> (ou
+                “Other”).</li>
+              <li data-list-item-id="e2a186f41a9d8911939055efbbfe749e3">Clique em <strong>Scan QR</strong>.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e289a8464e599e308269fd66c8bd6330f">Aponte a <strong>webcam do laptop</strong> para a tela do SeedSigner.</li>
+          <li
+          data-list-item-id="ebaa7f950b150d6b0755783f47e0ee31b">Escaneie os QR codes animados (mantenha estável e boa iluminação).</li>
+            <li
+            data-list-item-id="ec3b4d3b96ded09da98a72cafc6c37382">Sparrow vai importar o xpub automaticamente e mostrar os detalhes.</li>
+        </ol>
+        <p>Repita o processo para cada keystore no caso de multisig.</p>
+        <hr>
+        <h3>Dicas Importantes</h3>
+        <ul>
+          <li data-list-item-id="e046ede6a3c2d09713a3dde999964c94a"><strong>Testnet primeiro</strong>: Configure o SeedSigner e o Sparrow
+            em Testnet para praticar sem risco.</li>
+          <li class="ck-list-marker-bold"
+          data-list-item-id="edaafa5443695fd62b60892fdf3388676"><strong>QR não escaneia?</strong>
+            <ul>
+              <li data-list-item-id="e75f82dc5227336bf22d23186322d6635">Ajuste distância e iluminação.</li>
+              <li data-list-item-id="e1e65249a983b003496565e2493b8556f">Pressione joystick para mudar brilho no SeedSigner.</li>
+              <li data-list-item-id="e7120ee5e09ddd716824e861f9fa3b581">Reduza densidade do QR nas configurações.</li>
+            </ul>
+          </li>
+          <li data-list-item-id="e737f10ed08ebb4ce8b4b1a7b9863307f"><strong>Passphrase (Word 25)</strong>: Se estiver usando, aplique a passphrase
+            antes de exportar o xpub.</li>
+          <li data-list-item-id="e0589f2e6053b57428dfe483dc2b19405"><strong>Backup</strong>: O xpub <strong>não</strong> é sensível (pode ser
+            público), mas guarde o Output Descriptor completo do Sparrow.</li>
+          <li data-list-item-id="eb0688a3a116161a3db5e05862352c0a3"><strong>Stateless</strong>: Desligue o SeedSigner após o uso — a seed
+            não fica salva permanentemente.</li>
+        </ul>
+        <p><strong>Fluxo recomendado para novatos</strong>:</p>
+        <ol>
+          <li data-list-item-id="ef8246673f0b67d09da2a24e81f0bf9c3">Gere seed no SeedSigner.</li>
+          <li data-list-item-id="e6bdb22fd0d62743855f3bef124485dfa">Exporte xpub via QR.</li>
+          <li data-list-item-id="e76629801f149d45db8dbb17810ee0b06">Importe no Sparrow como watch-only.</li>
+          <li data-list-item-id="e9bf8af144c64758d5ebc87306b0da615">Teste recebimento de small amount.</li>
+          <li data-list-item-id="e6124613b10fcf6cdbef9ff395afcbf73">Depois configure multisig.</li>
+        </ol>
+        <p>Quer que eu detalhe agora:</p>
+        <ul>
+          <li data-list-item-id="e8f27a07885d437810e7365ad116ead17">Exportação no <strong>Krux</strong> (para comparar)?</li>
+          <li data-list-item-id="e72cefffb99a4dd9a3616516c35d36306">Como criar a wallet multisig completa com os xpubs?</li>
+          <li data-list-item-id="eb919d96e1b302af9ecb27a19057c82a0">Como verificar se o xpub está correto?</li>
+          <li data-list-item-id="ec598d674933ceae807b6d810ef3e504a">Uso de Passphrase no SeedSigner?</li>
+        </ul>
+        <p>Me diga o próximo passo! 🚀</p>
+      </div>
+    </div>
+  </body>
+
+</html>
