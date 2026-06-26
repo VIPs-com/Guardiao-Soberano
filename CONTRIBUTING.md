@@ -21,17 +21,27 @@ Guardião-Soberano/
 
 | Pasta | Motivo |
 | --- | --- |
-| `soberano-equipe-dev/` | Pipeline interno, pesquisas, prompts IA |
+| `soberano-equipe-dev/` | Pipeline interno — ver estrutura abaixo |
 | `old/` | Backups e duplicatas históricas |
 | `saida/` | Binários compilados → usar **GitHub Releases** |
 
 Reorganizar localmente após restaurar backup:
 
 ```powershell
-.\soberano-equipe-dev\organizar-casa.ps1
+.\soberano-equipe-dev\scripts\organizar-casa.ps1
 ```
 
-(Script interno — pasta `soberano-equipe-dev/` não é publicada no remoto.)
+Estrutura interna (`soberano-equipe-dev/`):
+
+```
+docs/validacao/     Checklists de hardware e PGP
+docs/relatorios/    Entregas e integração
+pesquisas/canonico/ Fonte para extrair labs
+scripts/            organizar-casa.ps1, etc.
+prompts/            Contexto IA
+```
+
+(Scripts e docs internos não vão ao remoto.)
 
 ---
 
@@ -100,9 +110,10 @@ Ao publicar PDF/EPUB na Release, inclua **SHA-256** do arquivo no corpo da relea
 
 Relatórios de processo ficam em `soberano-equipe-dev/` (não versionados no remoto público):
 
-- `VERIFICACAO-TECNICA-PENDENTE.md`
-- `RELATORIO-INTEGRACAO-COMPLEMENTOS.md`
-- `Configuração do Repositorio/relatorio-repositorio-guardiao-soberano.md` — padrões OSS e checklist de push
+- `docs/validacao/VALIDACAO-LABORATORIO-29.md` — testes dos 29 labs
+- `docs/validacao/VERIFICACAO-TECNICA-PENDENTE.md`
+- `docs/relatorios/RELATORIO-INTEGRACAO-COMPLEMENTOS.md`
+- `config/relatorio-repositorio-guardiao-soberano.md` — padrões OSS e checklist de push
 
 ---
 

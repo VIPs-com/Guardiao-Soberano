@@ -9,9 +9,9 @@ Fontes para mineração:
 | Fonte | Local |
 | --- | --- |
 | Backups pré-integração | `old/manuscrito-backups/backup-pre-complemento-20260624-1726/` |
-| Pesquisas organizadas | `soberano-equipe-dev/Markdown-organizado/03-adendos/` |
-| Manual da Fortaleza (adaptar) | `soberano-equipe-dev/Markdown-organizado/04-manual-fortaleza/` |
-| Relatório de integração | `soberano-equipe-dev/RELATORIO-INTEGRACAO-COMPLEMENTOS.md` |
+| Pesquisas organizadas | `soberano-equipe-dev/pesquisas/canonico/03-adendos/` |
+| Manual da Fortaleza (adaptar) | `soberano-equipe-dev/pesquisas/canonico/04-manual-fortaleza/` |
+| Relatório de integração | `soberano-equipe-dev/docs/relatorios/RELATORIO-INTEGRACAO-COMPLEMENTOS.md` |
 
 ---
 

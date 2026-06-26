@@ -27,7 +27,7 @@ Extensão **viva** do livro: tutoriais passo a passo, checklists de verificaçã
 
 Legenda: 🟢 Testado em hardware · 🟡 Extraído — revalidar em hardware · 🔴 Bloqueado
 
-> **Trilha completa:** 29 labs extraídos + 2 opcionais (N0/04, N1/04). Testes humanos em Tails/Whonix: matriz interna `VALIDACAO-LABORATORIO-29.md` (equipe, pasta local não versionada).
+> **Trilha completa:** 29 labs extraídos + 2 opcionais (N0/04, N1/04). Testes em hardware: `soberano-equipe-dev/docs/validacao/VALIDACAO-LABORATORIO-29.md` (equipe, pasta local).
 
 ---
 
@@ -57,7 +57,7 @@ Todo exercício novo deve seguir [`_template-lab.md`](_template-lab.md):
 
 Material bruto a transformar em labs: [`INVENTARIO-RECUPERACAO.md`](INVENTARIO-RECUPERACAO.md)
 
-Fontes internas (equipe): `soberano-equipe-dev/Markdown-organizado/` e `old/manuscrito-backups/`
+Fontes internas (equipe): `soberano-equipe-dev/pesquisas/canonico/` e `old/manuscrito-backups/`
 
 ---
 

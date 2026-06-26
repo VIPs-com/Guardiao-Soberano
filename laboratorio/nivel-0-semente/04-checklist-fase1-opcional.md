@@ -90,4 +90,4 @@ Depois: migrar ou paralelizar **Whonix** (N3) para mixagem e node próprio.
 
 ## Referência
 
-Mapa completo de validação em hardware: `soberano-equipe-dev/VALIDACAO-LABORATORIO-29.md` (equipe interna).
+Mapa completo de validação em hardware: `soberano-equipe-dev/docs/validacao/VALIDACAO-LABORATORIO-29.md` (equipe interna).
