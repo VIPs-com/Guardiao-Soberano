@@ -35,18 +35,18 @@ Você tem opções. Escolha UMA:
 │ • Open source, preço acessível │
 │ • Ideal: orçamento limitado │
 │ │
-│ 📱 FOUNDATION PASSPORT BATCH 2 (QR) — ~US$150-200 │
+│ 📱 FOUNDATION PASSPORT BATCH 2 (QR) — ~US$ 150–200 │
 │ • QR nativo, UX mais amigável │
 │ • Open source, modular │
 │ • Ideal: prefere QR a SD card │
 │ │
-│ 🔧 SEEDSIGNER (DIY) — ~US$50 em peças │
+│ 🔧 SEEDSIGNER (DIY) — ~US$ 50 em peças │
 │ • Raspberry Pi Zero + câmera │
 │ • Stateless (apaga a seed da memória ao desligar) │
 │ • Você monta e verifica cada componente │
 │ • Ideal: quer construir o próprio │
 │ │
-│ 🔧 KRUX (DIY Firmware) — ~US$40-60 em hardware │
+│ 🔧 KRUX (DIY Firmware) — ~US$ 40–60 em hardware │
 │ • Firmware para Maix Amigo, M5StickV │
 │ • Stateless, suporte a Taproot │
 │ • Builds reproduzíveis │
@@ -70,7 +70,7 @@ Você tem opções. Escolha UMA:
 □ Ou cartão presente (gift card)
 □ Enviar para endereço sem seu nome:
  - PO Box (caixa postal)
- - Casa de amigo/familiar
+ - Casa de um amigo ou familiar
  - Receber em mãos (se loja física)
 ```
 
@@ -199,13 +199,20 @@ Siga o **Capítulo 5, Passo 0.5** e o lab [`02-backup-aco.md`](../laboratorio/ni
 
 ### Verificação do Nível 1
 
+**Obrigatório antes de enviar fundos:**
+
+```
+□ Endereços validados offline (Passo 1.6)
+□ 2 backups em metal + passphrase em local separado (Passo 1.6b / Cap. 5)
+□ Teste de restauração bem-sucedido (Passo 1.7)
+```
+
+**Opsec contínua:**
+
 ```
 □ Dispositivo air-gapped configurado e funcional
 □ Firmware atualizado (PGP verificado)
 □ Seed gerada com dados físicos, não RNG interno
-□ Endereços validados offline (Passo 1.6)
-□ 2 backups em metal + passphrase em local separado (Passo 1.6b / Cap. 5)
-□ Teste de restauração bem-sucedido (Passo 1.7 — ANTES de enviar fundos)
 □ Sei que sem passphrase = carteira decoy diferente
 □ Nunca conectei o dispositivo à internet
 ```
@@ -244,12 +251,12 @@ Outros (Keystone, NGRAVE, ELLIPAL, Specter DIY): ver Cap. 14 — fora do guia in
 
 ### Fluxo PSBT (visão geral)
 
-**PSBT** (*Partially Signed Bitcoin Transaction* — transação parcialmente assinada): o coordinator (Sparrow/Electrum) prepara a transação; o dispositivo air-gapped assina offline.
+**PSBT** (*Partially Signed Bitcoin Transaction* — transação parcialmente assinada): o **coordenador** (Sparrow/Electrum) prepara a transação; o dispositivo air-gapped assina offline.
 
-1. **Coordinator cria a transação (online)** — só conhece a xpub; gera PSBT ou QR.
+1. **Coordenador cria a transação (online)** — só conhece a xpub; gera PSBT ou QR.
 2. **Transferência air-gapped** — QR animado (UR/BBQR) ou arquivo em SD card.
 3. **Dispositivo verifica e assina (offline)** — você confirma endereço, valor e taxa.
-4. **Devolução da PSBT assinada** — QR ou SD de volta ao coordinator.
+4. **Devolução da PSBT assinada** — QR ou SD de volta ao coordenador.
 5. **Broadcast via Tor** — chaves privadas nunca tocaram o PC online.
 
 ![Fluxo PSBT: coordinator online → air-gap → assinatura offline → broadcast via Tor](../imagens/diagrama-psbt.png)
@@ -275,21 +282,14 @@ Este é o **fluxo padrão air-gapped** usado pela comunidade em 2026. Funciona e
 
 ---
 
-### Passo a Passo do Fluxo PSBT QR
+### Passo a passo — Sparrow (Tails, online)
 
-### No Sparrow (Máquina Online — Tails)
-
-1. Abra sua wallet **watch-only**.
-2. Vá na aba **Send**.
-3. Preencha:
- * Endereço de destino
- * Quantia
- * Fee rate (use "Calculate" ou defina manualmente)
-4. Clique em **Create Transaction**.
-5. **Revise tudo com atenção** (inputs, outputs, fee, change address).
-6. Clique em **Finalize Transaction for Signing**.
-
-Agora você verá as opções de assinatura.
+1. Abra a carteira **somente leitura** (watch-only).
+2. Aba **Send** (Enviar).
+3. Preencha endereço de destino, quantia e taxa (fee rate — use **Calculate** ou defina manualmente).
+4. **Create Transaction** (Criar transação).
+5. Revise inputs, outputs, taxa e endereço de troco (change address).
+6. **Finalize Transaction for Signing** (Finalizar para assinatura).
 
 ### Exportar PSBT como QR (Sparrow)
 
@@ -317,7 +317,7 @@ Agora você verá as opções de assinatura.
 1. No Sparrow, clique em **Scan QR** (ou Scan BBQR).
 2. Aponte a câmera do laptop para a tela do SeedSigner/Krux (que está mostrando o QR da transação assinada).
 3. Sparrow vai ler, combinar as partes (se for animado) e carregar a PSBT com a assinatura.
-4. Verifique novamente as signatures (deve aparecer "1 of 1" ou o número correto no multisig).
+4. Verifique as **assinaturas** (deve aparecer «1 of 1» ou o número correto no multisig).
 5. Clique em **Broadcast Transaction** para enviar para a rede.
 
 ---
@@ -352,7 +352,7 @@ Esses dois projetos são **excelentes opções open-source e baratas** para quem
 
 | Aspecto | **SeedSigner** | **Krux** |
 | --- | --- | --- |
-| **Custo** | ~US$30-50 (Raspberry Pi Zero 1.3 + peças) | ~US$15-60 (placas genéricas como Maix Amigo, M5StickV ou Yahboom) |
+| **Custo** | ~US$ 30–50 (Raspberry Pi Zero 1.3 + peças) | ~US$ 15–60 (Maix Amigo, M5StickV ou Yahboom) |
 | **Dificuldade** | Média (precisa montar) | Fácil a Média (muitas placas "plug-and-play") |
 | **Stateless** | Sim (não guarda seed permanentemente) | Sim (pode ser stateless ou usar SD criptografada) |
 | **Air-Gapped** | QR codes (câmera + tela) | QR codes + SD card |
@@ -361,7 +361,7 @@ Esses dois projetos são **excelentes opções open-source e baratas** para quem
 | **Desvantagens** | Montagem manual, Raspberry Pi específico | Hardware genérico (verificar supply chain) |
 | **Melhor para** | Quem gosta de DIY completo e máxima stateless | Quem quer algo mais simples de comprar/pronto |
 
-Ambos suportam **multisig**, BIP39, passphrase, e export de xpub/zpub para watch-only no Sparrow.
+Ambos suportam **multisig**, BIP39, passphrase e export de xpub/zpub para carteira somente leitura no Sparrow.
 
 ### SeedSigner (Mais Popular para Stateless)
 
@@ -378,7 +378,7 @@ Ambos suportam **multisig**, BIP39, passphrase, e export de xpub/zpub para watch
  3. Monte o hardware (há muitos vídeos tutoriais passo a passo).
  4. Ligue → gere seed com dice rolls (alta entropia) → backup em metal.
 * **Uso com Sparrow**:
- * No Sparrow: Crie wallet multisig ou single-sig watch-only.
+ * No Sparrow: crie carteira multisig ou single-sig somente leitura (watch-only).
  * Exporte PSBT via QR.
  * SeedSigner escaneia, assina e mostra QR de volta.
 * **Recursos extras**: Suporte a Satochip (secure element), BIP85, etc.
@@ -412,7 +412,7 @@ Ambos suportam **multisig**, BIP39, passphrase, e export de xpub/zpub para watch
  1. Monte/flashe o dispositivo.
  2. Gere seed **offline** (dice rolls).
  3. Backup em metal + teste restore.
- 4. No Tails + Sparrow: wallet watch-only + PSBT via QR.
+ 4. No Tails + Sparrow: carteira watch-only + PSBT via QR.
  5. Use para transações sensíveis; mobile para valores pequenos.
 
 **Dicas de Segurança (Importante!)**:
@@ -420,7 +420,7 @@ Ambos suportam **multisig**, BIP39, passphrase, e export de xpub/zpub para watch
 * Compre peças de fontes confiáveis (evite ataques na cadeia de entrega — supply chain).
 * Verifique hashes e builds reproduzíveis.
 * Sempre teste com pequenas quantias.
-* Combine com multisig (ex: SeedSigner + outra seed em papel).
+* Combine com multisig (Ex.: SeedSigner + outra seed em papel).
 * Use Tails amnésico para Sparrow.
 
 ---
