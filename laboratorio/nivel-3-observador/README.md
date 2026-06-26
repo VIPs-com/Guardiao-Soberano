@@ -6,7 +6,7 @@
 
 | Arquivo | Descrição | Status |
 | --- | --- | --- |
-| `01-whonix-virtualbox-completo.md` | Gateway + Workstation + pasta compartilhada | 🟡 Parcial no livro |
-| `02-bitcoin-node-eps-onion.md` | Node + EPS hidden service | 🔴 Pendente |
-| `03-verificacao-pgp-downloads.md` | Sparrow, Tails, Whonix, Feather | 🔴 Pendente |
-| `04-migracao-tails-whonix.md` | Quando e como migrar | 🔴 Recuperar das pesquisas |
+| `01-whonix-virtualbox-completo.md` | Gateway + Workstation + pasta compartilhada | 🟡 Extraído — revalidar em hardware |
+| `02-bitcoin-node-eps-onion.md` | Node + EPS hidden service | 🟡 Extraído — revalidar em hardware |
+| `03-verificacao-pgp-downloads.md` | Sparrow, Tails, Whonix, Feather, eigenwallet, RetoSwap | 🟡 Extraído — revalidar em hardware |
+| `04-migracao-tails-whonix.md` | Quando e como migrar | 🔴 Pendente |

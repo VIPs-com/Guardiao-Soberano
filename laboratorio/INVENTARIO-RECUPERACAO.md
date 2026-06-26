@@ -48,9 +48,9 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| Whonix VirtualBox — setup completo | integrado parcial cap. 8 | 🟡 Lab expandido |
+| Whonix VirtualBox — setup completo | integrado parcial cap. 8 | 🟡 Labs `01`–`03` extraídos |
 | Arquitetura Gateway/Workstation/Node | integrado cap. 8 | 🟢 Referência |
-| EPS .onion + verificação PGP downloads | cap. 8 + Apêndice D | 🟡 Lab unificado |
+| EPS .onion + verificação PGP downloads | cap. 8 + Apêndice D | 🟡 Lab `02` + `03` |
 | Migração Tails → Whonix | removido do cap. 9 (só tabela) | 🔴 Recuperar passo a passo |
 
 ---
@@ -68,10 +68,11 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| eigenwallet no Whonix — swap BTC→XMR | integrado cap. 10 | 🟡 Lab expandido |
-| RetoSwap — swap XMR→BTC | livro cap. 10 | 🟡 Lab + defesa ABCTracer |
+| eigenwallet no Whonix — swap BTC→XMR | integrado cap. 10 | 🟡 Lab `01-eigenwallet-whonix-btc-xmr.md` |
+| RetoSwap — swap XMR→BTC | livro cap. 10 | 🟡 Lab `03-retoswap-xmr-btc.md` + `start-retoswap.sh` |
 | **Feather Wallet no Tails — instalação** | REMOVIDO do cap. 10 | 🟡 Lab `02-feather-tails-instalacao.md` + `start-feather.sh` |
-| Restore height Monero | integrado cap. 10 | 🟡 Lab curto |
+| Restore height Monero | integrado cap. 10 | 🟡 No lab `02` + cap. 10 |
+| ABCTracer — defesa | integrado cap. 10 | 🟡 Lab `04-defesa-abctracer.md` |
 
 ---
 
@@ -80,7 +81,7 @@ Fontes para mineração:
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
 | Regra backup 3-2-1 | integrado parcial cap. 11 | 🟡 Lab com tar/verificação |
-| **Scripts do operador (start-*.sh)** | Manual Fortaleza módulo 10 — REMOVIDO | 🟡 4/6 em `scripts/tails/` (falta retoswap, backup) |
+| **Scripts do operador (start-*.sh)** | Manual Fortaleza módulo 10 — REMOVIDO | 🟡 5/6 em `scripts/tails/` (falta backup) |
 | Mobile CalyxOS + Sparrow | livro cap. 11 | 🟡 Lab futuro |
 
 ---
@@ -100,7 +101,7 @@ Fontes para mineração:
 | --- | --- | --- |
 | `start-feather.sh` | Manual Fortaleza módulo 10 / lab N5 | Tails | 🟡 Extraído |
 | `start-electrum.sh` | Manual Fortaleza / cap. 7 | Tails | 🟡 Extraído |
-| `start-retoswap.sh` | Manual Fortaleza | Tails |
+| `start-retoswap.sh` | Manual Fortaleza / cap. 10 | Tails | 🟡 Extraído |
 | `backup-persistencia.sh` | cap. 7 / Manual Fortaleza | Tails |
 
 > **Regra:** texto claro, comentado linha a linha. Nunca binário de terceiros.

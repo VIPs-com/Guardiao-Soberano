@@ -9,6 +9,9 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- Labs N3: Whonix VirtualBox, Node+EPS, verificação PGP (`01`–`03`)
+- Labs N5: eigenwallet, RetoSwap, defesa ABCTracer (`01`, `03`, `04`)
+- Script `start-retoswap.sh`
 - Lab `02-feather-tails-instalacao.md` e script `start-feather.sh`
 - Feather Wallet no Apêndice D (fingerprint + seção 2.8.1)
 - Seção “Leitura complementar” no Cap. 11 (ponte ao Cap. 13)
