@@ -116,7 +116,7 @@ Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow mon
 ### Passo 2.6 — Testar envio (ciclo PSBT completo)
 
 ```
-□ Sparrow → Send → criar transação de 0,00005 BTC
+□ Sparrow → Enviar (Send) → criar transação de 0,00005 BTC
  - Enviar para outro endereço seu (ou de um amigo)
  - Exportar PSBT para assinatura offline:
    • **MicroSD:** salvar PSBT no cartão → dispositivo → Ready to Sign
@@ -501,7 +501,7 @@ Com o Electrum como alternativa, você reforça a mesma arquitetura: **Tails obs
 
 ## Aprofundamento: SeedSigner, SeedQR e PSBT via QR
 
-> **Nota:** Material expandido do **Capítulo 6** e lab [`N1/03-psbt-via-qr.md`](../laboratorio/nivel-1-cofre/03-psbt-via-qr.md). Leitura opcional para montagem DIY detalhada.
+> **Nota:** Material expandido do **Capítulo 6** e lab `laboratorio/nivel-1-cofre/03-psbt-via-qr.md`. Leitura opcional para montagem DIY detalhada.
 
 **Filosofia SeedSigner:** peças genéricas compradas separadamente, de múltiplos fornecedores, sem identidade ligada a "hardware wallet". Custo total abaixo de €50. Código auditável por qualquer pessoa. Zero confiança no fabricante.
 
@@ -703,9 +703,9 @@ Sparrow
 
 ① Construir a transação no Sparrow
 
-Send → destinatário → valor → fee → Create Transaction → revisar inputs/outputs → Finalize Transaction for Signing → aparece o botão "Show QR"
+Send → destinatário → valor → taxa → **Criar transação** → revisar inputs/outputs → **Finalizar para assinatura** → **Mostrar QR**
 
-Sparrow → Send → Pay to: endereço Bitcoin de destino → Label: descrição (local, não vai para blockchain) → Amount: valor em BTC ou sats → Fee: selecionar (low/medium/high ou manual) → Create Transaction → Inspecionar: inputs, outputs, change address → Finalize Transaction for Signing → Show QR ← botão que aparece agora
+Sparrow → **Enviar** → Para (Pay to): endereço → Rótulo (Label) → Valor (Amount) → Taxa (Fee) → **Criar transação** → inspecionar troco → **Finalizar para assinatura** → **Mostrar QR**
 
 Sparrow
 

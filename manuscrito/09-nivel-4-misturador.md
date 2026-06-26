@@ -137,6 +137,8 @@ Conceitos para pesquisar antes de começar:
 
 ### Passo 4.7 — Instalar e TESTAR JoinMarket (backup)
 
+> Lab: `laboratorio/nivel-4-misturador/03-joinmarket-opcional.md` · alternativas: **Capítulo 14**
+
 ```
 □ NÃO basta instalar — precisa TESTAR
 □ clonar JoinMarket no Whonix (git clone)

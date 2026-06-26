@@ -63,6 +63,8 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
  - Transmitir transação assinada
 ```
 
+> Lab complementar: `laboratorio/nivel-6-soberano/02-scripts-operador-tails.md`
+
 ---
 
 ### Passo 6.3 — Dominar entrada e saída sem KYC

@@ -126,7 +126,8 @@ $cover    = "$recursos\cover.jpg"
 $versao   = "1.1"
 $nome     = "guardiao-soberano-v$versao"
 # Pandoc procura recursos (imagens) nestes diretorios — necessario para embed no EPUB/MOBI
-$resourcePath = "$base;$ms;$imagens"
+$lab     = "$base\laboratorio"
+$resourcePath = "$base;$ms;$imagens;$lab"
 
 
 if ($PDF) {

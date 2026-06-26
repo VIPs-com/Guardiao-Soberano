@@ -10,6 +10,8 @@ Gerar uma seed BIP39 com entropia própria, sem confiar em nenhum software. Adqu
 
 **Tempo estimado:** 2–4 dias | **Dificuldade:** ★★☆☆☆
 
+> **Nota:** O Passo 0.7 (primeiros satoshis) pode ser adiado até o Nível 2, quando você tiver endereço de recebimento no Sparrow.
+
 **Pré-requisitos:** Nenhum. Você começa aqui.
 
 ---
@@ -26,6 +28,8 @@ Uma semente que você — e apenas você — planta. Em aço. Com entropia gerad
 
 Este capítulo é o fundamento sobre o qual todo o resto será construído. Não tenha pressa. Cada minuto gasto aqui é um minuto que protege o resto da sua vida financeira.
 
+Vamos começar pelo físico — antes de abrir qualquer programa.
+
 ---
 
 ### Passo 0.1 — Comprar os materiais físicos
@@ -38,10 +42,10 @@ Antes de qualquer software, você precisa de coisas tangíveis.
  - Cores diferentes ajudam a não confundir
 
 □ Comprar material para backup físico:
- Opção A: Placa de aço inox + gravador elétrico (~R$100)
- Opção B: Kit de arruelas (washers) inox + estilete (~R$50)
- Opção C: Cryptosteel ou similar (~R$500)
- Opção D: SeedQR estampado em metal (~R$150)
+ Opção A: Placa de aço inox + gravador elétrico (~R$ 100)
+ Opção B: Kit de arruelas (washers) inox + estilete (~R$ 50)
+ Opção C: Cryptosteel ou similar (~R$ 500)
+ Opção D: SeedQR estampado em metal (~R$ 150)
 
 □ Comprar envelope pardo (para papel intermediário)
 
@@ -134,7 +138,7 @@ Agora você vai **simular** a geração da seed para validar o processo. As pala
 
 > **Quando fazer:** depois de gerar a seed **real** no dispositivo air-gapped (Capítulo 6). O Passo 0.4 foi só simulação — **não grave em metal** palavras de exercício.
 
-Use os materiais que comprou no Passo 0.1. O lab [`02-backup-aco.md`](../laboratorio/nivel-0-semente/02-backup-aco.md) detalha a gravação.
+Use os materiais que comprou no Passo 0.1. O lab `laboratorio/nivel-0-semente/02-backup-aco.md` (repositório do projeto) detalha a gravação.
 
 ```
 □ Conferir as 24 palavras no dispositivo (3 leituras em voz alta)
@@ -208,7 +212,12 @@ Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e do
  - Transfira para Sparrow (on-chain)
  ⚠️ Pix tem registro bancário. Para anonimato máximo, use conta sem vínculo óbvio.
 
-□ Opção B: RetoSwap/Haveno (avançado — Nível 5)
+□ Opção D: Trabalho/freelance
+ - Oferecer serviços e receber em BTC
+ - Cliente envia diretamente para seu endereço
+ ✅ BTC entra sem exchange
+
+□ ⚠️ Opção B (avançado — Nível 5): RetoSwap/Haveno
  - Dinheiro físico → XMR → BTC
  - Instale o RetoSwap (nível 5)
  - Procure oferta "cash by mail" (dinheiro por correio)
@@ -217,11 +226,6 @@ Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e do
  - Vendedor confirma → XMR liberado
  - Depois: swap XMR→BTC (nível 5)
  ✅ Zero registro digital do pagamento
-
-□ Opção D: Trabalho/freelance
- - Oferecer serviços e receber em BTC
- - Cliente envia diretamente para seu endereço
- ✅ BTC entra sem exchange
 
 □ Para começar, qualquer valor serve (R$ 50–100)
 □ Anote em papel: método, valor, data (no Nível 2, migre para KeePassXC)
@@ -380,20 +384,7 @@ echo "Role o dado e digite o número (1-6):"
 
 4. **Quantidade recomendada** (24 palavras):
  * Alinhe ao Passo 0.3: **100 pares de lançamentos** (ou siga a contagem do dispositivo no Cap. 6).
-5. Concatene todos os números (Ex.: 4256134...) e use uma ferramenta offline confiável.
-
-**Ferramenta Offline Recomendada**:
-
-* Baixe o **Ian Coleman BIP39 Tool** (versão HTML offline):
- 1. No Tails online, baixe: https://iancoleman.io/bip39/
- 2. Salve a página HTML completa no volume persistente.
- 3. Reinicie o Tails **sem rede**.
- 4. Abra o arquivo HTML no navegador (Firefox) offline.
- 5. Cole a sequência de números do dado no campo "Entropy".
- 6. Escolha **BIP39** → 24 palavras → Native Segwit.
- 7. Anote as palavras + passphrase (opcional).
-
-**Nunca** use este site online.
+5. Concatene todos os números (Ex.: 4256134...) e converta offline conforme o **Passo 0.4** (Ian Coleman no Tails, sem rede).
 
 ### Boas Práticas de Segurança (Obrigatório)
 

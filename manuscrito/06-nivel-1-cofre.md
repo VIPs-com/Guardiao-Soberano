@@ -23,11 +23,11 @@ Você tem opções. Escolha UMA:
 │ GUIA DE ESCOLHA │
 ├─────────────────────────────────────────────────────────────┤
 │ │
-│ ⭐ COLDCARD MK5 (Recomendado) — ~US$170 │
+│ ⭐ COLDCARD MK5 (Recomendado) — ~US$ 170 │
 │ • Padrão ouro da comunidade │
 │ • Assina via SD card (PSBT) ou QR │
-│ • Trick PIN, carteira de coerção (duress), Brick PIN │
-│ • Bitcoin-only, open source firmware │
+│ • Trick PIN / Brick PIN: PIN alternativo abre decoy ou apaga seed (manual Coinkite) │
+│ • Carteira de coerção (duress), Bitcoin-only, open source │
 │ • Ideal: quem quer o melhor │
 │ │
 │ 💰 BLOCKSTREAM JADE PLUS (Econômico) — ~US$169 │
@@ -73,6 +73,10 @@ Você tem opções. Escolha UMA:
  - Casa de um amigo ou familiar
  - Receber em mãos (se loja física)
 ```
+
+### Dica de João
+
+João pediu o Coldcard com cartão-presente de supermercado e recebeu na caixa postal do condomínio — nenhum elo direto com o CPF dele. "Parece paranoia", disse, "até você ver quanta gente perde privacidade no checkout."
 
 ---
 
@@ -160,7 +164,7 @@ Você tem opções. Escolha UMA:
 
 > **Ordem crítica:** faça **antes** do teste destrutivo (1.7). Se apagar a seed do dispositivo sem backup em metal, pode perder tudo.
 
-Siga o **Capítulo 5, Passo 0.5** e o lab [`02-backup-aco.md`](../laboratorio/nivel-0-semente/02-backup-aco.md).
+Siga o **Capítulo 5, Passo 0.5** e o lab `laboratorio/nivel-0-semente/02-backup-aco.md` (repositório do projeto).
 
 ```
 □ Conferir as 24 palavras no dispositivo (3 leituras em voz alta)
@@ -267,7 +271,7 @@ Outros (Keystone, NGRAVE, ELLIPAL, Specter DIY): ver Cap. 14 — fora do guia in
 
 ## Tutorial: Fluxo PSBT via QR — após Capítulo 7
 
-> **Pré-requisitos:** Tails + Sparrow instalados (Capítulo 7). Lab: [`03-psbt-via-qr.md`](../laboratorio/nivel-1-cofre/03-psbt-via-qr.md)
+> **Pré-requisitos:** Tails + Sparrow instalados (Capítulo 7). Lab: `laboratorio/nivel-1-cofre/03-psbt-via-qr.md`
 
 **Fluxo PSBT via QR com Sparrow + dispositivo air-gapped (SeedSigner ou Krux)**
 
@@ -285,40 +289,29 @@ Este é o **fluxo padrão air-gapped** usado pela comunidade em 2026. Funciona e
 ### Passo a passo — Sparrow (Tails, online)
 
 1. Abra a carteira **somente leitura** (watch-only).
-2. Aba **Send** (Enviar).
-3. Preencha endereço de destino, quantia e taxa (fee rate — use **Calculate** ou defina manualmente).
-4. **Create Transaction** (Criar transação).
+2. Aba **Enviar** (Send).
+3. Preencha endereço de destino, quantia e taxa (fee rate — use **Calcular** ou defina manualmente).
+4. **Criar transação** (Create Transaction).
 5. Revise inputs, outputs, taxa e endereço de troco (change address).
-6. **Finalize Transaction for Signing** (Finalizar para assinatura).
+6. **Finalizar para assinatura** (Finalize Transaction for Signing).
 
 ### Exportar PSBT como QR (Sparrow)
 
-* Clique em **Show QR** (ou **Show BBQR** se for grande).
-* Sparrow usa **UR (Uniform Resource)** ou **BBQR** (animated/fountain QR codes) para transmitir PSBTs grandes de forma confiável.
-* Deixe a tela do Sparrow exibindo o QR animado (ou sequência de QRs).
+* Clique em **Mostrar QR** (Show QR) ou **Mostrar BBQR** se a transação for grande.
+* Sparrow usa **UR** ou **BBQR** (QR animado) para PSBTs grandes.
+* Deixe a tela exibindo o QR animado.
 
-### No Dispositivo Air-Gapped (SeedSigner ou Krux)
+### No dispositivo air-gapped (SeedSigner ou Krux)
 
-* **SeedSigner**:
- 1. Ligue o dispositivo.
- 2. Vá em **Sign → PSBT → Scan QR** (ou similar).
- 3. Aponte a câmera para a tela do computador e escaneie o QR animado.
- 4. O SeedSigner vai reconstruir a transação e **mostrar os detalhes** na tela (endereços, valores, fee).
- 5. **Verifique cuidadosamente** se está correto.
- 6. Confirme e assine → ele vai gerar QR(s) com a PSBT assinada.
-* **Krux**:
- 1. Vá em **Sign → PSBT → Load from camera**.
- 2. Escaneie o QR animado do Sparrow.
- 3. Revise os detalhes da transação.
- 4. Confirme → **Sign to QR code**.
+* **SeedSigner:** Ligue → **Assinar → PSBT → Escanear QR** → confira endereços e valores → assine → mostre o QR assinado.
+* **Krux:** **Assinar → PSBT → Carregar da câmera** → revise → **Assinar para QR**.
 
-### Importar PSBT Assinada de Volta no Sparrow
+### Importar PSBT assinada de volta no Sparrow
 
-1. No Sparrow, clique em **Scan QR** (ou Scan BBQR).
-2. Aponte a câmera do laptop para a tela do SeedSigner/Krux (que está mostrando o QR da transação assinada).
-3. Sparrow vai ler, combinar as partes (se for animado) e carregar a PSBT com a assinatura.
-4. Verifique as **assinaturas** (deve aparecer «1 of 1» ou o número correto no multisig).
-5. Clique em **Broadcast Transaction** para enviar para a rede.
+1. No Sparrow, **Escanear QR** (Scan QR / Scan BBQR).
+2. Aponte a webcam para o QR do dispositivo.
+3. Verifique as assinaturas («1 de 1» ou o número correto no multisig).
+4. **Transmitir transação** (Broadcast Transaction).
 
 ---
 
@@ -342,7 +335,7 @@ Este é o **fluxo padrão air-gapped** usado pela comunidade em 2026. Funciona e
 
 ## Comparativo: SeedSigner vs Krux (opcional)
 
-> Lab detalhado: [`04-seedsigner-vs-krux-opcional.md`](../laboratorio/nivel-1-cofre/04-seedsigner-vs-krux-opcional.md)
+> Lab detalhado: `laboratorio/nivel-1-cofre/04-seedsigner-vs-krux-opcional.md`
 
 **SeedSigner e Krux — alternativas DIY air-gapped para Sparrow no Tails**
 
@@ -353,75 +346,22 @@ Esses dois projetos são **excelentes opções open-source e baratas** para quem
 | Aspecto | **SeedSigner** | **Krux** |
 | --- | --- | --- |
 | **Custo** | ~US$ 30–50 (Raspberry Pi Zero 1.3 + peças) | ~US$ 15–60 (Maix Amigo, M5StickV ou Yahboom) |
-| **Dificuldade** | Média (precisa montar) | Fácil a Média (muitas placas "plug-and-play") |
-| **Stateless** | Sim (não guarda seed permanentemente) | Sim (pode ser stateless ou usar SD criptografada) |
-| **Air-Gapped** | QR codes (câmera + tela) | QR codes + SD card |
-| **Integração Sparrow** | Excelente (PSBT via QR) | Excelente (PSBT via QR/SD) |
-| **Vantagens** | Totalmente stateless, comunidade madura, barato | Mais opções de hardware, mais rápido em alguns casos, fácil de flash |
-| **Desvantagens** | Montagem manual, Raspberry Pi específico | Hardware genérico (verificar supply chain) |
-| **Melhor para** | Quem gosta de DIY completo e máxima stateless | Quem quer algo mais simples de comprar/pronto |
+| **Dificuldade** | Média (montagem) | Fácil a média (placas plug-and-play) |
+| **Stateless** | Sim | Sim (ou SD criptografada) |
+| **Integração Sparrow** | PSBT via QR | PSBT via QR/SD |
+| **Melhor para** | DIY completo, máxima stateless | Começar rápido, menos montagem |
 
-Ambos suportam **multisig**, BIP39, passphrase e export de xpub/zpub para carteira somente leitura no Sparrow.
+Ambos suportam multisig, BIP39, passphrase e export de xpub para carteira watch-only no Sparrow.
 
-### SeedSigner (Mais Popular para Stateless)
+### Recomendação
 
-* **O que é**: Dispositivo air-gapped construído com Raspberry Pi Zero 1.3 (sem WiFi/Bluetooth) + tela Waveshare + câmera. Roda software 100% open-source.
-* **Por que bom para novatos no seu setup**: Stateless = seed só fica na memória enquanto ligado. Perfeito para uso com Sparrow no Tails (crie PSBT online → escaneie QR → assine offline → escaneie de volta).
-* **Hardware necessário** (links oficiais em seedsigner.com):
- * Raspberry Pi Zero 1.3
- * Waveshare 1.3" LCD HAT com controles
- * Câmera Raspberry Pi
- * Case opcional
-* **Instalação básica**:
- 1. Baixe a imagem mais recente no GitHub (seedsigner.com ou github.com/SeedSigner).
- 2. Flash no SD card (use Raspberry Pi Imager ou `dd`).
- 3. Monte o hardware (há muitos vídeos tutoriais passo a passo).
- 4. Ligue → gere seed com dice rolls (alta entropia) → backup em metal.
-* **Uso com Sparrow**:
- * No Sparrow: crie carteira multisig ou single-sig somente leitura (watch-only).
- * Exporte PSBT via QR.
- * SeedSigner escaneia, assina e mostra QR de volta.
-* **Recursos extras**: Suporte a Satochip (secure element), BIP85, etc.
+* **Krux** se quiser algo mais simples de adquirir e flashear.
+* **SeedSigner** se preferir montagem completa e stateless estrito.
+* Fluxo: montar/flashear → seed offline (dice rolls) → metal + teste restore → Sparrow watch-only + PSBT via QR (tutorial acima).
 
-**Site oficial**: seedsigner.com
-**GitHub**: github.com/SeedSigner/seedsigner
+Sites: [seedsigner.com](https://seedsigner.com) · [selfcustody.github.io/krux](https://selfcustody.github.io/krux)
 
-### Krux (Mais Fácil de Começar)
-
-* **O que é**: Firmware open-source que transforma placas baratas (Kendryte K210) em signers Bitcoin air-gapped.
-* **Vantagens para novatos**: Menos montagem. Placas como Maix Amigo ou M5StickV já vêm com tela e câmera. Fácil de flashar o firmware.
-* **Hardware recomendado**:
- * Maix Amigo
- * Yahboom K210
- * M5StickV (prefira revendedor listado no site Krux — evite marketplaces não verificados)
-* **Instalação básica**:
- 1. Baixe o Krux Installer ou firmware no GitHub (selfcustody.github.io/krux) — **verifique a release atual** no site oficial.
- 2. Flash via USB (muitas placas têm ferramenta simples).
- 3. Ative verificação de integridade do firmware (TC Flash Hash).
- 4. Gere seed offline.
-* **Uso com Sparrow**: Mesmo fluxo de QR codes para PSBT. Excelente suporte a multisig.
-
-**Site oficial**: selfcustody.github.io/krux
-**GitHub**: github.com/selfcustody/krux
-
-### Recomendação para iniciantes (Sparrow no Tails)
-
-* **Comece com Krux** se quiser algo mais simples e rápido de adquirir.
-* **Vá de SeedSigner** se preferir máxima stateless e não se importar com montagem (muito elogiado pela comunidade).
-* **Fluxo ideal**:
- 1. Monte/flashe o dispositivo.
- 2. Gere seed **offline** (dice rolls).
- 3. Backup em metal + teste restore.
- 4. No Tails + Sparrow: carteira watch-only + PSBT via QR.
- 5. Use para transações sensíveis; mobile para valores pequenos.
-
-**Dicas de Segurança (Importante!)**:
-
-* Compre peças de fontes confiáveis (evite ataques na cadeia de entrega — supply chain).
-* Verifique hashes e builds reproduzíveis.
-* Sempre teste com pequenas quantias.
-* Combine com multisig (Ex.: SeedSigner + outra seed em papel).
-* Use Tails amnésico para Sparrow.
+**Segurança:** compre peças de fontes confiáveis, verifique hashes, teste com valores mínimos antes de depositar.
 
 ---
 
