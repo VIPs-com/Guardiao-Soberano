@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Fluxo PSBT">
+    <mxGraphModel dx="1200" dy="500" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Step 1: Sparrow cria (ONLINE) -->
+        <mxCell id="10" value="💻 Sparrow&#xa;cria transação&#xa;(ONLINE)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 2: Air-gap -->
+        <mxCell id="11" value="📱 QR animado&#xa;ou&#xa;💾 MicroSD&#xa;(air-gap)" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="270" y="160" width="160" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 3: Device signs (OFFLINE) -->
+        <mxCell id="12" value="🔐 Dispositivo&#xa;air-gapped&#xa;verifica e assina&#xa;(OFFLINE)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="490" y="170" width="180" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 4: Air-gap return -->
+        <mxCell id="13" value="📱 QR assinado&#xa;ou&#xa;💾 MicroSD&#xa;(air-gap)" style="rhombus;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;align=center;" vertex="1" parent="1">
+          <mxGeometry x="730" y="160" width="160" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Step 5: Sparrow broadcasts (ONLINE) -->
+        <mxCell id="14" value="💻 Sparrow&#xa;transmite&#xa;via Tor&#xa;(ONLINE)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="950" y="180" width="180" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Bitcoin network -->
+        <mxCell id="15" value="⛓️ Rede Bitcoin" style="shape=cloud;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1190" y="170" width="180" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Labels: ONLINE / OFFLINE zones -->
+        <mxCell id="30" value="ZONA ONLINE" style="text;fontSize=16;fontStyle=3;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="200" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="31" value="ZONA OFFLINE (AIR-GAPPED)" style="text;fontSize=16;fontStyle=3;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="440" y="60" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="32" value="ZONA ONLINE" style="text;fontSize=16;fontStyle=3;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="930" y="60" width="200" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

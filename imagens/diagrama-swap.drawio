@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Fluxo de Swap BTC-XMR-BTC">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- TITLE -->
+        <mxCell id="100" value="Fluxo de Swap: BTC → XMR → BTC (Privacidade Máxima)" style="text;fontSize=20;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="100" y="20" width="900" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- LEFT COLUMN: BTC side -->
+        <mxCell id="10" value="₿ BTC com KYC&#xa;(Exchange / P2P)" style="rounded=1;fillColor=#ffcccc;strokeColor=#cc4444;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="🔀 CoinJoin&#xa;(Whirlpool — Sparrow)&#xa;anonset ≥ 5" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="✅ BTC misturado&#xa;(Postmix — limpo)&#xa;aguardar 48h+" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="380" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- CENTER COLUMN: Monero bridge -->
+        <mxCell id="20" value="🔵 MONERO (XMR)&#xa;Privacidade Nativa&#xa;&#xa;🔒 Ring Signatures&#xa;🔒 Stealth Addresses&#xa;🔒 RingCT&#xa;🔒 FCMP++ (2026)" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="420" y="200" width="240" height="220" as="geometry"/>
+        </mxCell>
+
+        <!-- Timing note -->
+        <mxCell id="21" value="⏰ Intervalo: 24h–7 dias&#xa;(defesa ABCTracer)" style="text;fontSize=13;fontStyle=2;fontColor=#cc4444;align=center;" vertex="1" parent="1">
+          <mxGeometry x="390" y="450" width="300" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- RIGHT COLUMN: Clean BTC -->
+        <mxCell id="30" value="✅ BTC limpo&#xa;(sem histórico KYC)&#xa;Endereço virgem Coldcard" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="280" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="31" value="🔐 Cold Storage&#xa;Coldcard MK5" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="430" width="240" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows left: BTC side -->
+        <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" parent="1" source="10" target="11"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" parent="1" source="11" target="12"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Arrow: BTC mixado -> eigenwallet -> XMR -->
+        <mxCell id="42" value="eigenwallet&#xa;(BTC→XMR)&#xa;trustless / Tor" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;fontStyle=1;fontColor=#9673a6;" edge="1" parent="1" source="12" target="20">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: XMR -> RetoSwap -> BTC limpo -->
+        <mxCell id="43" value="RetoSwap&#xa;(XMR→BTC)&#xa;P2P / Tor" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;fontStyle=1;fontColor=#82b366;" edge="1" parent="1" source="20" target="30">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrow: BTC limpo -> cold storage -->
+        <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" parent="1" source="30" target="31"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Labels -->
+        <mxCell id="50" value="BITCOIN (com histórico)" style="text;fontSize=14;fontStyle=3;fontColor=#cc4444;" vertex="1" parent="1">
+          <mxGeometry x="60" y="70" width="240" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="51" value="MONERO (ponte privada)" style="text;fontSize=14;fontStyle=3;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="420" y="170" width="240" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="52" value="BITCOIN (limpo)" style="text;fontSize=14;fontStyle=3;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="790" y="250" width="240" height="25" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

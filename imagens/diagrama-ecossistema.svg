@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" font-family="DejaVu Sans,Arial,sans-serif">
+  <rect width="1920" height="1080" fill="#f8f8f8"/>
+  <text x="960" y="38" font-size="26" font-weight="bold" text-anchor="middle" fill="#222">Ecossistema Guardião Soberano — Arquitetura Completa</text>
+
+  <!-- INTERNET CLOUD (topo) -->
+  <rect x="60" y="55" width="1800" height="160" rx="80" ry="80" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="960" y="90" font-size="20" font-weight="bold" text-anchor="middle" fill="#1a3a6a">☁  INTERNET (REDE TOR)</text>
+  <!-- Cloud boxes -->
+  <rect x="120" y="105" width="360" height="80" rx="10" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <text x="300" y="142" font-size="15" text-anchor="middle" fill="#555">Coordinator Whirlpool</text>
+  <text x="300" y="163" font-size="13" text-anchor="middle" fill="#888">.onion</text>
+
+  <rect x="560" y="105" width="300" height="80" rx="10" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <text x="710" y="142" font-size="15" text-anchor="middle" fill="#555">eigenwallet</text>
+  <text x="710" y="163" font-size="13" text-anchor="middle" fill="#888">.onion (BTC→XMR)</text>
+
+  <rect x="940" y="105" width="340" height="80" rx="10" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <text x="1110" y="142" font-size="15" text-anchor="middle" fill="#555">Rede Bitcoin / Monero</text>
+  <text x="1110" y="163" font-size="13" text-anchor="middle" fill="#888">peers via Tor</text>
+
+  <rect x="1360" y="105" width="290" height="80" rx="10" fill="#fff2cc" stroke="#d6b656" stroke-width="1.5"/>
+  <text x="1505" y="142" font-size="15" text-anchor="middle" fill="#555">RoboSats</text>
+  <text x="1505" y="163" font-size="13" text-anchor="middle" fill="#888">.onion (Pix→BTC)</text>
+
+  <!-- Arrow Internet ↕ Host -->
+  <line x1="960" y1="215" x2="960" y2="270" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arr)"/>
+  <text x="980" y="248" font-size="14" fill="#6c8ebf" font-style="italic">só via Tor</text>
+
+  <!-- HOST FÍSICO container -->
+  <rect x="60" y="270" width="1800" height="380" rx="12" fill="#f0f0f0" stroke="#666" stroke-width="2"/>
+  <text x="140" y="300" font-size="20" font-weight="bold" fill="#333">HOST FÍSICO</text>
+
+  <!-- Gateway VM -->
+  <rect x="100" y="315" width="400" height="310" rx="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="300" y="345" font-size="17" font-weight="bold" text-anchor="middle" fill="#2d6a2d">🌐 Whonix-Gateway</text>
+  <text x="300" y="365" font-size="13" text-anchor="middle" fill="#555">10.152.152.10</text>
+  <line x1="110" y1="375" x2="490" y2="375" stroke="#82b366" stroke-width="1"/>
+  <text x="130" y="400" font-size="13" fill="#444">• Tor daemon</text>
+  <text x="130" y="422" font-size="13" fill="#444">• Kill Switch</text>
+  <text x="130" y="444" font-size="13" fill="#444">• Stream Isolation</text>
+  <text x="130" y="466" font-size="13" fill="#444">• Firewall</text>
+  <text x="130" y="488" font-size="13" fill="#444">• Nenhum tráfego</text>
+  <text x="130" y="508" font-size="13" fill="#444">  sai sem Tor</text>
+
+  <!-- Workstation VM -->
+  <rect x="580" y="315" width="440" height="310" rx="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="800" y="345" font-size="17" font-weight="bold" text-anchor="middle" fill="#5a3a7a">💻 Whonix-Workstation</text>
+  <text x="800" y="365" font-size="13" text-anchor="middle" fill="#555">10.152.152.20</text>
+  <line x1="590" y1="375" x2="1010" y2="375" stroke="#9673a6" stroke-width="1"/>
+  <text x="610" y="400" font-size="13" fill="#444">• Sparrow Wallet</text>
+  <text x="610" y="422" font-size="13" fill="#444">• Whirlpool (Sparrow)</text>
+  <text x="610" y="444" font-size="13" fill="#444">• eigenwallet</text>
+  <text x="610" y="466" font-size="13" fill="#444">• Feather Wallet</text>
+  <text x="610" y="488" font-size="13" fill="#444">• KeePassXC</text>
+  <text x="610" y="510" font-size="13" fill="#444">• RetoSwap</text>
+  <!-- Shared folder label -->
+  <rect x="590" y="560" width="410" height="50" rx="6" fill="#f5f5dc" stroke="#aaa" stroke-width="1"/>
+  <text x="795" y="582" font-size="13" text-anchor="middle" fill="#555">📁 /psbt_bridge</text>
+  <text x="795" y="598" font-size="11" text-anchor="middle" fill="#888">(pasta compartilhada PSBT)</text>
+
+  <!-- Bitcoin Node VM -->
+  <rect x="1100" y="315" width="430" height="310" rx="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <text x="1315" y="345" font-size="17" font-weight="bold" text-anchor="middle" fill="#7a4a00">⛓️ Bitcoin-Node</text>
+  <text x="1315" y="365" font-size="13" text-anchor="middle" fill="#555">10.152.152.30</text>
+  <line x1="1110" y1="375" x2="1520" y2="375" stroke="#d79b00" stroke-width="1"/>
+  <text x="1130" y="400" font-size="13" fill="#444">• Bitcoin Core</text>
+  <text x="1130" y="422" font-size="13" fill="#444">• Fulcrum / EPS</text>
+  <text x="1130" y="444" font-size="13" fill="#444">• Tor hidden service</text>
+  <text x="1130" y="466" font-size="13" fill="#444">• .onion próprio</text>
+  <text x="1130" y="488" font-size="13" fill="#444">• 400+ GB SSD</text>
+
+  <!-- Tails USB -->
+  <rect x="1600" y="315" width="230" height="310" rx="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1715" y="345" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a3a6a">🔵 Tails</text>
+  <text x="1715" y="365" font-size="12" text-anchor="middle" fill="#555">USB</text>
+  <line x1="1610" y1="375" x2="1820" y2="375" stroke="#6c8ebf" stroke-width="1"/>
+  <text x="1715" y="398" font-size="12" text-anchor="middle" fill="#444">Ambiente</text>
+  <text x="1715" y="416" font-size="12" text-anchor="middle" fill="#444">cirúrgico</text>
+  <text x="1715" y="438" font-size="12" text-anchor="middle" fill="#444">Swaps alto</text>
+  <text x="1715" y="456" font-size="12" text-anchor="middle" fill="#444">valor</text>
+  <text x="1715" y="480" font-size="12" text-anchor="middle" fill="#444">Amnésia</text>
+  <text x="1715" y="498" font-size="12" text-anchor="middle" fill="#444">total</text>
+
+  <!-- Arrows between VMs -->
+  <line x1="500" y1="470" x2="580" y2="470" stroke="#555" stroke-width="2" marker-end="url(#arr2)"/>
+  <line x1="1020" y1="470" x2="1100" y2="470" stroke="#555" stroke-width="2" marker-end="url(#arr2)"/>
+  <text x="536" y="460" font-size="11" fill="#555" text-anchor="middle">rede interna</text>
+  <text x="1056" y="460" font-size="11" fill="#555" text-anchor="middle">rede interna</text>
+
+  <!-- Arrow air-gap -->
+  <line x1="960" y1="650" x2="960" y2="710" stroke="#cc4444" stroke-width="3" stroke-dasharray="10,5" marker-end="url(#arr3)"/>
+  <text x="1010" y="682" font-size="15" fill="#cc4444" font-weight="bold">air-gap</text>
+  <text x="1010" y="700" font-size="12" fill="#cc4444">(QR ou MicroSD)</text>
+
+  <!-- DISPOSITIVOS FÍSICOS container -->
+  <rect x="60" y="710" width="1800" height="230" rx="12" fill="#fffde7" stroke="#d6b656" stroke-width="2"/>
+  <text x="140" y="740" font-size="20" font-weight="bold" fill="#7a6000">DISPOSITIVOS FÍSICOS</text>
+
+  <!-- Coldcard -->
+  <rect x="100" y="755" width="300" height="160" rx="10" fill="#ffcccc" stroke="#cc4444" stroke-width="1.5"/>
+  <text x="250" y="783" font-size="15" font-weight="bold" text-anchor="middle" fill="#8a1a1a">🔐 Coldcard MK5</text>
+  <line x1="110" y1="790" x2="390" y2="790" stroke="#cc4444" stroke-width="1"/>
+  <text x="250" y="812" font-size="13" text-anchor="middle" fill="#444">Assina PSBTs offline</text>
+  <text x="250" y="832" font-size="13" text-anchor="middle" fill="#444">Nunca conecta</text>
+  <text x="250" y="852" font-size="13" text-anchor="middle" fill="#444">à internet</text>
+  <text x="250" y="872" font-size="12" text-anchor="middle" fill="#888">+ Trick PIN / Duress</text>
+  <text x="250" y="892" font-size="12" text-anchor="middle" fill="#888">+ MicroSD bridge</text>
+
+  <!-- Steel plates -->
+  <rect x="470" y="755" width="300" height="160" rx="10" fill="#f5f5f5" stroke="#888" stroke-width="1.5"/>
+  <text x="620" y="783" font-size="15" font-weight="bold" text-anchor="middle" fill="#333">🔩 Placas de Aço</text>
+  <line x1="480" y1="790" x2="760" y2="790" stroke="#888" stroke-width="1"/>
+  <text x="620" y="812" font-size="13" text-anchor="middle" fill="#444">Seed backup (2x)</text>
+  <text x="620" y="832" font-size="13" text-anchor="middle" fill="#444">Local A + Local B</text>
+  <text x="620" y="855" font-size="12" text-anchor="middle" fill="#888">separados fisicamente</text>
+  <text x="620" y="875" font-size="12" text-anchor="middle" fill="#888">resistem a fogo/água</text>
+
+  <!-- Passphrase -->
+  <rect x="840" y="755" width="280" height="160" rx="10" fill="#f5f5f5" stroke="#888" stroke-width="1.5"/>
+  <text x="980" y="783" font-size="15" font-weight="bold" text-anchor="middle" fill="#333">🔑 Passphrase</text>
+  <line x1="850" y1="790" x2="1110" y2="790" stroke="#888" stroke-width="1"/>
+  <text x="980" y="815" font-size="13" text-anchor="middle" fill="#444">Local separado</text>
+  <text x="980" y="838" font-size="13" text-anchor="middle" fill="#444">ou memorizada</text>
+  <text x="980" y="862" font-size="12" text-anchor="middle" fill="#888">25ª palavra (BIP39)</text>
+  <text x="980" y="882" font-size="12" text-anchor="middle" fill="#888">2ª fator físico</text>
+
+  <!-- Mobile -->
+  <rect x="1190" y="755" width="280" height="160" rx="10" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5"/>
+  <text x="1330" y="783" font-size="15" font-weight="bold" text-anchor="middle" fill="#2d5a2d">📱 Celular</text>
+  <line x1="1200" y1="790" x2="1460" y2="790" stroke="#82b366" stroke-width="1"/>
+  <text x="1330" y="812" font-size="13" text-anchor="middle" fill="#444">CalyxOS / GrapheneOS</text>
+  <text x="1330" y="832" font-size="13" text-anchor="middle" fill="#444">Watch-only</text>
+  <text x="1330" y="855" font-size="12" text-anchor="middle" fill="#888">Sparrow + Feather</text>
+  <text x="1330" y="875" font-size="12" text-anchor="middle" fill="#888">KeePassDX + Orbot</text>
+
+  <!-- MicroSD -->
+  <rect x="1540" y="755" width="280" height="160" rx="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5"/>
+  <text x="1680" y="783" font-size="15" font-weight="bold" text-anchor="middle" fill="#1a3a6a">💾 MicroSD (2x)</text>
+  <line x1="1550" y1="790" x2="1810" y2="790" stroke="#6c8ebf" stroke-width="1"/>
+  <text x="1680" y="812" font-size="13" text-anchor="middle" fill="#444">Ponte PSBT</text>
+  <text x="1680" y="835" font-size="13" text-anchor="middle" fill="#444">Firmware update</text>
+  <text x="1680" y="858" font-size="12" text-anchor="middle" fill="#888">Coldcard ↔ Sparrow</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6c8ebf"/>
+    </marker>
+    <marker id="arr2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+    <marker id="arr3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#cc4444"/>
+    </marker>
+  </defs>
+</svg>

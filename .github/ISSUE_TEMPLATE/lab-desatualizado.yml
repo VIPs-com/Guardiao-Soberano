@@ -1,0 +1,47 @@
+name: Lab desatualizado
+description: Software mudou de versão ou passo não funciona mais
+title: "[Lab] "
+labels: ["laboratorio", "manutencao"]
+body:
+  - type: dropdown
+    id: nivel
+    attributes:
+      label: Nível da trilha
+      options:
+        - "0 — A Semente"
+        - "1 — O Cofre"
+        - "2 — A Carteira Fria"
+        - "3 — O Observador"
+        - "4 — O Misturador"
+        - "5 — O Trocador"
+        - "6 — O Soberano"
+        - "7 — O Mestre"
+    validations:
+      required: true
+  - type: input
+    id: lab
+    attributes:
+      label: Arquivo do lab (caminho em laboratorio/)
+      placeholder: nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md
+    validations:
+      required: true
+  - type: input
+    id: software
+    attributes:
+      label: Software afetado
+      placeholder: Tails 7.9, Feather 2.8.1, etc.
+    validations:
+      required: true
+  - type: input
+    id: tested
+    attributes:
+      label: Versão em que você testou
+    validations:
+      required: true
+  - type: textarea
+    id: problema
+    attributes:
+      label: O que falhou?
+      description: Passo exato, mensagem de erro, comportamento esperado vs obtido
+    validations:
+      required: true

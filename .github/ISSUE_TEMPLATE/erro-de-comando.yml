@@ -1,0 +1,50 @@
+name: Erro de comando
+description: Comando do lab retorna erro ou resultado incorreto
+title: "[Comando] "
+labels: ["laboratorio", "bug"]
+body:
+  - type: input
+    id: lab
+    attributes:
+      label: Lab
+      placeholder: laboratorio/nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md
+    validations:
+      required: true
+  - type: input
+    id: passo
+    attributes:
+      label: Passo / seção
+      placeholder: "Passo 3 — Confirmar Tor"
+    validations:
+      required: true
+  - type: dropdown
+    id: ambiente
+    attributes:
+      label: Ambiente
+      options:
+        - Tails
+        - Whonix
+        - Windows (host)
+        - Linux (host)
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: comando
+    attributes:
+      label: Comando executado
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: erro
+    attributes:
+      label: Saída / mensagem de erro
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Contexto adicional
+      description: RAM do host, versão do Tails, etc.

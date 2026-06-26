@@ -1,0 +1,32 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+
+Copyright (c) 2026 Guardião Soberano — contribuidores da comunidade
+
+Este repositório (manuscrito, laboratório, imagens, recursos e documentação)
+é licenciado sob a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International (CC BY-NC-SA 4.0).
+
+Você é livre para:
+  - Compartilhar — copiar e redistribuir o material em qualquer suporte ou formato
+  - Adaptar — remixar, transformar e criar a partir do material
+
+Sob as seguintes condições:
+  - Atribuição — dar crédito apropriado, link à licença e indicar mudanças
+  - NãoComercial — não usar para fins comerciais
+  - CompartilhaIgual — distribuir contribuições sob a mesma licença
+
+Texto completo da licença:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+---
+
+Scripts em laboratorio/scripts/
+
+Os arquivos .sh em laboratorio/scripts/ são licenciados sob a MIT License,
+além da licença CC BY-NC-SA 4.0 do restante do repositório. Cada script
+deve incluir no cabeçalho:
+
+  SPDX-License-Identifier: MIT
+  Copyright (c) 2026 Guardião Soberano contributors
+
+Texto MIT: https://opensource.org/licenses/MIT

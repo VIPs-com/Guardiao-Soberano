@@ -1,0 +1,43 @@
+name: Check Links
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - '**.md'
+      - '.github/workflows/check-links.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - '**.md'
+
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --exclude-all-private
+            --exclude-mail
+            --accept 403,429,999
+            --exclude-path old
+            --exclude-path soberano-equipe-dev
+            --exclude-path saida
+            --exclude '^https?://[^/]*\.onion'
+            '**/*.md'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report
+        if: failure()
+        run: echo "Links quebrados encontrados. Corrija ou exclua URLs obsoletas."

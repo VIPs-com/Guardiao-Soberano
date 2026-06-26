@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" width="1400" height="500" font-family="DejaVu Sans,Arial,sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="500" fill="#f8f8f8"/>
+  <text x="700" y="38" font-size="24" font-weight="bold" text-anchor="middle" fill="#222">Fluxo PSBT — Assinatura Air-Gapped</text>
+
+  <!-- Zone backgrounds -->
+  <rect x="20" y="60" width="290" height="380" rx="10" fill="#dae8fc" opacity="0.3"/>
+  <rect x="330" y="60" width="200" height="380" rx="10" fill="#fff2cc" opacity="0.5"/>
+  <rect x="550" y="60" width="300" height="380" rx="10" fill="#d5e8d4" opacity="0.3"/>
+  <rect x="870" y="60" width="200" height="380" rx="10" fill="#fff2cc" opacity="0.5"/>
+  <rect x="1090" y="60" width="290" height="380" rx="10" fill="#dae8fc" opacity="0.3"/>
+
+  <!-- Zone labels -->
+  <text x="165" y="82" font-size="14" font-weight="bold" text-anchor="middle" fill="#6c8ebf">ONLINE</text>
+  <text x="430" y="82" font-size="13" font-weight="bold" text-anchor="middle" fill="#d6b656">AIR-GAP</text>
+  <text x="700" y="82" font-size="14" font-weight="bold" text-anchor="middle" fill="#82b366">OFFLINE</text>
+  <text x="970" y="82" font-size="13" font-weight="bold" text-anchor="middle" fill="#d6b656">AIR-GAP</text>
+  <text x="1235" y="82" font-size="14" font-weight="bold" text-anchor="middle" fill="#6c8ebf">ONLINE</text>
+
+  <!-- Step 1: Sparrow cria -->
+  <rect x="40" y="130" width="250" height="160" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="165" y="165" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a3a6a">💻 Sparrow</text>
+  <text x="165" y="188" font-size="14" text-anchor="middle" fill="#333">cria transação</text>
+  <text x="165" y="210" font-size="13" text-anchor="middle" fill="#555">Seleciona UTXOs</text>
+  <text x="165" y="230" font-size="13" text-anchor="middle" fill="#555">Define destino + fee</text>
+  <text x="165" y="253" font-size="13" text-anchor="middle" fill="#555">Gera PSBT unsigned</text>
+  <text x="165" y="278" font-size="13" font-weight="bold" text-anchor="middle" fill="#6c8ebf">Salva em MicroSD</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="290" y1="210" x2="340" y2="210" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 2: Air-gap transfer -->
+  <rect x="345" y="130" width="170" height="160" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="430" y="163" font-size="16" font-weight="bold" text-anchor="middle" fill="#7a5a00">💾</text>
+  <text x="430" y="188" font-size="14" font-weight="bold" text-anchor="middle" fill="#7a5a00">MicroSD</text>
+  <text x="430" y="212" font-size="12" text-anchor="middle" fill="#555">ou QR code</text>
+  <text x="430" y="235" font-size="12" text-anchor="middle" fill="#555">Sem conexão</text>
+  <text x="430" y="255" font-size="12" text-anchor="middle" fill="#555">de rede</text>
+  <text x="430" y="278" font-size="12" text-anchor="middle" fill="#888">físico: pendrive</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="515" y1="210" x2="560" y2="210" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 3: Device signs -->
+  <rect x="570" y="110" width="260" height="200" rx="12" fill="#d5e8d4" stroke="#82b366" stroke-width="2.5"/>
+  <text x="700" y="148" font-size="17" font-weight="bold" text-anchor="middle" fill="#1a5a1a">🔐 Dispositivo</text>
+  <text x="700" y="170" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a5a1a">Air-Gapped</text>
+  <text x="700" y="192" font-size="13" text-anchor="middle" fill="#333">Coldcard / SeedSigner</text>
+  <line x1="580" y1="200" x2="820" y2="200" stroke="#82b366" stroke-width="1"/>
+  <text x="700" y="222" font-size="13" text-anchor="middle" fill="#555">Mostra: destino</text>
+  <text x="700" y="242" font-size="13" text-anchor="middle" fill="#555">valor, fee na tela</text>
+  <text x="700" y="263" font-size="13" font-weight="bold" text-anchor="middle" fill="#cc0000">Verificar na tela!</text>
+  <text x="700" y="296" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a5a1a">Assina com chave</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="830" y1="210" x2="875" y2="210" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 4: Air-gap return -->
+  <rect x="885" y="130" width="170" height="160" rx="12" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="970" y="163" font-size="16" font-weight="bold" text-anchor="middle" fill="#7a5a00">💾</text>
+  <text x="970" y="188" font-size="14" font-weight="bold" text-anchor="middle" fill="#7a5a00">MicroSD</text>
+  <text x="970" y="212" font-size="12" text-anchor="middle" fill="#555">PSBT assinado</text>
+  <text x="970" y="232" font-size="12" text-anchor="middle" fill="#555">de volta ao</text>
+  <text x="970" y="252" font-size="12" text-anchor="middle" fill="#555">computador</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="1055" y1="210" x2="1100" y2="210" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 5: Sparrow broadcasts -->
+  <rect x="1110" y="130" width="250" height="160" rx="12" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1235" y="165" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a3a6a">💻 Sparrow</text>
+  <text x="1235" y="188" font-size="14" text-anchor="middle" fill="#333">transmite via Tor</text>
+  <text x="1235" y="212" font-size="13" text-anchor="middle" fill="#555">Carrega PSBT</text>
+  <text x="1235" y="232" font-size="13" text-anchor="middle" fill="#555">Verifica assinatura</text>
+  <text x="1235" y="255" font-size="13" font-weight="bold" text-anchor="middle" fill="#6c8ebf">Broadcast → Rede</text>
+  <text x="1235" y="278" font-size="12" text-anchor="middle" fill="#888">via nó .onion próprio</text>
+
+  <!-- Bottom legend -->
+  <rect x="40" y="340" width="1320" height="90" rx="10" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+  <text x="700" y="368" font-size="15" font-weight="bold" text-anchor="middle" fill="#333">Princípio fundamental: a chave privada NUNCA toca o computador conectado à rede</text>
+  <text x="700" y="393" font-size="13" text-anchor="middle" fill="#555">Computador cria e transmite → dispositivo offline assina → chave nunca exposta</text>
+  <text x="700" y="415" font-size="13" text-anchor="middle" fill="#888">Mesmo com o computador completamente comprometido, os fundos permanecem seguros</text>
+</svg>

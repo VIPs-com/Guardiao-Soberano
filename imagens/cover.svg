@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2560" width="1600" height="2560">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#1a3a1a"/>
+    </linearGradient>
+    <!-- Mountain shadow for depth -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background gradient -->
+  <rect width="1600" height="2560" fill="url(#bg)"/>
+
+  <!-- Decorative horizontal lines (subtle) -->
+  <line x1="80" y1="120" x2="1520" y2="120" stroke="#2a5a2a" stroke-width="1" opacity="0.4"/>
+  <line x1="80" y1="2440" x2="1520" y2="2440" stroke="#2a5a2a" stroke-width="1" opacity="0.4"/>
+
+  <!-- Bitcoin symbol (large, centered) -->
+  <text x="800" y="380" font-family="DejaVu Sans,Arial,sans-serif" font-size="220" font-weight="bold"
+        text-anchor="middle" fill="#F7931A" opacity="0.9">₿</text>
+
+  <!-- Title -->
+  <text x="800" y="560" font-family="DejaVu Sans,Arial,sans-serif" font-size="96" font-weight="bold"
+        text-anchor="middle" fill="#FFFFFF" letter-spacing="8">GUARDIÃO</text>
+  <text x="800" y="670" font-family="DejaVu Sans,Arial,sans-serif" font-size="96" font-weight="bold"
+        text-anchor="middle" fill="#FFFFFF" letter-spacing="8">SOBERANO</text>
+
+  <!-- Orange underline accent -->
+  <rect x="250" y="695" width="1100" height="4" fill="#F7931A" rx="2"/>
+
+  <!-- Subtitle -->
+  <text x="800" y="765" font-family="DejaVu Sans,Arial,sans-serif" font-size="38" font-weight="normal"
+        text-anchor="middle" fill="#CCCCCC">Da Semente ao Ecossistema Completo</text>
+
+  <!-- Description -->
+  <text x="800" y="830" font-family="DejaVu Sans,Arial,sans-serif" font-size="28" font-weight="normal"
+        text-anchor="middle" fill="#999999">Manual Prático de Auto-Custódia Bitcoin com Privacidade</text>
+
+  <!-- Mountain silhouette with 7 peaks (ascending left to right) -->
+  <!-- Path: starts from bottom-left, goes up to each peak, then down to bottom-right -->
+  <path d="
+    M 0,2100
+    L 100,2100
+    L 200,1850
+    L 310,1960
+    L 430,1720
+    L 550,1840
+    L 680,1560
+    L 800,1680
+    L 940,1380
+    L 1060,1510
+    L 1200,1150
+    L 1330,1280
+    L 1480,940
+    L 1600,1080
+    L 1600,2100
+    Z"
+    fill="#0f2010" opacity="0.95"/>
+
+  <!-- Mountain highlights (lighter ridges) -->
+  <path d="
+    M 200,1850 L 310,1960
+    M 430,1720 L 550,1840
+    M 680,1560 L 800,1680
+    M 940,1380 L 1060,1510
+    M 1200,1150 L 1330,1280"
+    stroke="#1e4a1e" stroke-width="2" fill="none"/>
+
+  <!-- Green flags at each of the 7 peaks -->
+  <!-- Peak 1: x=200, y=1850 -->
+  <line x1="200" y1="1850" x2="200" y2="1790" stroke="#3B6D11" stroke-width="3"/>
+  <polygon points="200,1790 235,1810 200,1830" fill="#3B6D11"/>
+
+  <!-- Peak 2: x=430, y=1720 -->
+  <line x1="430" y1="1720" x2="430" y2="1655" stroke="#3B6D11" stroke-width="3"/>
+  <polygon points="430,1655 468,1676 430,1697" fill="#3B6D11"/>
+
+  <!-- Peak 3: x=680, y=1560 -->
+  <line x1="680" y1="1560" x2="680" y2="1490" stroke="#3B6D11" stroke-width="3"/>
+  <polygon points="680,1490 722,1512 680,1534" fill="#3B6D11"/>
+
+  <!-- Peak 4: x=940, y=1380 -->
+  <line x1="940" y1="1380" x2="940" y2="1308" stroke="#3B6D11" stroke-width="3"/>
+  <polygon points="940,1308 985,1331 940,1354" fill="#3B6D11"/>
+
+  <!-- Peak 5: x=1200, y=1150 -->
+  <line x1="1200" y1="1150" x2="1200" y2="1072" stroke="#3B6D11" stroke-width="3"/>
+  <polygon points="1200,1072 1248,1096 1200,1120" fill="#3B6D11"/>
+
+  <!-- Peak 6: x=1480, y=940 -->
+  <line x1="1480" y1="940" x2="1480" y2="858" stroke="#3B6D11" stroke-width="3"/>
+  <polygon points="1480,858 1532,884 1480,910" fill="#3B6D11"/>
+
+  <!-- Foreground mountain layer (darker, closer) -->
+  <path d="
+    M 0,2200
+    L 150,2100
+    L 300,2180
+    L 500,1980
+    L 700,2060
+    L 900,1870
+    L 1100,1950
+    L 1350,1720
+    L 1600,1800
+    L 1600,2200
+    Z"
+    fill="#080f08" opacity="0.7"/>
+
+  <!-- Level indicators strip -->
+  <rect x="80" y="2150" width="1440" height="70" fill="#0a1a0a" rx="8" opacity="0.8"/>
+  <text x="160" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🌱</text>
+  <text x="360" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🔒</text>
+  <text x="560" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">👁️</text>
+  <text x="760" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🏰</text>
+  <text x="960" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🔀</text>
+  <text x="1160" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🔄</text>
+  <text x="1360" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">👑</text>
+  <!-- Level labels -->
+  <text x="160" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#6aaa3a">N0</text>
+  <text x="360" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#cc4444">N1</text>
+  <text x="560" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#4477cc">N2</text>
+  <text x="760" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#7766cc">N3</text>
+  <text x="960" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#cc8833">N4</text>
+  <text x="1160" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#33aa77">N5</text>
+  <text x="1360" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#6aaa3a">N6</text>
+
+  <!-- Creative Commons + License note -->
+  <text x="800" y="2370" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" font-weight="normal"
+        text-anchor="middle" fill="#666666">CC BY-NC-SA 4.0</text>
+
+  <!-- Footer -->
+  <text x="800" y="2420" font-family="DejaVu Sans,Arial,sans-serif" font-size="26" font-weight="normal"
+        text-anchor="middle" fill="#888888">Versão 1.1 — Junho 2026</text>
+</svg>

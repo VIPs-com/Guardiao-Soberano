@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" font-family="DejaVu Sans,Arial,sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#82b366"/>
+    </marker>
+    <marker id="arrP" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9673a6"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="680" fill="#f8f8f8"/>
+  <text x="600" y="36" font-size="22" font-weight="bold" text-anchor="middle" fill="#222">Fluxo de Swap: BTC → XMR → BTC (Privacidade Máxima)</text>
+
+  <!-- Column headers -->
+  <text x="190" y="62" font-size="15" font-weight="bold" text-anchor="middle" fill="#cc4444">BITCOIN (com histórico)</text>
+  <text x="600" y="62" font-size="15" font-weight="bold" text-anchor="middle" fill="#9673a6">MONERO (ponte privada)</text>
+  <text x="1010" y="62" font-size="15" font-weight="bold" text-anchor="middle" fill="#82b366">BITCOIN (limpo)</text>
+
+  <!-- Divider lines -->
+  <line x1="400" y1="55" x2="400" y2="620" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="800" y1="55" x2="800" y2="620" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- LEFT COLUMN: BTC side -->
+  <rect x="50" y="80" width="300" height="80" rx="10" fill="#ffcccc" stroke="#cc4444" stroke-width="2"/>
+  <text x="200" y="112" font-size="16" font-weight="bold" text-anchor="middle" fill="#8a1a1a">₿  BTC com KYC</text>
+  <text x="200" y="134" font-size="13" text-anchor="middle" fill="#555">Exchange / compra P2P</text>
+  <text x="200" y="152" font-size="12" text-anchor="middle" fill="#888">histórico rastreável</text>
+
+  <!-- Arrow down -->
+  <line x1="200" y1="160" x2="200" y2="218" stroke="#888" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+  <rect x="50" y="220" width="300" height="90" rx="10" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+  <text x="200" y="250" font-size="16" font-weight="bold" text-anchor="middle" fill="#7a5a00">🔀  CoinJoin</text>
+  <text x="200" y="272" font-size="13" text-anchor="middle" fill="#555">Whirlpool via Sparrow</text>
+  <text x="200" y="292" font-size="13" text-anchor="middle" fill="#555">anonset ≥ 5 | 48h+</text>
+
+  <!-- Arrow down -->
+  <line x1="200" y1="310" x2="200" y2="365" stroke="#888" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+
+  <rect x="50" y="368" width="300" height="90" rx="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="200" y="398" font-size="15" font-weight="bold" text-anchor="middle" fill="#2d5a2d">✅  BTC misturado</text>
+  <text x="200" y="420" font-size="13" text-anchor="middle" fill="#555">Postmix — pronto</text>
+  <text x="200" y="440" font-size="13" text-anchor="middle" fill="#555">Aguardar 48h mínimo</text>
+
+  <!-- Arrow to XMR (eigenwallet) -->
+  <line x1="350" y1="413" x2="440" y2="320" stroke="#9673a6" stroke-width="2.5" marker-end="url(#arrP)"/>
+  <rect x="350" y="340" width="130" height="50" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1"/>
+  <text x="415" y="362" font-size="13" font-weight="bold" text-anchor="middle" fill="#5a3a7a">eigenwallet</text>
+  <text x="415" y="380" font-size="12" text-anchor="middle" fill="#555">BTC → XMR</text>
+
+  <!-- CENTER COLUMN: Monero -->
+  <rect x="450" y="200" width="300" height="260" rx="14" fill="#e1d5e7" stroke="#9673a6" stroke-width="2.5"/>
+  <text x="600" y="235" font-size="20" font-weight="bold" text-anchor="middle" fill="#5a3a7a">🔵  MONERO</text>
+  <text x="600" y="258" font-size="13" text-anchor="middle" fill="#555">Privacidade por padrão</text>
+  <line x1="460" y1="268" x2="740" y2="268" stroke="#9673a6" stroke-width="1"/>
+  <text x="600" y="295" font-size="14" text-anchor="middle" fill="#444">🔒 Ring Signatures</text>
+  <text x="600" y="318" font-size="14" text-anchor="middle" fill="#444">🔒 Stealth Addresses</text>
+  <text x="600" y="341" font-size="14" text-anchor="middle" fill="#444">🔒 RingCT</text>
+  <text x="600" y="368" font-size="14" text-anchor="middle" fill="#444">🔒 FCMP++ (2026)</text>
+  <text x="600" y="400" font-size="12" text-anchor="middle" fill="#888">Feather Wallet</text>
+  <text x="600" y="420" font-size="12" text-anchor="middle" fill="#888">via Whonix + Tor</text>
+  <text x="600" y="445" font-size="13" font-weight="bold" text-anchor="middle" fill="#cc4444">⏰ Aguardar 24h–7 dias</text>
+
+  <!-- Timing warning box -->
+  <rect x="440" y="478" width="320" height="50" rx="8" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.5"/>
+  <text x="600" y="499" font-size="13" font-weight="bold" text-anchor="middle" fill="#7a4a00">Defesa ABCTracer:</text>
+  <text x="600" y="517" font-size="12" text-anchor="middle" fill="#555">fragmentar + intervalo temporal</text>
+
+  <!-- Arrow from XMR to BTC (RetoSwap) -->
+  <line x1="750" y1="370" x2="840" y2="420" stroke="#82b366" stroke-width="2.5" marker-end="url(#arrG)"/>
+  <rect x="718" y="340" width="130" height="50" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1"/>
+  <text x="783" y="362" font-size="13" font-weight="bold" text-anchor="middle" fill="#2d5a2d">RetoSwap</text>
+  <text x="783" y="380" font-size="12" text-anchor="middle" fill="#555">XMR → BTC</text>
+
+  <!-- RIGHT COLUMN: Clean BTC -->
+  <rect x="850" y="300" width="300" height="100" rx="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="1000" y="332" font-size="16" font-weight="bold" text-anchor="middle" fill="#2d5a2d">✅  BTC limpo</text>
+  <text x="1000" y="355" font-size="13" text-anchor="middle" fill="#444">Sem histórico KYC</text>
+  <text x="1000" y="375" font-size="13" text-anchor="middle" fill="#444">Endereço virgem</text>
+
+  <!-- Arrow down -->
+  <line x1="1000" y1="400" x2="1000" y2="455" stroke="#82b366" stroke-width="2" marker-end="url(#arrG)"/>
+
+  <rect x="850" y="458" width="300" height="90" rx="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <text x="1000" y="488" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a3a6a">🔐  Cold Storage</text>
+  <text x="1000" y="510" font-size="13" text-anchor="middle" fill="#444">Coldcard MK5</text>
+  <text x="1000" y="530" font-size="13" text-anchor="middle" fill="#444">via PSBT air-gapped</text>
+
+  <!-- Bottom summary -->
+  <rect x="50" y="600" width="1100" height="60" rx="10" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+  <text x="600" y="625" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Resultado: BTC sem vínculos rastreáveis ao histórico original</text>
+  <text x="600" y="647" font-size="13" text-anchor="middle" fill="#555">eigenwallet (trustless, COMIT protocol) → Monero como ponte → RetoSwap (P2P Haveno, arXiv:2505.02392)</text>
+</svg>

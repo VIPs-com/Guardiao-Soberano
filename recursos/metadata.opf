@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uid">
+
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:opf="http://www.idpf.org/2007/opf">
+
+    <!-- Identificadores -->
+    <dc:identifier id="uid">guardiao-soberano-v1.1-2026</dc:identifier>
+
+    <!-- Título -->
+    <dc:title>Guardião Soberano — Da Semente ao Ecossistema Completo</dc:title>
+    <meta refines="#title" property="title-type">main</meta>
+    <meta refines="#title" property="display-seq">1</meta>
+
+    <!-- Subtítulo -->
+    <dc:title id="subtitle">Manual Prático de Auto-Custódia Bitcoin com Privacidade</dc:title>
+    <meta refines="#subtitle" property="title-type">subtitle</meta>
+    <meta refines="#subtitle" property="display-seq">2</meta>
+
+    <!-- Autoria -->
+    <dc:creator id="creator">Comunidade de Bitcoiners</dc:creator>
+    <meta refines="#creator" property="role" scheme="marc:relators">aut</meta>
+    <meta refines="#creator" property="display-seq">1</meta>
+
+    <!-- Idioma -->
+    <dc:language>pt-BR</dc:language>
+
+    <!-- Data de publicação -->
+    <dc:date>2026-06-01</dc:date>
+    <meta property="dcterms:modified">2026-06-24T00:00:00Z</meta>
+
+    <!-- Descrição -->
+    <dc:description>Um guia progressivo de 8 níveis (0 a 7) para qualquer brasileiro construir um ecossistema completo de auto-custódia Bitcoin com privacidade — do zero absoluto até soberania total. Cobre geração de seed em aço, hardware wallets air-gapped, Whonix, Tails, CoinJoin com Whirlpool, swaps BTC↔XMR via eigenwallet e RetoSwap, e operação de nó próprio.</dc:description>
+
+    <!-- Assuntos -->
+    <dc:subject>Bitcoin</dc:subject>
+    <dc:subject>Criptomoedas</dc:subject>
+    <dc:subject>Auto-custódia</dc:subject>
+    <dc:subject>Privacidade digital</dc:subject>
+    <dc:subject>Segurança financeira</dc:subject>
+    <dc:subject>Monero</dc:subject>
+    <dc:subject>Tecnologia</dc:subject>
+
+    <!-- Licença -->
+    <dc:rights>Creative Commons BY-NC-SA 4.0 — Você pode compartilhar e adaptar com atribuição, para fins não comerciais, mantendo a mesma licença.</dc:rights>
+
+    <!-- Versão -->
+    <meta property="schema:version">1.1</meta>
+
+    <!-- Formato -->
+    <meta property="schema:bookEdition">Versão 1.1 — Junho 2026</meta>
+
+    <!-- Capa -->
+    <meta name="cover" content="cover-image"/>
+
+  </metadata>
+
+</package>
