@@ -1,6 +1,6 @@
 # Defesa ABCTracer — exercício sem/com proteção
 
-> **Livro:** Capítulo 10 · Passos 5.1, 5.7 · `imagens/fluxo-abctracer.png`  
+> **Livro:** Capítulo 10 · Passos 5.1, 5.7 · `../../imagens/fluxo-abctracer.png`  
 > **Último teste:** 2026-06-25 (roteiro conceitual — revalidar com swaps reais)  
 > **Referência:** arXiv:2504.01822 (ABCTracer, 2025)  
 
@@ -80,7 +80,7 @@ Antes de **cada** swap reverso XMR→BTC:
 1. Desenhe duas linhas do tempo em papel — cenário A e B
 2. Marque onde um analista **ligaria** as pontas no cenário A
 3. Marque onde a ligação **quebra** no cenário B
-4. Compare com `imagens/fluxo-abctracer.png` do repositório
+4. Compare com `../../imagens/fluxo-abctracer.png` do repositório
 
 ---
 
@@ -107,5 +107,5 @@ Usando valores mínimos de teste:
 ## Referências
 
 - Livro: `manuscrito/10-nivel-5-trocador.md` (passo 5.7, aprofundamento ABCTracer)
-- Imagem: `imagens/fluxo-abctracer.png`
+- Imagem: `../../imagens/fluxo-abctracer.png`
 - Paper: arXiv:2504.01822

@@ -12,6 +12,8 @@ Executar o primeiro **swap BTC→XMR** como taker no eigenwallet: UTXO pós-coin
 
 > **Direção:** eigenwallet = **BTC→XMR**. Para XMR→BTC use RetoSwap — lab [`03-retoswap-xmr-btc.md`](03-retoswap-xmr-btc.md).
 
+Diagrama do fluxo completo: `../../imagens/diagrama-swap.png` (coluna BTC→XMR).
+
 ---
 
 ## Pré-requisitos

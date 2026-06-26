@@ -14,7 +14,7 @@ Executar o **primeiro CoinJoin Whirlpool** com anonset ≥ 5: estrutura de carte
 UTXO sujo → Premix → Whirlpool (rounds) → Postmix (anonset ≥ 5)
 ```
 
-Diagrama: `imagens/diagrama-whirlpool.png`
+Diagrama: `../../imagens/diagrama-whirlpool.png`
 
 ---
 

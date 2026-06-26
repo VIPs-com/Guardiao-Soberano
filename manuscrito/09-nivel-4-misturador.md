@@ -72,6 +72,8 @@ Conceitos para pesquisar antes de começar:
 
 ### Passo 4.3 — Configurar Whirlpool no Sparrow
 
+![Whirlpool: entradas → funil CoinJoin → saídas com anonset](../imagens/diagrama-whirlpool.png)
+
 ```
 □ Aba Whirlpool → Settings
 □ Coordinator: [.onion oficial do Sparrow — verificar no site]

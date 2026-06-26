@@ -55,7 +55,7 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
 ├── manuscrito/       # Livro (31 .md)
 ├── laboratorio/      # Extensão prática
 ├── recursos/         # CSS, metadata, capa
-├── imagens/          # Diagramas e ícones
+├── imagens/          # Diagramas, ícones, capa (ver imagens/README.md)
 ├── LICENSE           # CC BY-NC-SA 4.0 (+ MIT para scripts)
 ├── CONTRIBUTING.md   # Como contribuir
 ├── CHANGELOG.md      # Histórico de versões

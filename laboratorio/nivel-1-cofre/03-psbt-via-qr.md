@@ -16,7 +16,7 @@ Sparrow (xpub QR) → watch-only → PSBT QR out → signer → PSBT QR in → b
 
 Para ciclo completo com valores de teste, combine com [`../nivel-2-carteira-fria/02-primeiro-psbt.md`](../nivel-2-carteira-fria/02-primeiro-psbt.md).
 
-Diagrama: `imagens/diagrama-psbt.png`
+Diagrama: `../../imagens/diagrama-psbt.png`
 
 ---
 

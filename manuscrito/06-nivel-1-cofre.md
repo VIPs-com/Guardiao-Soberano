@@ -367,6 +367,8 @@ Dispositivo air-gapped exibe QR code com o PSBT assinado. Coordinator (Sparrow/E
 
 Sparrow ou Electrum (no computador online ou no Whonix) faz o broadcast da transação completa para a rede Bitcoin via Tor. Chaves privadas nunca tocaram o computador conectado.
 
+![Fluxo PSBT: coordinator online → air-gap → assinatura offline → broadcast via Tor](../imagens/diagrama-psbt.png)
+
 Backup da seed: metal + SeedQR
 
 A comunidade grava as 24 palavras em placa de aço ou titânio (resistente a fogo e água). Alternativa moderna: SeedQR — QR code compacto da seed, estampado em metal. Compatível com SeedSigner, Krux, Jade e Passport. Testar recuperação antes de enviar fundos.

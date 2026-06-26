@@ -138,4 +138,4 @@ ABCTracer (arXiv:2504.01822): ~91,75% correlação com intervalo curto + valor/f
 
 - https://github.com/retoaccess1/haveno-reto/releases
 - Livro: `manuscrito/10-nivel-5-trocador.md` (passos 5.4, 5.7, 5.8)
-- Diagrama: `imagens/diagrama-swap.png`
+- Diagrama: `../../imagens/diagrama-swap.png`

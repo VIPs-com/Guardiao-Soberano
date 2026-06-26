@@ -43,6 +43,8 @@ Conceitos para pesquisar:
  - Quando ativado, privacidade fica ainda mais forte
 ```
 
+![ABCTracer: correlação temporal sem defesa vs. intervalos com defesa](../imagens/fluxo-abctracer.png)
+
 ---
 
 ### Passo 5.2 — Instalar Feather Wallet (XMR)
@@ -96,6 +98,8 @@ Conceitos para pesquisar:
 ---
 
 ### Passo 5.5 — Preparar primeiro swap BTC→XMR (TESTE)
+
+![Fluxo de swap: BTC misturado → eigenwallet → XMR → RetoSwap → BTC limpo](../imagens/diagrama-swap.png)
 
 ```
 □ Sparrow: isolar 0.003 BTC (pós-coinjoin) em Swap_Ready_Whonix

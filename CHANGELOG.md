@@ -16,6 +16,9 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
+- Manuscrito: diagramas incorporados nos Caps. 6, 9, 10 e 13 (`../imagens/*.png`)
+- `imagens/README.md` — inventário e mapa capítulo/lab
+- Labs: caminhos relativos corrigidos para `../../imagens/`
 - Cap. 8 e Apêndice C: verificação PGP Feather alinhada ao Apêndice D (keyserver + fingerprint)
 - Cap. 11: seção de leitura complementar (ponte ao Cap. 13)
 - `README.md` com badges e mapa livro + laboratório

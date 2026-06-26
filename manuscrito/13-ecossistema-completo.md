@@ -49,7 +49,7 @@ O ecossistema tem um princípio fundamental: **nenhum terceiro tem acesso a toda
     │  + MicroSD       │  Local A + B     │              │  GrapheneOS  │
     └───────────────────────────────────────────────────────────────────┘
 
-*(Versão visual com cores: ver `imagens/diagrama-ecossistema.png`)*
+![Ecossistema completo: Tor, três VMs no host e dispositivos físicos air-gapped](../imagens/diagrama-ecossistema.png)
 
 O diagrama mostra três camadas principais:
 

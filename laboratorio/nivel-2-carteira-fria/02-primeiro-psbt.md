@@ -14,6 +14,8 @@ Executar o **ciclo PSBT completo** pela primeira vez: Sparrow (watching-only) cr
 Sparrow (online)  →  air-gap (SD ou QR)  →  HW assina  →  Sparrow broadcast
 ```
 
+Diagrama: `../../imagens/diagrama-psbt.png`
+
 ---
 
 ## Pré-requisitos

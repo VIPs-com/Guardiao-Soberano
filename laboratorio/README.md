@@ -59,6 +59,8 @@ Material bruto a transformar em labs: [`INVENTARIO-RECUPERACAO.md`](INVENTARIO-R
 
 Fontes internas (equipe): `soberano-equipe-dev/pesquisas/canonico/` e `old/manuscrito-backups/`
 
+Mapa de diagramas e ícones: [`../imagens/README.md`](../imagens/README.md)
+
 ---
 
 ## Contribuir
