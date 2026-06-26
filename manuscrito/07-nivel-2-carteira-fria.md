@@ -1,4 +1,4 @@
-# Capítulo 7 - Nível 2: A Carteira Fria
+# Capítulo 7 — Nível 2: A Carteira Fria
 
 > "Enxergar sem tocar"
 
@@ -6,13 +6,11 @@
 
 ## Objetivo
 
-Criar uma carteira watching-only no computador para monitorar saldo e criar transações sem expor a seed. Fazer a primeira transação de teste.
+Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow monitora saldo e monta transações usando só a **xpub** (chave pública) — a seed **nunca** entra no computador. Fazer a primeira transação de teste (receber e enviar via PSBT).
 
-**Tempo estimado:** 2-3 dias | **Dificuldade:** ★★★☆☆
+**Tempo estimado:** 2–3 dias | **Dificuldade:** ★★★☆☆
 
 **Pré-requisitos:** Nível 1 concluído.
-
----
 
 ---
 
@@ -72,14 +70,14 @@ Criar uma carteira watching-only no computador para monitorar saldo e criar tran
 ```
 □ No seu dispositivo (Coldcard/Krux/SeedSigner/Jade):
  - Opção Export Wallet → Sparrow Wallet
- - Arquivo .json gerado no MicroSD ou via QR
+ - Arquivo .json gerado no MicroSD ou xpub via QR
 
-□ NUNCA abrir este arquivo em computador COM internet
-□ Copiar para computador com Tails (ainda offline ou já com Tor)
+□ Copiar para o **Tails** (pendrive, SD ou QR — nunca abrir no Windows/macOS habitual)
+□ Pode importar no Sparrow **com Tor ativo** — o arquivo traz só xpub, sem seed
 
 □ O arquivo contém APENAS a chave PÚBLICA (xpub)
 □ Não contém seed, não contém chave privada
-□ É seguro usar em computador com internet
+□ Mesmo assim: trate o .json como dado sensível (privacidade de saldo)
 ```
 
 ---
@@ -104,8 +102,9 @@ Criar uma carteira watching-only no computador para monitorar saldo e criar tran
 ```
 □ Sparrow → Receive → copiar primeiro endereço
 □ Enviar PEQUENO valor de teste:
- - ~R$50-100 em BTC
- - Do RoboSats, RetoSwap, ou conhecido
+ - ~R$ 50–100 em BTC
+ - **Recomendado:** RoboSats (Cap. 5, Passo 0.7) ou conhecido
+ - RetoSwap: avançado — Nível 5
  - NÃO use exchange KYC para este teste
 □ Aguardar 1 confirmação (~10 minutos)
 □ Sparrow mostra transação na aba Transactions
@@ -117,18 +116,18 @@ Criar uma carteira watching-only no computador para monitorar saldo e criar tran
 ### Passo 2.6 — Testar envio (ciclo PSBT completo)
 
 ```
-□ Sparrow → Send → criar transação de 0.00005 BTC
+□ Sparrow → Send → criar transação de 0,00005 BTC
  - Enviar para outro endereço seu (ou de amigo)
- - Salvar PSBT no MicroSD
+ - Exportar PSBT para assinatura offline:
+   • **MicroSD:** salvar PSBT no cartão → dispositivo → Ready to Sign
+   • **QR:** Show QR no Sparrow → escanear no SeedSigner/Krux (Cap. 6 / lab N1/03)
 
-□ MicroSD → dispositivo air-gapped → Ready to Sign
- - Dispositivo mostra detalhes: endereço destino, valor, fee
- - Verificar NA TELA DO DISPOSITIVO (não no computador)
+□ No dispositivo air-gapped:
+ - Conferir endereço destino, valor e taxa NA TELA DO DISPOSITIVO
  - Se estiver correto, confirmar e assinar
 
-□ MicroSD de volta → Sparrow → Load Transaction
- - Sparrow carrega PSBT assinado
- - Broadcast Transaction (transmitir)
+□ Devolver PSBT assinada ao Sparrow (Load Transaction ou Scan QR)
+ - Broadcast Transaction (transmitir via Tor)
 
 □ Aguardar confirmação
 □ CICLO COMPLETO: criar → assinar offline → transmitir
@@ -150,13 +149,15 @@ Criar uma carteira watching-only no computador para monitorar saldo e criar tran
 
 ---
 
+## 🏅 Conquista: "A Carteira Fria"
+
 > Meu computador vê meus Bitcoins mas nunca toca minhas chaves. A ponte PSBT conecta dois mundos sem expor o segredo. Sou guardião, não portador.
 
 ---
 
-## 🏅 Conquista: "A Carteira Fria"
+## 📎 Leitura opcional — após Nível 2
 
-> Meu computador vê meus Bitcoins mas nunca toca minhas chaves. A ponte PSBT conecta dois mundos sem expor o segredo. Sou guardião, não portador.
+As seções abaixo aprofundam KeePassXC, Electrum (alternativa ao Sparrow) e montagem SeedSigner. **Não são obrigatórias** para concluir o Nível 2.
 
 ---
 
@@ -170,7 +171,7 @@ Os passos 2.1–2.2 introduzem Tails, Sparrow e KeePassXC. As seções abaixo de
 
 > _"A persistência guarda os arquivos. O KeePassXC guarda os segredos. E você guarda a chave na mente."_
 
-Você já tem a persistência LUKS no pendrive — uma fortaleza criptografada. Mas colocar seeds e senhas em texto puro ali dentro ainda é arriscado: se o adversário descriptografar a persistência (coação, vulnerabilidade futura, senha fraca), seus segredos estarão expostos. O KeePassXC cria **uma segunda camada**: mesmo com a persistência aberta, o cofre `.kdbx` continua trancado com outra senha.
+Você já tem a persistência LUKS no pendrive — uma fortaleza criptografada. Colocar **seeds** ou senhas em texto puro na persistência ainda é arriscado. O KeePassXC cria **uma segunda camada** para **metadados operacionais** (PINs, .onion, notas de conta) — **nunca** a seed BIP39 Bitcoin (Lei 4; Passo 2.2).
 
 Aqui está o método correto para instalar, configurar e usar no Tails.
 
@@ -178,7 +179,7 @@ Aqui está o método correto para instalar, configurar e usar no Tails.
 
 ## Objetivo
 
-Instalar o KeePassXC de forma persistente, criar um banco de dados blindado e armazenar seeds, senhas de casas de câmbio, bridges Tor, contas RetoSwap e anotações sensíveis — tudo dentro da fortaleza portátil.
+Instalar o KeePassXC de forma persistente e criar um banco cifrado para **PINs, endereços .onion, metadados de operações** (conta RetoSwap no N5, restore height Monero como **número**, não seed) e senhas GPG de backup — **sem** armazenar seed BIP39 Bitcoin.
 
 ---
 
@@ -191,11 +192,13 @@ O Tails é amnésico. Se você instalar o KeePassXC pelo Synaptic, perderá na r
 ```
 mkdir -p /home/amnesia/Persistent/Apps
 
+# Baixe AppImage + .sig da release atual em keepassxc.org (verifique versão jun/2026)
 torsocks wget -P /home/amnesia/Persistent/Apps/ \
- https://github.com/keepassxreboot/keepassxc/releases/latest/download/KeePassXC-2.7.9-x86_64.AppImage
+ https://github.com/keepassxreboot/keepassxc/releases/download/v2.7.9/KeePassXC-2.7.9-x86_64.AppImage \
+ https://github.com/keepassxreboot/keepassxc/releases/download/v2.7.9/KeePassXC-2.7.9-x86_64.AppImage.sig
 ```
 
-> 🔍 **Verifique a assinatura GPG** se possível (o site oferece o `.sig`). No Tails, você pode usar o GPA (Gnu Privacy Assistant) ou terminal. Não pule essa etapa se sua ameaça for séria.
+> 🔍 Verifique assinatura GPG (Apêndice D). Confira se há release mais recente que v2.7.9 antes de instalar.
 
 ### Tornar executável e criar um lançador
 
@@ -239,35 +242,32 @@ No menu **Tools → Settings**, ajuste:
 * **General:**
  * _Start minimized_ e _Show tray icon_ (se disponível) podem ajudar.
 
-### Estruturando o cofre para o operador Monero
+### Estruturando o cofre (metadados — sem seeds)
 
 Crie grupos (pastas) dentro do KeePassXC:
 
 | Grupo | Conteúdo |
 | --- | --- |
-| **Monero** | Seeds (com nota da data/restore height), chaves de visualização, endereços públicos. |
-| **RetoSwap** | Backup da conta (senha do zip), identidade da conta, anotações de pares confiáveis. |
-| **Senhas Web** | Bridges Tor, logins de serviços onion, fórum (se usar). |
-| **Disputas** | IDs de ofertas problemáticas, resumo de provas, hashes de transações fiat. |
-| **Backup** | Frase-senha do GPG de backup, localização do offsite. |
+| **Bitcoin** | Fingerprint Sparrow, label da wallet, **nunca** as 24 palavras |
+| **Monero (N5+)** | Restore height, endereços públicos — seed XMR só em metal |
+| **RetoSwap (N5+)** | ID da conta, notas de pares — backup `.zip` separado |
+| **Senhas Web** | Logins .onion, bridges Tor |
+| **Backup** | Senha do GPG de backup, local do offsite |
 
-**Exemplo: adicionar a seed Monero**
+**Exemplo: entrada RoboSats / metadados**
 
-1. Crie uma entrada: "Carteira Fria Fortaleza".
-2. No campo **Password**, cole a seed de 25 palavras (sim, o KeePassXC as trata como senha).
-3. Em **Advanced → Additional Attributes**, adicione:
- * `RestoreHeight`: 3185000
- * `DataCriacao`: 2026-06-12
- * `Tipo`: Monero standard
-4. Na aba **Notes**, coloque qualquer detalhe: onde está o backup em aço, se a carteira tem senha extra, etc.
+1. Crie uma entrada: «RoboSats — trades».
+2. No campo **Password**, use senha gerada ou token da sessão (não seed).
+3. Em **Notes**: data, valor, método Pix, txid Bitcoin.
+4. **Nunca** cole seed BIP39 ou seed Monero no KeePassXC.
 
-> ⚠️ **Nunca salve a seed sem criptografia.** A seed no KeePassXC é aceitável porque o `.kdbx` é criptografado (AES-256, ChaCha20) e está dentro da LUKS. Duas camadas.
+> ⚠️ **Lei 4:** seed Bitcoin = metal + dispositivo air-gapped. KeePassXC guarda **operação**, não custódia.
 
 ### Usando no dia a dia
 
 * Ao iniciar o Tails, abra o KeePassXC pelo script.
 * Desbloqueie o cofre com a frase-senha.
-* Quando precisar da seed ou senha, abra a entrada, copie (Ctrl+C) e cole no local. O clipboard será limpo automaticamente.
+* Quando precisar de senha ou nota, abra a entrada, copie (Ctrl+C) e cole no local. O clipboard será limpo automaticamente.
 * Após usar, **trave o cofre** (Ctrl+L ou clique no cadeado). Não mantenha aberto.
 
 ---
@@ -275,7 +275,7 @@ Crie grupos (pastas) dentro do KeePassXC:
 ## Dicas de Novato
 
 * **Nunca armazene a senha do KeePassXC no próprio KeePassXC** (óbvio, mas acontece).
-* **A senha do cofre deve ser memorizada.** Não a escreva em papel que fica junto ao pendrive. Se precisar de backup da senha, use um local separado (ex: gravada em metal junto com a seed da carteira fria).
+* **A senha do cofre deve ser memorizada.** Se precisar de backup da senha, use local separado (nunca junto ao pendrive Tails).
 * **Use o gerador de senhas** do KeePassXC para criar senhas aleatórias para contas web e serviços.
 * **Não use a extensão de navegador** (KeePassXC-Browser) no Tor Browser. O Tails isola o navegador por segurança; a integração pode vazar metadados. Digite as senhas manualmente.
 * **Faça backup do arquivo** `**.kdbx**` junto com seu backup 3-2-1 (ele já está incluído se você seguiu o método com tar/gpg). O arquivo é pequeno (poucos KB).
@@ -287,7 +287,7 @@ Crie grupos (pastas) dentro do KeePassXC:
 1. No mesmo Tails ou em um Tails limpo com persistência restaurada, execute o KeePassXC.
 2. Abra o arquivo `/home/amnesia/Persistent/fortaleza_cofre.kdbx`.
 3. Digite a senha do cofre. Deve abrir normalmente.
-4. Verifique se as seeds e senhas estão lá.
+4. Verifique se entradas e senhas de teste estão lá (não seeds).
 
 **Simule o desastre:** Apague o arquivo `.kdbx` da persistência (faça isso apenas em um Tails de testes). Restaure do backup GPG. Tudo deve voltar.
 
@@ -310,17 +310,17 @@ O KeePassXC é o cérebro da sua fortaleza. Com ele, mesmo que a muralha externa
 
 ## Alternativa: Electrum com Stream Isolation
 
-> _"A fortaleza aceita ouro digital. E o ouro também merece uma muralha."_
+> _Alternativa ao Sparrow — mesma ideia watch-only + PSBT. Trilha principal: Passos 2.1–2.6._
 
-Você já domina a Feather (Monero) e o RetoSwap (DEX Monero). Mas o mundo cripto é vasto, e ter uma carteira Bitcoin leve, soberana e integrada ao seu Tails é um passo natural. O **Electrum** é a escolha cypherpunk: madura, cheia de recursos de privacidade e perfeitamente adaptável ao ambiente amnésico.
+A trilha deste livro usa **Sparrow** no Tails. O **Electrum** é opção madura para quem já conhece a interface ou quer servidores `.onion` dedicados. **Feather** (Monero) e **RetoSwap** entram nos Níveis 5–6 — não são pré-requisito aqui.
 
-Aqui você vai instalar o Electrum de forma persistente, conectar via Tor e salvar as carteiras dentro da criptografia LUKS.
+Instale o Electrum na persistência, conecte via Tor e use **carteira somente leitura** com xpub do dispositivo air-gapped (Cap. 6) — **não** gere seed principal no Tails (Lei 1).
 
 ---
 
 ## Objetivo
 
-Instalar o Electrum no Tails, manter os dados da carteira (`.electrum`) na persistência, configurar rede Tor e integrá-lo ao ritual de backup 3-2-1, lado a lado com RetoSwap e Feather.
+Instalar o Electrum no Tails (persistência + Tor) e configurar carteira **watching-only** importando xpub — ou PSBT com dispositivo air-gapped. Integração opcional com backup GPG da persistência.
 
 ---
 
@@ -346,10 +346,10 @@ torsocks wget -P /home/amnesia/Persistent/Apps/ \
  https://download.electrum.org/$VERSION/electrum-$VERSION-x86_64.AppImage.asc
 ```
 
-**Verifique a assinatura GPG** (a chave pública de ThomasV está disponível em electrum.org; no primeiro uso você precisará importá‑la):
+**Verifique a assinatura GPG** — fingerprint ThomasV no site [electrum.org](https://electrum.org) e **Apêndice D** (nunca use placeholder):
 
 ```
-gpg --keyserver hkps://keys.openpgp.org --recv-keys 7A6B 6B1E 6E6B 6B6E 6B6B 6B6E 6B6B 6B6E 6B6B 6B6E 6B6B 6B6E # (exemplo, verifique o fingerprint real no site)
+gpg --keyserver hkps://keys.openpgp.org --recv-keys <FINGERPRINT-ELECTRUM-APD-D>
 gpg --verify /home/amnesia/Persistent/Apps/electrum-$VERSION-x86_64.AppImage.asc \
  /home/amnesia/Persistent/Apps/electrum-$VERSION-x86_64.AppImage
 ```
@@ -403,12 +403,13 @@ A opção `--datadir` força o Electrum a guardar todas as carteiras, configura�
 
 ---
 
-### Criar ou restaurar uma carteira
+### Carteira Bitcoin — watch-only (recomendado)
 
-* **Nova carteira:** O Electrum gerará uma seed de 12 palavras (padrão Bitcoin). **Anote imediatamente** em papel/metal, junto com o tipo ("segwit", "native segwit", etc.) e a data.
-* **Restaurar:** Cole a seed, defina senha (forte) e deixe‑a sincronizar.
+* **Importar xpub** exportada do dispositivo air-gapped (Cap. 6) — mesma seed, mesmos endereços que Sparrow.
+* **Não** use «Standard wallet» com nova seed de 12 palavras no Tails para patrimônio principal (**Lei 1**).
+* **Carteira de exercício:** se precisar testar Electrum isolado, use **testnet** ou valor mínimo — seed em metal, não na persistência como único backup.
 
-A carteira será salva em:
+A carteira watch-only fica em:
 
 ```
 /home/amnesia/Persistent/electrum-data/wallets/sua_carteira
@@ -437,12 +438,10 @@ Ao reiniciar o Tails, execute o script e tudo estará como você deixou.
 
 ## Teste de sobrevivência
 
-1. Crie uma carteira no Electrum.
-2. Anote a seed.
-3. Receba uma fração mínima de BTC (ex: via faucet ou um amigo).
-4. Feche o Electrum, reinicie o Tails.
-5. Execute o script de inicialização.
-6. Verifique se o saldo e as transações reaparecem.
+1. Importe xpub / confirme saldo watch-only.
+2. Feche o Electrum, reinicie o Tails.
+3. Execute o script de inicialização.
+4. Verifique se saldo e transações reaparecem (sem digitar seed no PC).
 
 ---
 
@@ -459,7 +458,7 @@ tar czf - \
 | gpg --symmetric --cipher-algo AES256 --output /media/backup/fortaleza_backup_$(date +%Y%m%d).tar.gz.gpg
 ```
 
-**Lembre‑se:** A seed do Electrum (12 palavras) é o último recurso. Guarde‑a offline, em aço, separada do arquivo de backup.
+**Lembre‑se:** Custódia Bitcoin = dispositivo air-gapped + metal (Cap. 5–6). Backup GPG da persistência cobre **metadados**, não substitui seed.
 
 ---
 
@@ -472,32 +471,30 @@ tar czf - \
  ```
 * **Não misture carteiras de identidades diferentes** na mesma sessão Tails (ex: carteira pessoal vs. carteira anônima).
 * **A senha da carteira** (que protege o arquivo wallet) é adicional. Se você a esquecer, ainda pode restaurar com a seed. Mas se o arquivo wallet for roubado e a senha for fraca, o ladrão pode gastar seus fundos. Use senha forte.
-* **Nunca exporte a seed pelo Electrum em um ambiente online.** Se precisar visualizá‑la, faça‑o com o computador offline (ex: Tails sem rede).
+* **Nunca exporte seed** pelo Electrum em ambiente online. Visualização de seed = dispositivo air-gapped ou metal.
 * **Feche o Electrum completamente** antes de fazer backup manual ou desligar.
 
 ---
 
-## Perigo: confundir as seeds
+## Perigo: confundir ferramentas
 
-O Electrum gera seeds Bitcoin (12 palavras). A Feather gera seeds Monero (25 palavras). São universos diferentes. Rotule claramente no KeePassXC e nos seus papéis. Um erro pode fazer você tentar restaurar uma seed Bitcoin numa carteira Monero e achar que perdeu tudo.
-
----
-
-## Convivência com RetoSwap e Feather
-
-Você pode ter **os três abertos ao mesmo tempo** no Tails (se a RAM permitir). O RetoSwap usa a Feather para Monero; o Electrum é independente para Bitcoin. Nenhum conflito. O roteamento Tor é compartilhado pelo sistema.
+Sparrow/Electrum (Bitcoin, xpub) ≠ Feather (Monero, Nível 5+) ≠ RetoSwap (N5). Rotule entradas no KeePassXC e papéis de backup.
 
 ---
 
-Com o Electrum, sua fortaleza agora fala dois idiomas monetários. Bitcoin e Monero, cada um com sua força, ambos sob o mesmo teto amnésico e criptografado.
+## Convivência com outras ferramentas (níveis futuros)
 
-> _"O ouro digital tem seu lugar na torre. E o silêncio da torre protege tanto o ouro quanto a prata."_
+No **Nível 5** você usará Feather + RetoSwap (Monero). O Electrum/Sparrow (Bitcoin) roda em paralelo no Tails quando a RAM permitir — Tor compartilhado pelo sistema.
 
 ---
 
+Com o Electrum como alternativa, você reforça a mesma arquitetura: **Tails observa, dispositivo assina.**
 
+---
 
 ## Aprofundamento: SeedSigner, SeedQR e PSBT via QR
+
+> **Nota:** Material expandido do **Capítulo 6** e lab [`N1/03-psbt-via-qr.md`](../laboratorio/nivel-1-cofre/03-psbt-via-qr.md). Leitura opcional para montagem DIY detalhada.
 
 **Filosofia SeedSigner:** peças genéricas compradas separadamente, de múltiplos fornecedores, sem identidade ligada a "hardware wallet". Custo total abaixo de €50. Código auditável por qualquer pessoa. Zero confiança no fabricante.
 
