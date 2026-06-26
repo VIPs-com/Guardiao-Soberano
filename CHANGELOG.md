@@ -12,6 +12,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - Lab `03-keepassxc-tails.md` e script `start-keepass.sh`
 - Lab `04-electrum-tails.md` e script `start-electrum.sh`
 - Lab `01-sparrow-watching-only.md` e script `start-sparrow.sh`
+- Lab `02-primeiro-psbt.md` — ciclo PSBT SD + QR
 - `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`
 - GitHub Actions: verificação de links
 - Templates de issue: lab desatualizado, erro de comando

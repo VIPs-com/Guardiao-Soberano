@@ -10,7 +10,7 @@
 
 Instalar o **Sparrow** na persistência do Tails, importar a **xpub** do dispositivo air-gapped e criar uma carteira **watching-only** — monitorar saldo e receber BTC sem a seed tocar o computador.
 
-> Envio (PSBT) no lab seguinte: [`02-primeiro-psbt.md`](02-primeiro-psbt.md).
+> Envio (PSBT): lab [`02-primeiro-psbt.md`](02-primeiro-psbt.md).
 
 ---
 
