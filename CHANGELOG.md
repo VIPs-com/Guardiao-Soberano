@@ -20,6 +20,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - `imagens/README.md` — inventário e mapa capítulo/lab
 - Labs: caminhos relativos corrigidos para `../../imagens/`
 - `compila.ps1`: `--resource-path` para embutir diagramas no EPUB/MOBI
+- `README.md`: status remote GitHub pendente aprovação
 - Cap. 8 e Apêndice C: verificação PGP Feather alinhada ao Apêndice D (keyserver + fingerprint)
 - Cap. 11: seção de leitura complementar (ponte ao Cap. 13)
 - `README.md` com badges e mapa livro + laboratório
