@@ -10,7 +10,7 @@ Obrigado por ajudar a manter o **Guardião Soberano** — livro e laboratório p
 Guardião-Soberano/
 ├── README.md, LICENSE, CHANGELOG.md, SECURITY.md
 ├── CONTRIBUTING.md          # este arquivo
-├── compila.ps1, organizar-casa.ps1
+├── compila.ps1
 ├── manuscrito/              # livro
 ├── laboratorio/             # tutoriais e scripts
 ├── recursos/, imagens/
@@ -25,7 +25,13 @@ Guardião-Soberano/
 | `old/` | Backups e duplicatas históricas |
 | `saida/` | Binários compilados → usar **GitHub Releases** |
 
-Reorganizar localmente após restaurar backup: `.\organizar-casa.ps1`
+Reorganizar localmente após restaurar backup:
+
+```powershell
+.\soberano-equipe-dev\organizar-casa.ps1
+```
+
+(Script interno — pasta `soberano-equipe-dev/` não é publicada no remoto.)
 
 ---
 
