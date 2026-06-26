@@ -51,7 +51,7 @@ Fontes para mineração:
 | Whonix VirtualBox — setup completo | integrado parcial cap. 8 | 🟡 Labs `01`–`03` extraídos |
 | Arquitetura Gateway/Workstation/Node | integrado cap. 8 | 🟢 Referência |
 | EPS .onion + verificação PGP downloads | cap. 8 + Apêndice D | 🟡 Lab `02` + `03` |
-| Migração Tails → Whonix | removido do cap. 9 (só tabela) | 🔴 Recuperar passo a passo |
+| Migração Tails → Whonix | removido do cap. 9 (só tabela) | 🟡 Lab `04-migracao-tails-whonix.md` |
 
 ---
 
@@ -59,8 +59,8 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| Whirlpool — primeiro mix | livro cap. 9 | 🟡 Lab com verificação anonset |
-| Tails vs Whonix para Whirlpool | integrado parcial cap. 9 | 🟢 Tabela no livro |
+| Whirlpool — primeiro mix | livro cap. 9 | 🟡 Labs `01` + `02` extraídos |
+| Tails vs Whonix para Whirlpool | integrado parcial cap. 9 | 🟢 Tabela no livro + lab N3/04 |
 
 ---
 
@@ -81,7 +81,7 @@ Fontes para mineração:
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
 | Regra backup 3-2-1 | integrado parcial cap. 11 | 🟡 Lab com tar/verificação |
-| **Scripts do operador (start-*.sh)** | Manual Fortaleza módulo 10 — REMOVIDO | 🟡 5/6 em `scripts/tails/` (falta backup) |
+| **Scripts do operador (start-*.sh)** | Manual Fortaleza módulo 10 — REMOVIDO | 🟢 6/6 em `scripts/tails/` |
 | Mobile CalyxOS + Sparrow | livro cap. 11 | 🟡 Lab futuro |
 
 ---
@@ -102,6 +102,6 @@ Fontes para mineração:
 | `start-feather.sh` | Manual Fortaleza módulo 10 / lab N5 | Tails | 🟡 Extraído |
 | `start-electrum.sh` | Manual Fortaleza / cap. 7 | Tails | 🟡 Extraído |
 | `start-retoswap.sh` | Manual Fortaleza / cap. 10 | Tails | 🟡 Extraído |
-| `backup-persistencia.sh` | cap. 7 / Manual Fortaleza | Tails |
+| `backup-persistencia.sh` | cap. 7 / Manual Fortaleza | Tails | 🟡 Extraído |
 
 > **Regra:** texto claro, comentado linha a linha. Nunca binário de terceiros.

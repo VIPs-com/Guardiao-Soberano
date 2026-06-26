@@ -39,8 +39,8 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
 | 0 | [nivel-0-semente](laboratorio/nivel-0-semente/) | Em preparação |
 | 1 | [nivel-1-cofre](laboratorio/nivel-1-cofre/) | Em preparação |
 | 2 | [nivel-2-carteira-fria](laboratorio/nivel-2-carteira-fria/) | [Sparrow watch-only](laboratorio/nivel-2-carteira-fria/01-sparrow-watching-only.md) · [Primeiro PSBT](laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md) · [KeePassXC](laboratorio/nivel-2-carteira-fria/03-keepassxc-tails.md) · [Electrum](laboratorio/nivel-2-carteira-fria/04-electrum-tails.md) · [Tails setup](laboratorio/nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md) |
-| 3 | [nivel-3-observador](laboratorio/nivel-3-observador/) | [Whonix VirtualBox](laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md) · [Node + EPS](laboratorio/nivel-3-observador/02-bitcoin-node-eps-onion.md) |
-| 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | Em preparação |
+| 3 | [nivel-3-observador](laboratorio/nivel-3-observador/) | [Whonix VirtualBox](laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md) · [Node + EPS](laboratorio/nivel-3-observador/02-bitcoin-node-eps-onion.md) · [Migração Tails](laboratorio/nivel-3-observador/04-migracao-tails-whonix.md) |
+| 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | [Whirlpool](laboratorio/nivel-4-misturador/01-whirlpool-primeiro-mix.md) · [Coin control](laboratorio/nivel-4-misturador/02-coin-control-postmix.md) |
 | 5 | [nivel-5-trocador](laboratorio/nivel-5-trocador/) | [eigenwallet](laboratorio/nivel-5-trocador/01-eigenwallet-whonix-btc-xmr.md) · [Feather](laboratorio/nivel-5-trocador/02-feather-tails-instalacao.md) · [RetoSwap](laboratorio/nivel-5-trocador/03-retoswap-xmr-btc.md) |
 | 6 | [nivel-6-soberano](laboratorio/nivel-6-soberano/) | Em preparação |
 | 7 | [nivel-7-mestre](laboratorio/nivel-7-mestre/) | Em preparação |
@@ -72,7 +72,7 @@ Pastas locais (não versionadas): `soberano-equipe-dev/`, `old/`, `saida/` — v
 | --- | --- |
 | Livro v1.1 | ✅ Publicável |
 | PDF / EPUB / MOBI | ✅ Compilável localmente |
-| Laboratório | 🟢 N2 + N5 completos · 🟡 N3 (3/4) — testes humanos por último |
+| Laboratório | 🟢 N2–N3–N5 completos · 🟡 N4 (2/3) · scripts Tails 6/6 |
 | CI (links) | ✅ `.github/workflows/check-links.yml` |
 
 ---

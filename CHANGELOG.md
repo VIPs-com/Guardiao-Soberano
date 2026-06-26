@@ -9,7 +9,9 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
-- Labs N3: Whonix VirtualBox, Node+EPS, verificação PGP (`01`–`03`)
+- Labs N4: Whirlpool + coin control (`01`, `02`)
+- Lab N3/04: migração Tails→Whonix
+- Script `backup-persistencia.sh`
 - Labs N5: eigenwallet, RetoSwap, defesa ABCTracer (`01`, `03`, `04`)
 - Script `start-retoswap.sh`
 - Lab `02-feather-tails-instalacao.md` e script `start-feather.sh`

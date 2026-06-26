@@ -18,7 +18,7 @@ Scripts em **texto claro** (`.sh`) — auditáveis, sem binários de terceiros.
 | `tails/start-electrum.sh` | Tails | 🟡 Extraído (lab 04) |
 | `tails/start-feather.sh` | Tails | 🟡 Extraído (lab N5) |
 | `tails/start-retoswap.sh` | Tails | 🟡 Extraído (lab N5/03) |
-| `tails/backup-persistencia.sh` | Tails | 🔴 Pendente |
+| `tails/backup-persistencia.sh` | Tails | 🟡 Extraído |
 | `whonix/verificar-tor.sh` | Whonix WS | 🔴 Pendente |
 
 Fonte bruta: `soberano-equipe-dev/Markdown-organizado/04-manual-fortaleza/` e `old/manuscrito-backups/`

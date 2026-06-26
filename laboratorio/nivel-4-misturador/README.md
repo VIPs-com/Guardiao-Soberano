@@ -6,6 +6,10 @@
 
 | Arquivo | Descrição | Status |
 | --- | --- | --- |
-| `01-whirlpool-primeiro-mix.md` | Coordinator .onion + verificação | 🔴 Pendente |
-| `02-coin-control-postmix.md` | UTXOs pós-coinjoin | 🔴 Pendente |
+| `01-whirlpool-primeiro-mix.md` | Coordinator + premix + Postmix | 🟡 Extraído — revalidar em hardware |
+| `02-coin-control-postmix.md` | Freeze, labels, Swap_Ready | 🟡 Extraído — revalidar em hardware |
 | `03-joinmarket-opcional.md` | Alternativa avançada | 🔴 Pendente |
+
+## Ordem sugerida
+
+`01` → `02` → Nível 5 (swap com UTXO Postmix)
