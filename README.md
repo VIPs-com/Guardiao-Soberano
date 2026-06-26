@@ -77,6 +77,7 @@ Legenda laboratório: 🟢 testado em hardware · 🟡 extraído (aguarda hardwa
 | Laboratório | 🟡 **29/29 extraídos** · **0/18** labs 🔴 validados em hardware |
 | Scripts Tails | 🟡 6/6 extraídos — aguarda teste com labs N2/N5/N6 |
 | CI (links) | ✅ `.github/workflows/check-links.yml` |
+| Remote GitHub | ⏳ **Pendente aprovação** — repo local; ver `soberano-equipe-dev/docs/validacao/VALIDACAO-AMBIENTE.md` |
 
 ---
 
