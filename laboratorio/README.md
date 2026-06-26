@@ -18,7 +18,7 @@ Extensão **viva** do livro: tutoriais passo a passo, checklists de verificaçã
 | --- | --- | --- | --- |
 | 0 — A Semente | [nivel-0-semente/](nivel-0-semente/) | Cap. 5 | 🟡 Esqueleto |
 | 1 — O Cofre | [nivel-1-cofre/](nivel-1-cofre/) | Cap. 6 | 🟡 Esqueleto |
-| 2 — A Carteira Fria | [nivel-2-carteira-fria/](nivel-2-carteira-fria/) | Cap. 7 | 🟡 3 labs extraídos |
+| 2 — A Carteira Fria | [nivel-2-carteira-fria/](nivel-2-carteira-fria/) | Cap. 7 | 🟡 4/5 labs |
 | 3 — O Observador | [nivel-3-observador/](nivel-3-observador/) | Cap. 8 | 🟡 Esqueleto |
 | 4 — O Misturador | [nivel-4-misturador/](nivel-4-misturador/) | Cap. 9 | 🟡 Esqueleto |
 | 5 — O Trocador | [nivel-5-trocador/](nivel-5-trocador/) | Cap. 10 | 🟡 Esqueleto |

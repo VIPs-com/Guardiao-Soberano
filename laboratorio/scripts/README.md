@@ -14,7 +14,7 @@ Scripts em **texto claro** (`.sh`) — auditáveis, sem binários de terceiros.
 | Arquivo | Ambiente | Status |
 | --- | --- | --- |
 | `tails/start-keepass.sh` | Tails | 🟡 Extraído (lab 03) |
-| `tails/start-feather.sh` | Tails | 🔴 Pendente |
+| `tails/start-sparrow.sh` | Tails | 🟡 Extraído (lab 01) |
 | `tails/start-electrum.sh` | Tails | 🟡 Extraído (lab 04) |
 | `tails/start-retoswap.sh` | Tails | 🔴 Pendente |
 | `tails/backup-persistencia.sh` | Tails | 🔴 Pendente |

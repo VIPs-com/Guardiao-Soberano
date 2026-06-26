@@ -38,7 +38,7 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
 | --- | --- | --- |
 | 0 | [nivel-0-semente](laboratorio/nivel-0-semente/) | Em preparação |
 | 1 | [nivel-1-cofre](laboratorio/nivel-1-cofre/) | Em preparação |
-| 2 | [nivel-2-carteira-fria](laboratorio/nivel-2-carteira-fria/) | [KeePassXC](laboratorio/nivel-2-carteira-fria/03-keepassxc-tails.md) · [Electrum](laboratorio/nivel-2-carteira-fria/04-electrum-tails.md) · [Tails setup](laboratorio/nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md) |
+| 2 | [nivel-2-carteira-fria](laboratorio/nivel-2-carteira-fria/) | [Sparrow watch-only](laboratorio/nivel-2-carteira-fria/01-sparrow-watching-only.md) · [KeePassXC](laboratorio/nivel-2-carteira-fria/03-keepassxc-tails.md) · [Electrum](laboratorio/nivel-2-carteira-fria/04-electrum-tails.md) · [Tails setup](laboratorio/nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md) |
 | 3 | [nivel-3-observador](laboratorio/nivel-3-observador/) | Em preparação |
 | 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | Em preparação |
 | 5 | [nivel-5-trocador](laboratorio/nivel-5-trocador/) | Em preparação |
@@ -72,7 +72,7 @@ Pastas locais (não versionadas): `soberano-equipe-dev/`, `old/`, `saida/` — v
 | --- | --- |
 | Livro v1.1 | ✅ Publicável |
 | PDF / EPUB / MOBI | ✅ Compilável localmente |
-| Laboratório | 🟡 3 labs extraídos (Tails, KeePassXC, Electrum) |
+| Laboratório | 🟡 4 labs Nível 2 extraídos (falta `02` PSBT) |
 | CI (links) | ✅ `.github/workflows/check-links.yml` |
 
 ---

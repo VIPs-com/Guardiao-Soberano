@@ -123,9 +123,7 @@ tar -xf sparrow-*.tar.gz -C ~/Persistent/apps/sparrow
 ~/Persistent/apps/sparrow/bin/Sparrow -d ~/Persistent/sparrow-data
 ```
 
-**Watching-only:** exporte xpub do Coldcard (SD → `sparrow-coldcard.json`) → Sparrow → New Wallet → Airgapped Hardware Wallet → Import File.
-
-**Servidor:** preferir Electrum `.onion` próprio ou confiável — Proxy `127.0.0.1:9050`, SSL ativo.
+**Watching-only:** ver lab dedicado [`01-sparrow-watching-only.md`](01-sparrow-watching-only.md).
 
 ---
 
