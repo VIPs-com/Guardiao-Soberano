@@ -16,7 +16,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
-- Parte I (Caps. 1–4): revisão P2 — espectro HW, ABCTracer, descriptor, remissões Cap. 9–10
+- Parte III (Caps. 13–17 + apêndices): revisão P3 — moeda, menus Sparrow PT, RetoSwap, Coin Control
 - Cap. 7 (N2): passada estilo/gramática (verificação N2, menus Sparrow PT)
 - Cap. 6 (N1): revisão P0–P1 + passada estilo/gramática
 - Cap. 5 (N0): revisão P0–P2 + passada estilo/gramática

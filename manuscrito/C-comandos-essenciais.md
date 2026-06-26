@@ -200,7 +200,7 @@ electrum getinfo
 ~/Persistent/apps/sparrow/bin/Sparrow -d ~/Persistent/sparrow-data
 
 # Exportar Output Descriptor de uma carteira
-# Sparrow → File → Export Wallet → Save Descriptor
+# Sparrow → Arquivo → Exportar carteira → Salvar Output Descriptor
 ```
 
 ---

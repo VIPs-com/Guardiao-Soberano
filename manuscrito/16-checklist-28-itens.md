@@ -90,7 +90,7 @@ Fornecer um checklist completo e acionável para verificar cada componente do ec
 
   F2           Preparar endereço BTC de change virgem no Sparrow                 ☐
 
-  F3           Executar swap de teste (\~0.003 BTC) no eigenwallet               ☐
+  F3           Executar swap de teste (~0.003 BTC) no eigenwallet               ☐
 
   F4           Confirmar recebimento XMR no Feather (10 confirmações)            ☐
 

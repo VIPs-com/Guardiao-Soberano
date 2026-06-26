@@ -83,13 +83,13 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 
   Componente             Função                       Custo Estimado
   ---------------------- ---------------------------- -----------------
-  Coldcard MK5           Assinar transações offline   US\$ 170
-  Placas de aço (2x)     Backup da seed               R\$ 100-300
-  Dados de casino (2x)   Gerar entropia               R\$ 10-20
-  MicroSD (2x)           Ponte PSBT                   R\$ 40-60
-  Pendrive USB (2x)      Tails OS                     R\$ 40-60
-  Celular Pixel          CalyxOS/GrapheneOS           R\$ 1.000-2.000
-  PC Host (16+ GB RAM)   Virtualização                R\$ 3.000-6.000
+  Coldcard MK5           Assinar transações offline   US$ 170
+  Placas de aço (2x)     Backup da seed               R$ 100-300
+  Dados de casino (2x)   Gerar entropia               R$ 10-20
+  MicroSD (2x)           Ponte PSBT                   R$ 40-60
+  Pendrive USB (2x)      Tails OS                     R$ 40-60
+  Celular Pixel          CalyxOS/GrapheneOS           R$ 1.000-2.000
+  PC Host (16+ GB RAM)   Virtualização                R$ 3.000-6.000
 
 ### Máquinas Virtuais
 
@@ -110,7 +110,7 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
   Sparrow Wallet   Whonix, Tails, Mobile   Coordinator BTC
   Whirlpool        Whonix (Sparrow)        CoinJoin
   eigenwallet      Whonix, Tails           Swap BTC→XMR
-  RetoSwap         Whonix                  Swap XMR→BTC, fiat
+  RetoSwap         Whonix                  Swap XMR→BTC
   Feather Wallet   Whonix, Tails, Mobile   Carteira XMR
   KeePassXC/DX     Todos                   Senhas e metadados
   Electrum         Tails (pré-instalado)   Alternativa BTC
@@ -136,7 +136,7 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 ### Fluxo 2: Recuperação de Desastre
 
 1.  Perdeu VM Whonix → restaurar snapshot/backup
-2.  Perdeu Persistent Storage → Restore from Seed no Sparrow
+2.  Perdeu Persistent Storage → Restaurar a partir da seed no Sparrow (Arquivo → Restaurar carteira)
 3.  Perdeu Coldcard → comprar novo, restaurar seed do aço
 4.  Perdeu placa de aço (local A) → usar backup do local B
 5.  Esqueceu passphrase → sem recuperação (memorize!)
@@ -150,7 +150,7 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
   ---------------------------- ----------------------------- --------------------------------- ------------
   VM corrompida                Perda do ambiente             Restaurar snapshot                Minutos
 
-  Persistent Storage perdido   Perda do estado Whirlpool     Restore from Seed                 10-40 min
+  Persistent Storage perdido   Perda do estado Whirlpool     Restaurar seed no Sparrow           10-40 min
 
   Pendrive Tails quebrado      Perda do ambiente cirúrgico   Recriar em novo USB               30 min
 
@@ -169,12 +169,12 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 
   Categoria                           Custo (Brasil)
   ----------------------------------- -----------------------
-  Hardware (Coldcard + aço + dados)   R\$ 800-1.200
-  PC Host (se não tiver)              R\$ 3.000-6.000
-  Celular dedicado (usado)            R\$ 1.000-2.000
-  Pendrives e MicroSDs                R\$ 100-150
-  **TOTAL (sem PC)**                  **\~R\$ 2.000-3.500**
-  **TOTAL (com PC)**                  **\~R\$ 5.000-9.500**
+  Hardware (Coldcard + aço + dados)   R$ 800-1.200
+  PC Host (se não tiver)              R$ 3.000-6.000
+  Celular dedicado (usado)            R$ 1.000-2.000
+  Pendrives e MicroSDs                R$ 100-150
+  **TOTAL (sem PC)**                  **~R$ 2.000-3.500**
+  **TOTAL (com PC)**                  **~R$ 5.000-9.500**
 
 Comparado com o custo de ter fundos confiscados, hackeados ou bloqueados, é um investimento mínimo.
 

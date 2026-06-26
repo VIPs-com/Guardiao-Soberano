@@ -6,7 +6,7 @@ A Instrução Normativa RFB nº 1888/2019 estabelece a obrigatoriedade de presta
 
 **Quem deve declarar (operações mensais):**
 
-- Pessoas físicas que realizarem operações em exchanges estrangeiras com valor superior a R\$ 30.000,00 no mês
+- Pessoas físicas que realizarem operações em exchanges estrangeiras com valor superior a R$ 30.000,00 no mês
 
 - Pessoas físicas que realizarem operações em exchanges brasileiras (qualquer valor — a exchange reporta)
 
@@ -22,9 +22,9 @@ A Instrução Normativa RFB nº 1888/2019 estabelece a obrigatoriedade de presta
 
 **IRPF — Declaração Anual:**
 
-- Criptoativos em carteira própria com valor superior a R\$ 5.000,00 devem constar na ficha "Bens e Direitos"
+- Criptoativos em carteira própria com valor superior a R$ 5.000,00 devem constar na ficha "Bens e Direitos"
 
-- Ganho de capital em alienações acima de R\$ 35.000,00/mês é tributado
+- Ganho de capital em alienações acima de R$ 35.000,00/mês é tributado
 
 ---
 
@@ -42,7 +42,7 @@ A Instrução Normativa RFB nº 1888/2019 estabelece a obrigatoriedade de presta
 
 **Principais mudanças previstas na DeCripto:**
 
-- Limite mensal para reporte por PF em operações sem exchange brasileira: **R\$ 35.000** (antes R\$ 30.000)
+- Limite mensal para reporte por PF em operações sem exchange brasileira: **R$ 35.000** (antes R$ 30.000)
 - Maior detalhamento por operação e obrigações para prestadoras estrangeiras
 - Entrega via sistema Coleta Nacional (e-CAC)
 

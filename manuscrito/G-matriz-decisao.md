@@ -7,19 +7,19 @@
   --------------------------------------------------------------------------------------------------
   Situação                                   Dispositivo                     Custo aprox.
   ------------------------------------------ ------------------------------- -----------------------
-  Melhor segurança, padrão ouro              Coldcard MK5                    \~US\$150
+  Melhor segurança, padrão ouro              Coldcard MK5                    ~US$150
 
-  Orçamento limitado, open source            Blockstream Jade                \~US\$65
+  Orçamento limitado, open source            Blockstream Jade                ~US$65
 
-  Prefere QR a SD card                       Foundation Passport Batch 2     \~US\$150
+  Prefere QR a SD card                       Foundation Passport Batch 2     ~US$150
 
-  Quer construir o próprio, zero confiança   SeedSigner (DIY)                \~€50 em peças
+  Quer construir o próprio, zero confiança   SeedSigner (DIY)                ~€50 em peças
 
-  Alternativa DIY moderna                    Krux (Maix Amigo ou M5StickV)   \~US\$40-60
+  Alternativa DIY moderna                    Krux (Maix Amigo ou M5StickV)   ~US$40-60
 
-  Certificação máxima (EAL7)                 NGRAVE ZERO                     \~US\$400
+  Certificação máxima (EAL7)                 NGRAVE ZERO                     ~US$400
 
-  Sem portas físicas                         ELLIPAL Titan 2.0               \~US\$170
+  Sem portas físicas                         ELLIPAL Titan 2.0               ~US$170
   --------------------------------------------------------------------------------------------------
 
 ---

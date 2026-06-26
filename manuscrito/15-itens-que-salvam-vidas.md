@@ -16,7 +16,7 @@ Em abril de 2025, pesquisadores publicaram o paper ABCTracer (arXiv:2504.01822),
 
 O ataque usa três sinais simultâneos:
 
-1.  **Intervalo de tempo:** Se 1 BTC entra em um swap e \~1 BTC em XMR aparece minutos depois, a proximidade temporal é uma assinatura.
+1.  **Intervalo de tempo:** Se 1 BTC entra em um swap e ~1 BTC em XMR aparece minutos depois, a proximidade temporal é uma assinatura.
 2.  **Proporção valor/taxa:** O valor de saída é quase idêntico ao de entrada (menos a taxa), criando uma correspondência numérica.
 3.  **Endereço de destino:** Padrões de reutilização ou agrupamento de endereços revelam o destinatário.
 
@@ -68,9 +68,17 @@ Coin Control é a prática de selecionar manualmente quais UTXOs gastar em cada 
 
 ### Regras de Ouro
 
-**✅ FAÇA:** - Rotule cada UTXO por origem (KYC, RoboSats, CoinJoin Round 3, Swap) - Congele UTXOs "sujos" para não gastar sem querer - Gaste 1 UTXO por vez quando possível
+**✅ FAÇA:**
 
-**❌ NÃO FAÇA:** - Consolidar 2+ UTXOs pós-coinjoin (reduz anonimato) - Misturar UTXO de exchange KYC com UTXO de coinjoin (contaminação) - Usar "Send Max" sem verificar quais UTXOs foram selecionados
+- Rotule cada UTXO por origem (KYC, RoboSats, CoinJoin Round 3, Swap)
+- Congele UTXOs "sujos" para não gastar sem querer
+- Gaste 1 UTXO por vez quando possível
+
+**❌ NÃO FAÇA:**
+
+- Consolidar 2+ UTXOs pós-coinjoin (reduz anonimato)
+- Misturar UTXO de exchange KYC com UTXO de coinjoin (contaminação)
+- Usar "Send Max" sem verificar quais UTXOs foram selecionados
 
 ---
 

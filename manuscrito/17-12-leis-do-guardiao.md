@@ -28,7 +28,7 @@ Nunca use papel como backup permanente. Nunca armazene a seed em apenas um local
 
 Após gravar a seed em metal, apague o dispositivo e restaure a carteira. Verifique se os endereços são idênticos.
 
-**Por que:** Um erro de gravação (palavra errada, ordem trocada) só é descoberto quando você tenta restaurar. Descubra com R\$ 0 em jogo, não com suas economias.
+**Por que:** Um erro de gravação (palavra errada, ordem trocada) só é descoberto quando você tenta restaurar. Descubra com R$ 0 em jogo, não com suas economias.
 
 ### Lei 4: A seed jamais será fotografada, digitalizada ou armazenada em nuvem
 

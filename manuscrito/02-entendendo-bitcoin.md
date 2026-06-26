@@ -95,7 +95,7 @@ Neste livro, mencionaremos a Lightning Network principalmente como ferramenta pa
 
 UTXO significa Unspent Transaction Output — "saída de transação não gasta".
 
-Quando você recebe Bitcoin, na verdade recebe um ou mais UTXOs. Pense neles como notas de dinheiro: você pode ter uma nota de R\$ 50, duas de R\$ 20 e três de R\$ 10. Seu saldo é a soma de todas as notas.
+Quando você recebe Bitcoin, na verdade recebe um ou mais UTXOs. Pense neles como notas de dinheiro: você pode ter uma nota de R$ 50, duas de R$ 20 e três de R$ 10. Seu saldo é a soma de todas as notas.
 
 Quando você gasta, seleciona quais UTXOs usar. Se o valor for menor que a soma, recebe "troco" — um novo UTXO de volta para sua carteira.
 

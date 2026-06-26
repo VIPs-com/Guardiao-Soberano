@@ -44,7 +44,7 @@
 
 ## D
 
-**DeCripto** — Declaração de Criptoativos instituída pela IN RFB 2291/2025. Substitui o reporte mensal da IN 1888 a partir de 01/07/2026, com limite de R\$ 35.000/mês para operações sem exchange brasileira.
+**DeCripto** — Declaração de Criptoativos instituída pela IN RFB 2291/2025. Substitui o reporte mensal da IN 1888 a partir de 01/07/2026, com limite de R$ 35.000/mês para operações sem exchange brasileira.
 
 **Dice Rolls** — Lançamentos de dados físicos usados para gerar entropia verdadeiramente aleatória. O Coldcard e outros dispositivos aceitam dice rolls como entrada para gerar a seed BIP39.
 
@@ -126,7 +126,7 @@
 
 ## O
 
-**Output Descriptor** — String padronizada que descreve completamente como uma carteira deriva endereços: quais chaves públicas, qual caminho de derivação (ex: m/84'/0'/0'), qual tipo de script. **Backup obrigatório em configurações multisig** — sem o descriptor, os fundos podem ser irrecuperáveis mesmo com todas as seeds. Sparrow Wallet permite exportar via File → Export Wallet.
+**Output Descriptor** — String padronizada que descreve completamente como uma carteira deriva endereços: quais chaves públicas, qual caminho de derivação (ex: m/84'/0'/0'), qual tipo de script. **Backup obrigatório em configurações multisig** — sem o descriptor, os fundos podem ser irrecuperáveis mesmo com todas as seeds. Sparrow Wallet permite exportar via Arquivo → Exportar carteira → Salvar Output Descriptor.
 
 ---
 

@@ -16,35 +16,35 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 ### Blockstream Jade Plus
 
-- **Preço:** US\$ 169 (jun/2026) — substituiu o Jade original
+- **Preço:** US$ 169 (jun/2026) — substituiu o Jade original
 - **Diferencial:** Câmera integrada para QR code, display colorido, Bluetooth opcional
 - **Quando usar:** Alternativa ao Coldcard com preço similar; prefere QR a SD card
 - **Open source:** Sim
 
 ### Foundation Passport Batch 2
 
-- **Preço:** \~US\$ 150-200
+- **Preço:** ~US$ 150-200
 - **Diferencial:** QR nativo, UX mais amigável, design modular
 - **Quando usar:** Prefere QR a SD card
 - **Open source:** Sim
 
 ### Keystone 3 Pro
 
-- **Preço:** \~US\$ 130
+- **Preço:** ~US$ 130
 - **Diferencial:** Tela touchscreen grande, multi-coin, compatível com MetaMask
 - **Quando usar:** Precisa de multi-coin
 - **Open source:** Sim (firmware Bitcoin-only disponível)
 
 ### SeedSigner (DIY)
 
-- **Preço:** \~US\$ 50 em peças
+- **Preço:** ~US$ 50 em peças
 - **Diferencial:** Stateless (apaga tudo ao desligar), você monta
 - **Quando usar:** Quer construir o próprio dispositivo
 - **Open source:** 100%
 
 ### Krux (DIY Firmware)
 
-- **Preço:** \~US\$ 40-60 (hardware Maix Amigo ou M5StickV)
+- **Preço:** ~US$ 40-60 (hardware Maix Amigo ou M5StickV)
 - **Diferencial:** Stateless, suporte a Taproot, Miniscript, builds reproduzíveis
 - **Quando usar:** Alternativa moderna ao SeedSigner
 - **Open source:** Sim, com builds verificáveis
@@ -95,7 +95,7 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 - **Direção:** BTC ↔︎ XMR (e mais pares futuros)
 - **Diferencial:** Atomic swap trustless total, sem taxas de maker/taker
-- **Quando usar:** Trustlessness máxima (requer Docker + \~400GB)
+- **Quando usar:** Trustlessness máxima (requer Docker + ~400 GB)
 - **Complexidade:** Alta
 
 ### RoboSats

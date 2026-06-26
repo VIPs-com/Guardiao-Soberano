@@ -83,7 +83,7 @@ Se você suspeita que alguém teve acesso à sua seed (dispositivo roubado, seed
 
 - Verifique se o Sparrow está sincronizado com o servidor correto (barra de status na parte inferior)
 - Confirme que importou o xpub correto — com passphrase, se usar
-- Tente reconectar: File → Disconnect → reconnect
+- Tente reconectar: Arquivo → Desconectar → reconectar
 - Verifique no `mempool.space` se os endereços da sua carteira têm saldo
 
 **"O Tor Browser não carrega .onion"**
