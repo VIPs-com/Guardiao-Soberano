@@ -1,4 +1,4 @@
-# Capítulo 6 - Nível 1: O Cofre
+# Capítulo 6 — Nível 1: O Cofre
 
 > "O dispositivo que guarda o segredo"
 
@@ -6,13 +6,11 @@
 
 ## Objetivo
 
-Adquirir e configurar um dispositivo air-gapped como guardião das chaves privadas. A seed NUNCA tocará um computador conectado à rede.
+Adquirir e configurar um dispositivo **air-gapped** (sem WiFi, Bluetooth ou USB de dados durante a assinatura) como guardião das chaves privadas. A seed **nunca** tocará um computador conectado à rede.
 
-**Tempo estimado:** 1-2 semanas | **Dificuldade:** ★★★☆☆
+**Tempo estimado:** 1–2 semanas | **Dificuldade:** ★★★☆☆
 
 **Pré-requisitos:** Nível 0 concluído.
-
----
 
 ---
 
@@ -28,7 +26,7 @@ Você tem opções. Escolha UMA:
 │ ⭐ COLDCARD MK5 (Recomendado) — ~US$170 │
 │ • Padrão ouro da comunidade │
 │ • Assina via SD card (PSBT) ou QR │
-│ • Trick PIN, Brick PIN, duress wallet │
+│ • Trick PIN, carteira de coerção (duress), Brick PIN │
 │ • Bitcoin-only, open source firmware │
 │ • Ideal: quem quer o melhor │
 │ │
@@ -44,7 +42,7 @@ Você tem opções. Escolha UMA:
 │ │
 │ 🔧 SEEDSIGNER (DIY) — ~US$50 em peças │
 │ • Raspberry Pi Zero + câmera │
-│ • Stateless (apaga tudo ao desligar) │
+│ • Stateless (apaga a seed da memória ao desligar) │
 │ • Você monta e verifica cada componente │
 │ • Ideal: quer construir o próprio │
 │ │
@@ -63,7 +61,7 @@ Você tem opções. Escolha UMA:
 
 ```
 □ Coldcard: coinkite.com (fabricante oficial)
-□ Jade: blockstream.com
+□ Jade Plus: blockstream.com
 □ Passport: foundationdevices.com
 □ SeedSigner: comprar peças em lojas de eletrônica
 □ Krux: comprar Maix Amigo/M5StickV + flashear firmware
@@ -115,12 +113,13 @@ Você tem opções. Escolha UMA:
 ### Passo 1.4 — Inicializar com dice rolls
 
 ```
-□ Dispositivo → New Wallet → Dice Rolls
-□ Usar seus 100+ lançamentos de dados do Nível 0
+□ Dispositivo → New Wallet → Dice Rolls (nova seed / lançamentos de dados)
+□ Usar seus 100+ lançamentos de dados do Nível 0 (lista anotada em papel)
+□ Se perdeu a lista: refaça os lançamentos — não reutilize palavras de exercício do Passo 0.4
 □ Inserir um por um, conferindo na tela
 □ Dispositivo gera 24 palavras BIP39
-□ NUNCA usar "Quick Generate" (usa RNG interno, menos confiável)
-□ Anotar as 24 palavras EM PAPEL (depois gravará em metal)
+□ NUNCA usar "Quick Generate" (RNG interno do chip — você confia no fabricante)
+□ Anotar as 24 palavras EM PAPEL (temporário — metal no Passo 1.6b)
 ```
 
 ---
@@ -132,37 +131,63 @@ Você tem opções. Escolha UMA:
 □ Digitar a passphrase que você criou no Nível 0
 □ Dispositivo mostra "Passphrase: Set"
 □ Agora sua carteira REAL está ativa
-□ Sem passphrase = carteira vazia (proteção contra coerção)
+□ Sem passphrase = carteira **diferente** (decoy — proteção sob coerção)
 ```
 
 ---
 
-### Passo 1.6 — Validar com Ian Coleman (OFFLINE)
+### Passo 1.6 — Validar endereços (OFFLINE)
 
 ```
-□ Exportar xpub (chave pública) do dispositivo para MicroSD
-□ Em computador OFFLINE com bip39.html (Nível 0):
+□ Exportar xpub (chave pública estendida — não gasta fundos) para MicroSD ou QR
+□ Verificar hash SHA256 do bip39.html antes de abrir (mesmo arquivo do Nível 0)
+□ Em computador OFFLINE, nunca conectado à internet, com bip39.html:
+
+⚠️ ÚNICA exceção à Lei 4 (nunca digitar seed em PC):
+   validação em máquina dedicada offline. Apague o histórico do navegador após.
+   Alternativa futura: comparar só xpub exportado, quando o dispositivo permitir.
+
  - Inserir 24 palavras + passphrase
- - Verificar se o primeiro endereço BIP84 (m/84'/0'/0'/0/0)
- BATE EXATAMENTE com o endereço mostrado no dispositivo
+ - Verificar se o primeiro endereço BIP84 / Native SegWit (m/84'/0'/0'/0/0, bc1…)
+   BATE EXATAMENTE com o endereço mostrado no dispositivo
  - Verificar 5º e 15º endereços também
  - Se NÃO bater: ALGO ERRADO. Recomece.
 ```
 
 ---
 
-### Passo 1.7 — Teste de recuperação (CRÍTICO)
+### Passo 1.6b — Gravar seed em metal (obrigatório antes do Passo 1.7)
+
+> **Ordem crítica:** faça **antes** do teste destrutivo (1.7). Se apagar a seed do dispositivo sem backup em metal, pode perder tudo.
+
+Siga o **Capítulo 5, Passo 0.5** e o lab [`02-backup-aco.md`](../laboratorio/nivel-0-semente/02-backup-aco.md).
 
 ```
-□ Dispositivo → Advanced → Danger Zone → Destroy Seed
-□ Dispositivo apagado (sem seed)
-□ Dispositivo → Import Existing → Restore from 24 words
+□ Conferir as 24 palavras no dispositivo (3 leituras em voz alta)
+□ Gravar 2 cópias em metal — Locais Físicos A e B (diferentes)
+□ Passphrase permanece em Local C (Capítulo 5, Passo 0.6)
+□ Queimar/picar papel temporário das palavras
+□ NUNCA: foto, nuvem, email, WhatsApp da seed
+```
+
+---
+
+### Passo 1.7 — Teste de recuperação (CRÍTICO)
+
+> **Pré-requisito:** Passo 1.6b concluído (2 cópias em metal).
+
+```
+□ Apagar seed do dispositivo (menu varia por modelo):
+ - Coldcard: Advanced → Danger Zone → Destroy Seed
+ - SeedSigner/Krux: opção equivalente de apagar / factory reset
+□ Dispositivo sem seed
+□ Import Existing → Restore from 24 words
 □ Digitar 24 palavras + passphrase
 □ Exportar endereços novamente
 □ Comparar com os endereços anotados no Passo 1.6
 □ DEVEM BATER EXATAMENTE
 
-□ Se NÃO bater: sua seed anotada está ERRADA
+□ Se NÃO bater: sua seed gravada está ERRADA
  - Regrave a seed em metal
  - Refaça o teste
  - NUNCA envie fundos antes deste teste passar
@@ -178,16 +203,12 @@ Você tem opções. Escolha UMA:
 □ Dispositivo air-gapped configurado e funcional
 □ Firmware atualizado (PGP verificado)
 □ Seed gerada com dados físicos, não RNG interno
-□ Teste de restauração bem-sucedido (ANTES de enviar fundos)
-□ Sei que sem passphrase = carteira vazia
+□ Endereços validados offline (Passo 1.6)
+□ 2 backups em metal + passphrase em local separado (Passo 1.6b / Cap. 5)
+□ Teste de restauração bem-sucedido (Passo 1.7 — ANTES de enviar fundos)
+□ Sei que sem passphrase = carteira decoy diferente
 □ Nunca conectei o dispositivo à internet
-□ Tenho 2 backups físicos da seed em locais diferentes
-□ Tenho 1 backup da passphrase em local separado
 ```
-
----
-
-> Meu dispositivo é uma fortaleza offline. Se perdê-lo, a semente de aço me salva. Se me coagirem, a passphrase me protege. O cofre está selado e testado.
 
 ---
 
@@ -197,194 +218,58 @@ Você tem opções. Escolha UMA:
 
 ---
 
-## Referência: Hardware Wallets Air-Gapped
+## 📎 Leitura opcional — após Níveis 1–2
 
-Hardware wallets comerciais com modo AirGap real — sem USB, sem Bluetooth, sem WiFi durante assinar.
-
-Coldcard MK5
-
-Coinkite · Bitcoin-only
-
-Referência
-
-O padrão ouro para Bitcoiners. Assina via SD card (PSBT) ou QR. Dois secure elements de fabricantes diferentes. Sem Bluetooth nativo. Trick PIN, brick PIN, duress wallet.
-
-SD cardPSBTQR (NFC opcional)Bitcoin onlyOpen source fw
-
-Foundation Passport Batch 2
-
-Foundation Devices
-
-HW
-
-Design modular, firmware open source, câmera integrada para QR. Assina via QR ou microSD. Suporte a multisig e PSBT. Filosofia similar ao Coldcard mas com UX mais amigável.
-
-QR codemicroSDOpen sourceBitcoin only
-
-Keystone 3 Pro
-
-Keystone · Multi-coin
-
-HW
-
-Tela grande touchscreen, câmera integrada QR, firmware open source (MIT). Primeiro compatível com MetaMask mobile. Auditado por SlowMist e Keylabs. Firmware Bitcoin-only disponível.
-
-QR nativoSparrow/ElectrumMulti-coinMetaMask
-
-Blockstream Jade
-
-Blockstream · Bitcoin-only
-
-HW
-
-Câmera integrada para QR airgap. Pode ser usado sem conexão de rede (modo QR puro). Virtual Secure Element. Open source, funciona com Sparrow, Electrum, Green. Preço acessível.
-
-QR modeOpen sourceBitcoin onlySparrow/Electrum
-
-NGRAVE ZERO
-
-NGRAVE · Certificado EAL7
-
-Premium
-
-Único dispositivo com certificação EAL7 (nível mais alto possível). Comunicação exclusivamente via QR. Desenvolvido com KU Leuven (COSIC) e IMEC. Preço ~$398. Multi-chain.
-
-EAL7QR onlyPreço alto15 chains nativas
-
-ELLIPAL Titan 2.0
-
-ELLIPAL · Multi-coin
-
-HW
-
-Carcaça de metal selada, sem portas físicas de dados. Assina exclusivamente por QR. App mobile complementar. Suporta 10.000+ moedas. Filosofia de isolamento físico total.
-
-Sem portas físicasQR onlyMulti-coin
-
-Projetos open source onde você constrói o próprio dispositivo. Zero confiança no fabricante — você verifica cada componente.
-
-SeedSigner
-
-Raspberry Pi Zero + câmera · Stateless
-
-DIY ★
-
-Considerado "Security Endgame" pela comunidade. Stateless — apaga tudo ao desligar, sem memória entre sessões. Você monta com peças genéricas (~$50), flasheia o firmware e verifica cada linha de código. QR puro. Suporte a multisig + PSBT + SeedQR.
-
-Stateless100% open sourceQR / SeedQRSparrow / ElectrumMultisig
-
-Krux
-
-Firmware para Kendryte K210 · Stateless
-
-DIY ★
-
-Firmware open source para microcontroladores K210 (Maix Amigo, M5StickV). Stateless, builds reproduzíveis, tamper detection via hash de flash (desde v24.11). Suporte a Taproot, Miniscript, KEF encryption (v25.09). Versão atual: v26.04.0 (abr/2026). Alternativa direta ao SeedSigner.
-
-TaprootMiniscriptBuilds reproduzíveisKEF encryptionQR / SD card
-
-Specter DIY
-
-STM32 F469-Discovery
-
-DIY
-
-Firmware DIY da Specter para placa STM32 F469-Discovery. QR airgap, multisig, PSBT. Compatível com Specter Desktop e Sparrow. Projeto menor que SeedSigner/Krux mas robusto.
-
-QR codePSBTSpecter Desktop
-
-Dice Rolls + rolls.py
-
-Entropia manual · Comunidade Bitcoin
-
-DIY
-
-Gerar seeds com dados físicos de casino. Sem confiar em RNG de nenhum dispositivo. A comunidade usa rolls.py (Python offline) para converter os rolls em BIP39. Cruzado e validado com Ian Coleman, Coldcard e Cobo. Auditável por qualquer pessoa.
-
-Zero confiança em RNGVerificávelColdcard / SeedSigner
-
-⚠ Ferramentas de software offline: usar SEMPRE em máquina air-gapped ou Tails em modo offline. Nunca em computador conectado à internet.
-
-Ian Coleman BIP39
-
-iancoleman.io/bip39 · arquivo .html standalone
-
-Ferramenta
-
-Padrão da comunidade para derivar endereços, chaves e paths (BIP32/44/49/84) a partir de uma seed. Arquivo HTML único, verificável via SHA256. Comunidade usa no Tails offline — download no Tor Browser, desconecta da rede, abre no browser local. Indispensável para auditoria.
-
-HTML standaloneVerificável SHA256BIP32/44/49/84Multi-coin
-
-Liana Wallet
-
-Wizardsardine · Miniscript + timelocks
-
-Software
-
-Wallet desktop (Win/Mac/Linux) que usa Miniscript para codificar políticas de gasto on-chain. Chave primária para uso normal + chave de recuperação com timelock (ativa só depois de N dias de inatividade). Ideal para herança, decaying multisig, backups sem papel. Open source, builds reproduzíveis.
-
-MiniscriptTimelocks on-chainHerançaColdcard/BitBox/LedgerTaproot (v8)
-
-Sparrow Wallet (offline)
-
-Coordinator de carteira fria
-
-Software
-
-Sparrow pode rodar em modo offline como coordinator — cria PSBTs sem conexão. Usuário cria transação no Sparrow online, exporta PSBT para o dispositivo air-gapped via QR ou arquivo, recebe de volta assinado e faz broadcast. Tor integrado nativo.
-
-PSBT coordinatorTor integradoSeedSigner/Krux/Coldcard
-
-Electrum (modo offline)
-
-Split wallet: cold + watching-only
-
-Software
-
-Instância offline só assina (cold). Instância online é watching-only (só xpub, sem chaves). Transferência de PSBT via arquivo. Padrão documentado na wiki do Whonix e Qubes. Comunidade usa há mais de uma década.
-
-Split walletWatching-onlyPSBT via arquivo
-
-O coração de qualquer setup airgap é o fluxo PSBT (Partially Signed Bitcoin Transaction). Aqui está o que a comunidade faz na prática.
-
-1 · Coordinator cria a transação (online)
-
-Sparrow / Electrum / Liana prepara a transação não assinada. Só conhece a xpub (chave pública). Gera o arquivo PSBT ou QR code com os detalhes da transação.
-
-2 · Transferência air-gapped para o signatário
-
-Via QR code animado (UR2.0): coordinator exibe na tela, dispositivo air-gapped (SeedSigner, Coldcard, Krux, Jade) escaneia com a câmera. Alternativa: arquivo PSBT em SD card ou microSD.
-
-3 · Dispositivo offline verifica e assina
-
-Dispositivo air-gapped carrega a seed (ou deriva do SeedQR), exibe detalhes da tx para o usuário revisar (endereço destino, valor, fee), solicita confirmação física, assina com a chave privada. Seed é apagada da memória após (stateless).
-
-4 · Devolução da transação assinada
-
-Dispositivo air-gapped exibe QR code com o PSBT assinado. Coordinator (Sparrow/Electrum) escaneia com a webcam do computador. Ou: exporta para SD card e copia o arquivo.
-
-5 · Broadcast via Tor (coordinator online)
-
-Sparrow ou Electrum (no computador online ou no Whonix) faz o broadcast da transação completa para a rede Bitcoin via Tor. Chaves privadas nunca tocaram o computador conectado.
-
-![Fluxo PSBT: coordinator online → air-gap → assinatura offline → broadcast via Tor](../imagens/diagrama-psbt.png)
-
-Backup da seed: metal + SeedQR
-
-A comunidade grava as 24 palavras em placa de aço ou titânio (resistente a fogo e água). Alternativa moderna: SeedQR — QR code compacto da seed, estampado em metal. Compatível com SeedSigner, Krux, Jade e Passport. Testar recuperação antes de enviar fundos.
+As seções abaixo aprofundam catálogo de hardware, fluxo PSBT e comparativo DIY. **Não são obrigatórias** para concluir o Nível 1.
 
 ---
 
-## Tutorial: Fluxo PSBT Completo via QR Code
+### Referência rápida — hardware air-gapped
 
-**Fluxo Completo: PSBT via QR Code com Sparrow Wallet + Air-Gapped Signer (SeedSigner ou Krux)**
+Catálogo completo e alternativas: **Capítulo 14** e **Apêndice G**.
+
+| Dispositivo | Tipo | Comunicação | Notas |
+| --- | --- | --- | --- |
+| Coldcard MK5 | Comercial | SD / QR | ⭐ Recomendado — Passo 1.0 |
+| Blockstream Jade Plus | Comercial | QR | Econômico, Bitcoin-only |
+| Foundation Passport B2 | Comercial | QR / microSD | UX amigável |
+| SeedSigner | DIY | QR | Stateless, ~US$ 50 em peças |
+| Krux | DIY | QR / SD | K210, builds reproduzíveis |
+
+Outros (Keystone, NGRAVE, ELLIPAL, Specter DIY): ver Cap. 14 — fora do guia inicial para não paralisar a escolha.
+
+**Ferramentas offline:** Ian Coleman BIP39 (HTML standalone, verificar SHA256), rolls.py para dice rolls — **sempre** em máquina air-gapped ou Tails offline.
+
+---
+
+### Fluxo PSBT (visão geral)
+
+**PSBT** (*Partially Signed Bitcoin Transaction* — transação parcialmente assinada): o coordinator (Sparrow/Electrum) prepara a transação; o dispositivo air-gapped assina offline.
+
+1. **Coordinator cria a transação (online)** — só conhece a xpub; gera PSBT ou QR.
+2. **Transferência air-gapped** — QR animado (UR/BBQR) ou arquivo em SD card.
+3. **Dispositivo verifica e assina (offline)** — você confirma endereço, valor e taxa.
+4. **Devolução da PSBT assinada** — QR ou SD de volta ao coordinator.
+5. **Broadcast via Tor** — chaves privadas nunca tocaram o PC online.
+
+![Fluxo PSBT: coordinator online → air-gap → assinatura offline → broadcast via Tor](../imagens/diagrama-psbt.png)
+
+**Backup:** metal + SeedQR opcional (SeedSigner, Krux, Jade, Passport). Teste de recuperação **antes** de enviar fundos.
+
+---
+
+## Tutorial: Fluxo PSBT via QR — após Capítulo 7
+
+> **Pré-requisitos:** Tails + Sparrow instalados (Capítulo 7). Lab: [`03-psbt-via-qr.md`](../laboratorio/nivel-1-cofre/03-psbt-via-qr.md)
+
+**Fluxo PSBT via QR com Sparrow + dispositivo air-gapped (SeedSigner ou Krux)**
 
 Este é o **fluxo padrão air-gapped** usado pela comunidade em 2026. Funciona excelente no **Tails OS** com Sparrow persistente.
 
 ### Pré-requisitos
 
-* Sparrow Wallet configurado no Tails (watch-only wallet).
-* Wallet criada com o **xpub/zpub** do SeedSigner/Krux (importado como Air-gapped Hardware Wallet).
+* Sparrow Wallet configurado no Tails (carteira somente leitura — watch-only).
+* Carteira criada com o **xpub/zpub** do SeedSigner/Krux (Air-gapped Hardware Wallet).
 * Seed gerada **offline** no dispositivo air-gapped.
 * Câmera funcionando no Tails (webcam do laptop).
 
@@ -440,7 +325,7 @@ Agora você verá as opções de assinatura.
 ### Dicas Importantes de Segurança e Usabilidade
 
 * **QR Animado (BBQR/UR)**: Sparrow e os signers DIY lidam bem com transações grandes dividindo em múltiplos QRs ou usando animação. Mantenha a câmera estável e boa iluminação.
-* **Teste primeiro**: Faça com valores muito pequenos (ex: 0.0001 BTC) várias vezes até se sentir confortável.
+* **Teste primeiro**: Faça com valores muito pequenos (Ex.: 0,0001 BTC) várias vezes até se sentir confortável.
 * **Multisig**: O fluxo é o mesmo. Você assina com um signer, depois com o outro (pode usar o mesmo dispositivo com seeds diferentes ou dispositivos diferentes).
 * **Problemas comuns**:
  * QR não escaneia → Ajuste distância, iluminação ou tente "Scan Static QR" se aplicável.
@@ -455,11 +340,13 @@ Agora você verá as opções de assinatura.
 
 ---
 
-## Comparativo: SeedSigner vs Krux
+## Comparativo: SeedSigner vs Krux (opcional)
 
-**Exploração: SeedSigner e Krux (Alternativas DIY Air-Gapped para Sparrow no Tails)**
+> Lab detalhado: [`04-seedsigner-vs-krux-opcional.md`](../laboratorio/nivel-1-cofre/04-seedsigner-vs-krux-opcional.md)
 
-Esses dois projetos são **excelentes opções open-source e baratas** para quem não quer comprar hardware wallet comercial (Trezor, Coldcard etc.). Ambos permitem **assinatura air-gapped** (via QR codes) e integram muito bem com **Sparrow Wallet** no Tails. São populares na comunidade Bitcoin em 2026 por transparência, baixo custo e soberania.
+**SeedSigner e Krux — alternativas DIY air-gapped para Sparrow no Tails**
+
+Esses dois projetos são **excelentes opções open-source e baratas** para quem não quer comprar hardware wallet comercial (Coldcard, Jade etc.). Ambos permitem **assinatura air-gapped** (via QR) e integram com **Sparrow Wallet** no Tails.
 
 ### Comparação Rápida (2026)
 
@@ -506,9 +393,9 @@ Ambos suportam **multisig**, BIP39, passphrase, e export de xpub/zpub para watch
 * **Hardware recomendado**:
  * Maix Amigo
  * Yahboom K210
- * M5StickV (opções baratas no AliExpress ou lojas especializadas)
+ * M5StickV (prefira revendedor listado no site Krux — evite marketplaces não verificados)
 * **Instalação básica**:
- 1. Baixe o Krux Installer ou firmware no GitHub (selfcustody.github.io/krux).
+ 1. Baixe o Krux Installer ou firmware no GitHub (selfcustody.github.io/krux) — **verifique a release atual** no site oficial.
  2. Flash via USB (muitas placas têm ferramenta simples).
  3. Ative verificação de integridade do firmware (TC Flash Hash).
  4. Gere seed offline.
@@ -530,7 +417,7 @@ Ambos suportam **multisig**, BIP39, passphrase, e export de xpub/zpub para watch
 
 **Dicas de Segurança (Importante!)**:
 
-* Compre peças de fontes confiáveis (evite supply chain attack).
+* Compre peças de fontes confiáveis (evite ataques na cadeia de entrega — supply chain).
 * Verifique hashes e builds reproduzíveis.
 * Sempre teste com pequenas quantias.
 * Combine com multisig (ex: SeedSigner + outra seed em papel).
@@ -538,4 +425,4 @@ Ambos suportam **multisig**, BIP39, passphrase, e export de xpub/zpub para watch
 
 ---
 
-No próximo capítulo, criaremos a carteira fria watching-only no Tails para enxergar o saldo sem expor a seed.
+No próximo capítulo, criaremos a carteira fria somente leitura (watch-only) no Tails para enxergar o saldo sem expor a seed.

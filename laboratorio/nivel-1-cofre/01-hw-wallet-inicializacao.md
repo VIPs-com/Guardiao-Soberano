@@ -1,6 +1,6 @@
 # Inicialização air-gapped (genérico)
 
-> **Livro:** Capítulo 6 · Passos 1.0–1.6  
+> **Livro:** Capítulo 6 · Passos 1.0–1.7 (incl. 1.6b metal)
 > **Último teste:** 2026-06-25 (conteúdo do manuscrito — revalidar em hardware)  
 > **Hardware:** Coldcard · Jade · Passport · SeedSigner · Krux (escolha um)  
 
@@ -11,7 +11,7 @@
 Adquirir, verificar e configurar um **dispositivo air-gapped** com seed de dados físicos, passphrase e validação de endereços — **sem** a seed tocar um PC online.
 
 ```
-Compra discreta → firmware PGP → dice rolls → passphrase → validar xpub OFFLINE
+Compra discreta → firmware PGP → dice rolls → passphrase → validar offline → metal → restore test
 ```
 
 ---
@@ -72,20 +72,36 @@ Escolha **um** dispositivo (livro: tabela Coldcard, Jade, Passport, SeedSigner, 
 
 1. **Add Passphrase** — use a frase do Nível 0
 2. Tela: `Passphrase: Set`
-3. Sem passphrase = carteira **vazia** (proteção sob coerção)
+3. Sem passphrase = carteira **decoy** (proteção sob coerção)
 
 ---
 
 ## Passo 6 — Validar endereços (Passo 1.6)
 
 1. Exporte **xpub** para MicroSD ou QR
-2. PC **offline** + `bip39.html`:
-   - Insira 24 palavras + passphrase
-   - Derive `m/84'/0'/0'/0/0` (Native SegWit)
-3. Compare com endereço na tela do dispositivo
-4. Confira também o **5º** e **15º** endereços
+2. PC **offline** + `bip39.html` (hash SHA256 verificado)
+3. Derive `m/84'/0'/0'/0/0` (Native SegWit) — compare 1º, 5º e 15º endereços
+4. Ver caixa ⚠️ Lei 4 no livro (única exceção para digitar seed em PC)
 
 **Não bate → pare. Regrave seed ou refaça setup.**
+
+---
+
+## Passo 6b — Gravar em metal (Passo 1.6b)
+
+- [ ] **Antes** do teste destrutivo — Cap. 5 Passo 0.5 + lab [`N0/02-backup-aco.md`](../nivel-0-semente/02-backup-aco.md)
+- [ ] 2 cópias metal + passphrase em Local C
+- [ ] Queimar papel temporário
+
+---
+
+## Passo 7 — Teste de restauração (Passo 1.7)
+
+1. Apague seed no dispositivo (menu varia — ver livro)
+2. Restore from 24 words + passphrase
+3. Exporte endereços e compare com Passo 6
+
+**Não bate → nunca envie fundos. Regrave metal e repita.**
 
 ---
 
@@ -93,10 +109,11 @@ Escolha **um** dispositivo (livro: tabela Coldcard, Jade, Passport, SeedSigner, 
 
 - [ ] Firmware atualizado e PGP verificado
 - [ ] Seed gerada por dice rolls, não RNG rápido
-- [ ] Passphrase ativa; você sabe o efeito da carteira "vazia"
+- [ ] Passphrase ativa; você sabe o efeito da carteira decoy
 - [ ] Endereços BIP84 batem offline
+- [ ] 2 backups metal **antes** do destroy test
+- [ ] Teste de restauração (Passo 1.7) OK
 - [ ] Dispositivo nunca conectado à internet
-- [ ] 2 backups metal + passphrase em local separado
 
 ---
 

@@ -16,7 +16,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
-- Cap. 5 (N0): passada estilo + gramática (Ex.:/intervalos, PT complementos)
+- Cap. 6 (N1): revisão P0–P1 — Passo 1.6b metal, Lei 4/SHA256, complementos opcionais
 - Manuscrito: diagramas incorporados nos Caps. 6, 9, 10 e 13 (`../imagens/*.png`)
 - Labs: caminhos relativos corrigidos para `../../imagens/`
 - `compila.ps1`: `--resource-path` para embutir diagramas no EPUB/MOBI
