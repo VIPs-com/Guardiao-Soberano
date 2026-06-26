@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Dominar CoinJoin com Whirlpool. Ter alternativa funcional com JoinMarket. Aprender Coin Control para nunca se auto-sabotar.
+Dominar CoinJoin com Whirlpool. Ter alternativa funcional com JoinMarket. Aprender controle de moedas (Coin Control) para nunca se auto-sabotar.
 
 **Tempo estimado:** 2–4 semanas | **Dificuldade:** ★★★★☆
 
@@ -26,7 +26,7 @@ Conceitos para pesquisar antes de começar:
 □ O que é CoinJoin?
  - Transação onde várias pessoas misturam seus Bitcoins
  - Depois da mistura, não dá para saber qual input veio de quem
- - Como jogar moedas num pote, chacoalhar, e cada um tirar de volta
+ - Como jogar moedas num pote, chacoalhar e cada um tirar de volta
 
 □ O que é anonset (anonymity set)?
  - Número de pessoas com quem você se misturou
@@ -42,7 +42,7 @@ Conceitos para pesquisar antes de começar:
 
 □ Diferença: Whirlpool vs JoinMarket
  - Whirlpool: coordenador central (.onion), pools fixos, mais fácil
- - JoinMarket: P2P descentralizado, qualquer valor, makers ganham fees
+ - JoinMarket: P2P descentralizado, qualquer valor; makers ganham taxas
 ```
 
 ---
@@ -66,7 +66,7 @@ Conceitos para pesquisar antes de começar:
  - Status: "reservado"
 
 □ REGRA DE OURO:
- NUNCA consolidar UTXO pós-coinjoin com UTXO não-misturado
+ NUNCA consolidar UTXO pós-coinjoin com UTXO não misturado
  Isso desfaz TODO o anonimato conquistado
 ```
 
@@ -78,10 +78,10 @@ Conceitos para pesquisar antes de começar:
 
 ```
 □ Aba Whirlpool → Configurações (Settings)
-□ Coordinator: automático via Sparrow + Tor (Apêndice B — não use .onion de listas não verificadas)
-□ Escolher pool: 0.01 BTC (recomendado para começar)
-□ Target anonset: 5 (mínimo), 10+ (ideal)
-□ Modo: Remix automático (continua misturando após cada round)
+□ Coordenador (Coordinator): automático via Sparrow + Tor (Apêndice B — não use .onion de listas não verificadas)
+□ Escolher pool: 0,01 BTC (recomendado para começar)
+□ Anonset alvo (target anonset): 5 (mínimo), 10+ (ideal)
+□ Modo: remix automático (continua misturando após cada round)
 ```
 
 ---
@@ -89,13 +89,13 @@ Conceitos para pesquisar antes de começar:
 ### Passo 4.4 — Primeira transação Premix
 
 ```
-□ Selecionar 1 UTXO não-misturado (0.01 BTC ou mais)
+□ Selecionar 1 UTXO não misturado (0,01 BTC ou mais)
 □ Botão direito → Mix to Whirlpool (Misturar no Whirlpool)
-□ Escolher pool 0.01 BTC
+□ Escolher pool 0,01 BTC
 □ Revisar:
- - Outputs de pool (Ex.: 1 output de 0.01 BTC)
- - Change (troco que volta para você)
- - Coordinator fee (taxa do coordenador)
+ - Outputs de pool (Ex.: 1 output de 0,01 BTC)
+ - Troco (change) que volta para você
+ - Taxa do coordenador (coordinator fee)
 □ Criar PSBT → dispositivo air-gapped assina → transmitir
 □ Aguardar 1 confirmação
 ```
@@ -107,9 +107,9 @@ Conceitos para pesquisar antes de começar:
 ```
 □ Aba Whirlpool → Iniciar (Start)
 □ Aguardar:
- - "Registered" → output registrado no coordenador
- - "Signing" → round em andamento
- - "Remixing" → completou 1 round, voltou para mais
+ - "Registered" (Registrado) → output registrado no coordenador
+ - "Signing" (Assinando) → round em andamento
+ - "Remixing" (Remixando) → completou 1 round, voltou para mais
 
 □ Tempos típicos:
  - 1 round: 20–60 minutos
@@ -130,7 +130,7 @@ Conceitos para pesquisar antes de começar:
 □ Selecionar → Send to Postmix_Whonix (Enviar para Postmix)
 □ Assinar no dispositivo air-gapped → transmitir
 □ Agora você tem BTC "limpo"!
-□ NUNCA gastar este BTC junto com BTC não-misturado
+□ NUNCA gastar este BTC junto com BTC não misturado
 ```
 
 ---
@@ -150,8 +150,8 @@ Conceitos para pesquisar antes de começar:
 
 □ Anotar comandos essenciais no KeePassXC (metadados — sem seed):
  - wallet-tool.py generate
- - sendpayment.py (taker)
- - yield-generator.py (maker, opcional)
+ - sendpayment.py (tomador / taker)
+ - yield-generator.py (maker — ofertante, opcional)
 ```
 
 ---
@@ -175,7 +175,7 @@ Conceitos para pesquisar antes de começar:
 
 ### Verificação do Nível 4
 
-**Obrigatório antes de usar fundos pós-CJ:**
+**Obrigatório antes de usar fundos pós-coinjoin:**
 
 ```
 □ Primeiro UTXO pós-coinjoin com anonset ≥ 5
@@ -188,7 +188,7 @@ Conceitos para pesquisar antes de começar:
 
 ```
 □ Estrutura de 3 carteiras funcionando
-□ JoinMarket instalado E testado com valor **pequeno**
+□ JoinMarket instalado E testado com valor pequeno
 □ Whonix rodando remixes sem desligar VM no meio do round
 ```
 
