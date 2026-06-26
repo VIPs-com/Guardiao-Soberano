@@ -36,14 +36,14 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
 
 | Nível | Pasta | Primeiro lab |
 | --- | --- | --- |
-| 0 | [nivel-0-semente](laboratorio/nivel-0-semente/) | Em preparação |
-| 1 | [nivel-1-cofre](laboratorio/nivel-1-cofre/) | Em preparação |
+| 0 | [nivel-0-semente](laboratorio/nivel-0-semente/) | [Seed com dados](laboratorio/nivel-0-semente/01-gerar-seed-dados.md) · [Backup aço](laboratorio/nivel-0-semente/02-backup-aco.md) |
+| 1 | [nivel-1-cofre](laboratorio/nivel-1-cofre/) | [HW init](laboratorio/nivel-1-cofre/01-hw-wallet-inicializacao.md) · [Restore](laboratorio/nivel-1-cofre/02-teste-restauracao.md) |
 | 2 | [nivel-2-carteira-fria](laboratorio/nivel-2-carteira-fria/) | [Sparrow watch-only](laboratorio/nivel-2-carteira-fria/01-sparrow-watching-only.md) · [Primeiro PSBT](laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md) · [KeePassXC](laboratorio/nivel-2-carteira-fria/03-keepassxc-tails.md) · [Electrum](laboratorio/nivel-2-carteira-fria/04-electrum-tails.md) · [Tails setup](laboratorio/nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md) |
 | 3 | [nivel-3-observador](laboratorio/nivel-3-observador/) | [Whonix VirtualBox](laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md) · [Node + EPS](laboratorio/nivel-3-observador/02-bitcoin-node-eps-onion.md) · [Migração Tails](laboratorio/nivel-3-observador/04-migracao-tails-whonix.md) |
-| 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | [Whirlpool](laboratorio/nivel-4-misturador/01-whirlpool-primeiro-mix.md) · [Coin control](laboratorio/nivel-4-misturador/02-coin-control-postmix.md) |
+| 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | [Whirlpool](laboratorio/nivel-4-misturador/01-whirlpool-primeiro-mix.md) · [Coin control](laboratorio/nivel-4-misturador/02-coin-control-postmix.md) · [JoinMarket](laboratorio/nivel-4-misturador/03-joinmarket-opcional.md) |
 | 5 | [nivel-5-trocador](laboratorio/nivel-5-trocador/) | [eigenwallet](laboratorio/nivel-5-trocador/01-eigenwallet-whonix-btc-xmr.md) · [Feather](laboratorio/nivel-5-trocador/02-feather-tails-instalacao.md) · [RetoSwap](laboratorio/nivel-5-trocador/03-retoswap-xmr-btc.md) |
-| 6 | [nivel-6-soberano](laboratorio/nivel-6-soberano/) | Em preparação |
-| 7 | [nivel-7-mestre](laboratorio/nivel-7-mestre/) | Em preparação |
+| 6 | [nivel-6-soberano](laboratorio/nivel-6-soberano/) | [Backup 3-2-1](laboratorio/nivel-6-soberano/01-backup-3-2-1.md) · [Scripts Tails](laboratorio/nivel-6-soberano/02-scripts-operador-tails.md) |
+| 7 | [nivel-7-mestre](laboratorio/nivel-7-mestre/) | [Multisig 2-of-3](laboratorio/nivel-7-mestre/01-multisig-2of3-trilha-a.md) |
 
 Índice completo: [`laboratorio/README.md`](laboratorio/README.md)
 
@@ -68,11 +68,14 @@ Pastas locais (não versionadas): `soberano-equipe-dev/`, `old/`, `saida/` — v
 
 ## Status
 
+Legenda laboratório: 🟢 testado em hardware · 🟡 extraído (aguarda hardware) · 🔴 bloqueado.
+
 | Item | Status |
 | --- | --- |
-| Livro v1.1 | ✅ Publicável |
+| Livro v1.1 (manuscrito) | ✅ Editorialmente fechado — verificação técnica em `soberano-equipe-dev/docs/validacao/` |
 | PDF / EPUB / MOBI | ✅ Compilável localmente |
-| Laboratório | 🟢 N2–N3–N5 completos · 🟡 N4 (2/3) · scripts Tails 6/6 |
+| Laboratório | 🟡 **29/29 extraídos** · **0/18** labs 🔴 validados em hardware |
+| Scripts Tails | 🟡 6/6 extraídos — aguarda teste com labs N2/N5/N6 |
 | CI (links) | ✅ `.github/workflows/check-links.yml` |
 
 ---

@@ -87,6 +87,15 @@ Atualize **mensalmente**.
 - [ ] Contador de cripto consultado antes de 07/2026 (DeCripto)
 - [ ] Entende diferença entre privacidade e omissão dolosa
 
+### Critério para marcar ☑ na matriz de validação
+
+Este lab **não** segue o mesmo critério dos labs técnicos (Tails/Whonix). Só marque como validado quando:
+
+1. Um **contador ou advogado tributarista** revisou seu checklist/planilha, **e**
+2. Você registrou no KeePassXC: data da consulta, norma consultada (IN 1888 / DeCripto), sem dados pessoais sensíveis no repo.
+
+Execução sozinha do checklist **não** conta como HW ☑ na `VALIDACAO-LABORATORIO-29.md`.
+
 ---
 
 ## Se der errado
