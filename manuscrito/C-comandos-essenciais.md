@@ -208,6 +208,10 @@ electrum getinfo
 ## Feather Wallet (Monero)
 
 ``` {.sourceCode .bash}
+# Importar chave e conferir fingerprint (Apêndice D)
+gpg --keyserver hkps://keys.openpgp.org --recv-keys 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+gpg --fingerprint 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+
 # Verificar assinatura do binário
 gpg --verify feather-*.AppImage.asc feather-*.AppImage
 

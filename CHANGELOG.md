@@ -9,6 +9,10 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- Lab `02-feather-tails-instalacao.md` e script `start-feather.sh`
+- Feather Wallet no Apêndice D (fingerprint + seção 2.8.1)
+- Seção “Leitura complementar” no Cap. 11 (ponte ao Cap. 13)
+- `soberano-equipe-dev/VALIDACAO-AMBIENTE.md` — checklist pré-publicação
 - Lab `03-keepassxc-tails.md` e script `start-keepass.sh`
 - Lab `04-electrum-tails.md` e script `start-electrum.sh`
 - Lab `01-sparrow-watching-only.md` e script `start-sparrow.sh`
@@ -19,7 +23,8 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
-- Reorganização local: `old/`, docs internos em `soberano-equipe-dev/`
+- Cap. 8 e Apêndice C: verificação PGP Feather alinhada ao Apêndice D (keyserver + fingerprint)
+- Cap. 11: seção de leitura complementar (ponte ao Cap. 13)
 - `README.md` com badges e mapa livro + laboratório
 
 ---

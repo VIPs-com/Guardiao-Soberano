@@ -364,7 +364,7 @@ Feather Wallet — XMR com Tor nativo
 
 A comunidade do Whonix discutiu incluir o Feather por padrão — é considerado ideal para XMR no Whonix por ser leve, focado em privacidade e ter Tor integrado que detecta automaticamente o daemon Tor do Gateway.
 
-\# Baixar + verificar: scurl-download https://featherwallet.org/files/releases/linux/feather-\*.AppImage scurl-download https://featherwallet.org/files/releases/linux/feather-\*.AppImage.asc gpg --import feather-pgp-pub.asc gpg --verify feather-\*.AppImage.asc feather-\*.AppImage # Tornar executável e mover: chmod +x feather-\*.AppImage mv feather-\*.AppImage ~/apps/feather.AppImage # Feather detecta Tor do Whonix automaticamente (porta 9050) # Settings → Network → Always route over Tor Tor automático no Whonix
+\# Baixar + verificar: scurl-download https://featherwallet.org/files/releases/linux/feather-\*.AppImage scurl-download https://featherwallet.org/files/releases/linux/feather-\*.AppImage.asc gpg --keyserver hkps://keys.openpgp.org --recv-keys 8185E158A33330C7FD61BC0D1F76E155CEFBA71C gpg --fingerprint 8185E158A33330C7FD61BC0D1F76E155CEFBA71C gpg --verify feather-\*.AppImage.asc feather-\*.AppImage # Tornar executável e mover: chmod +x feather-\*.AppImage mv feather-\*.AppImage ~/apps/feather.AppImage # Feather detecta Tor do Whonix automaticamente (porta 9050) # Settings → Network → Always route over Tor Tor automático no Whonix
 
 ↔
 

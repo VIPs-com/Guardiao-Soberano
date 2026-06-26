@@ -70,7 +70,7 @@ Fontes para mineração:
 | --- | --- | --- |
 | eigenwallet no Whonix — swap BTC→XMR | integrado cap. 10 | 🟡 Lab expandido |
 | RetoSwap — swap XMR→BTC | livro cap. 10 | 🟡 Lab + defesa ABCTracer |
-| **Feather Wallet no Tails — instalação** | REMOVIDO do cap. 10 | 🔴 Mover para N2/N5 |
+| **Feather Wallet no Tails — instalação** | REMOVIDO do cap. 10 | 🟡 Lab `02-feather-tails-instalacao.md` + `start-feather.sh` |
 | Restore height Monero | integrado cap. 10 | 🟡 Lab curto |
 
 ---
@@ -80,7 +80,7 @@ Fontes para mineração:
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
 | Regra backup 3-2-1 | integrado parcial cap. 11 | 🟡 Lab com tar/verificação |
-| **Scripts do operador (start-*.sh)** | Manual Fortaleza módulo 10 — REMOVIDO | 🔴 Curar em `scripts/` |
+| **Scripts do operador (start-*.sh)** | Manual Fortaleza módulo 10 — REMOVIDO | 🟡 4/6 em `scripts/tails/` (falta retoswap, backup) |
 | Mobile CalyxOS + Sparrow | livro cap. 11 | 🟡 Lab futuro |
 
 ---
@@ -98,8 +98,8 @@ Fontes para mineração:
 
 | Script | Fonte | Ambiente |
 | --- | --- | --- |
-| `start-feather.sh` | Manual Fortaleza módulo 10 | Tails |
-| `start-electrum.sh` | Manual Fortaleza / cap. 7 | Tails |
+| `start-feather.sh` | Manual Fortaleza módulo 10 / lab N5 | Tails | 🟡 Extraído |
+| `start-electrum.sh` | Manual Fortaleza / cap. 7 | Tails | 🟡 Extraído |
 | `start-retoswap.sh` | Manual Fortaleza | Tails |
 | `backup-persistencia.sh` | cap. 7 / Manual Fortaleza | Tails |
 

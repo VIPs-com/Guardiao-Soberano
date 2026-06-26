@@ -46,6 +46,8 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
   Coinkite                Coldcard                coldcard.com/docs/upgrade
 
   SeedSigner              SeedSigner              Assinaturas em github.com/SeedSigner/seedsigner/releases
+
+  Feather Wallet          Feather (Monero)        `8185E158A33330C7FD61BC0D1F76E155CEFBA71C` — docs.featherwallet.org/guides/release-signing-key
   ----------------------------------------------------------------------------------------------------------------------------
 
 > ⚠️ SEMPRE compare a fingerprint com **pelo menos duas fontes independentes** antes de importar.
@@ -160,5 +162,33 @@ Release atual: **4.11.3**. Linux Whonix:
     https://github.com/eigenwallet/core/releases/download/4.11.3/eigenwallet_4.11.3_amd64.AppImage.asc
 
 > ⚠️ *Atualização jun/2026:* O nome mudou de `eigenwallet-x86_64.AppImage` para `eigenwallet_VERSAO_amd64.AppImage`. Sempre use a release mais recente do GitHub.
+
+### Feather Wallet 2.8.1 — download verificado (jun/2026)
+
+Release atual: **2.8.1**. Chave de release **FeatherWallet** (`dev@featherwallet.org`).
+
+```bash
+# Importar e conferir fingerprint (compare com docs + GitHub)
+gpg --keyserver hkps://keys.openpgp.org --recv-keys 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+gpg --fingerprint 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+# Saída esperada: 8185 E158 A333 30C7 FD61 BC0D 1F76 E155 CEFB A71C
+
+# Baixar (Tails — torsocks; Whonix — scurl-download)
+VERSION=2.8.1
+torsocks wget -P ~/Downloads \
+  "https://featherwallet.org/files/releases/linux/feather-${VERSION}-x86_64.AppImage" \
+  "https://featherwallet.org/files/releases/linux/feather-${VERSION}-x86_64.AppImage.asc"
+
+gpg --verify feather-${VERSION}-x86_64.AppImage.asc feather-${VERSION}-x86_64.AppImage
+# Esperado: Good signature from "FeatherWallet <dev@featherwallet.org>"
+```
+
+Fontes cruzadas obrigatórias:
+
+- https://docs.featherwallet.org/guides/release-signing-key  
+- https://github.com/feather-wallet/feather (README — seção GPG)  
+- `drill -D key.featherwallet.net TXT` (DNS, Linux)
+
+Lab passo a passo no Tails: `laboratorio/nivel-5-trocador/02-feather-tails-instalacao.md`
 
 ---

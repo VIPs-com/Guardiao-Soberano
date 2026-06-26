@@ -129,6 +129,8 @@ tar -xf sparrow-*.tar.gz -C ~/Persistent/apps/sparrow
 
 ## Passo 6 — Feather Wallet (XMR)
 
+Lab dedicado: [`../nivel-5-trocador/02-feather-tails-instalacao.md`](../nivel-5-trocador/02-feather-tails-instalacao.md) · script `start-feather.sh`
+
 ```bash
 # https://featherwallet.org — baixar AppImage + .asc
 gpg --verify feather-*.AppImage.asc feather-*.AppImage

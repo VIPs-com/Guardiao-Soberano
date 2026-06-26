@@ -196,6 +196,21 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 ---
 
+## Leitura complementar — ecossistema completo
+
+Este capítulo sintetiza **como você opera** como Soberano: diagrama pessoal, mobile watch-only, rotinas de backup, aspectos legais e ensinar outros. Não repete a arquitetura em detalhe — isso é intencional.
+
+| Se você precisa de… | Onde continuar |
+| --- | --- |
+| Diagramas, fluxos de swap, matriz de resiliência, inventário de VMs | **Capítulo 13 — O Ecossistema Completo** |
+| Checklist operacional reutilizável (28 itens) | **Capítulo 16 — Checklist Operacional** |
+| Tutoriais passo a passo com verificação em hardware (Feather, scripts `start-*.sh`, Tails) | Extensão **Laboratório** no repositório oficial do livro (`laboratorio/`) |
+| Comandos e verificação PGP | **Apêndice C** e **Apêndice D** |
+
+Se algo deste capítulo parecer “resumido demais”, confira o Capítulo 13 antes de concluir que falta conteúdo — a integração está lá; aqui está a **rotina** de quem já montou a fortaleza.
+
+---
+
 > Não peço permissão a exchanges. Não confio em servidores públicos. Não exponho minhas chaves. Cada peça do ecossistema tem backup. Cada operação segue um protocolo. Sou soberano sobre meu dinheiro — e a lei conheço, para a liberdade não se confundir com o crime.
 
 ---

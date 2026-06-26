@@ -7,6 +7,6 @@
 | Arquivo | Descrição | Status |
 | --- | --- | --- |
 | `01-eigenwallet-whonix-btc-xmr.md` | Swap BTC→XMR na Workstation | 🟡 Parcial no livro |
-| `02-feather-tails-instalacao.md` | Feather + restore height | 🔴 Recuperar pesquisas |
+| `02-feather-tails-instalacao.md` | Feather + restore height + PGP | 🟡 Extraído — revalidar em hardware |
 | `03-retoswap-xmr-btc.md` | Swap XMR→BTC + intervalos ABCTracer | 🟡 Parcial no livro |
 | `04-defesa-abctracer.md` | Exercício comparativo sem/com defesa | 🔴 Pendente |
