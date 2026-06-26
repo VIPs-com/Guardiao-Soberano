@@ -8,7 +8,7 @@
 
 Gerar uma seed BIP39 com entropia própria, sem confiar em nenhum software. Adquirir os primeiros **satoshis** (a menor unidade de Bitcoin — 100 milhões de satoshis = 1 BTC) sem KYC (identificação na exchange).
 
-**Tempo estimado:** 2-4 dias | **Dificuldade:** ★★☆☆☆
+**Tempo estimado:** 2–4 dias | **Dificuldade:** ★★☆☆☆
 
 **Pré-requisitos:** Nenhum. Você começa aqui.
 
@@ -34,7 +34,7 @@ Antes de qualquer software, você precisa de coisas tangíveis.
 
 ```
 □ Comprar 2 dados de casino (6 faces, cores diferentes)
- - Qualquer loja de jogos ou internet
+ - Em loja de jogos ou na internet
  - Cores diferentes ajudam a não confundir
 
 □ Comprar material para backup físico:
@@ -86,7 +86,7 @@ Este é o momento mais importante do Nível 0. Faça com calma.
 □ Sentar em local sem câmeras (celular longe)
 □ Pegar os 2 dados de casino
 □ Lançar os dois simultaneamente
-□ Anotar EM PAPEL o resultado (ex: Dado vermelho=3, Dado azul=5 → anote "35")
+□ Anotar EM PAPEL o resultado (Ex.: Dado vermelho=3, Dado azul=5 → anote "35")
 □ Repetir 100 vezes (50 pares de lançamentos)
 □ Você terá 100 números entre 11 e 66
 
@@ -99,7 +99,7 @@ Este é o momento mais importante do Nível 0. Faça com calma.
 
 ### Dica de João
 
-João, um bitcoiner de São Paulo, comprou dois dados por R$12 na loja de jogos do bairro. Sentou na cozinha, desligou o celular, fechou a cortina, e passou 30 minutos lançando dados. "Parecia um ritual", ele contou depois. "E era."
+João, um bitcoiner de São Paulo, comprou dois dados por R$12 na loja de jogos do bairro. Sentou na cozinha, desligou o celular, fechou a cortina e passou 30 minutos lançando dados. "Parecia um ritual", ele contou depois. "E era."
 
 ---
 
@@ -146,7 +146,7 @@ Use os materiais que comprou no Passo 0.1. O lab [`02-backup-aco.md`](../laborat
 □ Fazer SEGUNDA CÓPIA:
  - Gravar outra placa/kit de arruelas
  - Guardar em Local Físico B (diferente do A)
- - Ex: A = sua casa, B = casa de familiar confiável
+ - Ex.: A = sua casa, B = casa de um familiar de confiança
  - Incêndio não pode destruir os dois ao mesmo tempo
 
 □ Opção complementar: SeedQR
@@ -223,7 +223,7 @@ Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e do
  - Cliente envia diretamente para seu endereço
  ✅ BTC entra sem exchange
 
-□ Para começar, qualquer valor serve (R$50-100)
+□ Para começar, qualquer valor serve (R$ 50–100)
 □ Anote em papel: método, valor, data (no Nível 2, migre para KeePassXC)
 ```
 
@@ -258,7 +258,7 @@ As seções abaixo aprofundam passphrase e métodos alternativos (SeedSigner/Kru
 
 ## Aprofundamento: Passphrase BIP39 na Prática
 
-**Uso Completo da BIP39 Word 25 (Passphrase)**
+**Uso completo da passphrase BIP39 (25ª palavra)**
 
 A **passphrase BIP39** (25ª palavra) é uma funcionalidade poderosa do padrão BIP39. Ela transforma sua seed de 24 palavras em uma **carteira totalmente diferente**. É como adicionar uma senha extra que ninguém consegue adivinhar.
 
@@ -272,13 +272,13 @@ Mesmo que alguém roube sua seed física, **sem a passphrase exata** não conseg
 ### Vantagens
 
 * Proteção extra contra roubo físico da seed.
-* Permite ter várias carteiras a partir da mesma seed (ex: uma com passphrase para holdings grandes, outra sem para testes).
+* Permite ter várias carteiras a partir da mesma seed (Ex.: uma com passphrase para reservas maiores, outra sem para testes).
 * Muito usado em multisig (assinatura com várias chaves — Capítulo 12).
 
 ### Desvantagens / Riscos
 
 * Se esquecer a passphrase → fundos perdidos para sempre.
-* Digitação errada = wallet errada.
+* Digitação errada = carteira errada.
 * Mais um item para fazer backup seguro.
 
 ### Recomendação para Novatos
@@ -291,9 +291,7 @@ Mesmo que alguém roube sua seed física, **sem a passphrase exata** não conseg
 * Palavras inventadas longas: `Xk9mP2vL4nR8wT1qZ3`
 * Mistura longa: `Z9!kL2mN4pQ7rS1tU3vW5xY8`
 
-### Como Usar no Seu Setup
-
-### No SeedSigner (Capítulo 6)
+### No dispositivo air-gapped (Capítulo 6)
 
 * Ao criar ou carregar a seed → **Apply Passphrase**.
 * Digite com joystick e confirme.
@@ -315,13 +313,13 @@ Mesmo que alguém roube sua seed física, **sem a passphrase exata** não conseg
 
 1. Anote a **seed de 24 palavras** em um local.
 2. Anote a **passphrase** em **local completamente separado** (outro país, casa de familiar de confiança, cofre etc.).
-3. Grave **ambos em metal** (ex: duas placas diferentes).
+3. Grave **ambos em metal** (Ex.: duas placas diferentes).
 4. Escreva também o **Output Descriptor** completo do Sparrow.
 
 ### Teste de Restore (Faça Isso!)
 
 1. Crie uma wallet de teste com passphrase.
-2. Envie uma quantia pequena (ex: 0.0001 BTC).
+2. Envie uma quantia pequena (Ex.: 0,0001 BTC).
 3. Apague a wallet do Sparrow.
 4. Recrie a wallet importando o xpub do signer (com passphrase ativa).
 5. Verifique se o saldo aparece.
@@ -382,7 +380,7 @@ echo "Role o dado e digite o número (1-6):"
 
 4. **Quantidade recomendada** (24 palavras):
  * Alinhe ao Passo 0.3: **100 pares de lançamentos** (ou siga a contagem do dispositivo no Cap. 6).
-5. Concatene todos os números (ex: 4256134...) e use uma ferramenta offline confiável.
+5. Concatene todos os números (Ex.: 4256134...) e use uma ferramenta offline confiável.
 
 **Ferramenta Offline Recomendada**:
 
@@ -402,7 +400,7 @@ echo "Role o dado e digite o número (1-6):"
 * **Nunca** gere seed em computador conectado à internet.
 * Use **dice rolls** (não use geradores online ou `/dev/urandom` sozinho).
 * Guarde a seed em **metal** (Billfodl, Cryptosteel, ou placa de aço + punção).
-* Faça **backup em 2-3 locais físicos diferentes**.
+* Faça **backup em 2–3 locais físicos diferentes**.
 * Teste o restore com valor mínimo antes de usar com quantias reais.
 * Use **passphrase** extra (BIP39 Word 25) para segurança adicional.
 * Nunca diga as palavras para ninguém.
