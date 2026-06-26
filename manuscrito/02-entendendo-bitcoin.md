@@ -114,7 +114,7 @@ Para fazer isso, você precisa de um explorador de blockchain — um site (ou so
 - `blockstream.info` — mantido pela Blockstream
 - `btcscan.org` — alternativa mais leve
 
-Para máxima privacidade, acesse qualquer um deles via `.onion` no Tor Browser, ou consulte seu próprio nó Bitcoin Core.
+Para máxima privacidade, acesse exploradores via `.onion` no Tor Browser, ou consulte seu próprio nó Bitcoin Core. Evite colar seus endereços em sites clearnet.
 
 **O que você vê em uma transação:**
 

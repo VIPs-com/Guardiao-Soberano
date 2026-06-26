@@ -1,4 +1,4 @@
-# Capítulo 4 — Privacidade vs. Anonimato
+# Capítulo 4 — Privacidade vs. Anonimato
 
 ## 4.1 A diferença fundamental
 
@@ -68,10 +68,10 @@ Em 2026, está previsto o upgrade **FCMP++** (Full-Chain Membership Proofs), que
 A comunidade Bitcoin desenvolveu uma estratégia poderosa:
 
 1.  **Entrar no Bitcoin** (com KYC ou sem)
-2.  **Misturar os bitcoins** com CoinJoin (aumentar anonimato)
-3.  **Trocar BTC por XMR** via atomic swap (cortar o rastro)
+2.  **Misturar os bitcoins** com CoinJoin (aumentar anonimato) — Cap. 9
+3.  **Trocar BTC por XMR** via atomic swap (cortar o rastro) — Cap. 10 (eigenwallet)
 4.  **Esperar** (defesa contra correlação temporal)
-5.  **Trocar XMR de volta por BTC** (receber em endereço novo, sem vínculo com o passado)
+5.  **Trocar XMR de volta por BTC** (receber em endereço novo) — Cap. 10 (RetoSwap)
 
 O resultado: BTC "limpo", sem vínculo criptográfico com sua identidade original.
 
@@ -81,9 +81,18 @@ O resultado: BTC "limpo", sem vínculo criptográfico com sua identidade origina
 
 Em abril de 2025, pesquisadores publicaram o paper ABCTracer (arXiv:2504.01822), demonstrando 91,75% de rastreabilidade em pontes cross-chain.
 
-O ataque usa três sinais: 1. **Intervalo de tempo:** Se 1 BTC entra em um swap e \~1 BTC sai em XMR minutos depois, a correlação é forte. 2. **Proporção valor/taxa:** Valores quase idênticos são uma assinatura. 3. **Endereço de destino:** Padrões de reutilização ou agrupamento.
+O ataque usa três sinais:
 
-**Nossas defesas:** - **Intervalo mínimo de 24 horas** entre entrada e saída (ideal: dias) - **Valores diferentes** em cada swap - **Múltiplos swaps em paralelo** para confundir - **Nunca reutilizar endereços**
+1. **Intervalo de tempo:** Se 1 BTC entra em um swap e ~1 BTC sai em XMR minutos depois, a correlação é forte.
+2. **Proporção valor/taxa:** Valores quase idênticos são uma assinatura.
+3. **Endereço de destino:** Padrões de reutilização ou agrupamento.
+
+**Nossas defesas:**
+
+- **Intervalo mínimo de 24 horas** entre entrada e saída (ideal: dias)
+- **Valores diferentes** em cada swap
+- **Múltiplos swaps em paralelo** para confundir
+- **Nunca reutilizar endereços**
 
 ---
 

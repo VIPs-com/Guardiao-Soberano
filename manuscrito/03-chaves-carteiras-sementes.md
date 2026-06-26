@@ -46,7 +46,7 @@ A chave privada está em um dispositivo conectado à internet (celular, computad
 
 ### Carteira fria (cold wallet)
 
-A chave privada NUNCA toca um dispositivo conectado. Pode ser uma hardware wallet, um pedaço de papel (paper wallet), ou um dispositivo dedicado offline. Mais segura, menos conveniente.
+A chave privada NUNCA toca um dispositivo conectado. Use hardware wallet ou dispositivo air-gapped dedicado. *Paper wallet* (papel) é legado e **não recomendado** — prefira metal + dispositivo.
 
 ### Carteira watching-only (somente leitura)
 
@@ -80,9 +80,16 @@ O **Output Descriptor** é uma string de texto que descreve exatamente como sua 
 
 **Para carteiras multisig (2-de-3 etc.):** O descriptor é OBRIGATÓRIO. Sem ele, mesmo que você tenha todas as seeds, pode não conseguir reconstruir os endereços corretos para encontrar seus fundos. Já houve casos de bitcoins bloqueados por falta do descriptor.
 
-**Como fazer o backup:** - Sparrow Wallet → File → Export Wallet → Save Output Descriptor - O descriptor NÃO contém chaves privadas — pode ser armazenado digitalmente sem tanto risco - Mas guarde em local seguro mesmo assim, pois revela sua estrutura de carteira
+**Como fazer o backup:**
 
-**Onde adicionar ao seu sistema de backup:** - KeePassXC: sim, uma cópia cifrada - MicroSD em local seguro: sim, uma cópia plaintext (opcional)
+- Sparrow Wallet → Arquivo → Exportar carteira → Salvar Output Descriptor (File → Export Wallet → Save Output Descriptor)
+- O descriptor **não** contém chaves privadas — pode ser armazenado digitalmente com risco menor que a seed
+- Guarde em local seguro mesmo assim — revela a estrutura da carteira
+
+**Onde adicionar ao seu sistema de backup:**
+
+- KeePassXC: uma cópia cifrada (metadados — sem seed)
+- MicroSD em local seguro: cópia opcional do descriptor
 
 ---
 

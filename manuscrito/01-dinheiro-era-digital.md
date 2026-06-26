@@ -8,7 +8,7 @@ Dinheiro tem três funções clássicas:
 
 **Meio de troca.** Você troca seu trabalho por dinheiro, e troca dinheiro por comida. Sem dinheiro, você precisaria encontrar um padeiro que queira exatamente o serviço que você oferece — o que os economistas chamam de "dupla coincidência de desejos". O dinheiro resolve isso.
 
-**Unidade de conta.** Você sabe que um café custa R\$ 5 e um carro custa R\$ 50.000. O dinheiro permite comparar valores de coisas completamente diferentes usando uma mesma régua.
+**Unidade de conta.** Você sabe que um café custa R$ 5 e um carro custa R$ 50.000. O dinheiro permite comparar valores de coisas completamente diferentes usando uma mesma régua.
 
 **Reserva de valor.** Você pode guardar dinheiro hoje e gastá-lo daqui a um ano. Ele preserva seu poder de compra ao longo do tempo — ou pelo menos deveria.
 
@@ -82,7 +82,7 @@ Quando você compra Bitcoin em uma exchange e deixa lá, você tem uma conta na 
 
 Auto-custódia significa que VOCÊ — e apenas você — controla as chaves privadas. Ninguém pode confiscar. Ninguém pode bloquear. Ninguém pode perder.
 
-Mas com grande poder vem grande responsabilidade. Se você perder suas chaves, perde seus bitcoins. Não há "esqueci minha senha". Não há suporte ao cliente. Não há chargeback.
+Mas com grande poder vem grande responsabilidade. Se você perder suas chaves, perde seus bitcoins. Não há «esqueci minha senha». Não há suporte ao cliente. Não há estorno (chargeback).
 
 Este livro vai te ensinar a ter o poder sem o perigo.
 
@@ -141,8 +141,8 @@ SEM SOBERANIA                                    SOBERANIA PLENA
       |                                                 |
    Exchange       Carteira quente          Carteira fria     Carteira fria
    centralizada   (celular/PC)             (hardware wallet)  air-gapped +
-   (Binance,      (Muun, Blue              (Ledger, Trezor)   seed em aço +
-   Coinbase)      Wallet)                                     nó próprio
+   (Binance,      (Muun, Blue              (Ex.: Coldcard,   seed em aço +
+   Coinbase)      Wallet)                  Jade, SeedSigner)  nó próprio
       |                                                 |
 Risco: Exchange  Risco: Malware,         Risco: Fornecedor  Risco: Você
 falir, hackear,  vírus, backup           backdoor, perda    mesmo (erro
