@@ -1,4 +1,4 @@
-# Capítulo 9 - Nível 4: O Misturador
+# Capítulo 9 — Nível 4: O Misturador
 
 > "Desaparecendo na multidão"
 
@@ -8,11 +8,13 @@
 
 Dominar CoinJoin com Whirlpool. Ter alternativa funcional com JoinMarket. Aprender Coin Control para nunca se auto-sabotar.
 
-**Tempo estimado:** 2-4 semanas | **Dificuldade:** ★★★★☆
+**Tempo estimado:** 2–4 semanas | **Dificuldade:** ★★★★☆
 
 **Pré-requisitos:** Nível 3 concluído + pelo menos 0,01 BTC na carteira.
 
 ---
+
+> **Ambiente:** o Whirlpool exige uptime e persistência — este nível assume **Whonix** (Capítulo 8). Mixagem pontual ocasional: Tails; remixes automáticos ao longo de dias: Whonix. Tabela completa Tails vs Whonix: Cap. 8, seção *Referência: Tails vs Whonix*.
 
 ---
 
@@ -48,19 +50,19 @@ Conceitos para pesquisar antes de começar:
 ### Passo 4.2 — Criar estrutura de 3 carteiras
 
 ```
-□ Todas usam a MESMA xpub (mesmo Coldcard)
+□ Todas usam a MESMA xpub (mesmo dispositivo air-gapped)
 □ São só "visões" diferentes dos mesmos fundos
 
-□ Carteira 1: "Whirlpool_Whonix"
+□ Carteira 1: "Whirlpool_Whonix" (Premix)
  - UTXOs que serão misturados
  - Status: "sujo" — NÃO gaste fora do Whirlpool
 
-□ Carteira 2: "Postmix_Whonix"
+□ Carteira 2: "Postmix_Whonix" (Postmix)
  - UTXOs que já completaram CoinJoin (anonset ≥ 5)
  - Status: "limpo" — pronto para uso privado
 
 □ Carteira 3: "Swap_Ready_Whonix"
- - UTXO isolado e rotulado, pronto para swap
+ - UTXO isolado e rotulado, pronto para swap (Cap. 10)
  - Status: "reservado"
 
 □ REGRA DE OURO:
@@ -75,8 +77,8 @@ Conceitos para pesquisar antes de começar:
 ![Whirlpool: entradas → funil CoinJoin → saídas com anonset](../imagens/diagrama-whirlpool.png)
 
 ```
-□ Aba Whirlpool → Settings
-□ Coordinator: [.onion oficial do Sparrow — verificar no site]
+□ Aba Whirlpool → Configurações (Settings)
+□ Coordinator: automático via Sparrow + Tor (Apêndice B — não use .onion de listas não verificadas)
 □ Escolher pool: 0.01 BTC (recomendado para começar)
 □ Target anonset: 5 (mínimo), 10+ (ideal)
 □ Modo: Remix automático (continua misturando após cada round)
@@ -88,13 +90,13 @@ Conceitos para pesquisar antes de começar:
 
 ```
 □ Selecionar 1 UTXO não-misturado (0.01 BTC ou mais)
-□ Botão direito → Mix to Whirlpool
+□ Botão direito → Mix to Whirlpool (Misturar no Whirlpool)
 □ Escolher pool 0.01 BTC
 □ Revisar:
- - Outputs de pool (ex: 1 output de 0.01 BTC)
+ - Outputs de pool (Ex.: 1 output de 0.01 BTC)
  - Change (troco que volta para você)
  - Coordinator fee (taxa do coordenador)
-□ Criar PSBT → Coldcard assinar → transmitir
+□ Criar PSBT → dispositivo air-gapped assina → transmitir
 □ Aguardar 1 confirmação
 ```
 
@@ -103,16 +105,16 @@ Conceitos para pesquisar antes de começar:
 ### Passo 4.5 — Mixagem (deixar rodando)
 
 ```
-□ Aba Whirlpool → Start
+□ Aba Whirlpool → Iniciar (Start)
 □ Aguardar:
  - "Registered" → output registrado no coordenador
  - "Signing" → round em andamento
  - "Remixing" → completou 1 round, voltou para mais
 
 □ Tempos típicos:
- - 1 round: 20-60 minutos
- - 5 rounds: 2-8 horas
- - 10 rounds: 5-20 horas
+ - 1 round: 20–60 minutos
+ - 5 rounds: 2–8 horas
+ - 10 rounds: 5–20 horas
 
 □ Deixar a VM rodando (não desligar durante round ativo)
 □ Whonix é ideal para isso — pode ficar 24/7
@@ -125,8 +127,8 @@ Conceitos para pesquisar antes de começar:
 
 ```
 □ UTXOs com anonset ≥ 5 → ícone azul no Sparrow
-□ Selecionar → Send to Postmix_Whonix
-□ Assinar com Coldcard → transmitir
+□ Selecionar → Send to Postmix_Whonix (Enviar para Postmix)
+□ Assinar no dispositivo air-gapped → transmitir
 □ Agora você tem BTC "limpo"!
 □ NUNCA gastar este BTC junto com BTC não-misturado
 ```
@@ -137,16 +139,16 @@ Conceitos para pesquisar antes de começar:
 
 ```
 □ NÃO basta instalar — precisa TESTAR
-□ git clone JoinMarket no Whonix
+□ clonar JoinMarket no Whonix (git clone)
 □ Configurar para Tor
-□ Fazer 1 coinjoin de teste (valor pequeno)
+□ Fazer 1 coinjoin de teste (valor pequeno — Ex.: 50.000 sats)
 □ Confirmar que funciona como alternativa
 
 □ Se o coordenador Whirlpool cair:
  - Você NÃO fica parado
  - Abre o JoinMarket e continua mixando
 
-□ Anotar comandos essenciais no KeePassXC:
+□ Anotar comandos essenciais no KeePassXC (metadados — sem seed):
  - wallet-tool.py generate
  - sendpayment.py (taker)
  - yield-generator.py (maker, opcional)
@@ -156,39 +158,39 @@ Conceitos para pesquisar antes de começar:
 
 ### Passo 4.8 — Praticar Coin Control
 
+> **Coin Control** = seleção manual de quais UTXOs entram em cada transação (no Sparrow: aba UTXOs).
+
 ```
-□ Congelar UTXOs "sujos" (Freeze no Sparrow)
+□ Congelar UTXOs "sujos" (Congelar / Freeze no Sparrow)
 □ Rotular TUDO:
  - "KYC Exchange X" (se algum dia usou)
  - "RoboSats 2026-06"
  - "CJ Round 3" (coinjoin)
  - "Swap Ready"
-□ NUNCA usar "Send Max" sem verificar quais UTXOs selecionados
-□ Auto-auditar: OXT Explorer via Tor para ver clusters
+□ NUNCA usar "Enviar máximo" (Send Max) sem verificar quais UTXOs selecionados
+□ Auto-auditar: OXT Explorer **somente via Tor** — ver clusters dos **seus** endereços; não cole endereços em sites clearnet
 ```
 
 ---
 
 ### Verificação do Nível 4
 
+**Obrigatório antes de usar fundos pós-CJ:**
+
 ```
 □ Primeiro UTXO pós-coinjoin com anonset ≥ 5
-□ JoinMarket instalado E TESTADO com valor real
-□ Estrutura de 3 carteiras funcionando
 □ Coin Control dominado (congelar, rotular, não consolidar)
 □ Entendo o que é anonset e como ele sobe
 □ Sei que consolidar UTXOs pós-coinjoin = PERDER anonimato
 ```
 
----
+**Ambiente e backup:**
 
-## Nota: ambiente para Whirlpool
-
-O Whirlpool exige uptime e persistência — por isso este nível assume **Whonix** (Passo 4.5: deixar a VM rodando 24/7).
-
-A comparação completa **Tails vs Whonix** — tabela detalhada, matriz de decisão e estratégia híbrida — está no **Capítulo 8** (Nível 3 — O Observador), seção *Referência: Tails vs Whonix*.
-
-**Regra prática para CoinJoin:** use Tails para mixagem pontual ocasional; use Whonix para remixes automáticos ao longo de dias.
+```
+□ Estrutura de 3 carteiras funcionando
+□ JoinMarket instalado E testado com valor **pequeno**
+□ Whonix rodando remixes sem desligar VM no meio do round
+```
 
 ---
 
