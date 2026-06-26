@@ -1,6 +1,8 @@
-# Inventário de recuperação — Labs pendentes
+# Inventário de recuperação — Labs
 
 Mapa do conteúdo **removido do livro** (mas valioso para prática) → pasta de lab alvo.
+
+> **Atualização 2026-06-25:** trilha N0–N7 com **29 labs extraídos**. Pendente: testes em hardware (fase final) e itens opcionais abaixo.
 
 Fontes para mineração:
 
@@ -17,9 +19,10 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| Checklist mestre fase 1 (7 níveis) | `fase1 checklist mestre autocus` | 🔴 Recuperar de backup; limpar JS |
-| Passphrase BIP39 na prática | integrado no livro cap. 5 | 🟢 No livro; lab opcional |
-| Gerador de sementes com dados | integrado no livro cap. 5 | 🟢 No livro; lab opcional |
+| Gerador de sementes com dados | cap. 5 | 🟡 `01-gerar-seed-dados.md` |
+| Backup em aço + passphrase | cap. 5 | 🟡 `02-backup-aco.md` |
+| Primeiros sats sem KYC | cap. 5 | 🟡 `03-primeiros-sats-sem-kyc.md` |
+| Checklist mestre fase 1 (7 níveis) | pesquisas equipe | 🟡 `04-checklist-fase1-opcional.md` |
 
 ---
 
@@ -27,9 +30,11 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| Fluxo PSBT completo via QR | integrado cap. 6 | 🟡 Expandir com screenshots |
-| SeedSigner vs Krux — comparação prática | integrado cap. 6 | 🟡 Lab side-by-side |
-| HW wallets air-gapped — panorama | integrado cap. 6 | 🟢 Referência no livro |
+| HW wallet inicialização | cap. 6 | 🟡 `01-hw-wallet-inicializacao.md` |
+| Teste de restauração | cap. 6 | 🟡 `02-teste-restauracao.md` |
+| Fluxo PSBT via QR | cap. 6 | 🟡 `03-psbt-via-qr.md` |
+| SeedSigner vs Krux — comparação | cap. 6 | 🟡 `04-seedsigner-vs-krux-opcional.md` |
+| HW wallets — panorama | cap. 6 | 🟢 Referência no livro |
 
 ---
 
@@ -59,8 +64,10 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| Whirlpool — primeiro mix | livro cap. 9 | 🟡 Labs `01` + `02` extraídos |
-| Tails vs Whonix para Whirlpool | integrado parcial cap. 9 | 🟢 Tabela no livro + lab N3/04 |
+| Whirlpool — primeiro mix | cap. 9 | 🟡 `01-whirlpool-primeiro-mix.md` |
+| Coin control pós-mix | cap. 9 | 🟡 `02-coin-control-postmix.md` |
+| JoinMarket backup P2P | cap. 9 + 15.2 + adendo equipe | 🟡 `03-joinmarket-opcional.md` |
+| Tails vs Whonix para Whirlpool | cap. 9 | 🟢 Tabela no livro + lab N3/04 |
 
 ---
 
@@ -80,9 +87,10 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| Regra backup 3-2-1 | integrado parcial cap. 11 | 🟡 Lab com tar/verificação |
-| **Scripts do operador (start-*.sh)** | Manual Fortaleza módulo 10 — REMOVIDO | 🟢 6/6 em `scripts/tails/` |
-| Mobile CalyxOS + Sparrow | livro cap. 11 | 🟡 Lab futuro |
+| Regra backup 3-2-1 | cap. 11 | 🟡 `01-backup-3-2-1.md` |
+| Scripts do operador | Manual Fortaleza / scripts | 🟡 `02-scripts-operador-tails.md` + 6/6 em `scripts/tails/` |
+| Mobile CalyxOS + Sparrow | cap. 11 | 🟡 `03-mobile-calyxos.md` |
+| Declaração cripto Brasil | cap. 11 + Ap. E | 🟡 `04-declaracao-cripto-brasil.md` |
 
 ---
 
@@ -90,8 +98,10 @@ Fontes para mineração:
 
 | Lab proposto | Fonte original | Status |
 | --- | --- | --- |
-| Multisig 2-of-2 / 2-of-3 | integrado cap. 12 | 🟡 Lab Trilha A |
-| Qubes + Whonix (opcional) | cap. 12 | 🔴 Avançado |
+| Multisig 2-of-3 Trilha A | cap. 12 | 🟡 `01-multisig-2of3-trilha-a.md` |
+| Qubes + Whonix opcional | cap. 12 Trilha D | 🟡 `02-qubes-whonix-opcional.md` |
+| Ensinar outro Guardião | cap. 11 + 12 | 🟡 `03-ensinar-guardiao.md` |
+| JoinMarket como maker | cap. 12 | 🟢 Coberto em N4/03 (`yield-generator.py`) |
 
 ---
 
@@ -99,8 +109,10 @@ Fontes para mineração:
 
 | Script | Fonte | Ambiente |
 | --- | --- | --- |
-| `start-feather.sh` | Manual Fortaleza módulo 10 / lab N5 | Tails | 🟡 Extraído |
+| `start-sparrow.sh` | cap. 7 / lab N2 | Tails | 🟡 Extraído |
+| `start-keepass.sh` | Manual Fortaleza / lab N2 | Tails | 🟡 Extraído |
 | `start-electrum.sh` | Manual Fortaleza / cap. 7 | Tails | 🟡 Extraído |
+| `start-feather.sh` | Manual Fortaleza / lab N5 | Tails | 🟡 Extraído |
 | `start-retoswap.sh` | Manual Fortaleza / cap. 10 | Tails | 🟡 Extraído |
 | `backup-persistencia.sh` | cap. 7 / Manual Fortaleza | Tails | 🟡 Extraído |
 

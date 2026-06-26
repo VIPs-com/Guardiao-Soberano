@@ -16,16 +16,18 @@ Extensão **viva** do livro: tutoriais passo a passo, checklists de verificaçã
 
 | Nível | Pasta | Capítulo do livro | Status |
 | --- | --- | --- | --- |
-| 0 — A Semente | [nivel-0-semente/](nivel-0-semente/) | Cap. 5 | 🟡 Esqueleto |
-| 1 — O Cofre | [nivel-1-cofre/](nivel-1-cofre/) | Cap. 6 | 🟡 Esqueleto |
-| 2 — A Carteira Fria | [nivel-2-carteira-fria/](nivel-2-carteira-fria/) | Cap. 7 | 🟢 5/5 labs extraídos |
-| 3 — O Observador | [nivel-3-observador/](nivel-3-observador/) | Cap. 8 | 🟢 4/4 labs extraídos |
-| 4 — O Misturador | [nivel-4-misturador/](nivel-4-misturador/) | Cap. 9 | 🟡 2/3 labs extraídos |
-| 5 — O Trocador | [nivel-5-trocador/](nivel-5-trocador/) | Cap. 10 | 🟢 4/4 labs extraídos |
-| 6 — O Soberano | [nivel-6-soberano/](nivel-6-soberano/) | Cap. 11 | 🟡 Esqueleto |
-| 7 — O Mestre | [nivel-7-mestre/](nivel-7-mestre/) | Cap. 12 | 🟡 Esqueleto |
+| 0 — A Semente | [nivel-0-semente/](nivel-0-semente/) | Cap. 5 | 🟡 3/3 extraídos |
+| 1 — O Cofre | [nivel-1-cofre/](nivel-1-cofre/) | Cap. 6 | 🟡 3/3 extraídos |
+| 2 — A Carteira Fria | [nivel-2-carteira-fria/](nivel-2-carteira-fria/) | Cap. 7 | 🟡 5/5 extraídos |
+| 3 — O Observador | [nivel-3-observador/](nivel-3-observador/) | Cap. 8 | 🟡 4/4 extraídos |
+| 4 — O Misturador | [nivel-4-misturador/](nivel-4-misturador/) | Cap. 9 | 🟡 3/3 extraídos |
+| 5 — O Trocador | [nivel-5-trocador/](nivel-5-trocador/) | Cap. 10 | 🟡 4/4 extraídos |
+| 6 — O Soberano | [nivel-6-soberano/](nivel-6-soberano/) | Cap. 11 | 🟡 4/4 extraídos |
+| 7 — O Mestre | [nivel-7-mestre/](nivel-7-mestre/) | Cap. 12 | 🟡 3/3 extraídos |
 
-Legenda: 🟢 Pronto · 🟡 Esqueleto / a recuperar das pesquisas · 🔴 Bloqueado (aguarda teste em ambiente real)
+Legenda: 🟢 Testado em hardware · 🟡 Extraído — revalidar em hardware · 🔴 Bloqueado
+
+> **Trilha completa:** 29 labs extraídos + 2 opcionais (N0/04, N1/04). Testes humanos em Tails/Whonix: matriz interna `VALIDACAO-LABORATORIO-29.md` (equipe, pasta local não versionada).
 
 ---
 

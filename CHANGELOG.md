@@ -9,6 +9,12 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- Labs N0–N1, N4/03, N6, N7 (14 arquivos) — trilha laboratório **29/29** extraída
+- Lab `03-joinmarket-opcional.md` (Whonix, taker de teste)
+- Labs opcionais: checklist Fase 1 (`N0/04`) e SeedSigner vs Krux (`N1/04`)
+- Labs N1: HW init, restore, PSBT QR
+- Labs N6: 3-2-1, scripts Tails, CalyxOS, declaração BR
+- Labs N7: multisig 2-of-3, Qubes opcional, mentoria N0–N1
 - Labs N4: Whirlpool + coin control (`01`, `02`)
 - Lab N3/04: migração Tails→Whonix
 - Script `backup-persistencia.sh`
