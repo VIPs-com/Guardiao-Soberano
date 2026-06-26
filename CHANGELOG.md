@@ -9,8 +9,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
-- Estrutura `laboratorio/` com 8 níveis, template e inventário de recuperação
-- Primeiro lab: Tails setup BTC+XMR (ambiente base)
+- Lab `03-keepassxc-tails.md` e script `start-keepass.sh`
 - `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`
 - GitHub Actions: verificação de links
 - Templates de issue: lab desatualizado, erro de comando
