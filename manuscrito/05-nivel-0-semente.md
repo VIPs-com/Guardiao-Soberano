@@ -1,4 +1,4 @@
-# Capítulo 5 - Nível 0: A Semente
+# Capítulo 5 — Nível 0: A Semente
 
 > "Tudo começa com entropia verdadeira"
 
@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Gerar uma seed BIP39 com entropia própria, sem confiar em nenhum software. Adquirir os primeiros satoshis sem KYC.
+Gerar uma seed BIP39 com entropia própria, sem confiar em nenhum software. Adquirir os primeiros **satoshis** (a menor unidade de Bitcoin — 100 milhões de satoshis = 1 BTC) sem KYC (identificação na exchange).
 
 **Tempo estimado:** 2-4 dias | **Dificuldade:** ★★☆☆☆
 
@@ -57,7 +57,7 @@ Antes de gerar sua seed, entenda o que está fazendo. Pesquise estes conceitos:
 ```
 □ O que são palavras BIP39?
  - Lista de 2048 palavras padronizadas
- - Cada palavra = 11 bits de entropia
+ - Cada palavra = 11 bits de entropia (aleatoriedade imprevisível)
  - 24 palavras = 256 bits = segurança astronômica
 
 □ Por que 24 palavras?
@@ -105,13 +105,14 @@ João, um bitcoiner de São Paulo, comprou dois dados por R$12 na loja de jogos 
 
 ### Passo 0.4 — Converter entropia em seed (SIMULAÇÃO OFFLINE)
 
-Agora você vai simular a geração da seed para VALIDAR o processo. A seed REAL será gerada no Coldcard (Nível 1).
+Agora você vai **simular** a geração da seed para validar o processo. As palavras deste exercício **não** são sua seed definitiva — **não envie fundos** para elas. A seed **real** será gerada no **dispositivo air-gapped** que você escolher no Capítulo 6 (Coldcard, SeedSigner, Krux, Jade ou similar).
 
 ```
 □ Em um computador COM INTERNET:
  - Baixar o arquivo de iancoleman.io/bip39
  - É um único arquivo .html (standalone)
  - Copiar para um pendrive
+ - (Ideal: baixar via Tails + Tor — ver seção opcional no final do capítulo)
 
 □ DESCONECTAR o computador da internet:
  - Desligar WiFi
@@ -120,19 +121,23 @@ Agora você vai simular a geração da seed para VALIDAR o processo. A seed REAL
 
 □ Abrir o bip39.html no navegador (funciona offline)
 □ Na seção "Entropy", colar seus 100 números de dados
-□ O site gera 24 palavras BIP39
+□ O site gera 24 palavras BIP39 de EXERCÍCIO
 □ Copiar as palavras EM PAPEL (manualmente, sem imprimir)
 □ Fechar o navegador
 □ Desligar o computador (isso limpa a memória)
-□ Agora você tem 24 palavras no papel
+□ **Queimar ou picar** este papel — são palavras de treino, não a seed final
 ```
 
 ---
 
-### Passo 0.5 — Gravar seed em metal
+### Passo 0.5 — Gravar seed em metal (após Nível 1)
+
+> **Quando fazer:** depois de gerar a seed **real** no dispositivo air-gapped (Capítulo 6). O Passo 0.4 foi só simulação — **não grave em metal** palavras de exercício.
+
+Use os materiais que comprou no Passo 0.1. O lab [`02-backup-aco.md`](../laboratorio/nivel-0-semente/02-backup-aco.md) detalha a gravação.
 
 ```
-□ Conferir as 24 palavras (3 leituras em voz alta)
+□ Conferir as 24 palavras no dispositivo (3 leituras em voz alta)
 □ Gravar na placa de aço com gravador elétrico
  Ou gravar nas arruelas (uma palavra por arruela)
 □ Conferir novamente (mais 2 leituras)
@@ -150,7 +155,7 @@ Agora você vai simular a geração da seed para VALIDAR o processo. A seed REAL
  - Compatível com SeedSigner, Krux, Jade, Passport
  - Ter palavras + SeedQR = redundância
 
-□ Queimar/picar o papel intermediário
+□ Queimar/picar qualquer papel intermediário restante
 □ NUNCA: foto, nuvem, email, WhatsApp, PDF da seed
 ```
 
@@ -173,8 +178,7 @@ Agora você vai simular a geração da seed para VALIDAR o processo. A seed REAL
 □ Anotar passphrase em papel SEPARADO da seed
 □ Guardar em Local Físico C (diferente de A e B)
 □ Memorizar (repetir 10x por dia durante 1 semana)
-□ Peça a 1 pessoa de confiança para também memorizar
- (mas NUNCA revele a seed junto)
+□ Apenas você deve conhecer a passphrase — não compartilhe com terceiros
 ```
 
 ---
@@ -183,19 +187,29 @@ Agora você vai simular a geração da seed para VALIDAR o processo. A seed REAL
 
 Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e documentos ficam vinculados ao primeiro endereço Bitcoin. Isso cria um elo permanente entre sua identidade civil e seus fundos.
 
+**Para o primeiro teste**, a opção mais simples costuma ser **C (venda direta)** ou **A (RoboSats)** — depois que você tiver endereço de recebimento no Nível 2. As opções B e D são válidas, mas B é avançada (Nível 5).
+
 ```
+□ ⭐ Opção C (recomendada para primeiro teste): Venda direta
+ - Comprar de conhecido que tem BTC
+ - Pagar em dinheiro físico
+ - Encontro presencial
+ ✅ Mais simples, requer confiança
+
 □ Opção A: RoboSats (Pix → BTC Lightning)
- - Abra o Tor Browser
- - Acesse o .onion oficial do RoboSats
+ - Após Nível 2 (Sparrow com endereço de recebimento)
+ - Abra o Tor Browser (rede anônima — Capítulo 4)
+ - Acesse o .onion oficial do RoboSats (Apêndice B)
  - Gere um avatar (token único para este trade)
  - Escolha oferta: comprar BTC, pagar com Pix
- - BTC fica em escrow Lightning
+ - BTC fica em garantia (escrow) na rede Lightning (pagamentos rápidos sobre Bitcoin)
  - Faça o Pix para o vendedor
  - Vendedor confirma → BTC liberado
  - Transfira para Sparrow (on-chain)
  ⚠️ Pix tem registro bancário. Para anonimato máximo, use conta sem vínculo óbvio.
 
-□ Opção B: RetoSwap/Haveno (dinheiro físico → XMR → BTC)
+□ Opção B: RetoSwap/Haveno (avançado — Nível 5)
+ - Dinheiro físico → XMR → BTC
  - Instale o RetoSwap (nível 5)
  - Procure oferta "cash by mail" (dinheiro por correio)
  - XMR entra em escrow multisig
@@ -204,19 +218,13 @@ Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e do
  - Depois: swap XMR→BTC (nível 5)
  ✅ Zero registro digital do pagamento
 
-□ Opção C: Venda direta
- - Comprar de conhecido que tem BTC
- - Pagar em dinheiro físico
- - Encontro presencial
- ✅ Mais simples, requer confiança
-
 □ Opção D: Trabalho/freelance
  - Oferecer serviços e receber em BTC
  - Cliente envia diretamente para seu endereço
  ✅ BTC entra sem exchange
 
 □ Para começar, qualquer valor serve (R$50-100)
-□ Anote no KeePassXC: método, valor, data (para controle próprio)
+□ Anote em papel: método, valor, data (no Nível 2, migre para KeePassXC)
 ```
 
 ---
@@ -224,23 +232,27 @@ Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e do
 ### Verificação do Nível 0
 
 ```
-□ Placa de aço (ou arruelas) gravada e guardada em 2 locais
-□ Passphrase memorizada e backup em local separado
+□ Entropia gerada com dados físicos (100 lançamentos)
+□ Simulação bip39 offline concluída; papel de exercício destruído
+□ Materiais de backup em metal adquiridos (gravação após seed real — Cap. 6)
+□ Passphrase criada e backup em local separado (Local C)
 □ Entendo o que é BIP39 e por que 24 palavras
 □ Sei que passphrase gera carteira diferente da seed pura
-□ Tenho meus primeiros satoshis (de preferência sem KYC)
-□ Nunca digitalizei a seed (foto, nuvem, email)
+□ Primeiros satoshis (de preferência sem KYC) — ou rota escolhida anotada
+□ Nunca digitalizei seed ou passphrase (foto, nuvem, email)
 ```
-
----
-
-> Plantei minha soberania em aço. Nenhum software gerou minhas chaves. Nenhuma câmera viu minhas palavras. O fundamento está fincado. Os primeiros satoshis chegaram sem que ninguém soubesse meu nome.
 
 ---
 
 ## 🏅 Conquista: "A Semente"
 
-> Plantei minha soberania em aço. Nenhum software gerou minhas chaves. Nenhuma câmera viu minhas palavras. O fundamento está fincado. Os primeiros satoshis chegaram sem que ninguém soubesse meu nome.
+> Validei o caminho da entropia até as 24 palavras — no papel e offline, sem pressa. Minha seed **definitiva** nascerá no cofre air-gapped do próximo capítulo; nenhuma câmera viu meus lançamentos de dados. O fundamento está fincado. Quando os primeiros satoshis chegarem, chegarão sem que a exchange saiba meu nome.
+
+---
+
+## 📎 Leitura opcional — após Níveis 1–2
+
+As seções abaixo aprofundam passphrase e métodos alternativos (SeedSigner/Krux). **Não são obrigatórias** para concluir o Nível 0.
 
 ---
 
@@ -248,20 +260,20 @@ Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e do
 
 **Uso Completo da BIP39 Word 25 (Passphrase)**
 
-A **BIP39 Word 25** (ou **passphrase**) é uma funcionalidade poderosa da padrão BIP39. Ela transforma sua seed de 12/24 palavras em uma wallet **totalmente diferente**. É como adicionar uma senha extra que ninguém consegue adivinhar.
+A **passphrase BIP39** (25ª palavra) é uma funcionalidade poderosa do padrão BIP39. Ela transforma sua seed de 24 palavras em uma **carteira totalmente diferente**. É como adicionar uma senha extra que ninguém consegue adivinhar.
 
 ### Como Funciona
 
-* Seed normal (12/24 palavras) → Wallet A
-* Seed + Passphrase → Wallet B (diferente)
+* Seed normal (24 palavras) → Carteira A
+* Seed + Passphrase → Carteira B (diferente)
 
 Mesmo que alguém roube sua seed física, **sem a passphrase exata** não consegue acessar os fundos.
 
 ### Vantagens
 
 * Proteção extra contra roubo físico da seed.
-* Permite ter várias wallets a partir da mesma seed (ex: uma com passphrase para holdings grandes, outra sem para testes).
-* Muito usado em multisig (colocar passphrase em apenas um dos 3 keystores).
+* Permite ter várias carteiras a partir da mesma seed (ex: uma com passphrase para holdings grandes, outra sem para testes).
+* Muito usado em multisig (assinatura com várias chaves — Capítulo 12).
 
 ### Desvantagens / Riscos
 
@@ -273,19 +285,19 @@ Mesmo que alguém roube sua seed física, **sem a passphrase exata** não conseg
 
 **Use uma passphrase forte**, mas **teste tudo** com valores pequenos antes de colocar dinheiro real.
 
-**Exemplos de boas passphrases** (nunca use estes!):
+**Exemplos de formato** (nunca use padrões previsíveis — invente o seu):
 
-* Frase longa: `MinhaCasaVerde2026BitcoinSoberania`
-* Palavras aleatórias: `correct horse battery staple purple`
-* Mistura: `T3st3S3gur0!2026@Bitcoin`
+* Caracteres aleatórios: `K7#mP2xQ9vL4nR8wT1`
+* Palavras inventadas longas: `Xk9mP2vL4nR8wT1qZ3`
+* Mistura longa: `Z9!kL2mN4pQ7rS1tU3vW5xY8`
 
 ### Como Usar no Seu Setup
 
-### No SeedSigner (como vimos antes)
+### No SeedSigner (Capítulo 6)
 
 * Ao criar ou carregar a seed → **Apply Passphrase**.
 * Digite com joystick e confirme.
-* Exporte o xpub (esse xpub já inclui o efeito da passphrase).
+* Exporte a chave pública estendida (xpub) — ela já inclui o efeito da passphrase.
 
 ### No Krux
 
@@ -296,13 +308,12 @@ Mesmo que alguém roube sua seed física, **sem a passphrase exata** não conseg
 ### No Sparrow Wallet (Tails)
 
 * Você **não digita** a passphrase no Sparrow.
-* O xpub exportado do SeedSigner/Krux **já carrega** a wallet com a passphrase.
-* Basta importar o xpub normalmente (watch-only ou multisig).
-* Sparrow trata a passphrase como parte da wallet.
+* O xpub exportado do SeedSigner/Krux **já carrega** a carteira com a passphrase.
+* Basta importar o xpub no Sparrow (modo somente observação — watch-only).
 
 ### Backup Seguro (Obrigatório)
 
-1. Anote a **seed de 12/24 palavras** em um local.
+1. Anote a **seed de 24 palavras** em um local.
 2. Anote a **passphrase** em **local completamente separado** (outro país, casa de familiar de confiança, cofre etc.).
 3. Grave **ambos em metal** (ex: duas placas diferentes).
 4. Escreva também o **Output Descriptor** completo do Sparrow.
@@ -315,24 +326,22 @@ Mesmo que alguém roube sua seed física, **sem a passphrase exata** não conseg
 4. Recrie a wallet importando o xpub do signer (com passphrase ativa).
 5. Verifique se o saldo aparece.
 
-### Dicas Finais de OPSEC
+### Dicas finais de segurança operacional (opsec)
 
 * **Nunca** digite a passphrase em qualquer computador online.
 * Use o SeedSigner/Krux para aplicar a passphrase.
 * Em multisig 2-of-3: coloque a passphrase em apenas **um** dos keystores (melhor equilíbrio).
-* Comece **sem passphrase** para aprender o fluxo, depois adicione.
-
-Estamos construindo um setup bem sólido.
+* A passphrase do Passo 0.6 é a que você usará na seed real — teste restore com valor mínimo antes de depositar.
 
 ---
 
-## Alternativa: Gerar Seed com Dados e SeedSigner/Krux
+## Alternativa: Gerar seed com dados e SeedSigner/Krux
 
-**Gerador de Sementes Seguras (BIP39) — Método Recomendado para Novatos**
+**Gerador de sementes seguras (BIP39) — método no dispositivo**
 
-Gerar a **seed BIP39** (12 ou 24 palavras) é um dos passos mais críticos na auto-custódia. O método mais seguro é **offline + alta entropia** (dice rolls).
+Gerar a **seed BIP39** (24 palavras neste livro) é um dos passos mais críticos na auto-custódia. O método mais seguro é **offline + alta entropia** (lançamentos de dados).
 
-### Melhor Opção: Gerar Direto no SeedSigner ou Krux (Recomendado)
+### Opção preferida no Capítulo 6: SeedSigner ou Krux
 
 Se você montar o **SeedSigner**:
 
@@ -340,18 +349,17 @@ Se você montar o **SeedSigner**:
 
 1. Ligue o dispositivo (air-gapped).
 2. Vá em **New Seed** ou **Wallet → New Wallet**.
-3. Escolha **Generate with Dice Rolls** (o método mais seguro).
+3. Escolha **Generate with Dice Rolls** (lançamentos de dados — o método mais seguro).
 4. Role um dado de 6 faces **várias vezes** (o SeedSigner indica quantas roladas são necessárias):
- * Para **12 palavras**: ~128 bits de entropia (cerca de 50-100 roladas).
- * Para **24 palavras**: ~256 bits (cerca de 100-200 roladas).
+ * Para **24 palavras**: ~256 bits (cerca de 100–200 roladas, alinhado ao Passo 0.3).
 5. Digite os números no SeedSigner com o joystick.
-6. O dispositivo calcula o checksum automaticamente e mostra as 12/24 palavras.
+6. O dispositivo calcula o checksum automaticamente e mostra as 24 palavras.
 7. **Anote imediatamente em papel/metal** (nunca tire foto ou digite em outro lugar).
 8. Confirme as palavras (o SeedSigner mostra novamente para verificação).
 
 **No Krux**: O processo é similar (Wallet → New → Dice Rolls).
 
-**Vantagem**: Tudo fica 100% offline e stateless.
+**Vantagem**: Tudo fica 100% offline, sem estado persistente no PC.
 
 ### Método Manual com Dice Rolls (Máxima Soberania — Sem Dispositivo)
 
@@ -372,9 +380,8 @@ Se ainda não montou o signer:
 echo "Role o dado e digite o número (1-6):"
 ```
 
-4. **Quantidade recomendada**:
- * 12 palavras → mínimo 128 bits → **99 roladas** de dado de 6 faces.
- * 24 palavras → **198-256 roladas**.
+4. **Quantidade recomendada** (24 palavras):
+ * Alinhe ao Passo 0.3: **100 pares de lançamentos** (ou siga a contagem do dispositivo no Cap. 6).
 5. Concatene todos os números (ex: 4256134...) e use uma ferramenta offline confiável.
 
 **Ferramenta Offline Recomendada**:
@@ -396,7 +403,7 @@ echo "Role o dado e digite o número (1-6):"
 * Use **dice rolls** (não use geradores online ou `/dev/urandom` sozinho).
 * Guarde a seed em **metal** (Billfodl, Cryptosteel, ou placa de aço + punção).
 * Faça **backup em 2-3 locais físicos diferentes**.
-* Teste o restore com small amount antes de usar com valores reais.
+* Teste o restore com valor mínimo antes de usar com quantias reais.
 * Use **passphrase** extra (BIP39 Word 25) para segurança adicional.
 * Nunca diga as palavras para ninguém.
 
@@ -411,4 +418,4 @@ Se escolher o **SeedSigner**:
 
 ---
 
-No próximo capítulo, escolheremos e configuraremos o dispositivo que guardará esta semente como um cofre offline: a hardware wallet air-gapped.
+No próximo capítulo, escolheremos e configuraremos o **dispositivo air-gapped** (Coldcard, SeedSigner, Krux, Jade ou similar) que guardará a semente definitiva como um cofre offline.

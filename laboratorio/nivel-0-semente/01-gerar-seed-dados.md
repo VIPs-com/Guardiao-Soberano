@@ -8,7 +8,7 @@
 
 ## Objetivo
 
-Gerar **entropia real** com dados físicos, converter em 24 palavras BIP39 em ambiente **offline** e validar o processo antes de gravar em metal (seed **definitiva** no Nível 1, no dispositivo air-gapped).
+Gerar **entropia real** com dados físicos, converter em 24 palavras BIP39 em ambiente **offline** e validar o processo. **Destruir** o papel de exercício. A seed **definitiva** e a gravação em metal vêm no **Capítulo 6** (Nível 1), no dispositivo air-gapped.
 
 ```
 Dados (100 lançamentos) → bip39.html OFFLINE → 24 palavras no PAPEL → Nível 1 (dice rolls no HW)

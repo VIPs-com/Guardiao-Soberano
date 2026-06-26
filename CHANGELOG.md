@@ -16,8 +16,8 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
+- Cap. 5 (N0): revisão editorial P0–P2 — simulação vs metal, Conquista, passphrase, 0.7
 - Manuscrito: diagramas incorporados nos Caps. 6, 9, 10 e 13 (`../imagens/*.png`)
-- `imagens/README.md` — inventário e mapa capítulo/lab
 - Labs: caminhos relativos corrigidos para `../../imagens/`
 - `compila.ps1`: `--resource-path` para embutir diagramas no EPUB/MOBI
 - `README.md`: status remote GitHub pendente aprovação
