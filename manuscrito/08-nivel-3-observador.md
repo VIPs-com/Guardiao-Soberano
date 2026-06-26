@@ -8,7 +8,7 @@
 
 Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Electrum Personal Server), eliminando dependência de servidores públicos. Construir independência total de rede.
 
-**Tempo estimado:** 1-2 semanas | **Dificuldade:** ★★★★☆
+**Tempo estimado:** 1–2 semanas | **Dificuldade:** ★★★★☆
 
 **Pré-requisitos:** Nível 2 concluído + computador com **8 GB RAM mínimo** (16 GB recomendado para full node + três VMs).
 
@@ -42,7 +42,7 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
 ```
 □ Baixar Whonix de whonix.org (via Tor Browser)
 □ Baixar assinatura .asc e verificar (chave 2EEACCDA)
-□ VirtualBox → Import Appliance → selecionar arquivo .ova
+□ VirtualBox → Arquivo → Importar appliance (Import Appliance) → selecionar arquivo .ova
 □ Duas VMs são criadas:
  - Whonix-Gateway (força Tor)
  - Whonix-Workstation (onde você trabalha)
@@ -80,10 +80,10 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
 
 ---
 
-### Passo 3.4 — Entender Stream Isolation
+### Passo 3.4 — Entender isolamento de stream (Stream Isolation)
 
 ```
-□ Conceito: cada app usa circuito Tor SEPARADO
+□ Conceito: cada app usa circuito Tor SEPARADO (isolamento de stream)
 □ Impede que um app revele identidade de outro
 □ Sparrow: Tor integrado nativo (automático)
 □ Electrum: --oneserver --server .onion (isolado)
@@ -98,11 +98,11 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
 > **EPS** = Electrum Personal Server — software que conecta sua xpub (watching-only) ao seu node Bitcoin, sem expor endereços a terceiros.
 
 ```
-□ VirtualBox → New VM → "Bitcoin-Node"
+□ VirtualBox → Nova VM (New) → "Bitcoin-Node"
 □ SO: Debian minimal
-□ RAM: 4-8 GB (full node: 8 GB, pruned: 4 GB)
+□ RAM: 4–8 GB (full node: 8 GB, pruned: 4 GB)
 □ Disco: 400 GB (pruned) ou 800 GB (full)
-□ Rede: Internal Network "Whonix"
+□ Rede: Rede interna (Internal Network) "Whonix"
 
 □ Instalar Debian, atualizar sistema
 □ Instalar Bitcoin Core:
@@ -111,14 +111,14 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
  - Configurar bitcoin.conf para Tor (onlynet=onion)
 
 □ Instalar EPS (Electrum Personal Server):
- - git clone do repositório oficial
+ - clonar repositório oficial (git clone)
  - Configurar com sua xpub
- - Configurar Tor hidden service
+ - Configurar serviço oculto Tor (Tor hidden service)
  - Anotar endereço .onion gerado
 
-□ Sincronização inicial: 2-7 dias via Tor
+□ Sincronização inicial: 2–7 dias via Tor
  - Manter onlynet=onion ativo durante toda a IBD (Lei 5)
- - ⚠️ NÃO sincronizar via clearnet — expõe IP e metadata
+ - ⚠️ NÃO sincronizar via clearnet — expõe IP e metadados
  - Enquanto sincroniza, pode usar servidor Electrum público via Tor
    temporariamente; depois conecte ao seu EPS (Passo 3.6)
 ```
@@ -128,9 +128,9 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
 ### Passo 3.6 — Conectar Sparrow ao seu EPS
 
 ```
-□ Sparrow → Preferences → Server → Private Electrum
+□ Sparrow → Preferências (Preferences) → Servidor (Server) → Electrum privado (Private Electrum)
 □ URL: seu_onion.onion:50002
-□ Test Connection → VERDE
+□ Testar conexão (Test Connection) → VERDE
 □ Console Sparrow → getinfo → confirmar servidor
 
 □ AGORA VOCÊ É INDEPENDENTE
@@ -145,7 +145,7 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
 
 ```
 □ Criar pasta no host: /psbt_bridge
-□ VirtualBox → Settings → Shared Folders → adicionar
+□ VirtualBox → Configurações (Settings) → Pastas compartilhadas (Shared Folders) → adicionar
 □ Workstation acessa em: /mnt/psbt_bridge
 □ Testar: criar arquivo no host, ver na Workstation
 □ Fluxo PSBT: Sparrow → /mnt/psbt_bridge → MicroSD → Dispositivo
@@ -183,7 +183,7 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
 □ Whonix Gateway + Workstation funcionando
 □ Sparrow conectado ao SEU EPS (.onion), não a servidor público
 □ Fluxo PSBT testado via pasta compartilhada
-□ Stream Isolation compreendido
+□ Stream Isolation (isolamento de stream) compreendido
 ```
 
 **Ambiente configurado:**
@@ -249,7 +249,7 @@ Coldcard / SeedSigner (externo) — comunica via SD card / QR — nunca via rede
 
 RAM total
 
-16GB ideal
+16 GB ideal
 
 50 GB
 
@@ -411,7 +411,7 @@ Stream isolation — circuitos Tor separados por app
 
 A vantagem do Whonix sobre outras configurações Tor: cada aplicação usa um SocksPort diferente, o que cria circuitos Tor separados. Um atacante que monitore o Electrum não consegue correlacionar com o Feather ou eigenwallet.
 
-\# Portas Tor disponíveis no Whonix para isolamento: # 9050 → padrão (SocksPort geral) # 9100 → Tor Browser # 9111 → uso dedicado (ex: Electrum) # 9114 → uso dedicado (ex: eigenwallet) # 9115 → uso dedicado (ex: Feather) # Configurar Electrum com porta isolada: electrum --proxy socks5:127.0.0.1:9111 \\ --server meu-electrumx.onion:50002:s \\ --oneserver # Cada app em porta diferente = circuito Tor diferente Circuito separado por appPadrão único do Whonix
+\# Portas Tor disponíveis no Whonix para isolamento: # 9050 → padrão (SocksPort geral) # 9100 → Tor Browser # 9111 → uso dedicado (Ex.: Electrum) # 9114 → uso dedicado (Ex.: eigenwallet) # 9115 → uso dedicado (Ex.: Feather) # Configurar Electrum com porta isolada: electrum --proxy socks5:127.0.0.1:9111 \\ --server meu-electrumx.onion:50002:s \\ --oneserver # Cada app em porta diferente = circuito Tor diferente Circuito separado por appPadrão único do Whonix
 
 ③
 
@@ -547,7 +547,7 @@ Whonix protege seu IP e identidade de rede, mas não ofusca o grafo de transaç�
 
 Whonix não protege contra erros humanos
 
-Login em contas pessoais, reúso de endereços, copiar seed em texto claro — qualquer desses gestos desfaz toda a proteção técnica. O elo mais fraco é sempre o comportamento do usuário.
+Login em contas pessoais, reuso de endereços, copiar seed em texto claro — qualquer desses gestos desfaz toda a proteção técnica. O elo mais fraco é sempre o comportamento do usuário.
 
 ✗
 
@@ -566,14 +566,14 @@ Escolher entre Tails e Whonix define como você opera daqui em diante — coinjo
 | Critério | Tails com Persistent Storage | Whonix (VirtualBox ou KVM) |
 | --- | --- | --- |
 | **Persistência dos dados do Whirlpool** | Frágil — depende de arquivo criptografado no USB. Corrupção do Persistent Storage = perda do estado local | Robusta — disco virtual da VM é um arquivo comum, facilmente backupeável e restaurador |
-| **Restauração após falha** | Trabalhosa — reinstalar Tails, reconfigurar Persistent Storage, rodar Restore from Seed (10-40 min) | Rápida — substituir o arquivo .vdi/.qcow2 pelo backup. Whirlpool retoma em segundos |
+| **Restauração após falha** | Trabalhosa — reinstalar Tails, reconfigurar Persistent Storage, rodar Restore from Seed (10–40 min) | Rápida — substituir o arquivo .vdi/.qcow2 pelo backup. Whirlpool retoma em segundos |
 | **Facilidade de backup** | Baixa — precisa clonar o USB inteiro ou copiar a partição persistente manualmente | Alta — copiar o arquivo da VM ou tirar snapshot do hipervisor. Automação via script |
 | **Anonimato de rede** | Tor forçado no sistema todo. Nenhum tráfego clearnet possível (fail-closed) | Tor forçado via Gateway VM isolada. Workstation não tem IP real, nem sabe sua localização. Fail-closed também |
 | **Isolamento de processos** | Moderado — AppArmor por perfil. Whirlpool roda no mesmo kernel que o navegador | Alto — VM separada. Se o Sparrow for comprometido, o host e a rede Tor estão em outra VM |
 | **Proteção contra malware persistente** | Alta — sistema é imutável por design. Malware morre no reboot | Média — malware pode persistir na VM se infectar o disco virtual. Mitigável com snapshots |
 | **Conveniência para uso diário** | Baixa — boot lento, precisa do USB físico, sessões longas exigem cuidado extra | Média — VM roda dentro do seu sistema host. Pode ficar semanas ligada mixando sem interrupção |
 | **Complexidade de configuração inicial** | Média — Persistent Storage, instalar ferramentas, verificar PGP a cada atualização | Alta — duas VMs, configurar rede interna, instalar Guest Additions, entender VirtualBox/KVM |
-| **Consumo de recursos** | Baixo — roda direto no hardware, 2-4 GB RAM bastam | Alto — precisa de RAM para host + Gateway VM + Workstation VM. Mínimo 8 GB RAM, recomendado 16 GB |
+| **Consumo de recursos** | Baixo — roda direto no hardware, 2–4 GB RAM bastam | Alto — precisa de RAM para host + Gateway VM + Workstation VM. Mínimo 8 GB RAM, recomendado 16 GB |
 | **Integração com Coldcard (PSBT via MicroSD)** | Nativa — USB do Coldcard e do Tails no mesmo hardware físico. Passar SD card é direto | Indireta — Coldcard no host físico, Sparrow na VM. Precisa de pastas compartilhadas ou USB passthrough. Funciona, mas com atrito |
 | **Integração com EPS (Electrum Personal Server)** | Mesmo hardware, pode usar localhost se EPS rodar no Tails (não ideal) ou .onion externo | Perfeita — EPS pode rodar em outra VM na mesma rede interna Whonix, ou no host com túnel .onion |
 | **Tempo de uptime para mixagem longa** | Limitado — Tails não foi feito para ficar dias ligado. Suspensão pode quebrar Tor | Ilimitado — VM pode ficar semanas mixando 24/7, com snapshots para recuperação |
@@ -600,7 +600,7 @@ Escolher entre Tails e Whonix define como você opera daqui em diante — coinjo
 * Restaurar o estado do Whirlpool após perda do Persistent Storage é chato e demorado, embora seguro.
 * Se você mixa com frequência (vários UTXOs, vários pools), o ciclo de boot → carregar carteira → iniciar Whirlpool → esperar rounds → desligar fica desgastante.
 
-**Conclusão para Tails:** 
+**Conclusão para Tails:**
 Use Tails se você faz **coinjoins táticos** — uma vez por mês, prepara UTXOs para swaps futuros, não tem pressa. É o cofre que você vai buscar no banco quando precisa, não o cofre que fica aberto no quarto.
 
 ---
@@ -620,9 +620,9 @@ Use Tails se você faz **coinjoins táticos** — uma vez por mês, prepara UTXO
 * Complexidade de setup não é trivial. Instalar Whonix, configurar rede interna, pastas compartilhadas, USB passthrough — leva uma tarde inteira na primeira vez.
 * Exige hardware parrudo. Com host Linux + Gateway VM + Workstation VM + (opcional) Node VM, 16 GB de RAM é o mínimo confortável.
 * O host não é anônimo. Seu sistema operacional base (Windows, Linux, macOS) sabe que você está rodando Whonix. Em país opressor, isso pode ser um problema. O Tails não deixa rastro; o Whonix deixa a VM no seu disco.
-* Malware que escape da VM para o host é cenário de ataque avançado (ex: hipervisor escape), mas não impossível. No Tails, não há host para escapar — é o hardware direto.
+* Malware que escape da VM para o host é cenário de ataque avançado (Ex.: escape do hipervisor), mas não impossível. No Tails, não há host para escapar — é o hardware direto.
 
-**Conclusão para Whonix:** 
+**Conclusão para Whonix:**
 Use Whonix se você é **operador frequente** — mantém node próprio, faz coinjoins semanais, swaps regulares, e quer a conveniência de um sistema sempre pronto, com backup fácil e resiliência contra falhas. É a fortaleza que fica de prontidão no terreno, não o cofre que você vai buscar.
 
 ---

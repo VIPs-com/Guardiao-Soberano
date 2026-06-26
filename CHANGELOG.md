@@ -16,7 +16,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
-- Cap. 8 (N3): revisão P0–P1 — Conquista, KeePassXC sem passphrase, clearnet IBD, EPS/node, 📎 opcional
+- Cap. 8 (N3): passada estilo/gramática — menus PT, intervalos, metadados, stream isolation
 - Cap. 7 (N2): passada estilo/gramática (verificação N2, menus Sparrow PT)
 - Cap. 6 (N1): revisão P0–P1 + passada estilo/gramática
 - Cap. 5 (N0): revisão P0–P2 + passada estilo/gramática
