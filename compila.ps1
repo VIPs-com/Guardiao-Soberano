@@ -119,11 +119,14 @@ $saida = "$base\saida"
 if (-not (Test-Path $saida)) { New-Item -ItemType Directory -Path $saida | Out-Null }
 
 $recursos = "$base\recursos"
+$imagens  = "$base\imagens"
 $css      = "$recursos\stylesheet.css"
 $meta     = "$recursos\metadata.opf"
 $cover    = "$recursos\cover.jpg"
 $versao   = "1.1"
 $nome     = "guardiao-soberano-v$versao"
+# Pandoc procura recursos (imagens) nestes diretorios — necessario para embed no EPUB/MOBI
+$resourcePath = "$base;$ms;$imagens"
 
 
 if ($PDF) {
@@ -132,6 +135,7 @@ if ($PDF) {
         "--from", "markdown",
         "--to", "pdf",
         "--pdf-engine=xelatex",
+        "--resource-path=$resourcePath",
         "-V", "geometry:a5paper",
         "-V", "geometry:inner=20mm,outer=15mm,top=18mm,bottom=18mm,includeheadfoot",
         "-V", "mainfont=Cambria",
@@ -158,6 +162,7 @@ if ($EPUB) {
     $args_epub = @($arquivos) + @(
         "--from", "markdown",
         "--to", "epub3",
+        "--resource-path=$resourcePath",
         "--css", $css,
         "--epub-metadata=$meta",
         "-M", "lang=pt-BR",
