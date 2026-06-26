@@ -1,4 +1,4 @@
-# Capítulo 12 - Nível 7: O Mestre
+# Capítulo 12 — Nível 7: O Mestre
 
 > "Além da soberania pessoal"
 
@@ -11,8 +11,6 @@ Expandir conhecimento, contribuir com a comunidade, adaptar-se a novas ameaças 
 **Tempo estimado:** Jornada contínua | **Dificuldade:** ★★★★★
 
 **Pré-requisitos:** Nível 6 concluído + mentalidade de aprendizado contínuo.
-
----
 
 ---
 
@@ -93,18 +91,21 @@ Escolha uma ou mais. Não precisa fazer todas.
 
 ### Verificação do Nível 7
 
+**Obrigatório — mentalidade Mestre:**
+
 ```
 □ Escolhi pelo menos 1 trilha e avancei nela
 □ Contribuí com a comunidade de alguma forma
 □ Revisei meu ecossistema este ano
-□ Ensinei pelo menos 2 pessoas
 □ Sei que a jornada NUNCA termina
-□ O Guardião Soberano não é um destino — é um caminho
 ```
 
----
+**Integração com a trilha:**
 
-> Não acumulo apenas moedas — acumulo conhecimento. Não protejo apenas a mim — protejo a rede. Ensino o que aprendi. Questiono o que sei. O Guardião Soberano é um caminho que se renova a cada bloco.
+```
+□ Ensinei pelo menos 1 pessoa nos Níveis 0–1 (Cap. 11) — ideal: 2+ ao longo do tempo
+□ O Guardião Soberano não é um destino — é um caminho
+```
 
 ---
 
@@ -114,17 +115,27 @@ Escolha uma ou mais. Não precisa fazer todas.
 
 ---
 
+Na **Parte III**, consulte referência permanente: ecossistema (Cap. 13), ferramentas (Cap. 14), checklist (Cap. 16) e as 12 Leis (Cap. 17).
+
+---
+
+## 📎 Leitura opcional — após Nível 7
+
+Tabela resumo, rituais, novidades 2025–2026, tutorial multisig e palavras finais. **Não são obrigatórias** para concluir o Nível 7.
+
+---
+
 ## Tabela Resumo da Trilha
 
 | Nível | Nome | Tempo | Dificuldade | Essência |
 | --- | --- | --- | --- | --- |
-| 0 | 🌱 A Semente | 2-4 dias | ★★☆☆☆ | Gerar seed com dados, backup em aço, primeiros sats sem KYC |
-| 1 | 🔒 O Cofre | 1-2 sem | ★★★☆☆ | Dispositivo air-gapped, teste de restauração |
-| 2 | 👁️ A Carteira Fria | 2-3 dias | ★★★☆☆ | Watching-only, primeiro PSBT completo |
-| 3 | 🏰 O Observador | 1-2 sem | ★★★★☆ | Whonix, node próprio, EPS .onion |
-| 4 | 🔀 O Misturador | 2-4 sem | ★★★★☆ | Whirlpool, JoinMarket, Coin Control |
-| 5 | 🔄 O Trocador | 1-2 sem | ★★★★★ | eigenwallet, RetoSwap, defesa ABCTracer |
-| 6 | 👑 O Soberano | 1-2 meses | ★★★★★ | Mobile, backups, legal, diversificação, ensino |
+| 0 | 🌱 A Semente | 2–4 dias | ★★☆☆☆ | Gerar seed com dados, backup em aço, primeiros sats sem KYC |
+| 1 | 🔒 O Cofre | 1–2 sem | ★★★☆☆ | Dispositivo air-gapped, teste de restauração |
+| 2 | 👁️ A Carteira Fria | 2–3 dias | ★★★☆☆ | Watching-only, primeiro PSBT completo |
+| 3 | 🏰 O Observador | 1–2 sem | ★★★★☆ | Whonix, node próprio, EPS .onion |
+| 4 | 🔀 O Misturador | 2–4 sem | ★★★★☆ | Whirlpool, JoinMarket, Coin Control |
+| 5 | 🔄 O Trocador | 1–2 sem | ★★★★★ | eigenwallet, RetoSwap, defesa ABCTracer |
+| 6 | 👑 O Soberano | 1–2 meses | ★★★★★ | Mobile, backups, legal, diversificação, ensino |
 | 7 | 🧙 O Mestre | Contínuo | ★★★★★ | Comunidade, Qubes, herança, contribuição |
 
 ---
@@ -169,7 +180,7 @@ As **12 Leis completas** — seed, rede, swaps e a Lei Mestra — estão no **Ca
 | --- | --- | --- |
 | Tamanho do anonimato | 16 decoys | Toda a blockchain |
 | Resistência a análise | Alta | Extremamente alta |
-| Tamanho das transações | ~2.5 KB | ~4-6 KB (estimado) |
+| Tamanho das transações | ~2,5 KB | ~4–6 KB (estimado) |
 | Status | Mainnet desde ~2021 | Stressnet out/2025; beta oficial v0.19.0.0 em 6 mai/2026; mainnet prevista 2026 |
 
 **Impacto no ecossistema:** Quando ativado, swaps BTC→XMR se tornam ainda mais privados. A defesa contra ABCTracer fica criptograficamente mais forte — mesmo análises com recursos estatais teriam dificuldade.
@@ -210,18 +221,18 @@ Já ativo desde 2021, mas cada vez mais relevante:
 
 **Tutorial: Configurar Multisig 2-of-2 no Sparrow Wallet (com Air-Gapped Signers – Tails OS)**
 
-Uma **2-of-2 multisig** exige **as duas assinaturas** para qualquer gasto. É mais segura que single-sig (perda de uma seed não perde fundos), mas **menos tolerante a perda** (se perder uma das duas seeds, os fundos ficam inacessíveis). Para novatos, muitos preferem começar com **2-of-3** (mais redundância). Use com **pequenas quantias** no início e teste tudo.
+Uma **2-of-2 multisig** exige **as duas assinaturas** para qualquer gasto. Protege contra roubo de uma chave (atacante precisa das duas), mas **não tolera perda**: se perder uma das duas seeds, os fundos ficam inacessíveis — por isso muitos preferem **2-of-3**. Use com **pequenas quantias** no início e teste tudo.
 
 **Fluxo recomendado para seu setup**:
 
 * Keystore 1: SeedSigner ou Krux (air-gapped principal).
-* Keystore 2: Outro SeedSigner/Krux com seed diferente, ou seed em papel/metal air-gapped (usando Tails offline).
+* Keystore 2: Outro SeedSigner/Krux com seed diferente (sempre em metal, Lei 4).
 
 ### Passo 1: Prepare as Seeds (Offline/Air-Gapped)
 
 1. Ligue seu **SeedSigner** ou **Krux**.
 2. Gere uma **nova seed BIP39** (use dice rolls para máxima entropia).
-3. Anote a seed em **metal/papel** (nunca digital).
+3. Gravar a seed em **metal** (Lei 4 — nunca digital, nunca papel fotografável).
 4. Repita para a **segunda seed** (em outro dispositivo ou Tails air-gapped).
 5. Exporte o **xpub/zpub** de cada um via QR code.
 
@@ -230,13 +241,13 @@ Uma **2-of-2 multisig** exige **as duas assinaturas** para qualquer gasto. É ma
 ### Passo 2: Crie a Multisig 2-of-2 no Sparrow (Tails)
 
 1. Abra o Sparrow no Tails (com persistência).
-2. Vá em **File → New Wallet**.
-3. Dê um nome (ex: "MinhaVault2of2") e clique **Create new wallet**.
+2. Vá em **Arquivo → Nova carteira** (File → New Wallet).
+3. Dê um nome (Ex.: "MinhaVault2of2") e clique **Criar nova carteira** (Create new wallet).
 4. Na tela de configuração:
- * **Policy Type**: Mude para **Multi Signature**.
- * **M of N**: Escolha **2 of 2**.
- * Script Type: **Native Segwit** (P2WPKH) — recomendado para fees baixas.
-5. Clique **Next** ou **Continue**.
+ * **Tipo de política** (Policy Type): **Multi Signature**.
+ * **M de N**: **2 of 2**.
+ * Tipo de script: **Native Segwit** (P2WPKH) — fees baixas.
+5. Clique **Avançar** (Next) ou **Continuar** (Continue).
 
 ### Passo 3: Adicione os Keystores (Cosigners)
 
@@ -304,8 +315,8 @@ Sparrow mostra quantas assinaturas faltam (ex: "1 of 2").
 ### Keystores Recomendados (3 no total):
 
 1. **SeedSigner ou Krux** (principal air-gapped)
-2. **Segundo SeedSigner/Krux** ou seed em papel/metal
-3. **Terceira seed** (pode ser outra air-gapped ou guardada offline)
+2. **Segundo SeedSigner/Krux** (seed em metal)
+3. **Terceira seed** (dispositivo air-gapped ou metal dedicado)
 
 ---
 
@@ -381,6 +392,4 @@ Sparrow mostra quantas assinaturas faltam (ex: "1 of 2").
 ```
 
 ---
-
-Na **Parte III**, consulte referência permanente: ecossistema (Cap. 13), ferramentas (Cap. 14), checklist (Cap. 16) e as 12 Leis (Cap. 17).
 
