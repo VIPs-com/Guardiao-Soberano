@@ -16,7 +16,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
-- Cap. 10 (N5): passada estilo/gramática — menus PT, taxas BR, trilha 5.1–5.9
+- Cap. 11 (N6): revisão editorial completa — Conquista, 3-2-1 metal, verificação N6, KeePassXC metadados
 - Cap. 7 (N2): passada estilo/gramática (verificação N2, menus Sparrow PT)
 - Cap. 6 (N1): revisão P0–P1 + passada estilo/gramática
 - Cap. 5 (N0): revisão P0–P2 + passada estilo/gramática

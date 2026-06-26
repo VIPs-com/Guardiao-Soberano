@@ -1,4 +1,4 @@
-# Capítulo 11 - Nível 6: O Soberano
+# Capítulo 11 — Nível 6: O Soberano
 
 > "O ecossistema completo"
 
@@ -6,13 +6,11 @@
 
 ## Objetivo
 
-Integrar todos os componentes em um sistema coeso, adicionar camada mobile, dominar entrada/saída sem KYC, e conhecer aspectos legais.
+Integrar todos os componentes em um sistema coeso, adicionar camada mobile, dominar entrada/saída sem KYC e conhecer aspectos legais.
 
-**Tempo estimado:** 1-2 meses | **Dificuldade:** ★★★★★
+**Tempo estimado:** 1–2 meses | **Dificuldade:** ★★★★★
 
-**Pré-requisitos:** Níveis 0-5 concluídos.
-
----
+**Pré-requisitos:** Níveis 0–5 concluídos.
 
 ---
 
@@ -30,7 +28,7 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 □ Entender como cada peça se conecta
 □ Identificar: se X falhar, o que fazer?
-□ Guardar este diagrama no KeePassXC
+□ Guardar diagrama e notas no KeePassXC (metadados — sem seeds)
 ```
 
 ---
@@ -49,7 +47,7 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 □ Instalar apps (via F-Droid ou Aurora Store):
  - Sparrow Wallet (watch-only, mesma xpub)
  - Feather Wallet (watch-only, monitorar XMR)
- - KeePassDX (senhas)
+ - KeePassDX (metadados — sem seeds)
  - Orbot (Tor forçado)
 
 □ Alternativa: Cake Wallet
@@ -73,7 +71,7 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 □ Ferramentas que você deve saber usar:
 
 □ RoboSats (Pix → BTC Lightning):
- - Tor Browser → .onion oficial
+ - Tor Browser → .onion oficial (Apêndice B)
  - Avatar único por trade
  - Escrow Lightning (hold invoices)
  - Ideal para: comprar BTC com Pix
@@ -98,8 +96,8 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 ```
 □ Semanal:
- - Backup da VM Whonix para HD externo
- - Copiar KeePassXC para HD externo
+ - Backup da VM Whonix para HD externo cifrado
+ - Copiar arquivo .kdbx do KeePassXC (metadados) para HD externo
 
 □ Pré-operação crítica:
  - Snapshot da VM no VirtualBox
@@ -116,7 +114,7 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 □ Semestral:
  - Simulação de desastre: apagar tudo e restaurar
- - Testar recuperação da seed em dispositivo diferente
+ - Testar recuperação da seed em dispositivo diferente (metal → HW)
 ```
 
 ---
@@ -155,7 +153,7 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 □ Se a pessoa não entender "por que", não passa
 
 □ Critério de sucesso:
- - A pessoa consegue restaurar a seed sozinha
+ - A pessoa consegue restaurar a seed sozinha (metal + dispositivo)
  - A pessoa explica o que é PSBT
  - A pessoa sabe por que nunca fotografar a seed
 ```
@@ -175,24 +173,40 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 □ Se uma ferramenta sair do ar, você continua operando
 □ Atualizar lista de .onions trimestralmente
-□ Acompanhar anúncios oficiais (Twitter, GitHub, Matrix)
+□ Acompanhar anúncios oficiais (GitHub, Matrix, site do projeto)
 ```
 
 ---
 
 ### Verificação do Nível 6
 
+**Obrigatório antes de se considerar Soberano:**
+
 ```
 □ Diagrama pessoal desenhado e compreendido
-□ Ambiente mobile funcional (watch-only)
-□ Rotina de backups estabelecida
-□ Checklist diário, semanal, mensal
 □ Entrada/saída sem KYC dominada (RoboSats + RetoSwap)
-□ Aspectos legais conhecidos
-□ Pelo menos 1 pessoa ensinada nos Níveis 0-1
+□ Aspectos legais conhecidos (IN 1888 — consultar profissional)
 □ Ferramentas diversificadas (sem ponto único de falha)
 □ Consigo restaurar TUDO se perder qualquer componente
 ```
+
+**Ambiente e rotina:**
+
+```
+□ Mobile funcional (watch-only — sem chaves)
+□ Rotina de backups estabelecida (semanal/mensal/trimestral)
+□ Pelo menos 1 pessoa ensinada nos Níveis 0–1
+```
+
+---
+
+## 🏅 Conquista: "O Soberano"
+
+> Não peço permissão a exchanges. Não confio em servidores públicos. Não exponho minhas chaves. Cada peça do ecossistema tem backup. Cada operação segue um protocolo. Sou soberano sobre meu dinheiro — e a lei conheço, para a liberdade não se confundir com o crime.
+
+---
+
+No próximo capítulo, tornar-se-á Mestre: especialização, comunidade e legado além da soberania pessoal.
 
 ---
 
@@ -211,17 +225,7 @@ Se algo deste capítulo parecer “resumido demais”, confira o Capítulo 13 an
 
 ---
 
-> Não peço permissão a exchanges. Não confio em servidores públicos. Não exponho minhas chaves. Cada peça do ecossistema tem backup. Cada operação segue um protocolo. Sou soberano sobre meu dinheiro — e a lei conheço, para a liberdade não se confundir com o crime.
-
----
-
-## 🏅 Conquista: "O Soberano"
-
-> Não peço permissão a exchanges. Não confio em servidores públicos. Não exponho minhas chaves. Cada peça do ecossistema tem backup. Cada operação segue um protocolo. Sou soberano sobre meu dinheiro — e a lei conheço, para a liberdade não se confundir com o crime.
-
----
-
-## Referência: Regra de Backup 3-2-1
+## 📎 Referência: Regra de Backup 3-2-1
 
 **A regra que salva seu patrimônio digital quando tudo falha**
 
@@ -234,28 +238,24 @@ O backup 3-2-1 é um mantra de sobrevivência:
 ### Rotina 3-2-1 na prática
 
 * **Cópia 1 (original)**: dispositivo ou pendrive principal (já existe).
-* **Cópia 2 (backup local)**: segundo dispositivo ou pendrive LUKS, atualizado **semanalmente**. Fica escondido em local diferente do original (ex: outro cômodo, gaveta trancada).
+* **Cópia 2 (backup local)**: segundo dispositivo ou pendrive LUKS, atualizado **semanalmente**. Fica escondido em local diferente do original (Ex.: outro cômodo, gaveta trancada).
 * **Cópia 3 (offsite)**: HD externo LUKS, atualizado **mensalmente** ou após grandes transações. Guardado em endereço diferente (casa de parente, cofre bancário).
 
 **Duas mídias diferentes:**
 
 * Pendrive (flash) → mídia 1 (estado sólido).
 * HD externo magnético ou SSD externo → mídia 2.
- (O papel com as seeds também conta como mídia analógica, importantíssima.)
+* **Placas de aço** (seeds Bitcoin e Monero) → mídia analógica — Lei 4; não substitua por foto ou papel fotografável.
 
 **Uma cópia offsite:**
 Sem isso, um incêndio ou confisco do local onde está o backup local acaba com tudo. A offsite é sua última trincheira.
 
 ### Dicas de segurança
 
-* **Nunca armazene a frase-senha do backup junto com o arquivo de backup.** Use gerenciador de senhas (mas cuide do backup do gerenciador) ou memória + papel em local separado.
+* **Nunca armazene a senha do backup LUKS junto com o arquivo de backup.** Use KeePassXC (metadados) ou memória + anotação em local separado — nunca a seed BIP39.
 * **Automatize com script.** Crie um script com os comandos de backup, torne-o executável e rode antes de encerrar sessões importantes.
 * **Faça um teste de restauração antes de precisar de verdade.** A confiança vem com a simulação bem-sucedida.
 
 A soberania digital não é feita só de bons trades, mas de **cópias que sobrevivem ao caos**. Com esse ritual, nem a morte do dispositivo, nem o confisco, nem o fogo levarão sua fortaleza.
 
 > _"Dois é um, um é nenhum. Três é a paz."_ — Adaptação do ditado militar para o cypherpunk.
-
----
-
-No próximo capítulo, tornar-se-á Mestre: especialização, comunidade e legado além da soberania pessoal.
