@@ -1,4 +1,4 @@
-# Capítulo 8 - Nível 3: O Observador
+# Capítulo 8 — Nível 3: O Observador
 
 > "Construindo a fortaleza digital"
 
@@ -6,17 +6,17 @@
 
 ## Objetivo
 
-Migrar para ambiente Whonix com node próprio, eliminando dependência de servidores públicos. Construir independência total de rede.
+Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Electrum Personal Server), eliminando dependência de servidores públicos. Construir independência total de rede.
 
 **Tempo estimado:** 1-2 semanas | **Dificuldade:** ★★★★☆
 
-**Pré-requisitos:** Nível 2 concluído + computador com 16GB RAM.
-
----
+**Pré-requisitos:** Nível 2 concluído + computador com **8 GB RAM mínimo** (16 GB recomendado para full node + três VMs).
 
 ---
 
 ### Passo 3.1 — Instalar VirtualBox no host
+
+> **OVA** = arquivo de appliance que importa uma VM pronta no VirtualBox. **Snapshot** = «foto» do estado da VM para voltar atrás se algo der errado.
 
 ```
 □ Baixar VirtualBox de virtualbox.org
@@ -95,6 +95,8 @@ Migrar para ambiente Whonix com node próprio, eliminando dependência de servid
 
 ### Passo 3.5 — Criar VM para Bitcoin Core + EPS
 
+> **EPS** = Electrum Personal Server — software que conecta sua xpub (watching-only) ao seu node Bitcoin, sem expor endereços a terceiros.
+
 ```
 □ VirtualBox → New VM → "Bitcoin-Node"
 □ SO: Debian minimal
@@ -115,8 +117,10 @@ Migrar para ambiente Whonix com node próprio, eliminando dependência de servid
  - Anotar endereço .onion gerado
 
 □ Sincronização inicial: 2-7 dias via Tor
- - Pode acelerar sincronizando via clearnet primeiro
- - Depois ativar onlynet=onion
+ - Manter onlynet=onion ativo durante toda a IBD (Lei 5)
+ - ⚠️ NÃO sincronizar via clearnet — expõe IP e metadata
+ - Enquanto sincroniza, pode usar servidor Electrum público via Tor
+   temporariamente; depois conecte ao seu EPS (Passo 3.6)
 ```
 
 ---
@@ -173,20 +177,23 @@ Migrar para ambiente Whonix com node próprio, eliminando dependência de servid
 
 ### Verificação do Nível 3
 
+**Obrigatório antes de operar com valor real:**
+
 ```
 □ Whonix Gateway + Workstation funcionando
+□ Sparrow conectado ao SEU EPS (.onion), não a servidor público
+□ Fluxo PSBT testado via pasta compartilhada
 □ Stream Isolation compreendido
-□ Node Bitcoin sincronizado (ou sincronizando)
+```
+
+**Ambiente configurado:**
+
+```
+□ Node Bitcoin sincronizado (ou em progresso — OK usar EPS depois)
 □ EPS rodando com .onion próprio
-□ Sparrow conectado ao SEU servidor, não público
-□ Fluxo PSBT funcionando via pasta compartilhada
 □ Sei fazer snapshot da VM antes de operações críticas
 □ Entendo o risco do host OS e como mitigar
 ```
-
----
-
-> Não dependo de servidores alheios. Meu node valida minhas transações. Meu EPS responde só a mim. A fortaleza digital está de pé — e sei onde estão suas muralhas e suas brechas.
 
 ---
 
@@ -195,6 +202,12 @@ Migrar para ambiente Whonix com node próprio, eliminando dependência de servid
 > Não dependo de servidores alheios. Meu node valida minhas transações. Meu EPS responde só a mim. A fortaleza digital está de pé — e sei onde estão suas muralhas e suas brechas.
 
 ---
+
+## 📎 Leitura opcional — após Nível 3
+
+As seções abaixo aprofundam instalação Whonix, cifragem de VMs, rotina diária e comparação Tails vs Whonix. **Não são obrigatórias** para concluir o Nível 3.
+
+> **Prévia do N5:** menções a Feather, eigenwallet e RetoSwap são contexto para o Capítulo 10 — **não instale nem opere swaps** até lá.
 
 ---
 
@@ -221,9 +234,9 @@ interna
 
 Whonix-Workstation (anon-whonix)
 
-• Electrum + Sparrow + Feather 
-• eigenwallet + RetoSwap 
-• KeePassXC + dados persistentes 
+• Sparrow (+ Electrum opcional)
+• KeePassXC + metadados persistentes
+• XMR/swap (Feather, eigenwallet) — Cap. 10–11
 • Sem acesso direto à internet 
 • Todo tráfego → Gateway → Tor 
 • **RAM: 2–4GB** (recomendado)
@@ -380,7 +393,7 @@ KeePassXC — já instalado no Whonix
 
 O KeePassXC vem pré-instalado na Workstation. O banco de dados fica no disco da VM, que está cifrado pelo VirtualBox. Dupla camada: VirtualBox AES-XTS256 + KeePassXC AES-256.
 
-\# Abrir: Applications → Accessories → KeePassXC # File → New Database → salvar em ~/keepass/cripto.kdbx # Senha mestra: 20+ chars, única, não reutilizada # O que guardar: # → PIN Coldcard (principal, duress, brick) # → Passphrase BIP39 (25ª palavra) # → xpub / MPK das carteiras # → Subendereços XMR usados (com data e operação) # → Hashes GPG das ferramentas verificadas # → Senhas de cifragem das VMs (VirtualBox AES) # → Tokens de trades RoboSats/RetoSwap
+\# Abrir: Applications → Accessories → KeePassXC # File → New Database → salvar em ~/keepass/cripto.kdbx # Senha mestra: 20+ chars, única, não reutilizada # O que guardar (metadados — Lei 4): # → PIN Coldcard (principal, duress, brick) # → xpub / MPK das carteiras (watching-only) # → Subendereços XMR (com data) — no N5+ # → Hashes GPG das ferramentas verificadas # → Senhas de cifragem das VMs (VirtualBox AES) # → Tokens RoboSats/RetoSwap — no N5+ # NUNCA: seed BIP39, passphrase BIP39, 24 palavras
 
 No Whonix, uso diário é diferente do Tails. Apps ficam abertos, swaps rodam em background, estado persiste. A disciplina é diferente — não é mais "boot, opera, desliga", é um ambiente de trabalho permanente.
 
@@ -390,7 +403,7 @@ Rotina de início de sessão
 
 A ordem é sempre a mesma. O VirtualBox pedirá a senha de cifragem do disco ao iniciar cada VM.
 
-1\. Ligar o computador 2. VirtualBox → Whonix-Gateway → Start → digitar senha de cifragem do disco (AES-XTS256) → aguardar Tor inicializar (~30s) → ícone Tor verde na bandeja do sistema 3. VirtualBox → Whonix-Workstation → Start → digitar senha de cifragem do disco → desktop Xfce carrega 4. Verificar Tor: Tor Browser → check.torproject.org 5. Abrir KeePassXC com senha mestra 6. Abrir apps necessários (Feather, Sparrow, eigenwallet) Gateway SEMPRE antes da Workstation
+1\. Ligar o computador 2. VirtualBox → Whonix-Gateway → Start → digitar senha de cifragem do disco (AES-XTS256) → aguardar Tor inicializar (~30s) → ícone Tor verde na bandeja do sistema 3. VirtualBox → Whonix-Workstation → Start → digitar senha de cifragem do disco → desktop Xfce carrega 4. Verificar Tor: Tor Browser → check.torproject.org 5. Abrir KeePassXC com senha mestra 6. Abrir Sparrow (Feather/eigenwallet só no N5+) Gateway SEMPRE antes da Workstation
 
 ②
 

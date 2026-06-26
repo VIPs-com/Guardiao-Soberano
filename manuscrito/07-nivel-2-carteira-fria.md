@@ -85,14 +85,14 @@ Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow mon
 ### Passo 2.4 — Criar carteira watching-only
 
 ```
-□ Sparrow → File → New Wallet
+□ Sparrow → Arquivo (File) → Nova carteira (New Wallet)
 □ Nome: "Minha_Carteira_Fria"
-□ Import File → selecionar arquivo .json
+□ Importar arquivo (Import File) → selecionar o .json
 □ Verificar:
- - Aba "Signing" deve estar VAZIA (sem chave privada)
- - Aba "Addresses" mostra endereços
+ - Aba "Signing" (Assinatura) **vazia** — sem chave privada
+ - Aba "Addresses" (Endereços) mostra endereços
  - Aba "Transactions" vazia (ainda)
-□ Sua carteira está PRONTA para monitorar e criar transações
+□ Carteira **somente leitura** pronta para monitorar e criar transações
 ```
 
 ---
@@ -117,7 +117,7 @@ Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow mon
 
 ```
 □ Sparrow → Send → criar transação de 0,00005 BTC
- - Enviar para outro endereço seu (ou de amigo)
+ - Enviar para outro endereço seu (ou de um amigo)
  - Exportar PSBT para assinatura offline:
    • **MicroSD:** salvar PSBT no cartão → dispositivo → Ready to Sign
    • **QR:** Show QR no Sparrow → escanear no SeedSigner/Krux (Cap. 6 / lab N1/03)
@@ -137,13 +137,20 @@ Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow mon
 
 ### Verificação do Nível 2
 
+**Obrigatório antes de operar com valor real:**
+
 ```
-□ Tails instalado e funcionando com Persistent Storage
-□ Sparrow Wallet verificado (PGP) e funcional
-□ KeePassXC configurado com banco cifrado
 □ Carteira watching-only mostra saldo corretamente
 □ PSBT criado, assinado no dispositivo offline, transmitido
 □ Sei que a seed NUNCA tocou o computador
+```
+
+**Ambiente configurado:**
+
+```
+□ Tails instalado com Persistent Storage
+□ Sparrow verificado (PGP) e funcional
+□ KeePassXC com banco cifrado (metadados — sem seed)
 □ Entendo: computador cria, dispositivo assina, computador transmite
 ```
 
@@ -278,7 +285,7 @@ Crie grupos (pastas) dentro do KeePassXC:
 * **A senha do cofre deve ser memorizada.** Se precisar de backup da senha, use local separado (nunca junto ao pendrive Tails).
 * **Use o gerador de senhas** do KeePassXC para criar senhas aleatórias para contas web e serviços.
 * **Não use a extensão de navegador** (KeePassXC-Browser) no Tor Browser. O Tails isola o navegador por segurança; a integração pode vazar metadados. Digite as senhas manualmente.
-* **Faça backup do arquivo** `**.kdbx**` junto com seu backup 3-2-1 (ele já está incluído se você seguiu o método com tar/gpg). O arquivo é pequeno (poucos KB).
+* **Faça backup do arquivo** `.kdbx` junto com seu backup 3-2-1 (ele já está incluído se você seguiu o método com tar/gpg). O arquivo é pequeno (poucos KB).
 
 ---
 
@@ -298,7 +305,7 @@ Crie grupos (pastas) dentro do KeePassXC:
 * **Esquecer a senha do KeePassXC:** sem ela, o conteúdo do `.kdbx` é **irrecuperável**. Não há "esqueci minha senha". É tão seguro quanto sua memória.
 * **Senha fraca no KeePassXC:** se sua persistência for descriptografada, um ataque de força bruta ao `.kdbx` pode quebrar senhas curtas. Use frases longas.
 * **Keylogger no host:** se você digitar a senha do cofre em um computador comprometido, ela pode ser capturada. Use o teclado virtual do Tails (Onboard) em máquinas suspeitas.
-* **Arquivo** `**.kdbx**` **corrompido:** raríssimo, mas possível. O backup resolve.
+* **Arquivo** `.kdbx` **corrompido:** raríssimo, mas possível. O backup resolve.
 
 ---
 
@@ -469,7 +476,7 @@ tar czf - \
  ```
  electrumx6k3k4xyz.onion 50002 s
  ```
-* **Não misture carteiras de identidades diferentes** na mesma sessão Tails (ex: carteira pessoal vs. carteira anônima).
+* **Não misture carteiras de identidades diferentes** na mesma sessão Tails (Ex.: carteira pessoal vs. carteira anônima).
 * **A senha da carteira** (que protege o arquivo wallet) é adicional. Se você a esquecer, ainda pode restaurar com a seed. Mas se o arquivo wallet for roubado e a senha for fraca, o ladrão pode gastar seus fundos. Use senha forte.
 * **Nunca exporte seed** pelo Electrum em ambiente online. Visualização de seed = dispositivo air-gapped ou metal.
 * **Feche o Electrum completamente** antes de fazer backup manual ou desligar.

@@ -16,7 +16,8 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
-- Cap. 7 (N2): revisão P0–P1 — watching-only, KeePassXC sem seed, Electrum xpub, PSBT SD/QR
+- Cap. 8 (N3): revisão P0–P1 — Conquista, KeePassXC sem passphrase, clearnet IBD, EPS/node, 📎 opcional
+- Cap. 7 (N2): passada estilo/gramática (verificação N2, menus Sparrow PT)
 - Cap. 6 (N1): revisão P0–P1 + passada estilo/gramática
 - Cap. 5 (N0): revisão P0–P2 + passada estilo/gramática
 - Manuscrito: diagramas incorporados nos Caps. 6, 9, 10 e 13 (`../imagens/*.png`)
