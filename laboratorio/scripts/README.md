@@ -15,7 +15,7 @@ Scripts em **texto claro** (`.sh`) — auditáveis, sem binários de terceiros.
 | --- | --- | --- |
 | `tails/start-keepass.sh` | Tails | 🟡 Extraído (lab 03) |
 | `tails/start-feather.sh` | Tails | 🔴 Pendente |
-| `tails/start-electrum.sh` | Tails | 🔴 Pendente |
+| `tails/start-electrum.sh` | Tails | 🟡 Extraído (lab 04) |
 | `tails/start-retoswap.sh` | Tails | 🔴 Pendente |
 | `tails/backup-persistencia.sh` | Tails | 🔴 Pendente |
 | `whonix/verificar-tor.sh` | Whonix WS | 🔴 Pendente |

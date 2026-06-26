@@ -39,7 +39,7 @@ Fontes para mineração:
 | --- | --- | --- |
 | Sparrow watching-only + primeiro PSBT | livro cap. 7 | 🟡 Lab dedicado |
 | KeePassXC na persistência Tails | integrado cap. 7 | 🟡 Lab `03-keepassxc-tails.md` + `start-keepass.sh` |
-| Electrum no Tails + backup 3-2-1 | integrado cap. 7 | 🟡 Lab + scripts |
+| Electrum no Tails + backup 3-2-1 | integrado cap. 7 | 🟡 Lab `04-electrum-tails.md` + `start-electrum.sh` |
 | **Tails setup BTC+XMR completo** | `tails setup btc xmr completo` — REMOVIDO | 🟡 Lab extraído — `nivel-2/05-tails-setup-btc-xmr-completo.md` |
 
 ---

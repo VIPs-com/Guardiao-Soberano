@@ -10,6 +10,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 ### Adicionado
 
 - Lab `03-keepassxc-tails.md` e script `start-keepass.sh`
+- Lab `04-electrum-tails.md` e script `start-electrum.sh`
 - `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`
 - GitHub Actions: verificação de links
 - Templates de issue: lab desatualizado, erro de comando
