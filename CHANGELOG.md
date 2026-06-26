@@ -16,7 +16,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Alterado
 
-- Cap. 9 (N4): passada estilo/gramática — menus PT, 0,01 BTC, Coin Control, JoinMarket
+- Cap. 10 (N5): revisão P0–P1 — KeePassXC sem seed XMR, Conquista, 📎 opcional, eigenwallet/RetoSwap
 - Cap. 7 (N2): passada estilo/gramática (verificação N2, menus Sparrow PT)
 - Cap. 6 (N1): revisão P0–P1 + passada estilo/gramática
 - Cap. 5 (N0): revisão P0–P2 + passada estilo/gramática

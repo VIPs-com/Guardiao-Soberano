@@ -1,4 +1,4 @@
-# Capítulo 10 - Nível 5: O Trocador
+# Capítulo 10 — Nível 5: O Trocador
 
 > "A ponte entre mundos"
 
@@ -8,11 +8,9 @@
 
 Executar swaps BTC↔XMR com segurança e proteção contra correlação temporal (ABCTracer).
 
-**Tempo estimado:** 1-2 semanas | **Dificuldade:** ★★★★★
+**Tempo estimado:** 1–2 semanas | **Dificuldade:** ★★★★★
 
 **Pré-requisitos:** Nível 4 concluído + UTXO pós-coinjoin disponível.
-
----
 
 ---
 
@@ -56,7 +54,8 @@ Conceitos para pesquisar:
 □ Criar carteira Monero:
  - Seed Monero de 25 palavras (PADRÃO DIFERENTE do Bitcoin)
  - NUNCA usar a mesma seed do Bitcoin
- - Anotar seed XMR no KeePassXC
+ - Gravar seed XMR em metal (Lei 4) — **nunca** no KeePassXC
+ - Anotar no KeePassXC: restore height, labels, subendereços usados
  - Senha forte para abrir a carteira
 □ Conectar a nó .onion (Tor integrado nativo)
 ```
@@ -120,9 +119,9 @@ Conceitos para pesquisar:
 
 ```
 □ Salvar PSBT do eigenwallet
-□ Coldcard → assinar PSBT
+□ Dispositivo air-gapped → assinar PSBT
 □ Carregar PSBT assinado → transmitir
-□ AGUARDAR (25-90 minutos)
+□ AGUARDAR (25–90 minutos)
  - Não fechar o Whonix/Tails
  - Não suspender o computador
  - Monitorar status no eigenwallet
@@ -150,6 +149,7 @@ Conceitos para pesquisar:
  - Usar valores DIFERENTES em cada swap
 □ Depois do intervalo: churn Monero (opcional)
  - Feather → nova carteira → enviar XMR para ela
+ - ⚠️ Nova seed = novo backup em metal antes de mover fundos
  - Aguardar +1 hora
  - Quebra vínculo de valor
 ```
@@ -167,7 +167,7 @@ Para XMR→BTC, use RetoSwap ou BasicSwap.
  - Procurar oferta XMR→BTC
  - Verificar reputação do comprador
  - XMR entra em escrow multisig
- - Receber BTC em endereço VIRGEM do Coldcard
+ - Receber BTC em endereço VIRGEM do dispositivo air-gapped
  - Tempo: horas a dias (depende de contraparte)
 
 □ Opção B: BasicSwap DEX (avançado)
@@ -177,7 +177,7 @@ Para XMR→BTC, use RetoSwap ou BasicSwap.
  - Instalar só se realmente precisar
 
 □ BTC recebido é "virgem" (sem histórico KYC)
-□ Vai DIRETO para cold storage (Coldcard)
+□ Vai DIRETO para cold storage (dispositivo air-gapped)
 ```
 
 ---
@@ -200,25 +200,39 @@ Para XMR→BTC, use RetoSwap ou BasicSwap.
 
 ### Verificação do Nível 5
 
+**Obrigatório antes de swap com valor significativo:**
+
 ```
-□ Primeiro swap BTC→XMR concluído com sucesso
-□ Intervalo de 24h+ respeitado
+□ Primeiro swap BTC→XMR concluído com sucesso (teste pequeno)
+□ Intervalo de 24h+ respeitado antes do reverso
 □ Entendo ABCTracer e minhas defesas (tempo, valor, endereços)
-□ RetoSwap instalado para swap reverso XMR→BTC
-□ Todas as TXIDs registradas no KeePassXC
 □ Sei que eigenwallet é para BTC→XMR, RetoSwap para XMR→BTC
+```
+
+**Ambiente configurado:**
+
+```
+□ RetoSwap instalado para swap reverso XMR→BTC
+□ TXIDs e metadados registrados no KeePassXC (sem seeds)
+□ Feather com restore height anotado
 □ Conheço FCMP++ e seu impacto futuro
 ```
-
----
-
-> Atravesso a ponte entre blockchains sem pedir licença. Meu Bitcoin some como Monero. Meu Monero renasce como Bitcoin limpo. O rastro se perde na névoa — e a névoa vai ficar ainda mais densa.
 
 ---
 
 ## 🏅 Conquista: "O Trocador"
 
 > Atravesso a ponte entre blockchains sem pedir licença. Meu Bitcoin some como Monero. Meu Monero renasce como Bitcoin limpo. O rastro se perde na névoa — e a névoa vai ficar ainda mais densa.
+
+---
+
+No próximo capítulo, integraremos todos os componentes no ecossistema pessoal — Nível 6, O Soberano.
+
+---
+
+## 📎 Leitura opcional — após Nível 5
+
+As seções abaixo aprofundam fluxo BTC↔XMR, ABCTracer, eigenwallet passo a passo, cenários de uso e restore height Monero. **Não são obrigatórias** para concluir o Nível 5.
 
 ---
 
@@ -566,13 +580,13 @@ Wallet created successfully!
 Restore height: 3185000
 ```
 
-**Anote imediatamente** esse número junto com a seed. Escreva assim no seu papel ou caderno de aço:
+**Anote imediatamente** o restore height no KeePassXC. A seed XMR vai para metal (Lei 4), não para software:
 
 ```
 Nome da carteira: fortaleza_fria
 Data: 12/06/2026
-Seed: [as 25 palavras]
-Restore height: 3185000
+Seed XMR: [25 palavras — gravadas em metal, Local A]
+Restore height: 3185000 (KeePassXC / metadados)
 ```
 
 > 📌 **Dica:** Escreva também a data por extenso. A Feather aceita tanto o número do bloco quanto a data no formato `YYYYMMDD`. A data é mais fácil de lembrar, mas a altura é exata.
@@ -620,7 +634,7 @@ Coloque a data estimada e pegue a altura. Sempre escolha uma altura **um pouco a
 
 ## Dica de novato que virou operador
 
-Guarde o restore height **junto com a seed** — mas não no mesmo local se a segurança máxima for o objetivo. Se a seed está em aço num cofre, o restore height pode estar anotado num papel comum junto da descrição da carteira (não é segredo, é apenas um número de bloco público). A perda do restore height não compromete os fundos, apenas sua paciência.
+Guarde o restore height no **KeePassXC** (metadados). A seed XMR segue a Lei 4: **metal**, nunca KeePassXC nem papel fotografável. A perda do restore height não compromete os fundos, apenas sua paciência na restauração.
 
 ---
 
@@ -662,9 +676,9 @@ Na Whonix Workstation:
 mkdir -p ~/Applications
 cd ~/Applications
 
-wget https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage
+scurl-download https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage
 
-wget https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage.asc
+scurl-download https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage.asc
 
 curl https://eigenwallet.org/binarybaron.asc | gpg --import
 
@@ -840,7 +854,7 @@ No Feather Wallet:
 
 Após o intervalo, para quebrar qualquer possível correlação temporal residual:
 
-1. No Feather, crie uma **nova carteira** (seed nova, derivada na hora)
+1. No Feather, crie uma **nova carteira** (seed nova — grave em metal antes de mover fundos)
 2. Envie o XMR da carteira do swap para essa nova carteira
 3. Aguarde mais 1 hora
 4. Agora o XMR está "limpo" para uso
@@ -865,4 +879,4 @@ Status: Concluído
 
 ---
 
-No próximo capítulo, integraremos todos os componentes no ecossistema soberano completo.
+No próximo capítulo, Nível 6 — O Soberano, mapearemos o ecossistema pessoal completo.
