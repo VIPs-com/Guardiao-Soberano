@@ -32,7 +32,7 @@ Conceitos para pesquisar:
 □ O que é ABCTracer?
  - Paper de 2025 (arXiv:2504.01822)
  - Demonstrou 91,75% de rastreabilidade cross-chain
- - Usa 3 sinais: intervalo de tempo, proporção valor/fee, endereço destino
+ - Usa 3 sinais: intervalo de tempo, proporção valor/taxa, endereço destino
  - NOSSA DEFESA: esperar, variar valores, usar endereços virgens
 
 □ O que é FCMP++?
@@ -54,7 +54,7 @@ Conceitos para pesquisar:
 □ Criar carteira Monero:
  - Seed Monero de 25 palavras (PADRÃO DIFERENTE do Bitcoin)
  - NUNCA usar a mesma seed do Bitcoin
- - Gravar seed XMR em metal (Lei 4) — **nunca** no KeePassXC
+ - Gravar seed XMR em metal (Lei 4) — NUNCA no KeePassXC
  - Anotar no KeePassXC: restore height, labels, subendereços usados
  - Senha forte para abrir a carteira
 □ Conectar a nó .onion (Tor integrado nativo)
@@ -102,13 +102,13 @@ Conceitos para pesquisar:
 
 ```
 □ Sparrow: isolar 0.003 BTC (pós-coinjoin) em Swap_Ready_Whonix
-□ Feather: Receive → New address (subendereço VIRGEM)
- - Anotar no KeePassXC com timestamp
-□ Sparrow: Addresses → endereço VIRGEM para change (troco)
+□ Feather: Receber (Receive) → Novo endereço (New address) — subendereço VIRGEM
+ - Anotar no KeePassXC com timestamp e restore height
+□ Sparrow: Endereços (Addresses) → endereço VIRGEM para troco (change)
  - Anotar no KeePassXC
 
 □ eigenwallet:
- - List Sellers → escolher maker com boa reputação
+ - Listar vendedores (List Sellers) → escolher maker com boa reputação
  - Inserir endereço XMR (Feather) e endereço BTC change
  - Criar transação swap
 ```
@@ -126,9 +126,9 @@ Conceitos para pesquisar:
  - Não suspender o computador
  - Monitorar status no eigenwallet
 
-□ Feather → History → XMR aparece
+□ Feather → Histórico (History) → XMR aparece
 □ Aguardar 10 confirmações Monero (~20 min)
-□ Verificar valor (menos fee do maker, 1.5-20%)
+□ Verificar valor (menos taxa do maker, 1,5–20%)
 □ Registrar TUDO no KeePassXC:
  - TXID swap BTC, TXID recebimento XMR
  - Valor, timestamp, maker usado
@@ -142,12 +142,12 @@ Conceitos para pesquisar:
 ⚠️ DEFESA CRÍTICA CONTRA ABCTRACER:
 
 □ NUNCA fazer o swap de volta imediatamente
-□ Aguardar MÍNIMO 24 horas (ideal: 3-7 dias)
+□ Aguardar MÍNIMO 24 horas (ideal: 3–7 dias)
 □ Durante este intervalo:
  - Fechar Whonix/Tails
  - Fazer OUTROS swaps com outros UTXOs
  - Usar valores DIFERENTES em cada swap
-□ Depois do intervalo: churn Monero (opcional)
+□ Depois do intervalo: churn Monero (opcional — mover XMR entre carteiras para quebrar correlação)
  - Feather → nova carteira → enviar XMR para ela
  - ⚠️ Nova seed = novo backup em metal antes de mover fundos
  - Aguardar +1 hora
@@ -172,8 +172,8 @@ Para XMR→BTC, use RetoSwap ou BasicSwap.
 
 □ Opção B: BasicSwap DEX (avançado)
  - Atomic swap trustless total
- - Requer Docker + nós completos (~400GB)
- - Sem taxas de maker/taker
+ - Requer Docker + nós completos (~400 GB)
+ - Sem taxas de maker/tomador (taker)
  - Instalar só se realmente precisar
 
 □ BTC recebido é "virgem" (sem histórico KYC)
