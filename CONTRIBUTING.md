@@ -24,6 +24,7 @@ Guardião-Soberano/
 | `soberano-equipe-dev/` | Pipeline interno — ver estrutura abaixo |
 | `old/` | Backups e duplicatas históricas |
 | `saida/` | Binários compilados → usar **GitHub Releases** |
+| `CLAUDE.md` | Contexto do projeto para IAs (mantenedores) — atualizar ao encerrar sessão |
 
 Reorganizar localmente após restaurar backup:
 
@@ -38,8 +39,10 @@ docs/validacao/     Checklists de hardware e PGP
 docs/relatorios/    Entregas e integração
 pesquisas/canonico/ Fonte para extrair labs
 scripts/            organizar-casa.ps1, etc.
-prompts/            Contexto IA
+prompts/            Contexto IA (ex.: Privacy-OS-Hub) + cópia Guardião
 ```
+
+**Mantenedores:** o contexto ativo deste repo fica em **`CLAUDE.md` na raiz** (gitignored). Leia antes de sessões longas de revisão ou validação.
 
 (Scripts e docs internos não vão ao remoto.)
 
