@@ -58,41 +58,37 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 
 ### Hardware Físico
 
-  Componente             Função                       Custo Estimado
-  ---------------------- ---------------------------- -----------------
-  Coldcard MK5           Assinar transações offline   US$ 170
-  Placas de aço (2x)     Backup da seed               R$ 100-300
-  Dados de casino (2x)   Gerar entropia               R$ 10-20
-  MicroSD (2x)           Ponte PSBT                   R$ 40-60
-  Pendrive USB (2x)      Tails OS                     R$ 40-60
-  Celular Pixel          CalyxOS/GrapheneOS           R$ 1.000-2.000
-  PC Host (16+ GB RAM)   Virtualização                R$ 3.000-6.000
+| Componente | Função | Custo estimado |
+| --- | --- | --- |
+| Coldcard MK5 | Assinar transações offline | US$ 170 |
+| Placas de aço (2x) | Backup da seed | R$ 100–300 |
+| Dados de casino (2x) | Gerar entropia | R$ 10–20 |
+| MicroSD (2x) | Ponte PSBT | R$ 40–60 |
+| Pendrive USB (2x) | Tails OS | R$ 40–60 |
+| Celular Pixel | CalyxOS/GrapheneOS | R$ 1.000–2.000 |
+| PC Host (16+ GB RAM) | Virtualização | R$ 3.000–6.000 |
 
 ### Máquinas Virtuais
 
-  -----------------------------------------------------------------------------------------
-  VM                   SO                RAM          Disco             Função
-  -------------------- ----------------- ------------ ----------------- -------------------
-  Whonix-Gateway       Debian (Whonix)   2 GB         20 GB             Forçar Tor
-
-  Whonix-Workstation   Debian (Whonix)   6 GB         50 GB             Operação cripto
-
-  Bitcoin-Node         Debian minimal    4-8 GB       400 GB            Validação + EPS
-  -----------------------------------------------------------------------------------------
+| VM | SO | RAM | Disco | Função |
+| --- | --- | --- | --- | --- |
+| Whonix-Gateway | Debian (Whonix) | 2 GB | 20 GB | Forçar Tor |
+| Whonix-Workstation | Debian (Whonix) | 6 GB | 50 GB | Operação cripto |
+| Bitcoin-Node | Debian minimal | 4–8 GB | 400 GB | Validação + EPS |
 
 ### Aplicações
 
-  Aplicação        Local                   Função
-  ---------------- ----------------------- ---------------------------
-  Sparrow Wallet   Whonix, Tails, Mobile   Coordinator BTC
-  Whirlpool        Whonix (Sparrow)        CoinJoin
-  eigenwallet      Whonix, Tails           Swap BTC→XMR
-  RetoSwap         Whonix                  Swap XMR→BTC
-  Feather Wallet   Whonix, Tails, Mobile   Carteira XMR
-  KeePassXC/DX     Todos                   Senhas e metadados
-  Electrum         Tails (pré-instalado)   Alternativa BTC
-  Bitcoin Core     Node VM                 Validação
-  EPS              Node VM                 Servidor Electrum próprio
+| Aplicação | Local | Função |
+| --- | --- | --- |
+| Sparrow Wallet | Whonix, Tails, Mobile | Coordinator BTC |
+| Whirlpool | Whonix (Sparrow) | CoinJoin |
+| eigenwallet | Whonix, Tails | Swap BTC→XMR |
+| RetoSwap | Whonix | Swap XMR→BTC |
+| Feather Wallet | Whonix, Tails, Mobile | Carteira XMR |
+| KeePassXC/DX | Todos | Senhas e metadados |
+| Electrum | Tails (pré-instalado) | Alternativa BTC |
+| Bitcoin Core | Node VM | Validação |
+| EPS | Node VM | Servidor Electrum próprio |
 
 ---
 
@@ -122,36 +118,28 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 
 ## 13.5 Matriz de Resiliência
 
-  ---------------------------------------------------------------------------------------------------------
-  Cenário                      Impacto                       Recuperação                       Tempo
-  ---------------------------- ----------------------------- --------------------------------- ------------
-  VM corrompida                Perda do ambiente             Restaurar snapshot                Minutos
-
-  Persistent Storage perdido   Perda do estado Whirlpool     Restaurar seed no Sparrow           10-40 min
-
-  Pendrive Tails quebrado      Perda do ambiente cirúrgico   Recriar em novo USB               30 min
-
-  Coldcard perdido             Sem capacidade de assinar     Comprar novo + restaurar seed     1-7 dias
-
-  Placa de aço perdida         Sem backup primário           Usar backup local B               Imediato
-
-  Passphrase esquecida         Carteira real inacessível     Sem recuperação                   ∞
-
-  Host físico apreendido       Perda das VMs                 Restaurar VMs de backup externo   Dias
-  ---------------------------------------------------------------------------------------------------------
+| Cenário | Impacto | Recuperação | Tempo |
+| --- | --- | --- | --- |
+| VM corrompida | Perda do ambiente | Restaurar snapshot | Minutos |
+| Persistent Storage perdido | Perda do estado Whirlpool | Restaurar seed no Sparrow | 10–40 min |
+| Pendrive Tails quebrado | Perda do ambiente cirúrgico | Recriar em novo USB | 30 min |
+| Coldcard perdido | Sem capacidade de assinar | Comprar novo + restaurar seed | 1–7 dias |
+| Placa de aço perdida | Sem backup primário | Usar backup local B | Imediato |
+| Passphrase esquecida | Carteira real inacessível | Sem recuperação | — |
+| Host físico apreendido | Perda das VMs | Restaurar VMs de backup externo | Dias |
 
 ---
 
 ## 13.6 Custos Totais Estimados
 
-  Categoria                           Custo (Brasil)
-  ----------------------------------- -----------------------
-  Hardware (Coldcard + aço + dados)   R$ 800-1.200
-  PC Host (se não tiver)              R$ 3.000-6.000
-  Celular dedicado (usado)            R$ 1.000-2.000
-  Pendrives e MicroSDs                R$ 100-150
-  **TOTAL (sem PC)**                  **~R$ 2.000-3.500**
-  **TOTAL (com PC)**                  **~R$ 5.000-9.500**
+| Categoria | Custo (Brasil) |
+| --- | --- |
+| Hardware (Coldcard + aço + dados) | R$ 800–1.200 |
+| PC Host (se não tiver) | R$ 3.000–6.000 |
+| Celular dedicado (usado) | R$ 1.000–2.000 |
+| Pendrives e MicroSDs | R$ 100–150 |
+| **TOTAL (sem PC)** | **~R$ 2.000–3.500** |
+| **TOTAL (com PC)** | **~R$ 5.000–9.500** |
 
 Comparado com o custo de ter fundos confiscados, hackeados ou bloqueados, é um investimento mínimo.
 
