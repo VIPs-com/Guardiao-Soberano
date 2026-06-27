@@ -141,11 +141,14 @@ if ($PDF) {
         "-V", "geometry:inner=20mm,outer=15mm,top=18mm,bottom=18mm,includeheadfoot",
         "-V", "mainfont=Cambria",
         "-V", "monofont=Consolas",
+        "-V", "monofontoptions=Scale=0.85",
         "-V", "sansfont=Calibri",
         "-V", "fontsize=10pt",
         "-V", "linestretch=1.5",
+        "--include-in-header=$recursos\latex-header.tex",
+        "-V", "secnumdepth=1",
         "-M", "lang=pt-BR",
-        "--toc", "--toc-depth=3",
+        "--toc", "--toc-depth=2",
         "--number-sections",
         "-o", "$saida\$nome.pdf"
     )

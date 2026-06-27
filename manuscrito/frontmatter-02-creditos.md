@@ -1,4 +1,4 @@
-# Créditos e Licença
+# Créditos e Licença {-}
 
 **Guardião Soberano — Da Semente ao Ecossistema Completo**  
 *Manual Prático de Auto-Custódia Bitcoin com Privacidade*

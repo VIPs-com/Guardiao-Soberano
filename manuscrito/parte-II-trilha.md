@@ -1,4 +1,4 @@
-# Parte II — A Trilha do Guardião {.parte-titulo}
+# Parte II — A Trilha do Guardião {- .parte-titulo}
 
 > "Oito níveis. Cada um mais soberano que o anterior."
 

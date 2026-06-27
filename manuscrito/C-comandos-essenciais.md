@@ -5,7 +5,8 @@ Aqui está uma referência rápida de comandos que você usará com frequência.
 ## Verificação de ambiente
 
     # Verificar se está usando Tor
-    curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org
+    curl --socks5-hostname 127.0.0.1:9050 \
+      https://check.torproject.org
 
     # Verificar integridade de arquivo baixado
     sha256sum arquivo_baixado
@@ -22,7 +23,8 @@ Aqui está uma referência rápida de comandos que você usará com frequência.
     scurl-download https://exemplo.com/arquivo
 
     # Verificar IP (deve mostrar IP do Tor)
-    curl --socks5-hostname 127.0.0.1:9050 https://api.ipify.org
+    curl --socks5-hostname 127.0.0.1:9050 \
+      https://api.ipify.org
 
 ## Sparrow Wallet
 
@@ -87,7 +89,8 @@ sha256sum tails-amd64-*.img
 ``` {.sourceCode .bash}
 # Verificar se a Workstation está roteando via Tor
 # Execute na Whonix Workstation:
-curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org/api/ip
+curl --socks5-hostname 127.0.0.1:9050 \
+  https://check.torproject.org/api/ip
 
 # Saída esperada:
 # {"IsTor":true,"IP":"xxx.xxx.xxx.xxx"}
@@ -116,16 +119,22 @@ curl https://check.torproject.org/api/ip
 ## eigenwallet (Whonix Workstation)
 
 ``` {.sourceCode .bash}
-# Download seguro no Whonix/Tails (verifique a versão em github.com/eigenwallet/core/releases)
+# Download seguro no Whonix/Tails
+# Verifique versão em github.com/eigenwallet/core/releases
 EW_VER=4.11.3
-scurl-download "https://github.com/eigenwallet/core/releases/download/${EW_VER}/eigenwallet_${EW_VER}_amd64.AppImage"
-scurl-download "https://github.com/eigenwallet/core/releases/download/${EW_VER}/eigenwallet_${EW_VER}_amd64.AppImage.asc"
+EW_ORG="eigenwallet/core/releases/download"
+EW_BASE="https://github.com/${EW_ORG}/${EW_VER}"
+EW_FILE="eigenwallet_${EW_VER}_amd64"
+scurl-download "${EW_BASE}/${EW_FILE}.AppImage"
+scurl-download "${EW_BASE}/${EW_FILE}.AppImage.asc"
 
-# Importar chave PGP (arquivo .asc na mesma página de releases do GitHub)
+# Importar chave PGP (arquivo .asc na página de releases do GitHub)
 # gpg --import binarybaron.asc
 
 # Verificar assinatura
-gpg --verify "eigenwallet_${EW_VER}_amd64.AppImage.asc" "eigenwallet_${EW_VER}_amd64.AppImage"
+gpg --verify \
+  "eigenwallet_${EW_VER}_amd64.AppImage.asc" \
+  "eigenwallet_${EW_VER}_amd64.AppImage"
 
 # Tornar executável e rodar
 chmod +x "eigenwallet_${EW_VER}_amd64.AppImage"
@@ -140,7 +149,8 @@ ln -s ~/.local/share/eigenwallet ~/Persistent/eigenwallet-state
 # Se eigenwallet não encontra Tor:
 # Verificar se o Whonix Gateway está rodando
 # Verificar se a porta 9050 está acessível na Workstation
-curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org/api/ip
+curl --socks5-hostname 127.0.0.1:9050 \
+  https://check.torproject.org/api/ip
 ```
 
 ---
@@ -156,7 +166,8 @@ gpg --verify seedsigner_os.0.8.6.pi0.img.sig seedsigner_os.0.8.6.pi0.img
 
 # Gravar firmware no MicroSD (Linux/Tails)
 # Substituir /dev/sdX pelo seu MicroSD (verificar com lsblk)
-sudo dd if=seedsigner_os.0.8.6.pi0.img of=/dev/sdX bs=4M status=progress
+sudo dd if=seedsigner_os.0.8.6.pi0.img \
+  of=/dev/sdX bs=4M status=progress
 ```
 
 ---
@@ -168,7 +179,8 @@ sudo dd if=seedsigner_os.0.8.6.pi0.img of=/dev/sdX bs=4M status=progress
 bash dist-installer-cli --install --ci
 
 # Importar chaves GPG do Whonix
-gpg --recv-keys 916B8D99C38EAC5B7B9A C2A8EB1C87E20F8E
+gpg --keyserver hkps://keys.openpgp.org \
+  --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
 
 # Verificar imagem Whonix após download
 gpg --verify Whonix-*.ova.asc Whonix-*.ova
@@ -209,8 +221,10 @@ electrum getinfo
 
 ``` {.sourceCode .bash}
 # Importar chave e conferir fingerprint (Apêndice D)
-gpg --keyserver hkps://keys.openpgp.org --recv-keys 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
-gpg --fingerprint 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+gpg --keyserver hkps://keys.openpgp.org \
+  --recv-keys 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+gpg --fingerprint \
+  8185E158A33330C7FD61BC0D1F76E155CEFBA71C
 
 # Verificar assinatura do binário
 gpg --verify feather-*.AppImage.asc feather-*.AppImage

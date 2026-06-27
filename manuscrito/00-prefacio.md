@@ -1,4 +1,4 @@
-# Prefácio
+# Prefácio {-}
 
 ## Por que este livro existe
 

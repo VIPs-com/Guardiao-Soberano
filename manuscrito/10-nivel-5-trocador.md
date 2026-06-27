@@ -8,7 +8,7 @@
 
 Executar swaps BTC↔XMR com segurança e proteção contra correlação temporal (ABCTracer).
 
-**Tempo estimado:** 1–2 semanas | **Dificuldade:** ★★★★★
+**Tempo estimado:** 1–2 semanas | **Dificuldade:** 5/5
 
 **Pré-requisitos:** Nível 4 concluído + UTXO pós-coinjoin disponível.
 
@@ -16,30 +16,28 @@ Executar swaps BTC↔XMR com segurança e proteção contra correlação tempora
 
 ### Passo 5.1 — Estudar atomic swaps e Monero
 
-```
 Conceitos para pesquisar:
 
-□ O que é um atomic swap?
- - Troca entre blockchains sem intermediário
- - Contrato HTLC garante que ninguém rouba ninguém
- - Se falhar, reembolso automático
+- [ ] O que é um atomic swap?
+  - Troca entre blockchains sem intermediário
+  - Contrato HTLC garante que ninguém rouba ninguém
+  - Se falhar, reembolso automático
 
-□ Por que Monero para privacidade?
- - Bitcoin: blockchain pública, todas as transações visíveis
- - Monero: Ring Signatures (16 decoys), Stealth Addresses, RingCT
- - Ninguém vê: quem enviou, quanto enviou, para quem
+- [ ] Por que Monero para privacidade?
+  - Bitcoin: blockchain pública, todas as transações visíveis
+  - Monero: Ring Signatures (16 decoys), Stealth Addresses, RingCT
+  - Ninguém vê: quem enviou, quanto enviou, para quem
 
-□ O que é ABCTracer?
- - Paper de 2025 (arXiv:2504.01822)
- - Demonstrou 91,75% de rastreabilidade cross-chain
- - Usa 3 sinais: intervalo de tempo, proporção valor/taxa, endereço destino
- - NOSSA DEFESA: esperar, variar valores, usar endereços virgens
+- [ ] O que é ABCTracer?
+  - Paper de 2025 (arXiv:2504.01822)
+  - Demonstrou 91,75% de rastreabilidade cross-chain
+  - Usa 3 sinais: intervalo de tempo, proporção valor/taxa, endereço destino
+  - NOSSA DEFESA: esperar, variar valores, usar endereços virgens
 
-□ O que é FCMP++?
- - Upgrade do Monero previsto para 2026
- - Expande anonimato para blockchain INTEIRA
- - Quando ativado, privacidade fica ainda mais forte
-```
+- [ ] O que é FCMP++?
+  - Upgrade do Monero previsto para 2026
+  - Expande anonimato para blockchain INTEIRA
+  - Quando ativado, privacidade fica ainda mais forte
 
 ![ABCTracer: correlação temporal sem defesa vs. intervalos com defesa](../imagens/fluxo-abctracer.png)
 
@@ -47,52 +45,57 @@ Conceitos para pesquisar:
 
 ### Passo 5.2 — Instalar Feather Wallet (XMR)
 
-```
-□ Baixar Feather de featherwallet.org
-□ Verificar assinatura PGP
-□ Instalar no Whonix
-□ Criar carteira Monero:
- - Seed Monero de 25 palavras (PADRÃO DIFERENTE do Bitcoin)
- - NUNCA usar a mesma seed do Bitcoin
- - Gravar seed XMR em metal (Lei 4) — NUNCA no KeePassXC
- - Anotar no KeePassXC: restore height, labels, subendereços usados
- - Senha forte para abrir a carteira
-□ Conectar a nó .onion (Tor integrado nativo)
-```
+- [ ] Baixar Feather de featherwallet.org
+- [ ] Verificar assinatura PGP
+- [ ] Instalar no Whonix
+- [ ] Criar carteira Monero:
+  - Seed Monero de 25 palavras (PADRÃO DIFERENTE do Bitcoin)
+  - NUNCA usar a mesma seed do Bitcoin
+  - Gravar seed XMR em metal (Lei 4) — NUNCA no KeePassXC
+  - Anotar no KeePassXC: restore height, labels, subendereços usados
+  - Senha forte para abrir a carteira
+- [ ] Conectar a nó .onion (Tor integrado nativo)
 
 ---
 
 ### Passo 5.3 — Instalar eigenwallet (BTC→XMR)
 
-```
-□ Baixar de eigenwallet.org
-□ Verificar assinatura PGP (binarybaron)
-□ No Whonix, usar scurl-download:
- scurl-download https://github.com/eigenwallet/core/releases/download/4.11.3/eigenwallet_4.11.3_amd64.AppImage
- scurl-download https://github.com/eigenwallet/core/releases/download/4.11.3/eigenwallet_4.11.3_amd64.AppImage.asc
- gpg --verify eigenwallet_4.11.3_amd64.AppImage.asc eigenwallet_4.11.3_amd64.AppImage
+- [ ] Baixar de eigenwallet.org
+- [ ] Verificar assinatura PGP (binarybaron)
+- [ ] No Whonix, usar scurl-download:
 
-□ Tornar executável e rodar
-□ eigenwallet detecta Tor automaticamente (porta 9050)
+```bash
+EW_VER=4.11.3
+EW_ORG="eigenwallet/core/releases/download"
+EW_BASE="https://github.com/${EW_ORG}/${EW_VER}"
+EW_FILE="eigenwallet_${EW_VER}_amd64"
+scurl-download "${EW_BASE}/${EW_FILE}.AppImage"
+scurl-download "${EW_BASE}/${EW_FILE}.AppImage.asc"
+gpg --verify \
+  ${EW_FILE}.AppImage.asc \
+  ${EW_FILE}.AppImage
 ```
+
+- [ ] Tornar executável e rodar
+- [ ] eigenwallet detecta Tor automaticamente (porta 9050)
 
 ---
 
 ### Passo 5.4 — Instalar RetoSwap (XMR→BTC e fiat)
 
-```
-□ Baixar RetoSwap v1.8.0-reto (jun/2026) — github.com/retoaccess1/haveno-reto/releases
-  ⚠️ Versões anteriores a 20/06/2026 foram descontinuadas por atualização de protocolo
-□ Verificar assinatura PGP
-□ Instalar no Whonix (persistente)
-□ Criar conta (avatar, sem email)
-□ Familiarizar-se com a interface
+- [ ] Baixar RetoSwap v1.8.0-reto (jun/2026) — github.com/retoaccess1/haveno-reto/releases
 
-□ PARA QUE SERVE:
- - Swap XMR→BTC (caminho inverso)
- - Comprar XMR com dinheiro físico/fiat
- - Vender XMR por dinheiro físico/fiat
-```
+> **AVISO:** Versões anteriores a 20/06/2026 foram descontinuadas por atualização de protocolo
+
+- [ ] Verificar assinatura PGP
+- [ ] Instalar no Whonix (persistente)
+- [ ] Criar conta (avatar, sem email)
+- [ ] Familiarizar-se com a interface
+
+- [ ] PARA QUE SERVE:
+  - Swap XMR→BTC (caminho inverso)
+  - Comprar XMR com dinheiro físico/fiat
+  - Vender XMR por dinheiro físico/fiat
 
 ---
 
@@ -100,101 +103,93 @@ Conceitos para pesquisar:
 
 ![Fluxo de swap: BTC misturado → eigenwallet → XMR → RetoSwap → BTC limpo](../imagens/diagrama-swap.png)
 
-```
-□ Sparrow: isolar 0.003 BTC (pós-coinjoin) em Swap_Ready_Whonix
-□ Feather: Receber (Receive) → Novo endereço (New address) — subendereço VIRGEM
- - Anotar no KeePassXC com timestamp e restore height
-□ Sparrow: Endereços (Addresses) → endereço VIRGEM para troco (change)
- - Anotar no KeePassXC
+- [ ] Sparrow: isolar 0.003 BTC (pós-coinjoin) em Swap_Ready_Whonix
+- [ ] Feather: Receber (Receive) → Novo endereço (New address) — subendereço VIRGEM
+  - Anotar no KeePassXC com timestamp e restore height
+- [ ] Sparrow: Endereços (Addresses) → endereço VIRGEM para troco (change)
+  - Anotar no KeePassXC
 
-□ eigenwallet:
- - Listar vendedores (List Sellers) → escolher maker com boa reputação
- - Inserir endereço XMR (Feather) e endereço BTC change
- - Criar transação swap
-```
+- [ ] eigenwallet:
+  - Listar vendedores (List Sellers) → escolher maker com boa reputação
+  - Inserir endereço XMR (Feather) e endereço BTC change
+  - Criar transação swap
 
 ---
 
 ### Passo 5.6 — Assinar e aguardar swap
 
-```
-□ Salvar PSBT do eigenwallet
-□ Dispositivo air-gapped → assinar PSBT
-□ Carregar PSBT assinado → transmitir
-□ AGUARDAR (25–90 minutos)
- - Não fechar o Whonix/Tails
- - Não suspender o computador
- - Monitorar status no eigenwallet
+- [ ] Salvar PSBT do eigenwallet
+- [ ] Dispositivo air-gapped → assinar PSBT
+- [ ] Carregar PSBT assinado → transmitir
+- [ ] AGUARDAR (25–90 minutos)
+  - Não fechar o Whonix/Tails
+  - Não suspender o computador
+  - Monitorar status no eigenwallet
 
-□ Feather → Histórico (History) → XMR aparece
-□ Aguardar 10 confirmações Monero (~20 min)
-□ Verificar valor (menos taxa do maker, 1,5–20%)
-□ Registrar TUDO no KeePassXC:
- - TXID swap BTC, TXID recebimento XMR
- - Valor, timestamp, maker usado
-```
+- [ ] Feather → Histórico (History) → XMR aparece
+- [ ] Aguardar 10 confirmações Monero (~20 min)
+- [ ] Verificar valor (menos taxa do maker, 1,5–20%)
+- [ ] Registrar TUDO no KeePassXC:
+  - TXID swap BTC, TXID recebimento XMR
+  - Valor, timestamp, maker usado
 
 ---
 
 ### Passo 5.7 — Aplicar intervalo de segurança
 
-```
-⚠️ DEFESA CRÍTICA CONTRA ABCTRACER:
+> **AVISO:** DEFESA CRÍTICA CONTRA ABCTRACER:
 
-□ NUNCA fazer o swap de volta imediatamente
-□ Aguardar MÍNIMO 24 horas (ideal: 3–7 dias)
-□ Durante este intervalo:
- - Fechar Whonix/Tails
- - Fazer OUTROS swaps com outros UTXOs
- - Usar valores DIFERENTES em cada swap
-□ Depois do intervalo: churn Monero (opcional — mover XMR entre carteiras para quebrar correlação)
- - Feather → nova carteira → enviar XMR para ela
- - ⚠️ Nova seed = novo backup em metal antes de mover fundos
- - Aguardar +1 hora
- - Quebra vínculo de valor
-```
+- [ ] NUNCA fazer o swap de volta imediatamente
+- [ ] Aguardar MÍNIMO 24 horas (ideal: 3–7 dias)
+- [ ] Durante este intervalo:
+  - Fechar Whonix/Tails
+  - Fazer OUTROS swaps com outros UTXOs
+  - Usar valores DIFERENTES em cada swap
+- [ ] Depois do intervalo: churn Monero (opcional — mover XMR entre carteiras para quebrar correlação)
+  - Feather → nova carteira → enviar XMR para ela
+
+  > **AVISO:** Nova seed = novo backup em metal antes de mover fundos
+
+  - Aguardar +1 hora
+  - Quebra vínculo de valor
 
 ---
 
 ### Passo 5.8 — Swap reverso XMR→BTC
 
-```
-⚠️ CORREÇÃO IMPORTANTE (v1.1):
-eigenwallet atualmente tem BTC→XMR como taker.
-Para XMR→BTC, use RetoSwap ou BasicSwap.
+> **AVISO:** CORREÇÃO IMPORTANTE (v1.1):
+> eigenwallet atualmente tem BTC→XMR como taker.
+> Para XMR→BTC, use RetoSwap ou BasicSwap.
 
-□ Opção A: RetoSwap
- - Procurar oferta XMR→BTC
- - Verificar reputação do comprador
- - XMR entra em escrow multisig
- - Receber BTC em endereço VIRGEM do dispositivo air-gapped
- - Tempo: horas a dias (depende de contraparte)
+- [ ] Opção A: RetoSwap
+  - Procurar oferta XMR→BTC
+  - Verificar reputação do comprador
+  - XMR entra em escrow multisig
+  - Receber BTC em endereço VIRGEM do dispositivo air-gapped
+  - Tempo: horas a dias (depende de contraparte)
 
-□ Opção B: BasicSwap DEX (avançado)
- - Atomic swap trustless total
- - Requer Docker + nós completos (~400 GB)
- - Sem taxas de maker/tomador (taker)
- - Instalar só se realmente precisar
+- [ ] Opção B: BasicSwap DEX (avançado)
+  - Atomic swap trustless total
+  - Requer Docker + nós completos (~400 GB)
+  - Sem taxas de maker/tomador (taker)
+  - Instalar só se realmente precisar
 
-□ BTC recebido é "virgem" (sem histórico KYC)
-□ Vai DIRETO para cold storage (dispositivo air-gapped)
-```
+- [ ] BTC recebido é "virgem" (sem histórico KYC)
+- [ ] Vai DIRETO para cold storage (dispositivo air-gapped)
 
 ---
 
 ### Passo 5.9 — Conhecer FCMP++ (futuro próximo)
 
-```
-□ FCMP++ = Full-Chain Membership Proofs
-□ Expande anonymity set Monero de 16 para blockchain INTEIRA
-□ Stressnet desde outubro 2025; beta oficial v0.19.0.0 lançado em 6 mai/2026
-□ Mainnet prevista para 2026 (não ativada ainda em jun/2026)
-□ Quando ativado:
- - Swaps ficam ainda mais privados
- - Defesa contra ABCTracer fica criptograficamente mais forte
-□ NÃO requer ação sua — upgrade automático do Monero
-□ Mas ENTENDA o impacto: sua privacidade vai melhorar
-```
+- [ ] FCMP++ = Full-Chain Membership Proofs
+- [ ] Expande anonymity set Monero de 16 para blockchain INTEIRA
+- [ ] Stressnet desde outubro 2025; beta oficial v0.19.0.0 lançado em 6 mai/2026
+- [ ] Mainnet prevista para 2026 (não ativada ainda em jun/2026)
+- [ ] Quando ativado:
+  - Swaps ficam ainda mais privados
+  - Defesa contra ABCTracer fica criptograficamente mais forte
+- [ ] NÃO requer ação sua — upgrade automático do Monero
+- [ ] Mas ENTENDA o impacto: sua privacidade vai melhorar
 
 ---
 
@@ -202,25 +197,21 @@ Para XMR→BTC, use RetoSwap ou BasicSwap.
 
 **Obrigatório antes de swap com valor significativo:**
 
-```
-□ Primeiro swap BTC→XMR concluído com sucesso (teste pequeno)
-□ Intervalo de 24h+ respeitado antes do reverso
-□ Entendo ABCTracer e minhas defesas (tempo, valor, endereços)
-□ Sei que eigenwallet é para BTC→XMR, RetoSwap para XMR→BTC
-```
+- [ ] Primeiro swap BTC→XMR concluído com sucesso (teste pequeno)
+- [ ] Intervalo de 24h+ respeitado antes do reverso
+- [ ] Entendo ABCTracer e minhas defesas (tempo, valor, endereços)
+- [ ] Sei que eigenwallet é para BTC→XMR, RetoSwap para XMR→BTC
 
 **Ambiente configurado:**
 
-```
-□ RetoSwap instalado para swap reverso XMR→BTC
-□ TXIDs e metadados registrados no KeePassXC (sem seeds)
-□ Feather com restore height anotado
-□ Conheço FCMP++ e seu impacto futuro
-```
+- [ ] RetoSwap instalado para swap reverso XMR→BTC
+- [ ] TXIDs e metadados registrados no KeePassXC (sem seeds)
+- [ ] Feather com restore height anotado
+- [ ] Conheço FCMP++ e seu impacto futuro
 
 ---
 
-## 🏅 Conquista: "O Trocador"
+## Conquista: "O Trocador"
 
 > Atravesso a ponte entre blockchains sem pedir licença. Meu Bitcoin some como Monero. Meu Monero renasce como Bitcoin limpo. O rastro se perde na névoa — e a névoa vai ficar ainda mais densa.
 
@@ -230,7 +221,7 @@ No próximo capítulo, integraremos todos os componentes no ecossistema pessoal 
 
 ---
 
-## 📎 Leitura opcional — após Nível 5
+## Leitura opcional — após Nível 5
 
 As seções abaixo aprofundam fluxo BTC↔XMR, ABCTracer, eigenwallet passo a passo, cenários de uso e restore height Monero. **Não são obrigatórias** para concluir o Nível 5.
 
@@ -676,15 +667,18 @@ Na Whonix Workstation:
 mkdir -p ~/Applications
 cd ~/Applications
 
-scurl-download https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage
-
-scurl-download https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage.asc
+scurl-download \
+  https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage
+scurl-download \
+  https://eigenwallet.org/releases/latest/eigenwallet-linux.AppImage.asc
 
 curl https://eigenwallet.org/binarybaron.asc | gpg --import
 
 gpg --fingerprint binarybaron
 
-gpg --verify eigenwallet-linux.AppImage.asc eigenwallet-linux.AppImage
+gpg --verify \
+  eigenwallet-linux.AppImage.asc \
+  eigenwallet-linux.AppImage
 
 chmod +x eigenwallet-linux.AppImage
 ```
@@ -695,7 +689,10 @@ Crie um script `~/start_eigenwallet.sh`:
 
 ```
 echo "Verificando Tor..."
-curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org 2>/dev/null | grep -q "Congratulations" && echo "Tor OK" || echo "TOR FALHOU - ABORTE"
+curl --socks5-hostname 127.0.0.1:9050 \
+  https://check.torproject.org 2>/dev/null \
+  | grep -q "Congratulations" \
+  && echo "Tor OK" || echo "TOR FALHOU - ABORTE"
 echo "Iniciando eigenwallet..."
 ~/Applications/eigenwallet-linux.AppImage &
 ```

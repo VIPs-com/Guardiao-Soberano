@@ -85,7 +85,9 @@ Ferramenta para swap BTC → XMR com endpoint .onion embutido.
 
     Acesso: Configurado na Workstation Whonix
     Download: github.com/eigenwallet/core/releases (verificar .asc)
-    Verificação Tor: curl --socks5-hostname 127.0.0.1:9050 https://check.torproject.org/api/ip
+    Verificação Tor:
+    curl --socks5-hostname 127.0.0.1:9050 \
+      https://check.torproject.org/api/ip
 
 ---
 
@@ -95,6 +97,6 @@ Os endereços .onion são mais instáveis que URLs normais. Se um endereço não
 
 1.  Verifique o site oficial do projeto via Tor Browser
 2.  Consulte o canal Matrix ou SimpleX do projeto
-3.  Adicione nota de rodapé ao livro: `> ⚠️ Endereço inativo em [mês/ano]. Verifique o site oficial.`
+3.  Adicione nota de rodapé ao livro: `> AVISO: Endereço inativo em [mês/ano]. Verifique o site oficial.`
 
 Nunca use endereços .onion de fontes não-verificadas — risco de phishing é alto.

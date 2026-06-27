@@ -1,4 +1,4 @@
-# Parte I — Fundações {.parte-titulo}
+# Parte I — Fundações {- .parte-titulo}
 
 > "Antes de construir o cofre, você precisa entender o que está protegendo."
 

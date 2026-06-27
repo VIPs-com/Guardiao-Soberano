@@ -8,7 +8,7 @@
 
 Expandir conhecimento, contribuir com a comunidade, adaptar-se a novas ameaças e construir legado.
 
-**Tempo estimado:** Jornada contínua | **Dificuldade:** ★★★★★
+**Tempo estimado:** Jornada contínua | **Dificuldade:** 5/5
 
 **Pré-requisitos:** Nível 6 concluído + mentalidade de aprendizado contínuo.
 
@@ -22,70 +22,60 @@ Escolha uma ou mais. Não precisa fazer todas.
 
 ### Trilha A: Infraestrutura Avançada
 
-```
-□ Migrar node Bitcoin para hardware dedicado (Raspberry Pi 5)
-□ Rodar Lightning Network (LND + Tor)
-□ Ser maker no JoinMarket (ganhar fees fornecendo liquidez)
-□ Automatizar swaps com scripts seguros
-□ Adicionar Liana Wallet:
- - Miniscript + timelocks para herança
- - "Se eu não mover por 6 meses, herdeiro pode resgatar"
- - Compatível com Coldcard
-```
+- [ ] Migrar node Bitcoin para hardware dedicado (Raspberry Pi 5)
+- [ ] Rodar Lightning Network (LND + Tor)
+- [ ] Ser maker no JoinMarket (ganhar fees fornecendo liquidez)
+- [ ] Automatizar swaps com scripts seguros
+- [ ] Adicionar Liana Wallet:
+  - Miniscript + timelocks para herança
+  - "Se eu não mover por 6 meses, herdeiro pode resgatar"
+  - Compatível com Coldcard
 
 ---
 
 ### Trilha B: Privacidade Avançada
 
-```
-□ Estudar WabiSabi (Wasabi Wallet) como alternativa
-□ Explorar Silent Payments (BIP352)
-□ Acompanhar FCMP++ (Monero)
-□ Ler papers: ABCTracer, Haveno vulnerability
-□ Entender limites: não existe "privacidade absoluta"
-```
+- [ ] Estudar WabiSabi (Wasabi Wallet) como alternativa
+- [ ] Explorar Silent Payments (BIP352)
+- [ ] Acompanhar FCMP++ (Monero)
+- [ ] Ler papers: ABCTracer, Haveno vulnerability
+- [ ] Entender limites: não existe "privacidade absoluta"
 
 ---
 
 ### Trilha C: Comunidade
 
-```
-□ Traduzir documentação para português
-□ Criar tutoriais (texto ou vídeo)
-□ Participar de fóruns (Reddit, Matrix, SimpleX)
-□ Revisar código de ferramentas open-source
-□ Reportar bugs com responsabilidade
-□ Mentorar iniciantes na trilha
-```
+- [ ] Traduzir documentação para português
+- [ ] Criar tutoriais (texto ou vídeo)
+- [ ] Participar de fóruns (Reddit, Matrix, SimpleX)
+- [ ] Revisar código de ferramentas open-source
+- [ ] Reportar bugs com responsabilidade
+- [ ] Mentorar iniciantes na trilha
 
 ---
 
 ### Trilha D: Defesa Máxima
 
-```
-□ Migrar para Qubes OS como host:
- - VM separada para cada função
- - VM offline só para assinatura (split wallet)
- - VM para eigenwallet, VM para Feather, VM para Sparrow
- - Comunicação via qrexec
- - Nenhuma VM acessa outra diretamente
- - Resolve o problema do "host comprometido"
-```
+- [ ] Migrar para Qubes OS como host:
+  - VM separada para cada função
+  - VM offline só para assinatura (split wallet)
+  - VM para eigenwallet, VM para Feather, VM para Sparrow
+  - Comunicação via qrexec
+  - Nenhuma VM acessa outra diretamente
+  - Resolve o problema do "host comprometido"
 
 ---
 
 ### Hábitos do Mestre
 
-```
-□ Ler changelogs de todas as ferramentas que usa
-□ Verificar PGP de cada atualização
-□ Testar recuperação semestralmente (de verdade)
-□ Revisar coordinators .onion trimestralmente
-□ Participar de 1 discussão técnica por mês
-□ Ensinar 1 pessoa nova por ano
-□ Questionar sempre: "Isso ainda é seguro em 2026? 2027?"
-□ Adaptar a trilha conforme novas ameaças e ferramentas surgem
-```
+- [ ] Ler changelogs de todas as ferramentas que usa
+- [ ] Verificar PGP de cada atualização
+- [ ] Testar recuperação semestralmente (de verdade)
+- [ ] Revisar coordinators .onion trimestralmente
+- [ ] Participar de 1 discussão técnica por mês
+- [ ] Ensinar 1 pessoa nova por ano
+- [ ] Questionar sempre: "Isso ainda é seguro em 2026? 2027?"
+- [ ] Adaptar a trilha conforme novas ameaças e ferramentas surgem
 
 ---
 
@@ -93,23 +83,19 @@ Escolha uma ou mais. Não precisa fazer todas.
 
 **Obrigatório — mentalidade Mestre:**
 
-```
-□ Escolhi pelo menos 1 trilha e avancei nela
-□ Contribuí com a comunidade de alguma forma
-□ Revisei meu ecossistema este ano
-□ Sei que a jornada NUNCA termina
-```
+- [ ] Escolhi pelo menos 1 trilha e avancei nela
+- [ ] Contribuí com a comunidade de alguma forma
+- [ ] Revisei meu ecossistema este ano
+- [ ] Sei que a jornada NUNCA termina
 
 **Integração com a trilha:**
 
-```
-□ Ensinei pelo menos 1 pessoa nos Níveis 0–1 (Cap. 11) — ideal: 2+ ao longo do tempo
-□ O Guardião Soberano não é um destino — é um caminho
-```
+- [ ] Ensinei pelo menos 1 pessoa nos Níveis 0–1 (Cap. 11) — ideal: 2+ ao longo do tempo
+- [ ] O Guardião Soberano não é um destino — é um caminho
 
 ---
 
-## 🏅 Conquista: "O Mestre"
+## Conquista: "O Mestre"
 
 > Não acumulo apenas moedas — acumulo conhecimento. Não protejo apenas a mim — protejo a rede. Ensino o que aprendi. Questiono o que sei. O Guardião Soberano é um caminho que se renova a cada bloco.
 
@@ -119,7 +105,7 @@ Na **Parte III**, consulte referência permanente: ecossistema (Cap. 13), ferram
 
 ---
 
-## 📎 Leitura opcional — após Nível 7
+## Leitura opcional — após Nível 7
 
 Tabela resumo, rituais, novidades 2025–2026, tutorial multisig e palavras finais. **Não são obrigatórias** para concluir o Nível 7.
 
@@ -127,16 +113,16 @@ Tabela resumo, rituais, novidades 2025–2026, tutorial multisig e palavras fina
 
 ## Tabela Resumo da Trilha
 
-| Nível | Nome | Tempo | Dificuldade | Essência |
+| Nível | Nome | Tempo | Dific. | Essência |
 | --- | --- | --- | --- | --- |
-| 0 | 🌱 A Semente | 2–4 dias | ★★☆☆☆ | Gerar seed com dados, backup em aço, primeiros sats sem KYC |
-| 1 | 🔒 O Cofre | 1–2 sem | ★★★☆☆ | Dispositivo air-gapped, teste de restauração |
-| 2 | 👁️ A Carteira Fria | 2–3 dias | ★★★☆☆ | Watching-only, primeiro PSBT completo |
-| 3 | 🏰 O Observador | 1–2 sem | ★★★★☆ | Whonix, node próprio, EPS .onion |
-| 4 | 🔀 O Misturador | 2–4 sem | ★★★★☆ | Whirlpool, JoinMarket, Coin Control |
-| 5 | 🔄 O Trocador | 1–2 sem | ★★★★★ | eigenwallet, RetoSwap, defesa ABCTracer |
-| 6 | 👑 O Soberano | 1–2 meses | ★★★★★ | Mobile, backups, legal, diversificação, ensino |
-| 7 | 🧙 O Mestre | Contínuo | ★★★★★ | Comunidade, Qubes, herança, contribuição |
+| 0 | A Semente | 2–4 dias | 2/5 | Seed com dados, backup em aço, sats sem KYC |
+| 1 | O Cofre | 1–2 sem | 3/5 | HW air-gapped, teste de restauração |
+| 2 | A Carteira Fria | 2–3 dias | 3/5 | Watching-only, primeiro PSBT |
+| 3 | O Observador | 1–2 sem | 4/5 | Whonix, nó próprio, EPS .onion |
+| 4 | O Misturador | 2–4 sem | 4/5 | Whirlpool, JoinMarket, Coin Control |
+| 5 | O Trocador | 1–2 sem | 5/5 | eigenwallet, RetoSwap, ABCTracer |
+| 6 | O Soberano | 1–2 meses | 5/5 | Mobile, backups, legal, ensino |
+| 7 | O Mestre | Contínuo | 5/5 | Comunidade, Qubes, herança |
 
 ---
 
@@ -373,23 +359,20 @@ Sparrow mostra quantas assinaturas faltam (ex: "1 of 2").
 
 ---
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│ │
-│ 🌱 NÍVEL 0: A SEMENTE 🏅 │
-│ 🔒 NÍVEL 1: O COFRE 🏅 │
-│ 👁️ NÍVEL 2: A CARTEIRA FRIA 🏅 │
-│ 🏰 NÍVEL 3: O OBSERVADOR 🏅 │
-│ 🔀 NÍVEL 4: O MISTURADOR 🏅 │
-│ 🔄 NÍVEL 5: O TROCADOR 🏅 │
-│ 👑 NÍVEL 6: O SOBERANO 🏅 │
-│ 🧙 NÍVEL 7: O MESTRE 🏅 │
-│ │
-│ Versão 1.1 — Consolidada após revisão da comunidade │
-│ Junho de 2026 │
-│ │
-└─────────────────────────────────────────────────────────────┘
-```
+## Trilha concluída
+
+| Nível | Conquista |
+| --- | --- |
+| N0 | A Semente |
+| N1 | O Cofre |
+| N2 | A Carteira Fria |
+| N3 | O Observador |
+| N4 | O Misturador |
+| N5 | O Trocador |
+| N6 | O Soberano |
+| N7 | O Mestre |
+
+*Versão 1.1 — Consolidada após revisão da comunidade · Junho de 2026*
 
 ---
 

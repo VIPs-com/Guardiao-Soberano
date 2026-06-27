@@ -136,18 +136,12 @@ A auto-custódia não é paranoia. É a lição que o mercado repetiu até não 
 
 Existe um espectro entre "sem custódia" e "custódia total". A maioria das pessoas está em algum ponto no meio, sem perceber.
 
-```
-SEM SOBERANIA                                    SOBERANIA PLENA
-      |                                                 |
-   Exchange       Carteira quente          Carteira fria     Carteira fria
-   centralizada   (celular/PC)             (hardware wallet)  air-gapped +
-   (Binance,      (Muun, Blue              (Ex.: Coldcard,   seed em aço +
-   Coinbase)      Wallet)                  Jade, SeedSigner)  nó próprio
-      |                                                 |
-Risco: Exchange  Risco: Malware,         Risco: Fornecedor  Risco: Você
-falir, hackear,  vírus, backup           backdoor, perda    mesmo (erro
-bloquear         inadequado              física             humano)
-```
+| Posição | Método | Exemplos | Principal risco |
+| --- | --- | --- | --- |
+| Sem soberania | Exchange centralizada | Binance, Coinbase | Exchange falir, hackear ou bloquear |
+| | Carteira quente (celular/PC) | Muun, Blue Wallet | Malware, vírus, backup inadequado |
+| | Carteira fria (hardware wallet) | Coldcard, Jade, SeedSigner | Fornecedor backdoor, perda física |
+| Soberania plena | Carteira fria air-gapped + seed em aço + nó próprio | — | Você mesmo (erro humano) |
 
 Este livro vai levá-lo da esquerda para a direita desse espectro, passo a passo. Não é preciso chegar ao extremo direito no primeiro dia — mas é preciso entender onde você está e para onde está indo.
 

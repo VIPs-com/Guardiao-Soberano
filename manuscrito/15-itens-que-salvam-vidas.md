@@ -166,11 +166,13 @@ Pendrives convencionais morrem. Não "podem morrer" — morrem, inevitavelmente,
 
 Os melhores "pendrives" para uso intenso não são pendrives — são SSDs externos em formato compacto. A diferença está no controlador interno:
 
-| Tipo | Ciclos de gravação | Wear-leveling | Para uso com Tails |
-|------|--------------------|---------------|-------------------|
-| Pendrive barato | Centenas | Não | Não recomendado |
-| Pendrive de qualidade | Alguns milhares | Básico | Aceitável |
-| SSD externo (Samsung T7, SanDisk Extreme) | Dezenas de milhares | Avançado | Recomendado |
+| Tipo | Ciclos | Wear-level | Tails |
+|------|--------|------------|-------|
+| Pendrive barato | Centenas | Não | Evitar |
+| Pendrive qualidade | Milhares | Básico | Aceitável |
+| SSD externo¹ | Dezenas de milhares | Avançado | Ideal |
+
+¹ Ex.: Samsung T7, SanDisk Extreme
 
 **Regra de substituição:** Substitua o dispositivo principal a cada 6 meses se uso intenso diário, ou a cada 12 meses se uso esporádico. Hardware é barato. Perder fundos não é.
 

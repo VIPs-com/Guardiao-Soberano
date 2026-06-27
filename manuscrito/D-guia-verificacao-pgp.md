@@ -32,25 +32,17 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
 
 ## Principais chaves PGP
 
-  ----------------------------------------------------------------------------------------------------------------------------
-  Desenvolvedor           Projeto                 Fingerprint / verificação
-  ----------------------- ----------------------- ----------------------------------------------------------------------------
-  Craig Raw               Sparrow Wallet          `D4D0D3202FC06849A257B38DE94618334C674B40` — sparrowwallet.com/download/
+| Desenvolvedor | Projeto | Fingerprint / verificação |
+| --- | --- | --- |
+| Craig Raw | Sparrow Wallet | `D4D0D3202FC06849A257B38DE94618334C674B40` — sparrowwallet.com/download/ |
+| binarybaron | eigenwallet | Assinaturas `.asc` em github.com/eigenwallet/core/releases |
+| Patrick Schleizer | Whonix | `916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA` — whonix.org/wiki/Signing_Key |
+| Tails Project | Tails | `A490D0F4D311A4153E2BB7CADBB802B258ACD84F` — tails.net/doc/about/openpgp_keys/ |
+| Coinkite | Coldcard | coldcard.com/docs/upgrade |
+| SeedSigner | SeedSigner | Assinaturas em github.com/SeedSigner/seedsigner/releases |
+| Feather Wallet | Feather (Monero) | `8185E158A33330C7FD61BC0D1F76E155CEFBA71C` — docs.featherwallet.org/guides/release-signing-key |
 
-  binarybaron             eigenwallet             Assinaturas `.asc` em github.com/eigenwallet/core/releases
-
-  Patrick Schleizer       Whonix                  `916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA` — whonix.org/wiki/Signing_Key
-
-  Tails Project           Tails                   `A490D0F4D311A4153E2BB7CADBB802B258ACD84F` — tails.net/doc/about/openpgp_keys/
-
-  Coinkite                Coldcard                coldcard.com/docs/upgrade
-
-  SeedSigner              SeedSigner              Assinaturas em github.com/SeedSigner/seedsigner/releases
-
-  Feather Wallet          Feather (Monero)        `8185E158A33330C7FD61BC0D1F76E155CEFBA71C` — docs.featherwallet.org/guides/release-signing-key
-  ----------------------------------------------------------------------------------------------------------------------------
-
-> ⚠️ SEMPRE compare a fingerprint com **pelo menos duas fontes independentes** antes de importar.
+> **AVISO:** SEMPRE compare a fingerprint com **pelo menos duas fontes independentes** antes de importar.
 
 ## Por que a verificação PGP importa
 
@@ -64,8 +56,8 @@ A verificação PGP resolve esse problema: mesmo que um atacante substitua o arq
 
 ```bash
 # Passo 1: baixe o arquivo e a assinatura separadamente
-# Nunca use o mesmo link para ambos — se o servidor estiver comprometido,
-# ele pode fornecer uma assinatura falsa para o arquivo falso.
+# Nunca use o mesmo link para ambos — se o servidor estiver
+# comprometido, ele pode fornecer assinatura falsa para arquivo falso.
 
 # Passo 2: importe a chave pública do desenvolvedor
 gpg --keyserver hkps://keys.openpgp.org --recv-keys FINGERPRINT_AQUI
@@ -83,7 +75,8 @@ gpg --verify arquivo.AppImage.asc arquivo.AppImage
 # Saída esperada (procure por "Good signature"):
 # gpg: Good signature from "Nome do Desenvolvedor <email>"
 # gpg: WARNING: This key is not certified with a trusted signature!
-# (O aviso é normal se você não assinou a chave — o que importa é "Good signature")
+# (O aviso é normal se você não assinou a chave —
+# o que importa é "Good signature")
 
 # Saída de ALERTA (não execute o arquivo):
 # gpg: BAD signature from ...
@@ -111,14 +104,21 @@ Release atual: **2.5.2** (lançado 31/05/2026).
 
 ```bash
 # Importar chave de Craig Raw
-gpg --keyserver hkps://keys.openpgp.org --recv-keys D4D0D3202FC06849A257B38DE94618334C674B40
-gpg --fingerprint D4D0D3202FC06849A257B38DE94618334C674B40
+gpg --keyserver hkps://keys.openpgp.org \
+  --recv-keys D4D0D3202FC06849A257B38DE94618334C674B40
+gpg --fingerprint \
+  D4D0D3202FC06849A257B38DE94618334C674B40
 # Saída esperada: D4D0 D320 2FC0 6849 A257  B38D E946 1833 4C67 4B40
 
 # Baixar e verificar (no Whonix com scurl):
-scurl-download https://github.com/sparrowwallet/sparrow/releases/download/2.5.2/sparrow-2.5.2-x86_64.tar.gz
-scurl-download https://github.com/sparrowwallet/sparrow/releases/download/2.5.2/sparrow-2.5.2-x86_64.tar.gz.asc
-gpg --verify sparrow-2.5.2-x86_64.tar.gz.asc sparrow-2.5.2-x86_64.tar.gz
+SP_VER=2.5.2
+SP_BASE="https://github.com/sparrowwallet/sparrow/releases/download"
+SP_FILE="sparrow-${SP_VER}-x86_64"
+scurl-download "${SP_BASE}/${SP_VER}/${SP_FILE}.tar.gz"
+scurl-download "${SP_BASE}/${SP_VER}/${SP_FILE}.tar.gz.asc"
+gpg --verify \
+  sparrow-${SP_VER}-x86_64.tar.gz.asc \
+  sparrow-${SP_VER}-x86_64.tar.gz
 ```
 
 ### Tails 7.9 — download verificado (jun/2026)
@@ -127,8 +127,10 @@ Release atual: **7.9** (lançado 18/06/2026). Chave do projeto Tails (RSA 4096, 
 
 ```bash
 # Importar chave do Tails Project
-gpg --keyserver hkps://keys.openpgp.org --recv-keys A490D0F4D311A4153E2BB7CADBB802B258ACD84F
-gpg --fingerprint A490D0F4D311A4153E2BB7CADBB802B258ACD84F
+gpg --keyserver hkps://keys.openpgp.org \
+  --recv-keys A490D0F4D311A4153E2BB7CADBB802B258ACD84F
+gpg --fingerprint \
+  A490D0F4D311A4153E2BB7CADBB802B258ACD84F
 # Saída esperada: A490 D0F4 D311 A415 3E2B  B7CA DBB8 02B2 58AC D84F
 # Email: tails@boum.org
 ```
@@ -138,8 +140,10 @@ Verificação completa: tails.net/install/download/index.en.html
 ### Whonix — comando verificado (jun/2026)
 
 ``` {.sourceCode .bash}
-gpg --keyserver hkps://keys.openpgp.org --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
-gpg --fingerprint 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
+gpg --keyserver hkps://keys.openpgp.org \
+  --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
+gpg --fingerprint \
+  916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
 ```
 
 ### SeedSigner 0.8.6 — arquivos de verificação (jun/2026)
@@ -158,10 +162,16 @@ gpg --verify seedsigner.0.8.6.sha256.txt.sig seedsigner.0.8.6.sha256.txt
 
 Release atual: **4.11.3**. Linux Whonix:
 
-    https://github.com/eigenwallet/core/releases/download/4.11.3/eigenwallet_4.11.3_amd64.AppImage
-    https://github.com/eigenwallet/core/releases/download/4.11.3/eigenwallet_4.11.3_amd64.AppImage.asc
+```bash
+EW_VER=4.11.3
+EW_ORG="eigenwallet/core/releases/download"
+EW_BASE="https://github.com/${EW_ORG}/${EW_VER}"
+EW_FILE="eigenwallet_${EW_VER}_amd64"
+scurl-download "${EW_BASE}/${EW_FILE}.AppImage"
+scurl-download "${EW_BASE}/${EW_FILE}.AppImage.asc"
+```
 
-> ⚠️ *Atualização jun/2026:* O nome mudou de `eigenwallet-x86_64.AppImage` para `eigenwallet_VERSAO_amd64.AppImage`. Sempre use a release mais recente do GitHub.
+> **AVISO (jun/2026):** O nome mudou de `eigenwallet-x86_64.AppImage` para `eigenwallet_VERSAO_amd64.AppImage`. Sempre use a release mais recente do GitHub.
 
 ### Feather Wallet 2.8.1 — download verificado (jun/2026)
 
@@ -169,17 +179,22 @@ Release atual: **2.8.1**. Chave de release **FeatherWallet** (`dev@featherwallet
 
 ```bash
 # Importar e conferir fingerprint (compare com docs + GitHub)
-gpg --keyserver hkps://keys.openpgp.org --recv-keys 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
-gpg --fingerprint 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+gpg --keyserver hkps://keys.openpgp.org \
+  --recv-keys 8185E158A33330C7FD61BC0D1F76E155CEFBA71C
+gpg --fingerprint \
+  8185E158A33330C7FD61BC0D1F76E155CEFBA71C
 # Saída esperada: 8185 E158 A333 30C7 FD61 BC0D 1F76 E155 CEFB A71C
 
 # Baixar (Tails — torsocks; Whonix — scurl-download)
 VERSION=2.8.1
+FW_BASE="https://featherwallet.org/files/releases/linux"
 torsocks wget -P ~/Downloads \
-  "https://featherwallet.org/files/releases/linux/feather-${VERSION}-x86_64.AppImage" \
-  "https://featherwallet.org/files/releases/linux/feather-${VERSION}-x86_64.AppImage.asc"
+  "${FW_BASE}/feather-${VERSION}-x86_64.AppImage" \
+  "${FW_BASE}/feather-${VERSION}-x86_64.AppImage.asc"
 
-gpg --verify feather-${VERSION}-x86_64.AppImage.asc feather-${VERSION}-x86_64.AppImage
+gpg --verify \
+  feather-${VERSION}-x86_64.AppImage.asc \
+  feather-${VERSION}-x86_64.AppImage
 # Esperado: Good signature from "FeatherWallet <dev@featherwallet.org>"
 ```
 

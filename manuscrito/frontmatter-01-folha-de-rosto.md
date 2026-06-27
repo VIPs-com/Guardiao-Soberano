@@ -1,4 +1,4 @@
-# Guardião Soberano
+# Guardião Soberano {-}
 
 ## Da Semente ao Ecossistema Completo
 

@@ -1,4 +1,4 @@
-# Parte III — Referência Permanente {.parte-titulo}
+# Parte III — Referência Permanente {- .parte-titulo}
 
 > "O guardião soberano não precisa memorizar — precisa saber onde olhar."
 

@@ -8,7 +8,7 @@
 
 Adquirir e configurar um dispositivo **air-gapped** (sem WiFi, Bluetooth ou USB de dados durante a assinatura) como guardião das chaves privadas. A seed **nunca** tocará um computador conectado à rede.
 
-**Tempo estimado:** 1–2 semanas | **Dificuldade:** ★★★☆☆
+**Tempo estimado:** 1–2 semanas | **Dificuldade:** 3/5
 
 **Pré-requisitos:** Nível 0 concluído.
 
@@ -18,61 +18,55 @@ Adquirir e configurar um dispositivo **air-gapped** (sem WiFi, Bluetooth ou USB 
 
 Você tem opções. Escolha UMA:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│ GUIA DE ESCOLHA │
-├─────────────────────────────────────────────────────────────┤
-│ │
-│ ⭐ COLDCARD MK5 (Recomendado) — ~US$ 170 │
-│ • Padrão ouro da comunidade │
-│ • Assina via SD card (PSBT) ou QR │
-│ • Trick PIN / Brick PIN: PIN alternativo abre decoy ou apaga seed (manual Coinkite) │
-│ • Carteira de coerção (duress), Bitcoin-only, open source │
-│ • Ideal: quem quer o melhor │
-│ │
-│ 💰 BLOCKSTREAM JADE PLUS (Econômico) — ~US$169 │
-│ • Câmera para QR airgap │
-│ • Open source, preço acessível │
-│ • Ideal: orçamento limitado │
-│ │
-│ 📱 FOUNDATION PASSPORT BATCH 2 (QR) — ~US$ 150–200 │
-│ • QR nativo, UX mais amigável │
-│ • Open source, modular │
-│ • Ideal: prefere QR a SD card │
-│ │
-│ 🔧 SEEDSIGNER (DIY) — ~US$ 50 em peças │
-│ • Raspberry Pi Zero + câmera │
-│ • Stateless (apaga a seed da memória ao desligar) │
-│ • Você monta e verifica cada componente │
-│ • Ideal: quer construir o próprio │
-│ │
-│ 🔧 KRUX (DIY Firmware) — ~US$ 40–60 em hardware │
-│ • Firmware para Maix Amigo, M5StickV │
-│ • Stateless, suporte a Taproot │
-│ • Builds reproduzíveis │
-│ • Ideal: alternativa moderna ao SeedSigner │
-│ │
-└─────────────────────────────────────────────────────────────┘
-```
+**COLDCARD MK5 (Recomendado)** — ~US$ 170
+
+- Padrão ouro da comunidade
+- Assina via SD card (PSBT) ou QR
+- Trick PIN / Brick PIN: PIN alternativo abre decoy ou apaga seed (manual Coinkite)
+- Carteira de coerção (duress), Bitcoin-only, open source
+- Ideal: quem quer o melhor
+
+**BLOCKSTREAM JADE PLUS (Econômico)** — ~US$ 169
+
+- Câmera para QR airgap
+- Open source, preço acessível
+- Ideal: orçamento limitado
+
+**FOUNDATION PASSPORT BATCH 2 (QR)** — ~US$ 150–200
+
+- QR nativo, UX mais amigável
+- Open source, modular
+- Ideal: prefere QR a SD card
+
+**SEEDSIGNER (DIY)** — ~US$ 50 em peças
+
+- Raspberry Pi Zero + câmera
+- Stateless (apaga a seed da memória ao desligar)
+- Você monta e verifica cada componente
+- Ideal: quer construir o próprio
+
+**KRUX (DIY Firmware)** — ~US$ 40–60 em hardware
+
+- Firmware para Maix Amigo, M5StickV
+- Stateless, suporte a Taproot
+- Builds reproduzíveis
+- Ideal: alternativa moderna ao SeedSigner
 
 ---
 
 ### Passo 1.1 — Adquirir sem vínculo ao seu nome
 
-```
-□ Coldcard: coinkite.com (fabricante oficial)
-□ Jade Plus: blockstream.com
-□ Passport: foundationdevices.com
-□ SeedSigner: comprar peças em lojas de eletrônica
-□ Krux: comprar Maix Amigo/M5StickV + flashear firmware
-
-□ Se possível, pagar com BTC (mais privacidade)
-□ Ou cartão presente (gift card)
-□ Enviar para endereço sem seu nome:
- - PO Box (caixa postal)
- - Casa de um amigo ou familiar
- - Receber em mãos (se loja física)
-```
+- [ ] Coldcard: coinkite.com (fabricante oficial)
+- [ ] Jade Plus: blockstream.com
+- [ ] Passport: foundationdevices.com
+- [ ] SeedSigner: comprar peças em lojas de eletrônica
+- [ ] Krux: comprar Maix Amigo/M5StickV ou flashear firmware
+- [ ] Se possível, pagar com BTC (mais privacidade)
+- [ ] Ou cartão presente (gift card)
+- [ ] Enviar para endereço sem seu nome:
+  - PO Box (caixa postal)
+  - Casa de um amigo ou familiar
+  - Receber em mãos (se loja física)
 
 ### Dica de João
 
@@ -82,81 +76,66 @@ João pediu o Coldcard com cartão-presente de supermercado e recebeu na caixa p
 
 ### Passo 1.2 — Verificar integridade física
 
-```
-□ Conferir embalagem:
- - Bag antiviolação intacta (Coldcard/Jade)
- - Sem rasgos, furos, sinais de abertura
- - Número de série na caixa = número na tela do dispositivo
-
-□ Se for DIY (SeedSigner/Krux):
- - Comprar peças de fornecedores diferentes
- - Verificar se os chips não estão adulterados
- - Flashear firmware você mesmo
- - Verificar hash do firmware (build reproduzível)
-
-□ Se HOUVER suspeita: DEVOLVER, não usar
-```
+- [ ] Conferir embalagem:
+  - Bag antiviolação intacta (Coldcard/Jade)
+  - Sem rasgos, furos, sinais de abertura
+  - Número de série na caixa = número na tela do dispositivo
+- [ ] Se for DIY (SeedSigner/Krux):
+  - Comprar peças de fornecedores diferentes
+  - Verificar se os chips não estão adulterados
+  - Flashear firmware você mesmo
+  - Verificar hash do firmware (build reproduzível)
+- [ ] Se HOUVER suspeita: DEVOLVER, não usar
 
 ---
 
 ### Passo 1.3 — Atualizar firmware (air-gapped)
 
-```
-□ Em computador COM internet:
- - Baixar firmware mais recente do site oficial
- - Verificar assinatura PGP do firmware
- - Copiar para MicroSD
-
-□ MicroSD → dispositivo → opção Upgrade Firmware
-□ Confirmar versão na tela
-□ NUNCA conectar o dispositivo à internet via USB
-```
+- [ ] Em computador COM internet:
+  - Baixar firmware mais recente do site oficial
+  - Verificar assinatura PGP do firmware
+  - Copiar para MicroSD
+- [ ] MicroSD → dispositivo → opção Upgrade Firmware
+- [ ] Confirmar versão na tela
+- [ ] NUNCA conectar o dispositivo à internet via USB
 
 ---
 
 ### Passo 1.4 — Inicializar com dice rolls
 
-```
-□ Dispositivo → New Wallet → Dice Rolls (nova seed / lançamentos de dados)
-□ Usar seus 100+ lançamentos de dados do Nível 0 (lista anotada em papel)
-□ Se perdeu a lista: refaça os lançamentos — não reutilize palavras de exercício do Passo 0.4
-□ Inserir um por um, conferindo na tela
-□ Dispositivo gera 24 palavras BIP39
-□ NUNCA usar "Quick Generate" (RNG interno do chip — você confia no fabricante)
-□ Anotar as 24 palavras EM PAPEL (temporário — metal no Passo 1.6b)
-```
+- [ ] Dispositivo → New Wallet → Dice Rolls (nova seed / lançamentos de dados)
+- [ ] Usar seus 100+ lançamentos de dados do Nível 0 (lista anotada em papel)
+- [ ] Se perdeu a lista: refaça os lançamentos
+  - não reutilize palavras de exercício do Passo 0.4
+- [ ] Inserir um por um, conferindo na tela
+- [ ] Dispositivo gera 24 palavras BIP39
+- [ ] NUNCA usar "Quick Generate" (RNG interno do chip — você confia no fabricante)
+- [ ] Anotar as 24 palavras EM PAPEL (temporário — metal no Passo 1.6b)
 
 ---
 
 ### Passo 1.5 — Adicionar passphrase
 
-```
-□ Dispositivo → Passphrase → Add Passphrase
-□ Digitar a passphrase que você criou no Nível 0
-□ Dispositivo mostra "Passphrase: Set"
-□ Agora sua carteira REAL está ativa
-□ Sem passphrase = carteira **diferente** (decoy — proteção sob coerção)
-```
+- [ ] Dispositivo → Passphrase → Add Passphrase
+- [ ] Digitar a passphrase que você criou no Nível 0
+- [ ] Dispositivo mostra "Passphrase: Set"
+- [ ] Agora sua carteira REAL está ativa
+- [ ] Sem passphrase = carteira **diferente** (decoy — proteção sob coerção)
 
 ---
 
 ### Passo 1.6 — Validar endereços (OFFLINE)
 
-```
-□ Exportar xpub (chave pública estendida — não gasta fundos) para MicroSD ou QR
-□ Verificar hash SHA256 do bip39.html antes de abrir (mesmo arquivo do Nível 0)
-□ Em computador OFFLINE, nunca conectado à internet, com bip39.html:
+- [ ] Exportar xpub (chave pública estendida — não gasta fundos) para MicroSD ou QR
+- [ ] Verificar hash SHA256 do bip39.html antes de abrir (mesmo arquivo do Nível 0)
+- [ ] Em computador OFFLINE, nunca conectado à internet, com bip39.html:
 
-⚠️ ÚNICA exceção à Lei 4 (nunca digitar seed em PC):
-   validação em máquina dedicada offline. Apague o histórico do navegador após.
-   Alternativa futura: comparar só xpub exportado, quando o dispositivo permitir.
+> **AVISO — única exceção à Lei 4 (nunca digitar seed em PC):** validação em máquina dedicada offline. Apague o histórico do navegador após. Alternativa futura: comparar só xpub exportado, quando o dispositivo permitir.
 
- - Inserir 24 palavras + passphrase
- - Verificar se o primeiro endereço BIP84 / Native SegWit (m/84'/0'/0'/0/0, bc1…)
-   BATE EXATAMENTE com o endereço mostrado no dispositivo
- - Verificar 5º e 15º endereços também
- - Se NÃO bater: ALGO ERRADO. Recomece.
-```
+- [ ] Inserir 24 palavras + passphrase
+- [ ] Verificar se o primeiro endereço BIP84 / Native SegWit (m/84'/0'/0'/0/0, bc1…) **BATE EXATAMENTE** com o endereço mostrado no dispositivo
+- [ ] Verificar 5º e 15º endereços também
+- [ ] Se NÃO bater: ALGO ERRADO. Recomece.
 
 ---
 
@@ -166,13 +145,11 @@ João pediu o Coldcard com cartão-presente de supermercado e recebeu na caixa p
 
 Siga o **Capítulo 5, Passo 0.5** e o lab `laboratorio/nivel-0-semente/02-backup-aco.md` (repositório do projeto).
 
-```
-□ Conferir as 24 palavras no dispositivo (3 leituras em voz alta)
-□ Gravar 2 cópias em metal — Locais Físicos A e B (diferentes)
-□ Passphrase permanece em Local C (Capítulo 5, Passo 0.6)
-□ Queimar/picar papel temporário das palavras
-□ NUNCA: foto, nuvem, email, WhatsApp da seed
-```
+- [ ] Conferir as 24 palavras no dispositivo (3 leituras em voz alta)
+- [ ] Gravar 2 cópias em metal — Locais Físicos A e B (diferentes)
+- [ ] Passphrase permanece em Local C (Capítulo 5, Passo 0.6)
+- [ ] Queimar/picar papel temporário das palavras
+- [ ] NUNCA: foto, nuvem, email, WhatsApp da seed
 
 ---
 
@@ -180,24 +157,20 @@ Siga o **Capítulo 5, Passo 0.5** e o lab `laboratorio/nivel-0-semente/02-backup
 
 > **Pré-requisito:** Passo 1.6b concluído (2 cópias em metal).
 
-```
-□ Apagar seed do dispositivo (menu varia por modelo):
- - Coldcard: Advanced → Danger Zone → Destroy Seed
- - SeedSigner/Krux: opção equivalente de apagar / factory reset
-□ Dispositivo sem seed
-□ Import Existing → Restore from 24 words
-□ Digitar 24 palavras + passphrase
-□ Exportar endereços novamente
-□ Comparar com os endereços anotados no Passo 1.6
-□ DEVEM BATER EXATAMENTE
-
-□ Se NÃO bater: sua seed gravada está ERRADA
- - Regrave a seed em metal
- - Refaça o teste
- - NUNCA envie fundos antes deste teste passar
-
-□ Se SIM: seu backup FUNCIONA. Pode confiar.
-```
+- [ ] Apagar seed do dispositivo (menu varia por modelo):
+  - Coldcard: Advanced → Danger Zone → Destroy Seed
+  - SeedSigner/Krux: opção equivalente de apagar / factory reset
+- [ ] Dispositivo sem seed
+- [ ] Import Existing → Restore from 24 words
+- [ ] Digitar 24 palavras + passphrase
+- [ ] Exportar endereços novamente
+- [ ] Comparar com os endereços anotados no Passo 1.6
+- [ ] **DEVEM BATER EXATAMENTE**
+- [ ] Se NÃO bater: sua seed gravada está ERRADA
+  - Regrave a seed em metal
+  - Refaça o teste
+  - NUNCA envie fundos antes deste teste passar
+- [ ] Se SIM: seu backup FUNCIONA. Pode confiar.
 
 ---
 
@@ -205,31 +178,27 @@ Siga o **Capítulo 5, Passo 0.5** e o lab `laboratorio/nivel-0-semente/02-backup
 
 **Obrigatório antes de enviar fundos:**
 
-```
-□ Endereços validados offline (Passo 1.6)
-□ 2 backups em metal + passphrase em local separado (Passo 1.6b / Cap. 5)
-□ Teste de restauração bem-sucedido (Passo 1.7)
-```
+- [ ] Endereços validados offline (Passo 1.6)
+- [ ] 2 backups em metal + passphrase em local separado (Passo 1.6b / Cap. 5)
+- [ ] Teste de restauração bem-sucedido (Passo 1.7)
 
 **Opsec contínua:**
 
-```
-□ Dispositivo air-gapped configurado e funcional
-□ Firmware atualizado (PGP verificado)
-□ Seed gerada com dados físicos, não RNG interno
-□ Sei que sem passphrase = carteira decoy diferente
-□ Nunca conectei o dispositivo à internet
-```
+- [ ] Dispositivo air-gapped configurado e funcional
+- [ ] Firmware atualizado (PGP verificado)
+- [ ] Seed gerada com dados físicos, não RNG interno
+- [ ] Sei que sem passphrase = carteira decoy diferente
+- [ ] Nunca conectei o dispositivo à internet
 
 ---
 
-## 🏅 Conquista: "O Cofre"
+## Conquista: "O Cofre"
 
 > Meu dispositivo é uma fortaleza offline. Se perdê-lo, a semente de aço me salva. Se me coagirem, a passphrase me protege. O cofre está selado e testado.
 
 ---
 
-## 📎 Leitura opcional — após Níveis 1–2
+## Leitura opcional — após Níveis 1–2
 
 As seções abaixo aprofundam catálogo de hardware, fluxo PSBT e comparativo DIY. **Não são obrigatórias** para concluir o Nível 1.
 
@@ -241,7 +210,7 @@ Catálogo completo e alternativas: **Capítulo 14** e **Apêndice G**.
 
 | Dispositivo | Tipo | Comunicação | Notas |
 | --- | --- | --- | --- |
-| Coldcard MK5 | Comercial | SD / QR | ⭐ Recomendado — Passo 1.0 |
+| Coldcard MK5 | Comercial | SD / QR | Recomendado — Passo 1.0 |
 | Blockstream Jade Plus | Comercial | QR | Econômico, Bitcoin-only |
 | Foundation Passport B2 | Comercial | QR / microSD | UX amigável |
 | SeedSigner | DIY | QR | Stateless, ~US$ 50 em peças |

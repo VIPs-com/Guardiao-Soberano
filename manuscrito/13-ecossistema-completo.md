@@ -26,29 +26,6 @@ O ecossistema tem um princípio fundamental: **nenhum terceiro tem acesso a toda
 
 ## 13.2 O Diagrama
 
-    ┌──────────────────────── INTERNET (TOR) ──────────────────────────┐
-    │  Whirlpool .onion  │  eigenwallet .onion  │  Rede Bitcoin/Monero  │
-    └───────────────────────────────────────────────────────────────────┘
-                              ↕ (só via Tor)
-    ┌──────────────────────── HOST FÍSICO ─────────────────────────────┐
-    │  ┌──────────────┐   ┌───────────────────┐   ┌────────────────┐   │
-    │  │   Gateway    │   │   Workstation     │   │  Bitcoin-Node  │   │
-    │  │10.152.152.10 │↔  │  10.152.152.20   │↔  │ 10.152.152.30  │   │
-    │  │ (verde)      │   │  (roxo)           │   │  (laranja)     │   │
-    │  │ Tor daemon   │   │  Sparrow Wallet   │   │  Bitcoin Core  │   │
-    │  │ Kill switch  │   │  eigenwallet      │   │  Fulcrum/EPS   │   │
-    │  │ Stream isol. │   │  Feather Wallet   │   │  +Tor .onion   │   │
-    │  └──────────────┘   │  Whirlpool        │   └────────────────┘   │
-    │                     └───────────────────┘                         │
-    │              Pasta Compartilhada: /psbt_bridge                    │
-    └───────────────────────────────────────────────────────────────────┘
-                            ↕ (air-gap: QR ou SD card)
-    ┌──────────────────── DISPOSITIVOS FÍSICOS ────────────────────────┐
-    │  Coldcard MK5    │  2x Aço Inox     │  Passphrase  │  Celular    │
-    │  (cold storage)  │  (seed backup)   │  (local sep) │  CalyxOS/   │
-    │  + MicroSD       │  Local A + B     │              │  GrapheneOS  │
-    └───────────────────────────────────────────────────────────────────┘
-
 ![Ecossistema completo: Tor, três VMs no host e dispositivos físicos air-gapped](../imagens/diagrama-ecossistema.png)
 
 O diagrama mostra três camadas principais:

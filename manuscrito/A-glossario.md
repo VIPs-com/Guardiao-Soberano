@@ -2,7 +2,7 @@
 
 ---
 
-## A
+## A {-}
 
 **ABCTracer** — Paper acadêmico (arXiv:2504.01822) que demonstrou 91,75% de rastreabilidade em pontes cross-chain usando correlação temporal, proporção valor/taxa e análise de endereços de destino.
 
@@ -14,7 +14,7 @@
 
 ---
 
-## B
+## B {-}
 
 **BasicSwap** — DEX descentralizado para swaps entre blockchains (incluindo XMR↔︎BTC), auto-hospedado. Alternativa trustless ao Haveno/RetoSwap para alguns fluxos.
 
@@ -26,7 +26,7 @@
 
 ---
 
-## C
+## C {-}
 
 **Change (troco)** — Output de uma transação que retorna ao remetente. Quando você gasta um UTXO de 0.05 BTC enviando 0.03 BTC, os \~0.0199 BTC restantes voltam como troco para um novo endereço seu.
 
@@ -42,7 +42,7 @@
 
 ---
 
-## D
+## D {-}
 
 **DeCripto** — Declaração de Criptoativos instituída pela IN RFB 2291/2025. Substitui o reporte mensal da IN 1888 a partir de 01/07/2026, com limite de R$ 35.000/mês para operações sem exchange brasileira.
 
@@ -52,7 +52,7 @@
 
 ---
 
-## E
+## E {-}
 
 **EPS (Electrum Personal Server)** — Servidor Electrum que você roda em seu próprio nó Bitcoin. Permite que sua carteira Electrum/Sparrow consulte a blockchain sem usar servidores públicos de terceiros.
 
@@ -60,7 +60,7 @@
 
 ---
 
-## F
+## F {-}
 
 **FCMP++ (Full-Chain Membership Proofs)** — Upgrade do protocolo Monero em desenvolvimento. Stressnet beta desde mai/2026; **ainda não ativo em mainnet** (jun/2026). Expande o anonymity set de 16 decoys para toda a blockchain quando ativado.
 
@@ -68,7 +68,7 @@
 
 ---
 
-## H
+## H {-}
 
 **Hardware Wallet** — Dispositivo físico dedicado a guardar chaves privadas e assinar transações. Opera offline e nunca expõe as chaves ao computador conectado à internet.
 
@@ -80,13 +80,13 @@
 
 ---
 
-## J
+## J {-}
 
 **JoinMarket** — Implementação de CoinJoin descentralizada (P2P). Makers fornecem liquidez ganhando fees; takers iniciam coinjoins pagando fees. Não depende de coordenador central.
 
 ---
 
-## K
+## K {-}
 
 **KEF (Krux Encrypted File)** — Formato proprietário do Krux para backup criptografado de seeds e configurações. Protegido com senha forte.
 
@@ -100,7 +100,7 @@
 
 ---
 
-## L
+## L {-}
 
 **Liana Wallet** — Carteira Bitcoin que usa Miniscript para codificar políticas de gasto complexas, como herança com timelock.
 
@@ -108,7 +108,7 @@
 
 ---
 
-## M
+## M {-}
 
 **Miniscript** — Linguagem para codificar condições de gasto Bitcoin de forma estruturada e analisável.
 
@@ -118,19 +118,19 @@
 
 ---
 
-## N
+## N {-}
 
 **Nó (Node)** — Computador que roda software de validação (ex: Bitcoin Core) e mantém uma cópia da blockchain, verificando cada transação e bloco.
 
 ---
 
-## O
+## O {-}
 
 **Output Descriptor** — String padronizada que descreve completamente como uma carteira deriva endereços: quais chaves públicas, qual caminho de derivação (ex: m/84'/0'/0'), qual tipo de script. **Backup obrigatório em configurações multisig** — sem o descriptor, os fundos podem ser irrecuperáveis mesmo com todas as seeds. Sparrow Wallet permite exportar via Arquivo → Exportar carteira → Salvar Output Descriptor.
 
 ---
 
-## P
+## P {-}
 
 **Passphrase (BIP39)** — Palavra ou frase adicional escolhida pelo usuário que, combinada com a seed de 24 palavras, gera uma carteira completamente diferente. Também chamada de "25ª palavra".
 
@@ -146,7 +146,7 @@
 
 ---
 
-## R
+## R {-}
 
 **RetoSwap** — Interface do Haveno, uma exchange P2P descentralizada focada em Monero. Permite (1) comprar/vender XMR com fiat (dinheiro físico, Pix, transferência) sem KYC e (2) fazer swaps XMR→BTC em sentido inverso ao eigenwallet. Ver também: eigenwallet, arXiv:2505.02392.
 
@@ -158,7 +158,7 @@
 
 ---
 
-## S
+## S {-}
 
 **scurl-download** — Wrapper seguro do Whonix que força downloads a passarem pela rede Tor.
 
@@ -180,7 +180,7 @@
 
 ---
 
-## T
+## T {-}
 
 **Trustless** — Sem necessidade de confiar em um intermediário; a segurança vem de contratos ou provas criptográficas (ex.: atomic swap). Em português, costuma-se dizer *sem custódia* ou *sem confiança em terceiros*.
 
@@ -194,13 +194,13 @@
 
 ---
 
-## U
+## U {-}
 
 **UTXO (Unspent Transaction Output)** — "Nota" de Bitcoin não gasta. Seu saldo é a soma de todos os seus UTXOs.
 
 ---
 
-## W
+## W {-}
 
 **Watching-only** — Carteira que conhece apenas a chave pública (xpub). Pode ver o saldo e criar transações para assinar, mas não pode gastar.
 
@@ -210,7 +210,7 @@
 
 ---
 
-## X
+## X {-}
 
 **XMR** — Símbolo da criptomoeda Monero.
 

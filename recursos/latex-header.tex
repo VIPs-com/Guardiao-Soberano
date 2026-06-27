@@ -1,0 +1,21 @@
+% Guardião Soberano — ajustes LaTeX para A5 (margens + código + tabelas)
+\usepackage{fvextra}
+\usepackage{xurl}
+\usepackage{microtype}
+
+% Quebra de linha em blocos de código (shell, PGP) — tamanho legível
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
+  breaklines,commandchars=\\\{\}}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{%
+  breaklines}
+
+% Tabelas: colunas proporcionais em A5
+\usepackage{tabularx}
+\usepackage{booktabs}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3pt}
+
+% Evitar overflow horizontal de tabelas largas
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\small}
+\AtBeginEnvironment{table}{\small}
