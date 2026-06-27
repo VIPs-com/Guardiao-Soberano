@@ -2,6 +2,8 @@
 \usepackage{fvextra}
 \usepackage{xurl}
 \usepackage{microtype}
+\usepackage{needspace}
+\usepackage{ragged2e}
 
 % Quebra de linha em blocos de código (shell, PGP) — tamanho legível
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
@@ -12,6 +14,11 @@
 % Tabelas: colunas proporcionais em A5
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ltablex}
+\keepXColumns
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \renewcommand{\arraystretch}{1.15}
 \setlength{\tabcolsep}{3pt}
 
@@ -19,3 +26,12 @@
 \usepackage{etoolbox}
 \AtBeginEnvironment{longtable}{\small}
 \AtBeginEnvironment{table}{\small}
+\AtBeginEnvironment{table}{\setlength{\tabcolsep}{3pt}}
+
+% Quebras de página: menos títulos órfãos e viúvas
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% URLs longas em tabelas e texto
+\Urlmuskip=0mu plus 1mu
