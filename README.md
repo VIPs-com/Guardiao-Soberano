@@ -73,7 +73,7 @@ Legenda laboratório: 🟢 testado em hardware · 🟡 extraído (aguarda hardwa
 | Item | Status |
 | --- | --- |
 | Livro v1.1 (manuscrito) | ✅ Editorial IA fechado — Fase 4: validação humano + hardware |
-| PDF / EPUB / MOBI | ✅ Compilável localmente (fontes DejaVu Serif/Sans) |
+| PDF / EPUB / MOBI | ✅ Compilável localmente (IBM Plex Serif/Sans/Mono; fallback DejaVu) |
 | Prova gráfica | 📋 [`recursos/prova-grafica-checklist.md`](recursos/prova-grafica-checklist.md) |
 | Auditoria layout v1.2 | 📋 [`docs/auditoria-tipografia-tabelas.md`](docs/auditoria-tipografia-tabelas.md) · `.\scripts\auditoria-layout.ps1` |
 | Laboratório | 🟡 **29/29 extraídos** · **0/18** labs 🔴 validados em hardware |

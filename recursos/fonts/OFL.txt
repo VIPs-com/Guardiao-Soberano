@@ -1,0 +1,5 @@
+IBM Plex — SIL Open Font License 1.1
+Copyright © IBM Corp. 2017
+https://github.com/IBM/plex/blob/master/LICENSE.txt
+
+Subset bundled for Guardião Soberano (Regular/Bold/Italic where applicable).

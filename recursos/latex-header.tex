@@ -35,3 +35,34 @@
 
 % URLs longas em tabelas e texto
 \Urlmuskip=0mu plus 1mu
+
+% Tipografia IBM Plex (recursos/fonts/) — fallback DejaVu se ausente
+% Requer \GuardiaoFontPath definido em font-path.tex (gerado por compila.ps1)
+\IfFileExists{\GuardiaoFontPath IBMPlexSerif-Regular.ttf}{%
+  \setmainfont{IBMPlexSerif-Regular.ttf}[
+    Path=\GuardiaoFontPath,
+    BoldFont=IBMPlexSerif-Bold.ttf,
+    ItalicFont=IBMPlexSerif-Italic.ttf,
+    BoldItalicFont=IBMPlexSerif-BoldItalic.ttf,
+    Ligatures=TeX
+  ]
+  \setsansfont{IBMPlexSans-Regular.ttf}[
+    Path=\GuardiaoFontPath,
+    BoldFont=IBMPlexSans-Bold.ttf,
+    Ligatures=TeX
+  ]
+  \setmonofont{IBMPlexMono-Regular.ttf}[
+    Path=\GuardiaoFontPath,
+    BoldFont=IBMPlexMono-Bold.ttf,
+    Scale=0.85,
+    Ligatures=TeX
+  ]
+}{%
+  \setmainfont{DejaVu Serif}
+  \setsansfont{DejaVu Sans}
+  \setmonofont{DejaVu Sans Mono}[Scale=0.85]
+}
+
+% Títulos em sans (IBM Plex Sans), corpo em serif
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\bfseries}

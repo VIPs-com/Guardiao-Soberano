@@ -127,7 +127,14 @@ $versao   = "1.1"
 $nome     = "guardiao-soberano-v$versao"
 # Pandoc procura recursos (imagens) nestes diretorios — necessario para embed no EPUB/MOBI
 $lab     = "$base\laboratorio"
-$resourcePath = "$base;$ms;$imagens;$lab"
+$resourcePath = "$base;$ms;$imagens;$lab;$recursos"
+
+# Caminho absoluto das fontes IBM Plex (XeLaTeX fontspec)
+$fontDir = ($recursos + "\fonts\").Replace('\', '/') 
+@"
+% Auto-gerado por compila.ps1 — nao editar
+\newcommand{\GuardiaoFontPath}{$fontDir}
+"@ | Set-Content -Path "$recursos\font-path.tex" -Encoding UTF8
 
 
 if ($PDF) {
@@ -139,12 +146,9 @@ if ($PDF) {
         "--resource-path=$resourcePath",
         "-V", "geometry:a5paper",
         "-V", "geometry:inner=20mm,outer=15mm,top=18mm,bottom=18mm,includeheadfoot",
-        "-V", "mainfont=DejaVu Serif",
-        "-V", "monofont=DejaVu Sans Mono",
-        "-V", "monofontoptions=Scale=0.85",
-        "-V", "sansfont=DejaVu Sans",
         "-V", "fontsize=10pt",
         "-V", "linestretch=1.5",
+        "--include-in-header=$recursos\font-path.tex",
         "--include-in-header=$recursos\latex-header.tex",
         "-V", "secnumdepth=1",
         "-M", "lang=pt-BR",
@@ -173,6 +177,9 @@ if ($EPUB) {
         "--toc", "--toc-depth=3",
         "-o", "$saida\$nome.epub"
     )
+    Get-ChildItem "$recursos\fonts\*.ttf" -ErrorAction SilentlyContinue | ForEach-Object {
+        $args_epub += "--epub-embed-font=$($_.FullName)"
+    }
     if (Test-Path $cover) {
         $args_epub += "--epub-cover-image=$cover"
     } else {
