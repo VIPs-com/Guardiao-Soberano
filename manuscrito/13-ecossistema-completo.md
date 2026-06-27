@@ -121,9 +121,9 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 | Cenário | Impacto | Recuperação | Tempo |
 | --- | --- | --- | --- |
 | VM corrompida | Perda do ambiente | Restaurar snapshot | Minutos |
-| Persistent Storage perdido | Perda do estado Whirlpool | Restaurar seed no Sparrow | 10–40 min |
-| Pendrive Tails quebrado | Perda do ambiente cirúrgico | Recriar em novo USB | 30 min |
-| Coldcard perdido | Sem capacidade de assinar | Comprar novo + restaurar seed | 1–7 dias |
+| PS perdido | Perda estado Whirlpool | Restaurar seed Sparrow | 10–40 min |
+| USB Tails quebrado | Perda ambiente | Recriar USB | 30 min |
+| Coldcard perdido | Sem assinar | Novo HW + seed | 1–7 dias |
 | Placa de aço perdida | Sem backup primário | Usar backup local B | Imediato |
 | Passphrase esquecida | Carteira real inacessível | Sem recuperação | — |
 | Host físico apreendido | Perda das VMs | Restaurar VMs de backup externo | Dias |

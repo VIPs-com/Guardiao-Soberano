@@ -184,7 +184,7 @@ E mais importante: **teste a restauração**. Um backup não testado é um backu
 
 | Ameaça | Defesa |
 | --- | --- |
-| ABCTracer (correlação temporal) | Intervalo 24h+, valores diferentes, endereços virgens |
+| ABCTracer (tempo) | 24h+, valores distintos, endereços novos |
 | Coordenador Whirlpool offline | JoinMarket instalado e testado |
 | Heurística de propriedade comum | PayJoin + Coin Control |
 | Vulnerabilidade Haveno | Diversificar ferramentas de swap |

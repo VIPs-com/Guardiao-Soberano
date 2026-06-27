@@ -4,25 +4,25 @@
 
 | Problema | Causa provável | Solução |
 | --- | --- | --- |
-| Whonix Workstation não conecta | Gateway não iniciado | Iniciar Gateway primeiro; aguardar Tor verde |
-| Sparrow não conecta ao servidor | `.onion` offline ou URL errada | Verificar URL; testar outro servidor da lista |
+| Whonix WS offline | Gateway parado | Iniciar Gateway; aguardar Tor verde |
+| Sparrow sem servidor | `.onion` ou URL errada | Conferir URL; testar da lista |
 | Transação não confirma | Fee muito baixo | Aguardar ou usar RBF |
-| Coldcard não reconhece MicroSD | Formato incorreto | Formatar como FAT32 |
-| PSBT rejeitado pelo Coldcard | Arquivo corrompido | Reexportar do Sparrow |
-| Whirlpool parou | Coordinator offline | Aguardar ou migrar para JoinMarket |
-| eigenwallet não encontra makers | Baixa liquidez | Tentar outro horário (madrugada UTC) |
-| Feather Wallet não conecta | Nó `.onion` offline | Trocar nó nas configurações |
-| Tor lento na Workstation | Circuito ruim | `sudo systemctl restart tor` no Gateway |
-| Passphrase recusada no Coldcard | Unicode diferente | Usar apenas ASCII na passphrase |
-| Seed não restaura endereços | Derivation path errado | Confirmar BIP84 no Sparrow ao importar |
-| MicroSD travado no Coldcard | `.psbt` corrompido | Recriar transação no Sparrow |
-| Whirlpool para no Tails | Sessão amnésica reiniciada | Migrar para Whonix (mixing contínuo) |
-| eigenwallet não detecta Tor | Tor inativo na porta 9050 | Testar com `curl --socks5-hostname 127.0.0.1:9050` |
-| SeedSigner não lê QR | QR complexo ou brilho alto | Reduzir brilho; usar PSBT v2 |
-| Feather não abre seed | Polyseed vs BIP39 | Feather usa Polyseed 16 palavras — backup separado |
-| "Insufficient funds" no swap | UTXO pós-coinjoin consolidado | Coin Control; não consolidar UTXOs mistos |
-| Credenciais Whonix padrão | Senha inicial não alterada | Trocar `user/changeme` e `root/changeme` |
-| Estado eigenwallet perdido | Tails sem Persistent | Link para `~/Persistent/eigenwallet-state` |
+| Coldcard não lê MicroSD | Formato incorreto | Formatar como FAT32 |
+| PSBT rejeitado | Arquivo corrompido | Reexportar do Sparrow |
+| Whirlpool parou | Coordinator offline | Aguardar ou JoinMarket |
+| eigenwallet sem makers | Baixa liquidez | Tentar madrugada UTC |
+| Feather sem conexão | Nó `.onion` offline | Trocar nó nas configs |
+| Tor lento na WS | Circuito ruim | `restart tor` no Gateway |
+| Passphrase recusada | Unicode diferente | Usar só ASCII |
+| Seed não restaura | Path errado | Confirmar BIP84 no Sparrow |
+| MicroSD travado | `.psbt` corrompido | Recriar transação |
+| Whirlpool parou (Tails) | Sessão reiniciada | Migrar para Whonix |
+| eigenwallet sem Tor | Porta 9050 inativa | Testar curl via socks5 |
+| SeedSigner não lê QR | QR grande / brilho | Menos brilho; PSBT v2 |
+| Feather não abre seed | Polyseed vs BIP39 | Polyseed 16 palavras — backup à parte |
+| Funds insuficientes | UTXO consolidado | Coin Control; não juntar UTXOs |
+| Senha Whonix padrão | Não alterada | Trocar user/root `changeme` |
+| Estado eigen perdido | Tails sem Persistent | Symlink em `~/Persistent/` |
 
 ---
 
