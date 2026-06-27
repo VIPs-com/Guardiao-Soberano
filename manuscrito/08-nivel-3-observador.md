@@ -316,8 +316,9 @@ Cifrar o host protege os `.vdi` em repouso se alguém copiar o disco.
 electrum --version
 # Versão mais recente: whonix.org/wiki/Electrum
 EL_VER=4.x.x
+EL_BASE="https://download.electrum.org/${EL_VER}"
 scurl-download \
-  "https://download.electrum.org/${EL_VER}/electrum-${EL_VER}-x86_64.AppImage"
+  "${EL_BASE}/electrum-${EL_VER}-x86_64.AppImage"
 gpg --verify electrum-*.AppImage.asc electrum-*.AppImage
 electrum --oneserver \
   --server seu-servidor.onion:50002:s \
@@ -327,8 +328,9 @@ electrum --oneserver \
 #### Sparrow Wallet
 
 ```bash
-scurl-download \
-  "https://github.com/sparrowwallet/sparrow/releases/latest/download/sparrow-*.tar.gz"
+SP_REPO="https://github.com/sparrowwallet/sparrow"
+SP_BASE="${SP_REPO}/releases/latest/download"
+scurl-download "${SP_BASE}/sparrow-*.tar.gz"
 gpg --keyserver hkps://keys.openpgp.org \
   --recv-keys D4D0D3202FC06849A257B38DE94618334C674B40
 gpg --verify sparrow-*.tar.gz.asc sparrow-*.tar.gz
@@ -444,22 +446,24 @@ Escolher entre Tails e Whonix define como você opera daqui em diante — coinjo
 
 ### Tabela comparativa direta
 
-| Critério | Tails com Persistent Storage | Whonix (VirtualBox ou KVM) |
+| Critério | Tails | Whonix |
 | --- | --- | --- |
-| **Persistência dos dados do Whirlpool** | Frágil — depende de arquivo criptografado no USB. Corrupção do Persistent Storage = perda do estado local | Robusta — disco virtual da VM é um arquivo comum, facilmente backupeável e restaurador |
-| **Restauração após falha** | Trabalhosa — reinstalar Tails, reconfigurar Persistent Storage, rodar Restore from Seed (10–40 min) | Rápida — substituir o arquivo .vdi/.qcow2 pelo backup. Whirlpool retoma em segundos |
-| **Facilidade de backup** | Baixa — precisa clonar o USB inteiro ou copiar a partição persistente manualmente | Alta — copiar o arquivo da VM ou tirar snapshot do hipervisor. Automação via script |
-| **Anonimato de rede** | Tor forçado no sistema todo. Nenhum tráfego clearnet possível (fail-closed) | Tor forçado via Gateway VM isolada. Workstation não tem IP real, nem sabe sua localização. Fail-closed também |
-| **Isolamento de processos** | Moderado — AppArmor por perfil. Whirlpool roda no mesmo kernel que o navegador | Alto — VM separada. Se o Sparrow for comprometido, o host e a rede Tor estão em outra VM |
-| **Proteção contra malware persistente** | Alta — sistema é imutável por design. Malware morre no reboot | Média — malware pode persistir na VM se infectar o disco virtual. Mitigável com snapshots |
-| **Conveniência para uso diário** | Baixa — boot lento, precisa do USB físico, sessões longas exigem cuidado extra | Média — VM roda dentro do seu sistema host. Pode ficar semanas ligada mixando sem interrupção |
-| **Complexidade de configuração inicial** | Média — Persistent Storage, instalar ferramentas, verificar PGP a cada atualização | Alta — duas VMs, configurar rede interna, instalar Guest Additions, entender VirtualBox/KVM |
-| **Consumo de recursos** | Baixo — roda direto no hardware, 2–4 GB RAM bastam | Alto — precisa de RAM para host + Gateway VM + Workstation VM. Mínimo 8 GB RAM, recomendado 16 GB |
-| **Integração com Coldcard (PSBT via MicroSD)** | Nativa — USB do Coldcard e do Tails no mesmo hardware físico. Passar SD card é direto | Indireta — Coldcard no host físico, Sparrow na VM. Precisa de pastas compartilhadas ou USB passthrough. Funciona, mas com atrito |
-| **Integração com EPS (Electrum Personal Server)** | Mesmo hardware, pode usar localhost se EPS rodar no Tails (não ideal) ou .onion externo | Perfeita — EPS pode rodar em outra VM na mesma rede interna Whonix, ou no host com túnel .onion |
-| **Tempo de uptime para mixagem longa** | Limitado — Tails não foi feito para ficar dias ligado. Suspensão pode quebrar Tor | Ilimitado — VM pode ficar semanas mixando 24/7, com snapshots para recuperação |
-| **Risco de perda de fundos** | Nenhum, mas perda de estado do Whirlpool gera retrabalho | Nenhum, e o estado está sempre backupeável |
-| **Perfil do usuário ideal** | Quem faz coinjoins esporádicos, em sessões dedicadas, com paciência para rebuild | Quem faz coinjoins frequentes, mantém node próprio, quer automação e resiliência |
+| Persistência Whirlpool | Frágil (LUKS no USB) | Robusta (disco da VM) |
+| Restauração após falha | Lenta (10–40 min) | Rápida (snapshot / `.vdi`) |
+| Backup | Clonar USB manualmente | Copiar arquivo da VM |
+| Rede / Tor | Tor forçado (fail-closed) | Gateway VM isolado |
+| Isolamento de processos | AppArmor (moderado) | VM separada (alto) |
+| Malware persistente | Alta (amnésico) | Média (mitigar com snapshots) |
+| Uso diário | Boot lento; USB físico | VM pode ficar ligada semanas |
+| Setup inicial | Média | Alta (duas VMs + rede) |
+| RAM mínima | 2–4 GB | 8 GB (16 recomendado) |
+| Coldcard via PSBT | Nativa (SD no host) | Passthrough ou pasta compartilhada |
+| EPS / node próprio | Limitada | Integração ideal |
+| Mixagem longa (24/7) | Uptime limitado | Possível com snapshots |
+| Perda de fundos | Não (só perda de estado) | Não (estado backupeável) |
+| Perfil ideal | Coinjoin esporádico | Operador frequente |
+
+> Detalhes e nuance de cada linha estão nas seções **Tails** e **Whonix** abaixo.
 
 ---
 

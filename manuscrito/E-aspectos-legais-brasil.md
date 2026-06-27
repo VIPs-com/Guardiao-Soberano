@@ -32,13 +32,10 @@ A Instrução Normativa RFB nº 1888/2019 estabelece a obrigatoriedade de presta
 
 > **AVISO — Atualização jun/2026:** A IN RFB nº 2.291/2025 institui a **Declaração de Criptoativos (DeCripto)**, alinhada ao padrão internacional CARF/OCDE. Fonte: [Receita Federal — Criptoativos](https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/declaracoes-e-demonstrativos/criptoativos/criptoativos).
 
-  --------------------------------------------------------------------------------------------
-  Período                             Norma aplicável
-  ----------------------------------- --------------------------------------------------------
-  Até 30/06/2026                      IN 1888/2019 (reporte mensal existente)
-
-  A partir de 01/07/2026              DeCripto substitui a IN 1888 (reporte mensal ampliado)
-  --------------------------------------------------------------------------------------------
+| Período | Norma aplicável |
+| --- | --- |
+| Até 30/06/2026 | IN 1888/2019 (reporte mensal existente) |
+| A partir de 01/07/2026 | DeCripto substitui a IN 1888 (reporte ampliado) |
 
 **Principais mudanças previstas na DeCripto:**
 

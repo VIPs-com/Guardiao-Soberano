@@ -108,20 +108,20 @@ Antes de qualquer operação com valor significativo, faça um teste com o valor
 
 ## Resumo das 12 Leis
 
-  \#   Categoria   Lei
-  ---- ----------- -------------------------------------------
-  1    Seed        Gerar offline em hardware dedicado
-  2    Seed        Backup em metal, 2 locais
-  3    Seed        Testar recuperação antes de enviar fundos
-  4    Seed        Nunca digitalizar
-  5    Rede        Sempre Tor
-  6    Rede        Nunca logar conta pessoal na sessão
-  7    Rede        Nunca reutilizar endereço BTC
-  8    Rede        Nunca reutilizar subendereço XMR
-  9    Swap        Nunca swap de volta imediato
-  10   Swap        Verificar PGP de tudo
-  11   Swap        Usar nó .onion próprio
-  12   Swap        Começar com valor de teste
+| # | Categoria | Lei |
+| --- | --- | --- |
+| 1 | Seed | Gerar offline em hardware dedicado |
+| 2 | Seed | Backup em metal, 2 locais |
+| 3 | Seed | Testar recuperação antes de enviar fundos |
+| 4 | Seed | Nunca digitalizar |
+| 5 | Rede | Sempre Tor |
+| 6 | Rede | Nunca logar conta pessoal na sessão |
+| 7 | Rede | Nunca reutilizar endereço BTC |
+| 8 | Rede | Nunca reutilizar subendereço XMR |
+| 9 | Swap | Nunca swap de volta imediato |
+| 10 | Swap | Verificar PGP de tudo |
+| 11 | Swap | Usar nó `.onion` próprio |
+| 12 | Swap | Começar com valor de teste |
 
 ---
 

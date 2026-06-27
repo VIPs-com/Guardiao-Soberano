@@ -22,17 +22,12 @@ O ataque usa três sinais simultâneos:
 
 ### Como se defender
 
-  -----------------------------------------------------------------------------------------------------
-  Ataque                              Defesa
-  ----------------------------------- -----------------------------------------------------------------
-  Correlação temporal                 Aguardar MÍNIMO 24 horas (ideal 3-7 dias) entre entrada e saída
-
-  Fingerprint de valor                Usar valores DIFERENTES em cada swap
-
-  Endereço de destino                 Usar endereço VIRGEM para cada recebimento
-
-  Múltiplos swaps                     Fazer vários swaps em paralelo com valores diferentes
-  -----------------------------------------------------------------------------------------------------
+| Ataque | Defesa |
+| --- | --- |
+| Correlação temporal | Aguardar mínimo 24 h (ideal 3–7 dias) entre entrada e saída |
+| Fingerprint de valor | Usar valores diferentes em cada swap |
+| Endereço de destino | Endereço virgem para cada recebimento |
+| Múltiplos swaps | Vários swaps em paralelo, valores distintos |
 
 ---
 
@@ -188,7 +183,7 @@ E mais importante: **teste a restauração**. Um backup não testado é um backu
 ## Resumo do Capítulo
 
 | Ameaça | Defesa |
-|--------|--------|
+| --- | --- |
 | ABCTracer (correlação temporal) | Intervalo 24h+, valores diferentes, endereços virgens |
 | Coordenador Whirlpool offline | JoinMarket instalado e testado |
 | Heurística de propriedade comum | PayJoin + Coin Control |
