@@ -140,8 +140,6 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 ---
 
-\newpage
-
 ## 14.6 Matriz de Decisão Rápida
 
 | Situação | Ferramenta principal | Alternativa |
@@ -173,8 +171,6 @@ Algumas ferramentas foram descontinuadas ou apresentaram vulnerabilidades:
 | Forks não auditados | Risco de backdoor |
 
 ---
-
-\newpage
 
 ## 14.8 Celular: GrapheneOS vs. CalyxOS
 

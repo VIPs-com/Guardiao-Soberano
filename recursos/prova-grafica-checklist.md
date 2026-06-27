@@ -15,10 +15,10 @@ Gerar arquivos atualizados:
 - [ ] PDF gráfica gerado hoje (`guardiao-soberano-v1.1-grafica.pdf`)
 - [ ] Capa: `recursos/cover.jpg` (1600×2560 px, 300 DPI) incluída no EPUB; confirmar arte separada se a gráfica imprimir capa própria
 - [ ] Metadados: título, subtítulo, versão 1.1, CC BY-NC-SA 4.0
-- [ ] Formato miolo: **A5** (148×210 mm)
-- [ ] Sangria: **3 mm** em todos os lados
-- [ ] Margens: interna 20 mm, externa 15 mm, superior/inferior 18 mm
-- [ ] Miolo: **P&B**, DejaVu Serif 10 pt, código DejaVu Sans Mono 8 pt
+- [ ] Formato miolo: **A4** (210×297 mm)
+- [ ] Sangria: **3 mm** em todos os lados (confirmar com a gráfica na arte final)
+- [ ] Margens: interna 20 mm (lombada), externa 15 mm, superior/inferior 18 mm
+- [ ] Miolo: **P&B**, IBM Plex Serif 10 pt, títulos Plex Sans, código Plex Mono ~8 pt
 - [ ] PDF: 1.3, grayscale, fontes embarcadas, 300 DPI (Ghostscript via `compila.ps1 -Grafica`)
 
 ---
@@ -56,7 +56,7 @@ Gerar arquivos atualizados:
 - [ ] Capa colorida, laminação **fosca**
 - [ ] Brochura com orelhas (se orçado)
 - [ ] Papel miolo: offset 75 g/m² ou pólen bold 80 g/m²
-- [ ] Lombada com título legível (espessura ~305 páginas estimadas)
+- [ ] Lombada com título legível (espessura ~168 páginas no A4 atual)
 
 ---
 

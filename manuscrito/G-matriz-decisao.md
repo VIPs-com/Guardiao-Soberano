@@ -16,8 +16,6 @@
 
 ---
 
-\newpage
-
 ## Qual setup para qual perfil?
 
 | Setup | Perfil | Notas (custo · complexidade · privacidade) |
@@ -28,8 +26,6 @@
 | Whonix + SeedSigner + nó próprio | Expert soberano | Alto · Muito alta · Máxima |
 
 ---
-
-\newpage
 
 ## Qual software de swap usar?
 
@@ -43,8 +39,6 @@
 
 ---
 
-\newpage
-
 ## Qual carteira Monero (XMR) usar?
 
 | Situação | Ferramenta |
@@ -56,8 +50,6 @@
 
 ---
 
-\newpage
-
 ## Qual carteira Bitcoin para watch-only?
 
 | Situação | Ferramenta |
@@ -67,8 +59,6 @@
 | Node próprio integrado | Sparrow + Bitcoin Core |
 
 ---
-
-\newpage
 
 ## Qual ambiente usar para cada operação?
 

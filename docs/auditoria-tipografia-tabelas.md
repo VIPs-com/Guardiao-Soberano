@@ -1,7 +1,7 @@
 # Auditoria v1.2 — Tipografia, Tabelas e Quebras de Página
 
 **Livro:** Guardião Soberano v1.1 → v1.2 (miolo)  
-**Formato:** A5 (148×210 mm) · PDF XeLaTeX · EPUB reflowable  
+**Formato:** A4 (210×297 mm) · PDF XeLaTeX · EPUB reflowable  
 **Data:** junho 2026
 
 ---
@@ -15,7 +15,7 @@
 | ~309 | `D-guia-verificacao-pgp.md` | Coluna fingerprint estoura margem | 3ª coluna com 40+ chars + URL na mesma célula |
 | ~331 | `G-matriz-decisao.md` | Tabelas “flutuando”, linhas quebradas feio | Mesmo padrão ASCII + `\small` global insuficiente |
 
-**Padrão raiz:** o manuscrito ainda mistura **tabelas ASCII** (grid) com **tabelas pipe** (`| |`). No A5, grid tables herdam largura do texto monospace do `.md` e **não respeitam** a largura útil (~118 mm).
+**Padrão raiz:** o manuscrito ainda mistura **tabelas ASCII** (grid) com **tabelas pipe** (`| |`). No A4, grid tables herdam largura do texto monospace do `.md` e **não respeitam** a largura útil (~175 mm).
 
 ---
 
@@ -125,7 +125,7 @@ Fontes oficiais: sparrowwallet.com/download/ · whonix.org/wiki/Signing_Key · �
 
 - [ ] Nenhum texto cortado na margem direita  
 - [ ] Cabeçalho repetido se tabela > 1 página (`longtable` automático do Pandoc)  
-- [ ] Máx. 3 colunas no A5; se 4+, dividir em duas tabelas  
+- [ ] Máx. 4 colunas no A4; se 5+, dividir em duas tabelas  
 
 ### Agente 11 — Quebras de página e “tabulação”
 
@@ -237,7 +237,7 @@ Para cada lote concluído:
 ```
 Converta TODAS as tabelas ASCII em G-matriz-decisao.md e
 14-ferramentas-alternativas.md para pipe tables Markdown.
-A5: máx. 3 colunas; fingerprints em linha própria; URLs curtas
+A4: máx. 4 colunas; fingerprints em linha própria; URLs curtas
 ou lista abaixo da tabela. Não altere conteúdo técnico.
 Rode mentalmente: largura útil ~55 caracteres por coluna.
 ```
@@ -265,4 +265,4 @@ onde necessário no .md (último recurso).
 
 - Pipeline: `compila.ps1`, `recursos/latex-header.tex`  
 - Prova: `recursos/prova-grafica-checklist.md`  
-- Spec A5: `CLAUDE.md` (margens, 10 pt, DejaVu → IBM Plex)  
+- Spec A4: `compila.ps1` (margens, 10 pt, IBM Plex)  

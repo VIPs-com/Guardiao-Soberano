@@ -12,7 +12,7 @@
 #   Packages > Check for updates > Apply
 #
 # USO:
-#   .\compila.ps1 -PDF        # gera so PDF
+#   .\compila.ps1 -PDF        # gera so PDF (miolo A4, margens para grafica)
 #   .\compila.ps1 -EPUB       # gera so EPUB
 #   .\compila.ps1 -MOBI       # converte EPUB existente para MOBI
 #   .\compila.ps1 -Grafica    # gera PDF/X-1a para grafica (requer PDF digital)
@@ -144,7 +144,7 @@ if ($PDF) {
         "--to", "pdf",
         "--pdf-engine=xelatex",
         "--resource-path=$resourcePath",
-        "-V", "geometry:a5paper",
+        "-V", "geometry:a4paper",
         "-V", "geometry:inner=20mm,outer=15mm,top=18mm,bottom=18mm,includeheadfoot",
         "-V", "fontsize=10pt",
         "-V", "linestretch=1.5",

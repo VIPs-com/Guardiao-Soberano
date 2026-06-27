@@ -30,8 +30,6 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
     # 6. Saída esperada:
     # gpg: Good signature from "Nome do Dev"
 
-\newpage
-
 ## Principais chaves PGP
 
 | Projeto | Desenvolvedor | Fingerprint |

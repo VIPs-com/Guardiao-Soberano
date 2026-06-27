@@ -1,7 +1,10 @@
 # Guardiao Soberano - Varredura de layout (tabelas ASCII, URLs, codigo longo)
 # Uso: .\scripts\auditoria-layout.ps1
+# Limites calibrados para miolo A4 (largura util ~175 mm, 10 pt)
 
 $ErrorActionPreference = "Stop"
+$maxCellChars = 125   # pipe table cells (A4; era 85 no A5)
+$maxCodeChars = 100   # linhas em blocos bash (A4; era 72 no A5)
 $base = Split-Path $PSScriptRoot -Parent
 $ms = Join-Path $base "manuscrito"
 
@@ -43,7 +46,7 @@ Get-ChildItem "$ms\*.md" | Sort-Object Name | ForEach-Object {
             if ($line -match $pipePattern) {
                 $issues.PipeTables += [PSCustomObject]@{ File = $file; Line = $n }
             }
-            if ($line -match '^\| .+\| .+\|' -and $line.Length -gt 85) {
+            if ($line -match '^\| .+\| .+\|' -and $line.Length -gt $maxCellChars) {
                 $t = $line.Trim()
                 if ($t.Length -gt 70) { $t = $t.Substring(0, 70) }
                 $issues.LongTableCell += [PSCustomObject]@{ File = $file; Line = $n; Len = $line.Length; Text = $t }
@@ -53,7 +56,7 @@ Get-ChildItem "$ms\*.md" | Sort-Object Name | ForEach-Object {
             }
         }
         else {
-            if ($line.Length -gt 72 -and $line -notmatch '^\s*#' -and $line -notmatch '^\s*$') {
+            if ($line.Length -gt $maxCodeChars -and $line -notmatch '^\s*#' -and $line -notmatch '^\s*$') {
                 $t = $line.Trim()
                 if ($t.Length -gt 60) { $t = $t.Substring(0, 60) }
                 $issues.LongCode += [PSCustomObject]@{ File = $file; Line = $n; Len = $line.Length; Text = $t }
@@ -82,7 +85,7 @@ function Show-Group {
 }
 
 Show-Group "Tabelas ASCII (converter para pipe)" $issues.AsciiTables "Red"
-Show-Group "Celulas pipe largas (risco overflow A5)" $issues.LongTableCell
+Show-Group "Celulas pipe largas (risco overflow A4)" $issues.LongTableCell
 Show-Group "Bullets longos com URL" $issues.LongBullets
 Show-Group "Linhas codigo longas" $issues.LongCode
 
