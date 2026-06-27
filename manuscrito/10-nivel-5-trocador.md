@@ -580,7 +580,7 @@ Seed XMR: [25 palavras — gravadas em metal, Local A]
 Restore height: 3185000 (KeePassXC / metadados)
 ```
 
-> 📌 **Dica:** Escreva também a data por extenso. A Feather aceita tanto o número do bloco quanto a data no formato `YYYYMMDD`. A data é mais fácil de lembrar, mas a altura é exata.
+> **Dica:** Escreva também a data por extenso. A Feather aceita tanto o número do bloco quanto a data no formato `YYYYMMDD`. A data é mais fácil de lembrar, mas a altura é exata.
 
 ### Se você já criou a carteira e não anotou
 

@@ -89,7 +89,7 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 - **Diferencial:** P2P descentralizado, escrow multisig
 - **Quando usar:** Swap reverso (XMR→BTC) ou entrada fiat sem KYC
 - **Atenção:** Pesquisa (arXiv:2505.02392, 2025) identificou padrões detectáveis on-chain em certas transações Haveno. Use para XMR→BTC onde não há alternativa trustless equivalente.
-- **⚠️ Versões antigas:** A partir de 17/06/2026, versões anteriores foram descontinuadas por atualização de protocolo. Use sempre a versão mais recente do GitHub.
+- **AVISO — Versões antigas:** A partir de 17/06/2026, versões anteriores foram descontinuadas por atualização de protocolo. Use sempre a versão mais recente do GitHub.
 
 ### BasicSwap DEX
 

@@ -2,13 +2,13 @@
 
 ---
 
-## ⚠️ Aviso Importante
+## Aviso Importante
 
 Endereços .onion podem mudar. Projetos podem ser descontinuados. **Sempre verifique os sites oficiais** (via Tor Browser) para confirmar os endereços atuais antes de usar.
 
 Esta lista é um ponto de partida, atualizada em **junho de 2026**.
 
-> ⚠️ *Atualização jun/2026:* Endereços no formato `dominio.com.onion` **não são** endereços v3 válidos (v3 tem 56 caracteres base32 antes de `.onion`). Versões anteriores deste apêndice listavam exemplos incorretos — removidos na revisão técnica.
+> **AVISO — Atualização jun/2026:** Endereços no formato `dominio.com.onion` **não são** endereços v3 válidos (v3 tem 56 caracteres base32 antes de `.onion`). Versões anteriores deste apêndice listavam exemplos incorretos — removidos na revisão técnica.
 
 ---
 
@@ -37,7 +37,11 @@ Um endereço .onion v3 tem **56 caracteres** em base32, por exemplo:
     2. Servidor público: consulte servers.json no momento do uso
        SSL: porta 50002 (:s) | Verificar fingerprint no Sparrow
 
-> ⚠️ SEMPRE verifique se o SSL está ativo (cadeado verde no Sparrow) ⚠️ NUNCA use servidores .onion de listas não-verificadas ⚠️ PREFIRA seu EPS próprio — zero confiança em terceiros
+> **AVISO:**
+>
+> - Verifique se o SSL está ativo (cadeado verde no Sparrow)
+> - Nunca use servidores `.onion` de listas não verificadas
+> - Prefira seu EPS próprio — zero confiança em terceiros
 
 ### Como testar seu servidor
 
@@ -63,7 +67,7 @@ Exchange P2P para comprar/vender Bitcoin sem KYC via Tor.
     Fonte oficial: github.com/RoboSats/robosats (README)
     Acesso: Tor Browser apenas
 
-> 📌 O RoboSats opera em federação — coordenadores podem ter .onion próprios. Consulte sempre o README e as discussões oficiais no GitHub antes de operar. **Não use** clearnet para trading (`unsafe.robosats.org` é apenas referência).
+> **Nota:** O RoboSats opera em federação — coordenadores podem ter `.onion` próprios. Consulte sempre o README e as discussões oficiais no GitHub antes de operar. **Não use** clearnet para trading (`unsafe.robosats.org` é apenas referência).
 
 ---
 

@@ -104,7 +104,7 @@ FCMP++ (Full-Chain Membership Proofs) é um upgrade do protocolo Monero em desen
 
 Servidores Electrum públicos podem correlacionar todos os seus endereços. Seu EPS próprio resolve isso. Se precisar de servidor público, use apenas endereços **v3** (56 caracteres base32) listados em fontes oficiais — veja Apêndice B.
 
-> ⚠️ *Atualização jun/2026:* Não use endereços no formato `site.com.onion` — não são v3 válidos.
+> **AVISO — Atualização jun/2026:** Não use endereços no formato `site.com.onion` — não são v3 válidos.
 
 ---
 
