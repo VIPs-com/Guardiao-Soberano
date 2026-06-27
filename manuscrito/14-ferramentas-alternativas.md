@@ -120,7 +120,7 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 - **Tipo:** CoinJoin com coordenador
 - **Diferencial:** Pool de valores iguais, anonset alto
-- **Quando usar:** Alternativa madura ao ecossistema Whirlpool/Sparrow
+- **Quando usar:** Alternativa ao Whirlpool/Sparrow
 
 ---
 
@@ -139,6 +139,8 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 - **Quando usar:** Máxima compatibilidade com a rede Monero
 
 ---
+
+\newpage
 
 ## 14.6 Matriz de Decisão Rápida
 
@@ -171,6 +173,8 @@ Algumas ferramentas foram descontinuadas ou apresentaram vulnerabilidades:
 | Forks não auditados | Risco de backdoor |
 
 ---
+
+\newpage
 
 ## 14.8 Celular: GrapheneOS vs. CalyxOS
 

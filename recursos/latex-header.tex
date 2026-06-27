@@ -33,6 +33,23 @@
 \widowpenalty=10000
 \displaywidowpenalty=10000
 
+% needspace antes de seções (## / ### no Markdown)
+\pretocmd{\section}{\Needspace{5\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{4\baselineskip}}{}{}
+\pretocmd{\subsubsection}{\Needspace{3\baselineskip}}{}{}
+\pretocmd{\paragraph}{\Needspace{2.5\baselineskip}}{}{}
+
+% Blockquotes (AVISO, citações) — evitar bloco curto partido
+\AtBeginEnvironment{quote}{\Needspace{4\baselineskip}}
+
+% Tabelas: não iniciar no rodapé sem espaço para cabeçalho + 2 linhas
+\BeforeBeginEnvironment{longtable}{\Needspace{3\baselineskip}}
+\setlength{\LTpre}{0.6\baselineskip plus 0.15\baselineskip minus 0.1\baselineskip}
+\setlength{\LTpost}{0.6\baselineskip plus 0.15\baselineskip minus 0.1\baselineskip}
+
+% Pacote calc (colunas proporcionais geradas pelo Pandoc)
+\usepackage{calc}
+
 % URLs longas em tabelas e texto
 \Urlmuskip=0mu plus 1mu
 

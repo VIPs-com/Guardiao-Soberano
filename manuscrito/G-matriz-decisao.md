@@ -16,16 +16,20 @@
 
 ---
 
+\newpage
+
 ## Qual setup para qual perfil?
 
-| Setup | Perfil | Custo | Complexidade | Privacidade |
-| --- | --- | --- | --- | --- |
-| Tails + Coldcard + Sparrow | Iniciante avançado | Médio | Média | Alta |
-| Whonix + Coldcard + eigenwallet | Avançado | Médio | Alta | Muito alta |
-| Tails + SeedSigner (DIY) + Sparrow | Técnico, baixo custo | Baixo | Alta | Alta |
-| Whonix + SeedSigner + nó próprio | Expert soberano | Alto | Muito alta | Máxima |
+| Setup | Perfil | Notas (custo · complexidade · privacidade) |
+| --- | --- | --- |
+| Tails + Coldcard + Sparrow | Iniciante avançado | Médio · Média · Alta |
+| Whonix + Coldcard + eigenwallet | Avançado | Médio · Alta · Muito alta |
+| Tails + SeedSigner (DIY) + Sparrow | Técnico, baixo custo | Baixo · Alta · Alta |
+| Whonix + SeedSigner + nó próprio | Expert soberano | Alto · Muito alta · Máxima |
 
 ---
+
+\newpage
 
 ## Qual software de swap usar?
 
@@ -39,6 +43,8 @@
 
 ---
 
+\newpage
+
 ## Qual carteira Monero (XMR) usar?
 
 | Situação | Ferramenta |
@@ -50,6 +56,8 @@
 
 ---
 
+\newpage
+
 ## Qual carteira Bitcoin para watch-only?
 
 | Situação | Ferramenta |
@@ -59,6 +67,8 @@
 | Node próprio integrado | Sparrow + Bitcoin Core |
 
 ---
+
+\newpage
 
 ## Qual ambiente usar para cada operação?
 
