@@ -84,7 +84,8 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 ### RetoSwap (Haveno)
 
-- **Versão atual:** v1.8.0-reto (20/06/2026) — github.com/retoaccess1/haveno-reto/releases
+- **Versão atual:** v1.8.0-reto (20/06/2026)
+- **Download:** `github.com/retoaccess1/haveno-reto/releases`
 - **Direção:** XMR ↔︎ Fiat, XMR ↔︎ BTC
 - **Diferencial:** P2P descentralizado, escrow multisig
 - **Quando usar:** Swap reverso (XMR→BTC) ou entrada fiat sem KYC
@@ -141,17 +142,17 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 ## 14.6 Matriz de Decisão Rápida
 
-  Situação               Ferramenta Principal   Alternativa
-  ---------------------- ---------------------- ---------------------------
-  Melhor segurança BTC   Coldcard MK5           Jade, Passport, Krux
-  Coordinator BTC        Sparrow                Electrum, Specter
-  CoinJoin               Whirlpool (Sparrow)    JoinMarket
-  Swap BTC→XMR           eigenwallet            BasicSwap
-  Swap XMR→BTC           RetoSwap               BasicSwap
-  Entrada fiat sem KYC   RoboSats               RetoSwap, venda direta
-  Carteira XMR           Feather                Cake (mobile), Monero GUI
-  Ambiente principal     Whonix                 Tails (ocasional)
-  Ambiente cirúrgico     Tails                  Whonix
+| Situação | Ferramenta principal | Alternativa |
+| --- | --- | --- |
+| Melhor segurança BTC | Coldcard MK5 | Jade, Passport, Krux |
+| Coordinator BTC | Sparrow | Electrum, Specter |
+| CoinJoin | Whirlpool (Sparrow) | JoinMarket |
+| Swap BTC→XMR | eigenwallet | BasicSwap |
+| Swap XMR→BTC | RetoSwap | BasicSwap |
+| Entrada fiat sem KYC | RoboSats | RetoSwap, venda direta |
+| Carteira XMR | Feather | Cake (mobile), Monero GUI |
+| Ambiente principal | Whonix | Tails (ocasional) |
+| Ambiente cirúrgico | Tails | Whonix |
 
 ---
 
@@ -159,15 +160,15 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 Algumas ferramentas foram descontinuadas ou apresentaram vulnerabilidades:
 
-  Ferramenta               Motivo
-  ------------------------ ------------------------------------------------------
-  Samourai Wallet          Apreendida em 2024, sem atualizações
-  Whirlpool CLI original   Coordenador desligado
-  MyMonero                 Encerrado em janeiro de 2026
-  Subgraph OS              Descontinuado em 2026, sem manutenção
-  Linux Kodachi            Auditorias negativas — não recomendado para cripto
-  Ferramentas sem PGP      Risco de malware
-  Forks não auditados      Risco de backdoor
+| Ferramenta | Motivo |
+| --- | --- |
+| Samourai Wallet | Apreendida em 2024, sem atualizações |
+| Whirlpool CLI original | Coordinador desligado |
+| MyMonero | Encerrado em janeiro de 2026 |
+| Subgraph OS | Descontinuado em 2026, sem manutenção |
+| Linux Kodachi | Auditorias negativas — não recomendado para cripto |
+| Ferramentas sem PGP | Risco de malware |
+| Forks não auditados | Risco de backdoor |
 
 ---
 

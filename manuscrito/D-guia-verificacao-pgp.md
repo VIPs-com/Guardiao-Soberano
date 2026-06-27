@@ -32,15 +32,25 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
 
 ## Principais chaves PGP
 
-| Desenvolvedor | Projeto | Fingerprint / verificação |
+| Projeto | Desenvolvedor | Fingerprint |
 | --- | --- | --- |
-| Craig Raw | Sparrow Wallet | `D4D0D3202FC06849A257B38DE94618334C674B40` — sparrowwallet.com/download/ |
-| binarybaron | eigenwallet | Assinaturas `.asc` em github.com/eigenwallet/core/releases |
-| Patrick Schleizer | Whonix | `916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA` — whonix.org/wiki/Signing_Key |
-| Tails Project | Tails | `A490D0F4D311A4153E2BB7CADBB802B258ACD84F` — tails.net/doc/about/openpgp_keys/ |
-| Coinkite | Coldcard | coldcard.com/docs/upgrade |
-| SeedSigner | SeedSigner | Assinaturas em github.com/SeedSigner/seedsigner/releases |
-| Feather Wallet | Feather (Monero) | `8185E158A33330C7FD61BC0D1F76E155CEFBA71C` — docs.featherwallet.org/guides/release-signing-key |
+| Sparrow Wallet | Craig Raw | `D4D0D3202FC06849A257B38DE94618334C674B40` |
+| Whonix | Patrick Schleizer | `916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA` |
+| Tails | Tails Project | `A490D0F4D311A4153E2BB7CADBB802B258ACD84F` |
+| Feather (Monero) | Feather Wallet | `8185E158A33330C7FD61BC0D1F76E155CEFBA71C` |
+| eigenwallet | binarybaron | Assinaturas `.asc` nas releases |
+| Coldcard | Coinkite | Ver site oficial (firmware) |
+| SeedSigner | SeedSigner | Assinaturas `.asc` nas releases |
+
+**Fontes oficiais para conferir fingerprints:**
+
+- Sparrow: sparrowwallet.com/download/
+- Whonix: whonix.org/wiki/Signing_Key
+- Tails: tails.net/doc/about/openpgp_keys/
+- Feather: docs.featherwallet.org/guides/release-signing-key
+- eigenwallet: github.com/eigenwallet/core/releases
+- Coldcard: coldcard.com/docs/upgrade
+- SeedSigner: github.com/SeedSigner/seedsigner/releases
 
 > **AVISO:** SEMPRE compare a fingerprint com **pelo menos duas fontes independentes** antes de importar.
 
