@@ -15,14 +15,14 @@
 #   .\compila.ps1 -PDF        # gera so PDF (miolo A4, margens para grafica)
 #   .\compila.ps1 -EPUB       # gera so EPUB
 #   .\compila.ps1 -MOBI       # converte EPUB existente para MOBI
-#   .\compila.ps1 -Grafica    # gera PDF/X-1a para grafica (requer PDF digital)
+#   .\compila.ps1 -Grafica    # miolo P&B otimizado + PDF/X-1a (diagramas de imagens/pb/)
 #   .\compila.ps1 -All        # gera tudo (PDF + EPUB + MOBI + PDF grafica)
 
 param(
     [switch]$PDF,
     [switch]$EPUB,
     [switch]$MOBI,
-    [switch]$Grafica,   # Gera PDF/X-1a para graficas (requer PDF digital primeiro)
+    [switch]$Grafica,   # Miolo com diagramas P&B + PDF/X-1a para graficas
     [switch]$All
 )
 
@@ -54,6 +54,10 @@ if (($PDF -or $EPUB) -and -not $pandocExe) {
 if ($PDF -and -not $xelatexExe) {
     Write-Host "ERRO: xelatex nao encontrado." -ForegroundColor Red
     Write-Host "  Instalar: winget install MiKTeX.MiKTeX" -ForegroundColor Yellow
+    exit 1
+}
+if ($Grafica -and -not $xelatexExe) {
+    Write-Host "ERRO: xelatex nao encontrado (necessario para miolo grafica)." -ForegroundColor Red
     exit 1
 }
 if ($pandocExe) {
@@ -128,22 +132,21 @@ $nome     = "guardiao-soberano-v$versao"
 # Pandoc procura recursos (imagens) nestes diretorios — necessario para embed no EPUB/MOBI
 $lab     = "$base\laboratorio"
 $resourcePath = "$base;$ms;$imagens;$lab;$recursos"
+$imagensPb = "$imagens\pb"
+$resourcePathGrafica = "$base;$ms;$imagensPb;$imagens;$lab;$recursos"
 
-# Caminho absoluto das fontes IBM Plex (XeLaTeX fontspec)
-$fontDir = ($recursos + "\fonts\").Replace('\', '/') 
-@"
-% Auto-gerado por compila.ps1 — nao editar
-\newcommand{\GuardiaoFontPath}{$fontDir}
-"@ | Set-Content -Path "$recursos\font-path.tex" -Encoding UTF8
-
-
-if ($PDF) {
-    Write-Host "Gerando PDF (XeLaTeX)..." -ForegroundColor Cyan
+function Invoke-PdfMiolo {
+    param(
+        [string]$OutFile,
+        [string]$ResPath,
+        [string]$Label = "PDF"
+    )
+    Write-Host "Gerando $Label (XeLaTeX)..." -ForegroundColor Cyan
     $args_pdf = @($arquivos) + @(
         "--from", "markdown",
         "--to", "pdf",
         "--pdf-engine=xelatex",
-        "--resource-path=$resourcePath",
+        "--resource-path=$ResPath",
         "-V", "geometry:a4paper",
         "-V", "geometry:inner=20mm,outer=15mm,top=18mm,bottom=18mm,includeheadfoot",
         "-V", "fontsize=10pt",
@@ -154,15 +157,28 @@ if ($PDF) {
         "-M", "lang=pt-BR",
         "--toc", "--toc-depth=2",
         "--number-sections",
-        "-o", "$saida\$nome.pdf"
+        "-o", $OutFile
     )
     & $pandocExe @args_pdf 2>&1 | Where-Object { $_ -match "Error|fatal" }
-    if (Test-Path "$saida\$nome.pdf") {
-        $sz = [math]::Round((Get-Item "$saida\$nome.pdf").Length/1KB)
-        Write-Host "PDF gerado: $saida\$nome.pdf ($sz KB)" -ForegroundColor Green
-    } else {
-        Write-Host "ERRO ao gerar PDF" -ForegroundColor Red
+    if (Test-Path $OutFile) {
+        $sz = [math]::Round((Get-Item $OutFile).Length / 1KB)
+        Write-Host "$Label gerado: $OutFile ($sz KB)" -ForegroundColor Green
+        return $true
     }
+    Write-Host "ERRO ao gerar $Label" -ForegroundColor Red
+    return $false
+}
+
+# Caminho absoluto das fontes IBM Plex (XeLaTeX fontspec)
+$fontDir = ($recursos + "\fonts\").Replace('\', '/') 
+@"
+% Auto-gerado por compila.ps1 — nao editar
+\newcommand{\GuardiaoFontPath}{$fontDir}
+"@ | Set-Content -Path "$recursos\font-path.tex" -Encoding UTF8
+
+
+if ($PDF) {
+    Invoke-PdfMiolo -OutFile "$saida\$nome.pdf" -ResPath $resourcePath -Label "PDF digital (colorido)" | Out-Null
 }
 
 if ($EPUB) {
@@ -214,64 +230,65 @@ if ($MOBI) {
 }
 
 if ($Grafica) {
-    $pdfDigital = "$saida\$nome.pdf"
-    if (-not (Test-Path $pdfDigital)) {
-        Write-Host "AVISO: PDF digital nao encontrado em $pdfDigital" -ForegroundColor Yellow
-        Write-Host "  Execute: .\compila.ps1 -PDF -Grafica" -ForegroundColor Yellow
+    Write-Host "Preparando diagramas P&B para grafica..." -ForegroundColor Cyan
+    & (Join-Path $base "scripts\export-diagramas-pb.ps1")
+
+    $pdfGraficaSrc = "$saida\$nome-grafica-miolo.pdf"
+    if (-not (Invoke-PdfMiolo -OutFile $pdfGraficaSrc -ResPath $resourcePathGrafica -Label "PDF miolo grafica (diagramas P&B)")) {
+        exit 1
+    }
+
+    Write-Host "Gerando PDF/X-1a para grafica via Ghostscript..." -ForegroundColor Cyan
+
+    $mgsExe = Find-Exe "mgs" @(
+        "${env:LOCALAPPDATA}\Programs\MiKTeX\miktex\bin\x64\mgs.exe"
+    )
+    if (-not $mgsExe) {
+        Write-Host "ERRO: mgs.exe (MiKTeX Ghostscript) nao encontrado." -ForegroundColor Red
     } else {
-        Write-Host "Gerando PDF/X-1a para grafica via Ghostscript..." -ForegroundColor Cyan
+        $tmpDir  = "$env:TEMP\gs-grafica"
+        if (-not (Test-Path $tmpDir)) { New-Item -ItemType Directory -Path $tmpDir | Out-Null }
+        $tmpIn   = "$tmpDir\input.pdf"
+        $tmpOut  = "$tmpDir\grafica.pdf"
 
-        $mgsExe = Find-Exe "mgs" @(
-            "${env:LOCALAPPDATA}\Programs\MiKTeX\miktex\bin\x64\mgs.exe"
+        $marks = "$tmpDir\pdfmarks.ps"
+        @(
+            "[ /Title (Guardiao Soberano -- Da Semente ao Ecossistema Completo)",
+            "  /Author (VIPs-com)",
+            "  /Subject (Manual Pratico de Auto-Custodia Bitcoin com Privacidade)",
+            "  /Keywords (Bitcoin privacidade auto-custodia Monero)",
+            "  /Creator (XeLaTeX via Pandoc 3.10)",
+            "  /DOCINFO pdfmark"
+        ) | Set-Content -Path $marks -Encoding ASCII
+
+        Copy-Item $pdfGraficaSrc $tmpIn -Force
+
+        $gsArgs = @(
+            "-dNOPAUSE", "-dBATCH", "-dSAFER",
+            "-sDEVICE=pdfwrite",
+            "-dCompatibilityLevel=1.3",
+            "-dPDFX",
+            "-sColorConversionStrategy=Gray",
+            "-dProcessColorModel=/DeviceGray",
+            "-dEmbedAllFonts=true",
+            "-dSubsetFonts=true",
+            "-dOptimize=true",
+            "-r300",
+            "-sOutputFile=$tmpOut",
+            $marks, $tmpIn
         )
-        if (-not $mgsExe) {
-            Write-Host "ERRO: mgs.exe (MiKTeX Ghostscript) nao encontrado." -ForegroundColor Red
+        & $mgsExe @gsArgs 2>&1 | Where-Object { $_ -match "Error|fatal" }
+
+        if (Test-Path $tmpOut) {
+            $graficaPdf = "$saida\$nome-grafica.pdf"
+            Copy-Item $tmpOut $graficaPdf -Force
+            $sz = [math]::Round((Get-Item $graficaPdf).Length / 1KB)
+            Write-Host "PDF/X-1a gerado: $graficaPdf ($sz KB)" -ForegroundColor Green
+            Write-Host "  Miolo: diagramas P&B (verde 40%, laranja 60%) + icones em cinza" -ForegroundColor Gray
+            Write-Host "  PDF 1.3, grayscale, fontes embarcadas, 300 DPI" -ForegroundColor Gray
+            Write-Host "  NOTA: validacao PDF/X-1a estrita - Acrobat Pro ou veraPDF" -ForegroundColor Gray
         } else {
-            # Usar caminho ASCII temporario para evitar problemas com Unicode
-            $tmpDir  = "$env:TEMP\gs-grafica"
-            if (-not (Test-Path $tmpDir)) { New-Item -ItemType Directory -Path $tmpDir | Out-Null }
-            $tmpIn   = "$tmpDir\input.pdf"
-            $tmpOut  = "$tmpDir\grafica.pdf"
-
-            # Pdfmarks com metadados
-            $marks = "$tmpDir\pdfmarks.ps"
-            @(
-                "[ /Title (Guardiao Soberano -- Da Semente ao Ecossistema Completo)",
-                "  /Author (VIPs-com)",
-                "  /Subject (Manual Pratico de Auto-Custodia Bitcoin com Privacidade)",
-                "  /Keywords (Bitcoin privacidade auto-custodia Monero)",
-                "  /Creator (XeLaTeX via Pandoc 3.10)",
-                "  /DOCINFO pdfmark"
-            ) | Set-Content -Path $marks -Encoding ASCII
-
-            Copy-Item $pdfDigital $tmpIn -Force
-
-            $gsArgs = @(
-                "-dNOPAUSE", "-dBATCH", "-dSAFER",
-                "-sDEVICE=pdfwrite",
-                "-dCompatibilityLevel=1.3",
-                "-dPDFX",
-                "-sColorConversionStrategy=Gray",
-                "-dProcessColorModel=/DeviceGray",
-                "-dEmbedAllFonts=true",
-                "-dSubsetFonts=true",
-                "-dOptimize=true",
-                "-r300",
-                "-sOutputFile=$tmpOut",
-                $marks, $tmpIn
-            )
-            & $mgsExe @gsArgs 2>&1 | Where-Object { $_ -match "Error|fatal" }
-
-            if (Test-Path $tmpOut) {
-                $graficaPdf = "$saida\$nome-grafica.pdf"
-                Copy-Item $tmpOut $graficaPdf -Force
-                $sz = [math]::Round((Get-Item $graficaPdf).Length/1KB)
-                Write-Host "PDF/X-1a gerado: $graficaPdf ($sz KB)" -ForegroundColor Green
-                Write-Host "  Configuracoes: PDF 1.3, grayscale, fontes embarcadas, 300 DPI" -ForegroundColor Gray
-                Write-Host "  NOTA: para validacao PDF/X-1a estrita use Acrobat Pro ou veraPDF" -ForegroundColor Gray
-            } else {
-                Write-Host "ERRO ao gerar PDF/X-1a" -ForegroundColor Red
-            }
+            Write-Host "ERRO ao gerar PDF/X-1a" -ForegroundColor Red
         }
     }
 }

@@ -11,7 +11,8 @@ Inventário de ativos visuais do livro e laboratório. **Fonte editável:** `.dr
 | Diagramas | 5 | Cap. 6, 9, 10, 13 (92–95% largura) | N1, N4, N5 |
 | Ícones N0–N7 | 8 | Cap. 5–12 (badge 22 mm) | — |
 | Capa e-book | `cover.jpg` / `cover.png` | EPUB/MOBI vertical | — |
-| Capa impressão A4 | `cover-a4.svg` → `recursos/cover-a4.jpg` | Enviar à gráfica | — |
+| Capa A4 | `recursos/cover-a4.jpg` | Impressão | — |
+| Diagramas P&B | `imagens/pb/*.png` | Só `-Grafica` | auto |
 
 Legenda: ✅ incorporado · 📁 só referência textual · 🔧 editar fonte `.drawio`/`.svg`
 
@@ -74,9 +75,10 @@ Ao alterar a capa: editar `cover.svg` → exportar PNG → copiar/converter para
 ## Manutenção
 
 1. Editar `.drawio` (diagramas 1, 4) ou `.svg` (demais).
-2. Reexportar PNG (1920×1080 diagramas; 512 ícones).
-3. Recompilar: `.\compila.ps1 -PDF` e conferir figuras no Cap. 6, 9, 10, 13.
-4. Se coordinator Whirlpool ou fluxo swap mudar no livro, atualizar legenda do diagrama correspondente.
+2. Reexportar PNG colorido (1920x1080 diagramas; 512 icones).
+3. `.\scripts\export-diagramas-pb.ps1` (ou `.\compila.ps1 -Grafica`).
+4. Recompilar: `.\compila.ps1 -All` - PDF colorido + grafica P&B.
+5. Se coordinator Whirlpool ou fluxo swap mudar, atualizar legenda do diagrama.
 
 ---
 

@@ -19,7 +19,8 @@ Gerar arquivos atualizados:
 - [ ] Formato miolo: **A4** (210×297 mm)
 - [ ] Sangria: **3 mm** em todos os lados (confirmar com a gráfica na arte final)
 - [ ] Margens: interna 20 mm (lombada), externa 15 mm, superior/inferior 18 mm
-- [ ] Miolo: **P&B**, IBM Plex Serif 10 pt, títulos Plex Sans, código Plex Mono ~8 pt
+- [ ] Miolo: **P&B**, IBM Plex Serif 10 pt; **diagramas P&B otimizados** (verde 40%, laranja 60%) via `-Grafica`
+- [ ] PDF digital separado: `guardiao-soberano-v1.1.pdf` permanece **colorido**
 - [ ] PDF: 1.3, grayscale, fontes embarcadas, 300 DPI (Ghostscript via `compila.ps1 -Grafica`)
 
 ---
