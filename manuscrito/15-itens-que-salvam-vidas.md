@@ -68,13 +68,13 @@ Coin Control é a prática de selecionar manualmente quais UTXOs gastar em cada 
 
 ### Regras de Ouro
 
-**✅ FAÇA:**
+**FAÇA:**
 
 - Rotule cada UTXO por origem (KYC, RoboSats, CoinJoin Round 3, Swap)
 - Congele UTXOs "sujos" para não gastar sem querer
 - Gaste 1 UTXO por vez quando possível
 
-**❌ NÃO FAÇA:**
+**NÃO FAÇA:**
 
 - Consolidar 2+ UTXOs pós-coinjoin (reduz anonimato)
 - Misturar UTXO de exchange KYC com UTXO de coinjoin (contaminação)

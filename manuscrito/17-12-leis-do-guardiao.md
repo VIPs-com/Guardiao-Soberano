@@ -10,7 +10,7 @@ Estabelecer os princípios comportamentais que sustentam toda a arquitetura téc
 
 ---
 
-## 🔑 As Leis da Seed e das Chaves
+## As Leis da Seed e das Chaves
 
 ### Lei 1: A seed será gerada SEMPRE offline, em hardware dedicado
 
@@ -38,7 +38,7 @@ Nunca tire foto da seed. Nunca digite a seed em um computador conectado. Nunca s
 
 ---
 
-## 🌐 As Leis da Rede e da Identidade
+## As Leis da Rede e da Identidade
 
 ### Lei 5: Toda operação cripto usará Tor — nunca clearnet
 
@@ -66,7 +66,7 @@ Gere um novo subendereço XMR para cada swap. Anote no KeePassXC.
 
 ---
 
-## 🔀 As Leis dos Swaps e da Privacidade
+## As Leis dos Swaps e da Privacidade
 
 ### Lei 9: Jamais se fará swap de volta imediatamente
 
@@ -94,7 +94,7 @@ Antes de qualquer operação com valor significativo, faça um teste com o valor
 
 ---
 
-## 🧠 A Lei Mestra
+## A Lei Mestra
 
 > **A tecnologia protege contra atacantes externos. Ela não protege contra você mesmo.**
 >
