@@ -314,7 +314,7 @@ Esses dois projetos são **excelentes opções open-source e baratas** para quem
 
 | Aspecto | **SeedSigner** | **Krux** |
 | --- | --- | --- |
-| **Custo** | ~US$ 30–50 (Raspberry Pi Zero 1.3 + peças) | ~US$ 15–60 (Maix Amigo, M5StickV ou Yahboom) |
+| **Custo** | ~US$ 30–50 (Pi Zero + peças) | ~US$ 15–60 (Maix, M5StickV) |
 | **Dificuldade** | Média (montagem) | Fácil a média (placas plug-and-play) |
 | **Stateless** | Sim | Sim (ou SD criptografada) |
 | **Integração Sparrow** | PSBT via QR | PSBT via QR/SD |

@@ -194,9 +194,9 @@ Este capítulo sintetiza **como você opera** como Soberano: diagrama pessoal, m
 
 | Se você precisa de… | Onde continuar |
 | --- | --- |
-| Diagramas, fluxos de swap, matriz de resiliência, inventário de VMs | **Capítulo 13 — O Ecossistema Completo** |
-| Checklist operacional reutilizável (28 itens) | **Capítulo 16 — Checklist Operacional** |
-| Tutoriais passo a passo com verificação em hardware (Feather, scripts `start-*.sh`, Tails) | Extensão **Laboratório** no repositório oficial do livro (`laboratorio/`) |
+| Diagramas, swap, matriz, VMs | **Cap. 13 — Ecossistema** |
+| Checklist operacional (28 itens) | **Cap. 16 — Checklist** |
+| Tutoriais com HW (Feather, Tails) | Pasta `laboratorio/` no repositório |
 | Comandos e verificação PGP | **Apêndice C** e **Apêndice D** |
 
 Se algo deste capítulo parecer “resumido demais”, confira o Capítulo 13 antes de concluir que falta conteúdo — a integração está lá; aqui está a **rotina** de quem já montou a fortaleza.

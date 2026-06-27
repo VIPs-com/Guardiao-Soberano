@@ -509,7 +509,7 @@ Com o Electrum como alternativa, você reforça a mesma arquitetura: **Tails obs
 
 | Peça | Especificação | Preço (aprox.) |
 | --- | --- | --- |
-| **Raspberry Pi Zero v1.3** | 512 MB RAM, sem WiFi/Bluetooth, GPIO com headers | €12–18 |
+| **Pi Zero v1.3** | 512 MB, sem rádio, GPIO | €12–18 |
 | **Waveshare 1,3" LCD HAT** | 240×240 px, joystick + 3 botões, GPIO | €12–15 |
 | **Câmera OV5647** | 5 MP, cabo ribbon 160 mm, remover película | €8–12 |
 | **MicroSD** | 8 GB+, Classe 10 (só para firmware) | €5 |

@@ -118,11 +118,11 @@ A interoperabilidade é uma das maiores forças do Bitcoin. Suas chaves são sua
 Existe uma hierarquia clara entre o que é essencial e o que é apenas conveniente no seu ecossistema de auto-custódia. Muita gente inverte essa hierarquia sem perceber.
 
 | Elemento | O que é? | Se perdido... |
-|----------|----------|---------------|
+| --- | --- | --- |
 | Hardware wallet | Dispositivo de acesso | Compra outro, restaura com a seed |
 | Software (Sparrow, Feather) | Ferramenta de interface | Reinstala, funciona igual |
-| Backup dos dados de configuração | Agiliza a recuperação | Sem ele, recuperação demora mais |
-| **Seed de 24 palavras** | **A raiz criptográfica** | **Sem ela, os fundos somem para sempre** |
+| Backup de configuração | Agiliza recuperação | Só atrasa restauração |
+| **Seed (24 palavras)** | **Raiz criptográfica** | **Fundos perdidos para sempre** |
 
 Perdeu a hardware wallet? Com a seed, você a restaura em qualquer dispositivo compatível em minutos. Sem a seed, não há suporte ao cliente que resolva — nenhuma empresa tem acesso ao que está protegido pela sua chave privada.
 
@@ -175,11 +175,11 @@ O resultado é uma seed cuja aleatoriedade você verificou com suas próprias m�
 ## Resumo do Capítulo
 
 | Conceito | Significado |
-|----------|-------------|
-| BIP39 | Padrão que converte entropia em palavras (PBKDF2-HMAC-SHA512, 2048 iterações) |
+| --- | --- |
+| BIP39 | Entropia → palavras (PBKDF2-SHA512, 2048 rounds) |
 | Seed | 24 palavras que geram suas chaves |
-| Passphrase | 25ª palavra escolhida por você (gera carteira completamente diferente) |
-| Output Descriptor | String que descreve a carteira — backup obrigatório em multisig |
+| Passphrase | 25ª palavra extra (carteira diferente) |
+| Output Descriptor | Descreve a carteira; obrigatório em multisig |
 | SeedQR | Seed em formato QR, gravável em metal |
 | Hot wallet | Chave privada online |
 | Cold wallet | Chave privada offline |

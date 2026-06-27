@@ -138,10 +138,10 @@ Existe um espectro entre "sem custódia" e "custódia total". A maioria das pess
 
 | Posição | Método | Exemplos | Principal risco |
 | --- | --- | --- | --- |
-| Sem soberania | Exchange centralizada | Binance, Coinbase | Exchange falir, hackear ou bloquear |
-| | Carteira quente (celular/PC) | Muun, Blue Wallet | Malware, vírus, backup inadequado |
-| | Carteira fria (hardware wallet) | Coldcard, Jade, SeedSigner | Fornecedor backdoor, perda física |
-| Soberania plena | Carteira fria air-gapped + seed em aço + nó próprio | — | Você mesmo (erro humano) |
+| Sem soberania | Exchange | Binance, Coinbase | Hack ou bloqueio |
+| | Carteira quente | Muun, Blue Wallet | Malware ou backup fraco |
+| | Carteira fria (HW) | Coldcard, Jade | Backdoor ou perda física |
+| Soberania plena | Air-gap + seed em aço + nó | — | Erro humano |
 
 Este livro vai levá-lo da esquerda para a direita desse espectro, passo a passo. Não é preciso chegar ao extremo direito no primeiro dia — mas é preciso entender onde você está e para onde está indo.
 
@@ -166,9 +166,9 @@ E há outro ponto: Satoshi protegeu a si mesmo da mesma forma que o protocolo pr
 ## Resumo do Capítulo
 
 | Conceito | Significado |
-|----------|-------------|
+| --- | --- |
 | Dinheiro | Meio de troca, unidade de conta, reserva de valor |
-| Problema do gasto duplo | Impedir que dinheiro digital seja copiado e gasto duas vezes |
+| Gasto duplo | Evitar copiar e gastar a mesma moeda duas vezes |
 | Bitcoin | Sistema descentralizado que resolve o gasto duplo sem intermediário |
 | Inflação | Erosão do poder de compra pela emissão de moeda |
 | CBDC | Moeda digital de banco central — rastreável e programável |

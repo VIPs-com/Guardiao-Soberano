@@ -249,10 +249,10 @@ Bitcoin é transparente por design — todo saldo e transação é público para
 
 | Ferramenta | Tipo | Direção / uso | Notas |
 | --- | --- | --- | --- |
-| **eigenwallet** | Atomic | BTC→XMR | Trustless, Tor nativo; ~25–60 min; mín. ~0.003 BTC |
-| **RetoSwap / Haveno** | P2P | XMR↔BTC, fiat→XMR | Escrow multisig; XMR→BTC prático |
-| **BasicSwap DEX** | Atomic | BTC↔XMR | Trustless máximo; Docker + ~400 GB |
-| **Feather Wallet** | Carteira XMR | Custódia | Tor nativo; gerencia XMR entre swaps |
+| **eigenwallet** | Atomic | BTC→XMR | Trustless; Tor; ~25–60 min |
+| **RetoSwap / Haveno** | P2P | XMR↔BTC | Escrow multisig |
+| **BasicSwap DEX** | Atomic | BTC↔XMR | Trustless; Docker + ~400 GB |
+| **Feather Wallet** | Carteira XMR | Custódia | Tor nativo entre swaps |
 | **Cake Wallet** | Mobile | Uso casual | Multi-coin; não para grandes quantias |
 | **JoinMarket** | CoinJoin BTC | Pré-swap | Complemento ao Whirlpool |
 
@@ -286,10 +286,10 @@ O eigenwallet detecta o Tor do Whonix automaticamente (porta 9050). **Passo a pa
 
 | Cenário | Perfil | Fluxo resumido |
 | --- | --- | --- |
-| **1 — Exchange → privacidade** | Quebrar rastro KYC | Sparrow → eigenwallet → espera 2–7 dias → RetoSwap → HW wallet |
-| **2 — Fiat → XMR → BTC** | Entrada sem KYC | RetoSwap/Haveno (cash/Pix) → RetoSwap XMR→BTC → Coldcard |
-| **3 — Saída cold storage** | Destino final | XMR→BTC → endereço air-gapped; Sparrow watching-only |
-| **4 — Uso recorrente** | Dev / frequente | Whonix permanente; persistência cifrada; endereço fresco por operação |
+| **1 — Exchange → priv.** | Quebrar KYC | Sparrow → eigen → RetoSwap → HW |
+| **2 — Fiat → XMR → BTC** | Sem KYC | RetoSwap → XMR→BTC → Coldcard |
+| **3 — Saída cold** | Destino final | XMR→BTC → endereço air-gap |
+| **4 — Uso recorrente** | Frequente | Whonix; endereço fresco por op |
 
 ### Roadmap de evolução
 
@@ -488,7 +488,7 @@ Você vai precisar de três "zonas" na sua carteira Sparrow:
 | --- | --- | --- |
 | **Premix** | `Whirlpool_Whonix` | UTXOs em processo de coinjoin |
 | **Postmix** | `Postmix_Whonix` | UTXOs pós-coinjoin, prontos para uso |
-| **Swap Ready** | `Swap_Ready_Whonix` | UTXO específico reservado para o swap atual |
+| **Swap Ready** | `Swap_Ready_Whonix` | UTXO reservado para swap |
 
 **Por que separar:** Se o swap falhar ou você precisar cancelar, o UTXO volta para `Swap_Ready` e você não contamina os outros UTXOs pós-coinjoin.
 

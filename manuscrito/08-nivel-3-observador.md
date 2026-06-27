@@ -200,7 +200,7 @@ As seções abaixo aprofundam instalação Whonix, cifragem de VMs, rotina diár
 | Camada | Função | RAM |
 | --- | --- | --- |
 | **Host** (Linux/Windows/macOS) | VirtualBox/KVM roda aqui | — |
-| **Whonix-Gateway** | Daemon Tor, firewall, isolamento por porta, kill switch | 512 MB |
+| **Whonix-Gateway** | Tor, firewall, kill switch | 512 MB |
 | **Whonix-Workstation** | Sparrow, KeePassXC, ferramentas (sem IP real) | 2–4 GB |
 | **Dispositivo air-gapped** | Coldcard/SeedSigner — SD/QR, nunca rede | — |
 
@@ -518,7 +518,7 @@ Use Whonix se você é **operador frequente** — mantém node próprio, faz coi
 | --- | --- |
 | Faço coinjoin 1x por mês, não tenho pressa, não quero hardware extra | **Tails** |
 | Faço coinjoins toda semana, tenho node próprio, quero automação | **Whonix** |
-| Moro em país com risco de apreensão de equipamento | **Tails** (pendrive escondível) |
+| Risco de apreensão de equipamento | **Tails** (pendrive) |
 | Tenho desktop com 16+ GB RAM e SSD sobrando | **Whonix** |
 | Uso laptop emprestado ou de trabalho | **Tails** |
 | Quero mixar 24/7 para anonset alto rápido | **Whonix** |
@@ -535,8 +535,8 @@ Com base no protocolo completo da trilha (Tails para swaps pontuais, Whonix para
 
 | Ambiente | Função |
 | --- | --- |
-| **Whonix Workstation persistente** | Whirlpool 24/7 + Sparrow watching-only + consultas ao node EPS |
-| **Tails (sessões dedicadas)** | Swap BTC→XMR (eigenwallet) + XMR→BTC (RetoSwap) + Feather + RoboSats |
+| **Whonix persistente** | Whirlpool 24/7 + Sparrow + EPS |
+| **Tails (sessões)** | Swaps eigenwallet/RetoSwap + Feather |
 
 **Fluxo:**
 

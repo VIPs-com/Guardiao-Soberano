@@ -167,7 +167,7 @@ As **12 Leis completas** — seed, rede, swaps e a Lei Mestra — estão no **Ca
 | Tamanho do anonimato | 16 decoys | Toda a blockchain |
 | Resistência a análise | Alta | Extremamente alta |
 | Tamanho das transações | ~2,5 KB | ~4–6 KB (estimado) |
-| Status | Mainnet desde ~2021 | Stressnet out/2025; beta oficial v0.19.0.0 em 6 mai/2026; mainnet prevista 2026 |
+| Status | Mainnet ~2021 | Beta v0.19 mai/2026; mainnet prevista 2026 |
 
 **Impacto no ecossistema:** Quando ativado, swaps BTC→XMR se tornam ainda mais privados. A defesa contra ABCTracer fica criptograficamente mais forte — mesmo análises com recursos estatais teriam dificuldade.
 
