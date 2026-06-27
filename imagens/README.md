@@ -8,9 +8,10 @@ Inventário de ativos visuais do livro e laboratório. **Fonte editável:** `.dr
 
 | Categoria | Qtd | No manuscrito (embed) | Nos labs |
 | --- | --- | --- | --- |
-| Diagramas | 5 | Cap. 6, 9, 10, 13 | N1, N4, N5 |
-| Ícones N0–N7 | 8 | (reserva — capa EPUB usa faixa) | — |
-| Capa | 1 PNG + 1 SVG | EPUB usa `recursos/cover.jpg` | — |
+| Diagramas | 5 | Cap. 6, 9, 10, 13 (92–95% largura) | N1, N4, N5 |
+| Ícones N0–N7 | 8 | Cap. 5–12 (badge 22 mm) | — |
+| Capa e-book | `cover.jpg` / `cover.png` | EPUB/MOBI vertical | — |
+| Capa impressão A4 | `cover-a4.svg` → `recursos/cover-a4.jpg` | Enviar à gráfica | — |
 
 Legenda: ✅ incorporado · 📁 só referência textual · 🔧 editar fonte `.drawio`/`.svg`
 

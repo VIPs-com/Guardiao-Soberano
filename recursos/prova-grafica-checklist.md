@@ -13,7 +13,8 @@ Gerar arquivos atualizados:
 ## Antes de enviar à gráfica
 
 - [ ] PDF gráfica gerado hoje (`guardiao-soberano-v1.1-grafica.pdf`)
-- [ ] Capa: `recursos/cover.jpg` (1600×2560 px, 300 DPI) incluída no EPUB; confirmar arte separada se a gráfica imprimir capa própria
+- [ ] Capa miolo separada: `recursos/cover-a4.jpg` (2480×3508 px, A4, 300 DPI) — gerar com `.\scripts\export-cover-a4.ps1`
+- [ ] Capa e-book: `recursos/cover.jpg` (vertical, EPUB/MOBI)
 - [ ] Metadados: título, subtítulo, versão 1.1, CC BY-NC-SA 4.0
 - [ ] Formato miolo: **A4** (210×297 mm)
 - [ ] Sangria: **3 mm** em todos os lados (confirmar com a gráfica na arte final)

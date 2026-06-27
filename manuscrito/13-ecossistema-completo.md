@@ -26,7 +26,7 @@ O ecossistema tem um princípio fundamental: **nenhum terceiro tem acesso a toda
 
 ## 13.2 O Diagrama
 
-![Ecossistema completo: Tor, três VMs no host e dispositivos físicos air-gapped](../imagens/diagrama-ecossistema.png)
+![Ecossistema completo: Tor, três VMs no host e dispositivos físicos air-gapped](../imagens/diagrama-ecossistema.png){fig-align=center width=95%}
 
 O diagrama mostra três camadas principais:
 

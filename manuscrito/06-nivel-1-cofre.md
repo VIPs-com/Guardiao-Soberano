@@ -1,5 +1,7 @@
 # Capítulo 6 — Nível 1: O Cofre
 
+![](../imagens/icones/nivel-1.png){fig-align=center width=22mm}
+
 > "O dispositivo que guarda o segredo"
 
 ---
@@ -232,7 +234,7 @@ Outros (Keystone, NGRAVE, ELLIPAL, Specter DIY): ver Cap. 14 — fora do guia in
 4. **Devolução da PSBT assinada** — QR ou SD de volta ao coordenador.
 5. **Broadcast via Tor** — chaves privadas nunca tocaram o PC online.
 
-![Fluxo PSBT: coordinator online → air-gap → assinatura offline → broadcast via Tor](../imagens/diagrama-psbt.png)
+![Fluxo PSBT: coordinator online → air-gap → assinatura offline → broadcast via Tor](../imagens/diagrama-psbt.png){fig-align=center width=92%}
 
 **Backup:** metal + SeedQR opcional (SeedSigner, Krux, Jade, Passport). Teste de recuperação **antes** de enviar fundos.
 

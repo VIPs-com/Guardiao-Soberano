@@ -1,5 +1,7 @@
 # Capítulo 7 — Nível 2: A Carteira Fria
 
+![](../imagens/icones/nivel-2.png){fig-align=center width=22mm}
+
 > "Enxergar sem tocar"
 
 ---

@@ -1,5 +1,7 @@
 # Capítulo 9 — Nível 4: O Misturador
 
+![](../imagens/icones/nivel-4.png){fig-align=center width=22mm}
+
 > "Desaparecendo na multidão"
 
 ---
@@ -69,7 +71,7 @@ Conceitos para pesquisar antes de começar:
 
 ### Passo 4.3 — Configurar Whirlpool no Sparrow
 
-![Whirlpool: entradas → funil CoinJoin → saídas com anonset](../imagens/diagrama-whirlpool.png)
+![Whirlpool: entradas → funil CoinJoin → saídas com anonset](../imagens/diagrama-whirlpool.png){fig-align=center width=92%}
 
 - [ ] Aba Whirlpool → Configurações (Settings)
 - [ ] Coordenador (Coordinator): automático via Sparrow + Tor (Apêndice B — não use .onion de listas não verificadas)

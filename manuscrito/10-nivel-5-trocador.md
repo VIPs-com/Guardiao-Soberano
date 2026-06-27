@@ -1,5 +1,7 @@
 ﻿# Capítulo 10 — Nível 5: O Trocador
 
+![](../imagens/icones/nivel-5.png){fig-align=center width=22mm}
+
 > "A ponte entre mundos"
 
 ---
@@ -39,7 +41,7 @@ Conceitos para pesquisar:
   - Expande anonimato para blockchain INTEIRA
   - Quando ativado, privacidade fica ainda mais forte
 
-![ABCTracer: correlação temporal sem defesa vs. intervalos com defesa](../imagens/fluxo-abctracer.png)
+![ABCTracer: correlação temporal sem defesa vs. intervalos com defesa](../imagens/fluxo-abctracer.png){fig-align=center width=92%}
 
 ---
 
@@ -101,7 +103,7 @@ gpg --verify \
 
 ### Passo 5.5 — Preparar primeiro swap BTC→XMR (TESTE)
 
-![Fluxo de swap: BTC misturado → eigenwallet → XMR → RetoSwap → BTC limpo](../imagens/diagrama-swap.png)
+![Fluxo de swap: BTC misturado → eigenwallet → XMR → RetoSwap → BTC limpo](../imagens/diagrama-swap.png){fig-align=center width=92%}
 
 - [ ] Sparrow: isolar 0.003 BTC (pós-coinjoin) em Swap_Ready_Whonix
 - [ ] Feather: Receber (Receive) → Novo endereço (New address) — subendereço VIRGEM
