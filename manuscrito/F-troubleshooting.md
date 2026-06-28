@@ -40,7 +40,7 @@ Seus bitcoins estão na blockchain, não no dispositivo. Se você tem a seed (24
 
 **Passo 3 — Se a seed está intacta, restaure em dispositivo limpo.**
 
-1. Adquira um novo dispositivo air-gapped (Coldcard, Jade, SeedSigner, Krux) ou use o Ian Coleman offline (Tails sem rede, arquivo `bip39-standalone.html`).
+1. Adquira um novo dispositivo air-gapped (Coldcard, Jade Plus, SeedSigner, Krux) ou use o Ian Coleman offline (Tails sem rede, arquivo `bip39-standalone.html`).
 2. Restaure as 24 palavras + passphrase.
 3. Exporte o xpub para o Sparrow em um computador limpo.
 4. O Sparrow sincronizará com a blockchain e mostrará seu saldo.

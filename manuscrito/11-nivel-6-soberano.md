@@ -117,10 +117,11 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 ### Passo 6.5 — Conhecer aspectos legais (Brasil)
 
-- [ ] IN 1888/2019 (Receita Federal):
-  - Operações > R$ 30.000/mês em exchanges estrangeiras: declarar
+- [ ] **IN 2291/2025 — DeCripto** (substitui a IN 1888 a partir de 01/07/2026):
+  - Operações > R$ 35.000/mês sem exchange brasileira: declarar
   - Carteira própria > R$ 5.000: consta no IRPF anual (Bens e Direitos)
   - Ganho de capital: fato gerador de imposto
+  - Ver Apêndice E para detalhes completos
 
 - [ ] Swaps e CoinJoin:
   - Tecnicamente são alienações de BTC
@@ -168,7 +169,7 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 - [ ] Diagrama pessoal desenhado e compreendido
 - [ ] Entrada/saída sem KYC dominada (RoboSats + RetoSwap)
-- [ ] Aspectos legais conhecidos (IN 1888 — consultar profissional)
+- [ ] Aspectos legais conhecidos (IN 2291/2025 — DeCripto, substitui IN 1888 a partir de 01/07/2026 — consultar profissional)
 - [ ] Ferramentas diversificadas (sem ponto único de falha)
 - [ ] Consigo restaurar TUDO se perder qualquer componente
 

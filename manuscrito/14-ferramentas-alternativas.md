@@ -82,7 +82,7 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 ## 14.3 Swaps — Alternativas ao eigenwallet
 
-### RetoSwap (Haveno)
+### RetoSwap
 
 - **Versão atual:** v1.8.0-reto (20/06/2026)
 - **Download:** `github.com/retoaccess1/haveno-reto/releases`

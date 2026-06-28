@@ -15,7 +15,7 @@ O conhecimento aqui reunido é resultado de anos de contribuição de centenas d
 
 **Agradecimentos especiais** às equipes e projetos:
 
-Coldcard · SeedSigner · Krux · Foundation Passport · Blockstream Jade · Sparrow Wallet · Whonix · Tails OS · Bitcoin Core · Feather Wallet · eigenwallet · RetoSwap · Whirlpool · Tor Project · Monero Project · Ian Coleman (bip39-standalone)
+Coldcard · SeedSigner · Krux · Foundation Passport · Blockstream Jade Plus · Sparrow Wallet · Whonix · Tails OS · Bitcoin Core · Feather Wallet · eigenwallet · RetoSwap · Whirlpool · Tor Project · Monero Project · Ian Coleman (bip39-standalone)
 
 ---
 

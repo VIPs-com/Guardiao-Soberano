@@ -148,7 +148,7 @@
 
 ## R — RetoSwap e RoboSats {-}
 
-**RetoSwap** — Interface do Haveno, uma exchange P2P descentralizada focada em Monero. Permite (1) comprar/vender XMR com fiat (dinheiro físico, Pix, transferência) sem KYC e (2) fazer swaps XMR→BTC em sentido inverso ao eigenwallet. Ver também: eigenwallet, arXiv:2505.02392.
+**RetoSwap** — Plataforma P2P descentralizada focada em Monero (fork do Haveno, v1.8.0-reto). Permite (1) comprar/vender XMR com fiat (dinheiro físico, Pix, transferência) sem KYC e (2) fazer swaps XMR→BTC em sentido inverso ao eigenwallet. Ver também: eigenwallet, arXiv:2505.02392.
 
 **RingCT (Ring Confidential Transactions)** — Tecnologia Monero que oculta os valores das transações. Combinada com Ring Signatures e Stealth Addresses, torna as transações Monero privadas por padrão em três dimensões: remetente, destinatário e valor.
 

@@ -30,6 +30,17 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - Triagens T5–T6 + links lab EPUB-safe; fechamento editorial v1.1
 - `README.md` com badges e mapa livro + laboratório
 
+### Corrigido (Agentes A–D, 27 jun 2026)
+
+- **Preços hardware** (G-matriz-decisao.md, frontmatter-02-creditos.md, F-troubleshooting.md): Coldcard MK5 US$150→US$170; "Blockstream Jade" → "Blockstream Jade Plus US$169"
+- **RetoSwap/Haveno** (G-matriz-decisao.md ×2, A-glossario.md, 14-ferramentas-alternativas.md): "Haveno (RetoSwap)" → "RetoSwap (ex-Haveno)"; glossário reformulado com RetoSwap como nome primário
+- **IN 2291/2025 — DeCripto** (11-nivel-6-soberano.md ×2, 10-nivel-5-trocador.md): referências à IN 1888 atualizadas para mencionar substituição por IN 2291/2025 a partir de 01/07/2026
+- **Link lab N1/03** (07-nivel-2-carteira-fria.md): `(Cap. 6 / lab N1/03)` → backtick com caminho completo (EPUB-safe)
+- **metadata.opf:** `<dc:title>` recebia `id="title"` ausente; `<meta refines="#title">` agora resolve corretamente; data dcterms:modified atualizada para 2026-06-27
+- **Hierarquia H2→H3** (07-nivel-2-carteira-fria.md): 14 sub-headings nas seções KeePassXC e Electrum corrigidos de `##` para `###`
+- **Hierarquia H2→H3** (10-nivel-5-trocador.md): 13 sub-headings nas seções Restore Height e eigenwallet corrigidos de `##` para `###`
+- **Electrum ThomasV fingerprint** (D-guia-verificacao-pgp.md, 07-nivel-2-carteira-fria.md): placeholder `<FINGERPRINT-ELECTRUM-APD-D>` substituído pelo fingerprint real `6694D8DE7BE8EE5631BED9502BD5824B7F9470E6` (verificado em electrum.org + github.com/spesmilo/electrum/pubkeys/ThomasV.asc); versão atualizada 4.5.5→4.7.2; seção de verificação completa adicionada ao Ap. D
+
 ---
 
 ## [1.1.0] — 2026-06-25

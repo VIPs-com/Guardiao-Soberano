@@ -309,7 +309,7 @@ O eigenwallet detecta o Tor do Whonix automaticamente (porta 9050). **Passo a pa
 - Seed **nunca** no software online — só xpub no Sparrow; assinatura offline via QR/SD
 - Ritmo: Fase 1 com valor pequeno → confiança no fluxo → Fase 2 quando precisar persistência
 
-> **AVISO — Legal (Brasil):** privacidade técnica não elimina obrigações tributárias (IN 1888/2019 / DeCripto). Consulte especialista se necessário.
+> **AVISO — Legal (Brasil):** privacidade técnica não elimina obrigações tributárias. A IN 2291/2025 (DeCripto) substituiu a IN 1888/2019 a partir de 01/07/2026. Consulte especialista se necessário.
 
 ---
 ---
@@ -320,7 +320,7 @@ O eigenwallet detecta o Tor do Whonix automaticamente (porta 9050). **Passo a pa
 
 ---
 
-## O Conceito
+### O Conceito
 
 O Monero funciona sobre uma blockchain — um livro-caixa gigante com milhões de blocos. Quando você cria uma carteira, ela não precisa ler a blockchain inteira desde o bloco 0 (ano 2014), apenas a partir do momento em que **sua carteira passou a existir**. O **restore height** é exatamente isso: o número do bloco no qual sua carteira foi criada (ou o primeiro bloco a partir do qual ela pode ter recebido fundos).
 
@@ -328,7 +328,7 @@ Se você precisar restaurar sua carteira um dia (usando a seed), informar esse n
 
 ---
 
-## Por que isso importa para você, operador?
+### Por que isso importa para você, operador?
 
 * **Velocidade de recuperação:** Imagine perder o pendrive Tails durante uma viagem. Você pega o backup, restaura a seed no Feather, mas sem o restore height, a carteira vai escanear a blockchain inteira. Com ele, a sincronização é quase instantânea.
 * **Privacidade:** Se você restaurar a partir do bloco 0, o nó remoto pode saber que sua carteira é muito antiga e inferir que você é um usuário de longa data. Dar a altura correta limita a janela de observação ao mínimo necessário.
@@ -336,7 +336,7 @@ Se você precisar restaurar sua carteira um dia (usando a seed), informar esse n
 
 ---
 
-## Como anotar corretamente
+### Como anotar corretamente
 
 ### No momento da criação da carteira (Feather)
 
@@ -365,7 +365,7 @@ Abra a Feather, vá em **Wallet → Information** (ou clique com o botão direit
 
 ---
 
-## Como usar o restore height na restauração
+### Como usar o restore height na restauração
 
 Quando você restaura uma carteira a partir da seed na Feather:
 
@@ -378,7 +378,7 @@ Se você usar uma data, a Feather converte automaticamente para a altura do bloc
 
 ---
 
-## E se eu não tiver anotado e já perdi tudo?
+### E se eu não tiver anotado e já perdi tudo?
 
 Você pode estimar o restore height se lembrar da data aproximada em que criou a carteira ou da data da primeira transação recebida. Use uma ferramenta de conversão de data para altura de bloco Monero, como:
 
@@ -389,7 +389,7 @@ Coloque a data estimada e pegue a altura. Sempre escolha uma altura **um pouco a
 
 ---
 
-## Exercício prático (na sua fortaleza de testes)
+### Exercício prático (na sua fortaleza de testes)
 
 1. Crie uma carteira de teste chamada `teste_restore`.
 2. Anote a seed e o restore height.
@@ -400,7 +400,7 @@ Coloque a data estimada e pegue a altura. Sempre escolha uma altura **um pouco a
 
 ---
 
-## Dica de novato que virou operador
+### Dica de novato que virou operador
 
 Guarde o restore height no **KeePassXC** (metadados). A seed XMR segue a Lei 4: **metal**, nunca KeePassXC nem papel fotografável. A perda do restore height não compromete os fundos, apenas sua paciência na restauração.
 
@@ -423,7 +423,7 @@ Guarde o restore height no **KeePassXC** (metadados). A seed XMR segue a Lei 4: 
 * Coldcard pronto para assinar PSBTs
 * 2-3 horas para o primeiro swap (entre configuração e execução)
 
-## Passo 1 — Entender o modelo de ameaça do eigenwallet
+### Passo 1 — Entender o modelo de ameaça do eigenwallet
 
 O eigenwallet é um cliente de atomic swap **on-chain**. Isso significa que:
 
@@ -434,7 +434,7 @@ O eigenwallet é um cliente de atomic swap **on-chain**. Isso significa que:
 
 No Whonix, o tráfego de rede do eigenwallet sai pelo Tor automaticamente (herdado do Gateway). Isso é bom, mas não suficiente — você precisa garantir que o swap não vaze metadados.
 
-## Passo 2 — Instalar e verificar o eigenwallet
+### Passo 2 — Instalar e verificar o eigenwallet
 
 ### Download e verificação PGP
 
@@ -480,7 +480,7 @@ chmod +x ~/start_eigenwallet.sh
 
 ---
 
-## Passo 3 — Configurar o ambiente de swap
+### Passo 3 — Configurar o ambiente de swap
 
 ### Estrutura de carteiras no Sparrow
 
@@ -507,7 +507,7 @@ Agora o UTXO está isolado e rotulado para swap.
 
 ---
 
-## Passo 4 — Gerar endereços para o swap
+### Passo 4 — Gerar endereços para o swap
 
 ### Endereço XMR (recebimento)
 
@@ -530,7 +530,7 @@ No Sparrow, carteira `Swap_Ready_Whonix`:
 
 ---
 
-## Passo 5 — Executar o swap no eigenwallet
+### Passo 5 — Executar o swap no eigenwallet
 
 ### Iniciar o eigenwallet
 
@@ -614,7 +614,7 @@ No Feather Wallet:
 
 ---
 
-## Passo 6 — Pós-swap: intervalo de segurança e limpeza
+### Passo 6 — Pós-swap: intervalo de segurança e limpeza
 
 ### Intervalo mínimo obrigatório
 

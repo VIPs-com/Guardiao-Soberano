@@ -111,7 +111,7 @@ Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow mon
   - Enviar para outro endereço seu (ou de um amigo)
   - Exportar PSBT para assinatura offline:
     - **MicroSD:** salvar PSBT no cartão → dispositivo → Ready to Sign
-    - **QR:** Show QR no Sparrow → escanear no SeedSigner/Krux (Cap. 6 / lab N1/03)
+    - **QR:** Show QR no Sparrow → escanear no SeedSigner/Krux (Cap. 6 / `laboratorio/nivel-1-cofre/03-psbt-via-qr.md`)
 
 - [ ] No dispositivo air-gapped:
   - Conferir endereço destino, valor e taxa NA TELA DO DISPOSITIVO
@@ -170,13 +170,13 @@ Aqui está o método correto para instalar, configurar e usar no Tails.
 
 ---
 
-## Objetivo
+### Objetivo
 
 Instalar o KeePassXC de forma persistente e criar um banco cifrado para **PINs, endereços .onion, metadados de operações** (conta RetoSwap no N5, restore height Monero como **número**, não seed) e senhas GPG de backup — **sem** armazenar seed BIP39 Bitcoin.
 
 ---
 
-## Mão na Massa
+### Mão na Massa
 
 ### Baixar o AppImage na persistência
 
@@ -269,7 +269,7 @@ Crie grupos (pastas) dentro do KeePassXC:
 
 ---
 
-## Dicas de Novato
+### Dicas de Novato
 
 * **Nunca armazene a senha do KeePassXC no próprio KeePassXC** (óbvio, mas acontece).
 * **A senha do cofre deve ser memorizada.** Se precisar de backup da senha, use local separado (nunca junto ao pendrive Tails).
@@ -279,7 +279,7 @@ Crie grupos (pastas) dentro do KeePassXC:
 
 ---
 
-## Teste de Recuperação
+### Teste de Recuperação
 
 1. No mesmo Tails ou em um Tails limpo com persistência restaurada, execute o KeePassXC.
 2. Abra o arquivo `/home/amnesia/Persistent/fortaleza_cofre.kdbx`.
@@ -290,7 +290,7 @@ Crie grupos (pastas) dentro do KeePassXC:
 
 ---
 
-## Perigos Reais
+### Perigos Reais
 
 * **Esquecer a senha do KeePassXC:** sem ela, o conteúdo do `.kdbx` é **irrecuperável**. Não há "esqueci minha senha". É tão seguro quanto sua memória.
 * **Senha fraca no KeePassXC:** se sua persistência for descriptografada, um ataque de força bruta ao `.kdbx` pode quebrar senhas curtas. Use frases longas.
@@ -315,13 +315,13 @@ Instale o Electrum na persistência, conecte via Tor e use **carteira somente le
 
 ---
 
-## Objetivo
+### Objetivo
 
 Instalar o Electrum no Tails (persistência + Tor) e configurar carteira **watching-only** importando xpub — ou PSBT com dispositivo air-gapped. Integração opcional com backup GPG da persistência.
 
 ---
 
-## Pré‑requisitos
+### Pré‑requisitos
 
 * Tails iniciado com **persistência desbloqueada** e a opção _Personal Data_ ativa (para acessarmos `/home/amnesia/Persistent/`).
 * Pasta de aplicativos pronta: `/home/amnesia/Persistent/Apps/` (se não existir, crie com `mkdir -p`).
@@ -329,14 +329,14 @@ Instalar o Electrum no Tails (persistência + Tor) e configurar carteira **watch
 
 ---
 
-## Passo a passo
+### Passo a passo
 
 ### Baixar e verificar o Electrum (AppImage)
 
 O Electrum distribui um AppImage oficial. Vamos baixá‑lo com `torsocks` e verificar a assinatura.
 
 ```bash
-VERSION=4.5.5
+VERSION=4.7.2
 BASE="https://download.electrum.org/${VERSION}"
 
 torsocks wget -P /home/amnesia/Persistent/Apps/ \
@@ -344,14 +344,22 @@ torsocks wget -P /home/amnesia/Persistent/Apps/ \
   "${BASE}/electrum-${VERSION}-x86_64.AppImage.asc"
 ```
 
-**Verifique a assinatura GPG** — fingerprint ThomasV no site [electrum.org](https://electrum.org) e **Apêndice D** (nunca use placeholder):
+**Verifique a assinatura GPG** — fingerprint de ThomasV (Thomas Voegtlin). Confirme em duas fontes antes de executar (Apêndice D):
 
 ```bash
+# Importar chave de ThomasV
 gpg --keyserver hkps://keys.openpgp.org \
-  --recv-keys <FINGERPRINT-ELECTRUM-APD-D>
+  --recv-keys 6694D8DE7BE8EE5631BED9502BD5824B7F9470E6
+
+# Conferir fingerprint (compare com electrum.org e GitHub pubkeys/)
+gpg --fingerprint 6694D8DE7BE8EE5631BED9502BD5824B7F9470E6
+# Esperado: 6694 D8DE 7BE8 EE56 31BE  D950 2BD5 824B 7F94 70E6
+
+# Verificar assinatura do AppImage
 gpg --verify \
   /home/amnesia/Persistent/Apps/electrum-$VERSION-x86_64.AppImage.asc \
   /home/amnesia/Persistent/Apps/electrum-$VERSION-x86_64.AppImage
+# Esperado: Good signature from "Thomas Voegtlin (Thomas Voegtlin) <thomasv@electrum.org>"
 ```
 
 Se a verificação passar, o binário é confiável. Torne‑o executável:
@@ -425,7 +433,7 @@ A carteira watch-only fica em:
 
 ---
 
-## Persistência automática: tudo salvo na pasta certa
+### Persistência automática: tudo salvo na pasta certa
 
 Com `--datadir`, o Electrum grava diretamente na persistência. Você não precisa criar links simbólicos. A estrutura fica assim:
 
@@ -444,7 +452,7 @@ Ao reiniciar o Tails, execute o script e tudo estará como você deixou.
 
 ---
 
-## Teste de sobrevivência
+### Teste de sobrevivência
 
 1. Importe xpub / confirme saldo watch-only.
 2. Feche o Electrum, reinicie o Tails.
@@ -453,7 +461,7 @@ Ao reiniciar o Tails, execute o script e tudo estará como você deixou.
 
 ---
 
-## Integração com o backup 3-2-1
+### Integração com o backup 3-2-1
 
 O seu ritual de backup já incluía o `.electrum` (se você seguiu o módulo anterior). Como agora a pasta é `Persistent/electrum-data`, ajuste o comando do backup:
 
@@ -471,7 +479,7 @@ tar czf - \
 
 ---
 
-## Dicas de segurança e privacidade
+### Dicas de segurança e privacidade
 
 * **Use servidores onion:** Na aba Rede, adicione manualmente endereços `.onion` confiáveis e desmarque os servidores clearnet. Exemplo:
  
@@ -485,13 +493,13 @@ tar czf - \
 
 ---
 
-## Perigo: confundir ferramentas
+### Perigo: confundir ferramentas
 
 Sparrow/Electrum (Bitcoin, xpub) ≠ Feather (Monero, Nível 5+) ≠ RetoSwap (N5). Rotule entradas no KeePassXC e papéis de backup.
 
 ---
 
-## Convivência com outras ferramentas (níveis futuros)
+### Convivência com outras ferramentas (níveis futuros)
 
 No **Nível 5** você usará Feather + RetoSwap (Monero). O Electrum/Sparrow (Bitcoin) roda em paralelo no Tails quando a RAM permitir — Tor compartilhado pelo sistema.
 

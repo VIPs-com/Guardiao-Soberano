@@ -6,8 +6,8 @@
 
 | Situação | Dispositivo | Custo aprox. |
 | --- | --- | --- |
-| Melhor segurança, padrão ouro | Coldcard MK5 | ~US$150 |
-| Orçamento limitado, open source | Blockstream Jade | ~US$65 |
+| Melhor segurança, padrão ouro | Coldcard MK5 | ~US$170 |
+| Orçamento limitado, open source | Blockstream Jade Plus | ~US$169 |
 | Prefere QR a SD card | Foundation Passport Batch 2 | ~US$150 |
 | Quer construir o próprio, zero confiança | SeedSigner (DIY) | ~€50 em peças |
 | Alternativa DIY moderna | Krux (Maix Amigo ou M5StickV) | ~US$40–60 |
@@ -33,7 +33,7 @@
 | --- | --- | --- |
 | BTC → XMR (entrar no Monero) | eigenwallet | Detecta Tor automaticamente |
 | XMR → BTC (sair do Monero) | RetoSwap | P2P, sem KYC |
-| Fiat → XMR | Haveno (RetoSwap) | Descentralizado |
+| Fiat → XMR | RetoSwap (ex-Haveno) | Descentralizado |
 | Fiat → BTC sem KYC | RoboSats | Via Tor, Lightning |
 | Trustless máximo, sem coordinator | BasicSwap DEX | Mais complexo |
 
@@ -46,7 +46,7 @@
 | Desktop principal, privacidade máxima | Feather Wallet + nó próprio |
 | Desktop, facilidade | Feather Wallet + servidor remoto |
 | Mobile casual | Cake Wallet |
-| Integração com Haveno | Feather Wallet (recomendado) |
+| Integração com RetoSwap | Feather Wallet (recomendado) |
 
 ---
 

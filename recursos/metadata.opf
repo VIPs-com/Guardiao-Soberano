@@ -8,7 +8,7 @@
     <dc:identifier id="uid">guardiao-soberano-v1.1-2026</dc:identifier>
 
     <!-- Título -->
-    <dc:title>Guardião Soberano — Da Semente ao Ecossistema Completo</dc:title>
+    <dc:title id="title">Guardião Soberano — Da Semente ao Ecossistema Completo</dc:title>
     <meta refines="#title" property="title-type">main</meta>
     <meta refines="#title" property="display-seq">1</meta>
 
@@ -27,7 +27,7 @@
 
     <!-- Data de publicação -->
     <dc:date>2026-06-01</dc:date>
-    <meta property="dcterms:modified">2026-06-24T00:00:00Z</meta>
+    <meta property="dcterms:modified">2026-06-27T00:00:00Z</meta>
 
     <!-- Descrição -->
     <dc:description>Um guia progressivo de 8 níveis (0 a 7) para qualquer brasileiro construir um ecossistema completo de auto-custódia Bitcoin com privacidade — do zero absoluto até soberania total. Cobre geração de seed em aço, hardware wallets air-gapped, Whonix, Tails, CoinJoin com Whirlpool, swaps BTC↔XMR via eigenwallet e RetoSwap, e operação de nó próprio.</dc:description>
