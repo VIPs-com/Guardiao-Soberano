@@ -24,10 +24,10 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - `README.md` — git local, pasta equipe offline
 - `compila.ps1` — inclui `H-ambientes-fluxos.md`
 
-### Próximo (rodada 2)
+### Próximo (rodada 2 — git local)
 
-- Validação hardware 18 labs 🔴 — ver `docs/validacao/VERIFICACAO-v1.1.md`
-- Prova gráfica 1× · tag `v1.1.0` após checklist 100%
+- Validação hardware 18 labs 🔴 — `soberano-equipe-dev/docs/validacao/VERIFICACAO-v1.1.md`
+- Prova gráfica 1× · tag `v1.1.0` **local** (sem push)
 
 ---
 

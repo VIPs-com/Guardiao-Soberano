@@ -4,7 +4,7 @@ Obrigado por ajudar a manter o **Guardião Soberano** — livro e laboratório p
 
 ---
 
-## O que vai para o repositório público
+## O que entra no git (repositório local)
 
 ```
 Guardião-Soberano/
@@ -44,9 +44,17 @@ scripts/            organizar-casa.ps1, etc.
 prompts/            Contexto IA (ex.: Privacy-OS-Hub) + cópia Guardião
 ```
 
-**Mantenedores:** o contexto ativo deste repo fica em **`CLAUDE.md` na raiz** (gitignored). Leia antes de sessões longas de revisão ou validação.
+**Mantenedores:** leia **`CLAUDE.md` na raiz** (gitignored) e **`soberano-equipe-dev/docs/processo/RETOMAR-AGENTES.md`** antes de sessões de validação.
 
-(Scripts e docs internos não vão ao remoto.)
+---
+
+## Git — somente local
+
+- Commits apenas no disco: `git commit` — **sem** `git push` (sem remote).
+- Não versionar: `soberano-equipe-dev/`, `saida/`, `old/`, `CLAUDE.md`.
+- GitHub **off** por hora — repo acidental removido jun/2026.
+
+(Scripts e docs internos não entram no git.)
 
 ---
 
@@ -99,26 +107,31 @@ Use o template **Erro de comando** (lab, passo, SO, mensagem de erro).
 
 ---
 
-## Releases e versionamento
+## Releases e versionamento (local)
+
+Tags locais quando a validação hardware fechar:
+
+```powershell
+git tag -a v1.1.0 -m "Guardião Soberano v1.1.0"
+```
+
+PDF/EPUB ficam em `saida/` — distribuição manual, não versionada no git.
 
 | Tag | Conteúdo |
 | --- | --- |
 | `v1.0.0` | Livro inicial |
-| `v1.1.0` | Livro revisado + auditoria |
-| `v1.1-labs` | Laboratório com labs testados (futuro) |
-
-Ao publicar PDF/EPUB na Release, inclua **SHA-256** do arquivo no corpo da release.
+| `v1.1.0` | Livro revisado + mapa ambientes (após hardware 🔴) |
+| `v1.1-labs` | Labs testados em hardware (futuro) |
 
 ---
 
 ## Documentação interna da equipe
 
-Relatórios de processo ficam em `soberano-equipe-dev/` (não versionados no remoto público):
+Relatórios de processo ficam em `soberano-equipe-dev/` (não versionados):
 
-- `docs/validacao/VALIDACAO-LABORATORIO-29.md` — testes dos 29 labs
-- `docs/validacao/VERIFICACAO-TECNICA-PENDENTE.md`
-- `docs/relatorios/RELATORIO-INTEGRACAO-COMPLEMENTOS.md`
-- `config/relatorio-repositorio-guardiao-soberano.md` — padrões OSS e checklist de push
+- `docs/processo/RETOMAR-AGENTES.md` — prompt rodada 2
+- `docs/validacao/VERIFICACAO-v1.1.md` — checklist Ap. B–F
+- `docs/validacao/VALIDACAO-LABORATORIO-29.md` — matriz dos labs
 
 ---
 

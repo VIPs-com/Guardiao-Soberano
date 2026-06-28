@@ -28,8 +28,7 @@ qualquer problema como potencialmente grave.
 2. Envie descrição para o mantenedor do repositório (canal privado quando disponível).
 3. Inclua: arquivo/lab afetado, passo, impacto, reprodução mínima.
 
-Enquanto não houver e-mail dedicado, use issue **privada** do GitHub (se habilitada)
-ou contato direto com o mantenedor.
+Enquanto o projeto for **git local only**, reporte ao mantenedor por canal privado acordado (não use issues públicas).
 
 ---
 

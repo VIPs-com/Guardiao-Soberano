@@ -87,32 +87,41 @@ Detalhes: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 | PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` → `saida/` |
 | Laboratório | 🟡 29/29 extraídos · 0/18 🔴 em hardware |
 | Validação equipe | 📋 `soberano-equipe-dev/docs/` — rodada 2 |
-| Git | ✅ **Local** (`main`) — sem remote |
-| GitHub | ❌ Repo removido (jun/2026) — **não republicar** até aprovação explícita |
+| Git | ✅ **Somente local** — sem remote, sem push |
+| GitHub | ❌ Off — não republicar até aprovação |
 
 ---
 
-## Git local (fluxo padrão)
+## Git — somente local (por hora)
+
+Este repositório vive **no seu disco**. Não há `origin`. **Não use `git push`.**
 
 ```powershell
+cd I:\VIPs-com\Guardião-Soberano
 git status
-git add manuscrito/ laboratorio/   # nunca saida/ ou soberano-equipe-dev/
+git add manuscrito/ laboratorio/ recursos/ imagens/
 git commit -m "descricao"
-# Sem git push ate remote aprovado
 ```
 
-### Publicar no GitHub (futuro — requer aprovação da equipe)
+| Versionado no git | Offline (`.gitignore`) |
+| --- | --- |
+| `manuscrito/`, `laboratorio/`, `recursos/`, `imagens/` | `soberano-equipe-dev/` |
+| `compila.ps1`, README, LICENSE, CHANGELOG | `saida/` (PDF, EPUB, MOBI) |
+| | `old/`, `CLAUDE.md`, `.claude/` |
 
-> O repositório `VIPs-com/Guardiao-Soberano` criado por engano foi **apagado** (jun/2026). Não recriar sem alinhamento.
+**GitHub:** repo acidental foi **apagado** (jun/2026). Não recriar sem aprovação da equipe.
 
-```powershell
-# So depois de aprovacao explicita:
-gh repo create <org>/<nome> --private   # ou public
-git remote add origin <URL>
-git push -u origin main
+---
+
+## Rodada 2 — validação
+
+Checklists e prompt para agentes (pasta **local**):
+
 ```
-
-Artefatos `saida/` → Releases manuais ou distribuição local, **não** versionar no git.
+soberano-equipe-dev/docs/processo/RETOMAR-AGENTES.md   ← copiar prompt daqui
+soberano-equipe-dev/docs/validacao/VERIFICACAO-v1.1.md
+soberano-equipe-dev/docs/processo/BATERIA-TESTES-v1.1.md
+```
 
 ---
 
