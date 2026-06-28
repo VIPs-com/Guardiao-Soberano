@@ -15,6 +15,4 @@
 
 `01` (simulação) → **N1** `01` → `02` → `03` · `02-backup-aco` no passo metal do N1 · `03-primeiros-sats` após N2
 
-Progresso: `soberano-equipe-dev/docs/validacao/PROGRESSO-RODADA-2.md` · Fase **A**
-
-Ver [`../INVENTARIO-RECUPERACAO.md`](../INVENTARIO-RECUPERACAO.md).
+Ordem: `01` (simulação) → N1 `01` (seed real) → N1 `02` (restore) → `02-backup-aco` (metal).

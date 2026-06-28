@@ -11,30 +11,39 @@ Versão 1.1 — Junho de 2026 | Português (Brasil)
 
 ## O que é este projeto
 
-| Camada | Pasta | No git? | Função |
-| --- | --- | --- | --- |
-| **Livro** | [`manuscrito/`](manuscrito/) | ✅ | Trilha — 8 níveis (0–7), ~71k palavras (32 arquivos + Ap. H) |
-| **Laboratório** | [`laboratorio/`](laboratorio/) | ✅ | Tutoriais passo a passo e scripts |
-| **Compilação** | [`compila.ps1`](compila.ps1) | ✅ | PDF, EPUB, MOBI, PDF gráfica → `saida/` |
-| **Equipe / validação** | `soberano-equipe-dev/` | ❌ local | Checklists, agentes, backup |
-| **Saída compilada** | `saida/` | ❌ local · README ✅ | Binários; Release futuro espelha PDF/EPUB/MOBI |
+Livro + laboratório prático para quem quer sair da custódia de terceiros e controlar seus próprios bitcoins com privacidade real — do primeiro passo até multisig e nós soberanos.
+
+| Camada | Pasta | Função |
+| --- | --- | --- |
+| **Livro** | [`manuscrito/`](manuscrito/) | Trilha conceitual — 8 níveis (0–7), ~46k palavras, 17 caps + 7 apêndices |
+| **Laboratório** | [`laboratorio/`](laboratorio/) | 29 tutoriais passo a passo + scripts Tails/Whonix |
+| **Compilação** | [`compila.ps1`](compila.ps1) | Gera PDF, EPUB, MOBI e PDF gráfica localmente |
 
 Leia o livro para entender **por quê**; use o laboratório para **como fazer**.
 
 ---
 
-## Começar rápido
+## Começar
 
-### Ler o livro
+### Baixar o livro
+
+Acesse a [página de Releases](../../releases) para baixar PDF, EPUB ou MOBI sem precisar compilar.
+
+### Compilar localmente
+
+**Requisitos:** [Pandoc](https://pandoc.org), [MiKTeX](https://miktex.org) (XeLaTeX), [Calibre](https://calibre-ebook.com) (MOBI).
 
 ```powershell
-.\compila.ps1 -PDF
-# Abrir: saida/guardiao-soberano-v1.1.pdf
+.\compila.ps1 -PDF        # PDF digital
+.\compila.ps1 -EPUB       # EPUB
+.\compila.ps1 -MOBI       # MOBI (requer Calibre)
+.\compila.ps1 -All        # todos os formatos
+# Saída: saida/guardiao-soberano-v1.1.pdf
 ```
 
-Ou navegue [`manuscrito/`](manuscrito/) no explorador de arquivos.
+Ou navegue [`manuscrito/`](manuscrito/) diretamente aqui no GitHub.
 
-### Prática guiada (laboratório)
+### Laboratório prático
 
 | Nível | Pasta | Primeiro lab |
 | --- | --- | --- |
@@ -49,34 +58,19 @@ Ou navegue [`manuscrito/`](manuscrito/) no explorador de arquivos.
 
 Índice completo: [`laboratorio/README.md`](laboratorio/README.md)
 
-### Validação (equipe — pasta local)
-
-Checklists e bateria de testes dos agentes:
-
-```
-soberano-equipe-dev/docs/validacao/VERIFICACAO-v1.1.md
-soberano-equipe-dev/docs/processo/BATERIA-TESTES-v1.1.md
-```
-
-*(Não versionados — ver `.gitignore`.)*
-
 ---
 
 ## Estrutura do repositório
 
 ```
-├── manuscrito/       # Livro (versionado)
-├── laboratorio/      # Labs + scripts (versionado)
+├── manuscrito/       # Livro (17 caps + 7 apêndices)
+├── laboratorio/      # Labs + scripts Tails/Whonix
 ├── recursos/         # CSS, metadata, capa
-├── imagens/          # Diagramas, ícones
-├── compila.ps1
-├── scripts/          # build: capa, diagramas P&B, auditoria (REMOTO)
-└── .gitignore        # soberano-equipe-dev/, saida/*, old/, CLAUDE.md, docs/
+├── imagens/          # Diagramas, ícones dos níveis
+├── scripts/          # Build: capa, diagramas P&B
+├── compila.ps1       # Pipeline de compilação
+└── saida/            # Gerada localmente (gitignored) — veja Releases
 ```
-
-**Offline (não entram no git):** `soberano-equipe-dev/` · `saida/` · `old/` · `CLAUDE.md` · `.claude/` · `docs/` (legado — usar `soberano-equipe-dev/docs/`)
-
-Detalhes: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ---
 
@@ -84,71 +78,16 @@ Detalhes: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 | Item | Status |
 | --- | --- |
-| Livro v1.1 | ✅ Editorial + mapa ambientes (13.4–13.8, 14.0/14.0b, Ap. H) |
-| Lacunas IA (rodada 2) | ✅ Trilha A concluída |
-| PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` → `saida/` |
-| Laboratório | 🟡 29/29 extraídos · 0/18 🔴 em hardware |
-| Validação equipe | 📋 `soberano-equipe-dev/docs/` — hardware por último |
-| Git | ✅ Local · **preparando remoto** |
-| GitHub | ⏸ Aguardando checklist CONFIRM (equipe) |
-
----
-
-## Preparar remoto (fase final)
-
-Antes de `git remote add` ou push, a equipe confirma:
-
-```
-soberano-equipe-dev/docs/CONFIRM-PRE-REMOTO.md   ← checklist R1–R10
-soberano-equipe-dev/scripts/bkp/backup-camada-local.ps1
-```
-
-| Camada | O quê |
-| --- | --- |
-| **Remoto (git)** | `manuscrito/`, `laboratorio/`, `recursos/`, `imagens/`, `compila.ps1` |
-| **Local (backup)** | `soberano-equipe-dev/`, `saida/` binários, `old/`, IA |
-| **Release (não git)** | PDF digital + EPUB + MOBI de `saida/` |
-
-**Não pushar até marcar CONFIRM.** Repo GitHub anterior foi removido (jun/2026).
-
----
-
-## Git — local (transição para remoto)
-
-Este repositório vive **no seu disco**. Não há `origin` até a equipe aprovar [`CONFIRM-PRE-REMOTO`](soberano-equipe-dev/docs/CONFIRM-PRE-REMOTO.md).
-
-```powershell
-cd I:\VIPs-com\Guardião-Soberano
-git status
-git add manuscrito/ laboratorio/ recursos/ imagens/
-git commit -m "descricao"
-```
-
-| Versionado no git | Offline (`.gitignore`) |
-| --- | --- |
-| `manuscrito/`, `laboratorio/`, `recursos/`, `imagens/` | `soberano-equipe-dev/` |
-| `compila.ps1`, README, LICENSE, CHANGELOG | `saida/*` (exc. `saida/README.md`) |
-| `saida/README.md` | `old/`, `CLAUDE.md`, `.claude/` |
-
-**Backup local:** `.\soberano-equipe-dev\scripts\bkp\backup-camada-local.ps1`
-
----
-
-## Rodada 2 — validação
-
-Checklists e prompt para agentes (pasta **local**):
-
-```
-soberano-equipe-dev/docs/processo/RETOMAR-AGENTES.md   ← copiar prompt daqui
-soberano-equipe-dev/docs/validacao/VERIFICACAO-v1.1.md
-soberano-equipe-dev/docs/processo/BATERIA-TESTES-v1.1.md
-```
+| Livro v1.1 | ✅ 17 caps + 7 apêndices (~46k palavras) |
+| PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` |
+| Laboratório | 29 labs · validação em hardware em andamento |
+| Versão | v1.1 (pré-release) — tag `v1.1.0` após validação |
 
 ---
 
 ## Contribuir
 
-Leia [`CONTRIBUTING.md`](CONTRIBUTING.md). Labs: [`laboratorio/_template-lab.md`](laboratorio/_template-lab.md).
+Leia [`CONTRIBUTING.md`](CONTRIBUTING.md). Template de lab: [`laboratorio/_template-lab.md`](laboratorio/_template-lab.md).
 
 ---
 

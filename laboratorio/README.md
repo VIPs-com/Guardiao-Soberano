@@ -27,8 +27,7 @@ Extensão **viva** do livro: tutoriais passo a passo, checklists de verificaçã
 
 Legenda: 🟢 Testado em hardware · 🟡 Extraído — revalidar em hardware · 🔴 Bloqueado
 
-> **Trilha completa:** 29 labs extraídos + 2 opcionais (N0/04, N1/04).  
-> **Validação (local):** `soberano-equipe-dev/docs/validacao/VERIFICACAO-v1.1.md` · agentes: `soberano-equipe-dev/docs/processo/BATERIA-TESTES-v1.1.md`
+> **Trilha completa:** 29 labs extraídos + 2 opcionais (N0/04, N1/04). Legenda: 🟢 Testado em hardware · 🟡 Aguardando validação · 🔴 Bloqueado.
 
 ---
 
@@ -54,11 +53,7 @@ Todo exercício novo deve seguir [`_template-lab.md`](_template-lab.md):
 
 ---
 
-## Inventário de recuperação
-
-Material bruto a transformar em labs: [`INVENTARIO-RECUPERACAO.md`](INVENTARIO-RECUPERACAO.md)
-
-Fontes internas (equipe): `soberano-equipe-dev/pesquisas/canonico/` e `old/manuscrito-backups/`
+## Referências
 
 Mapa de diagramas e ícones: [`../imagens/README.md`](../imagens/README.md)
 

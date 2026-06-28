@@ -21,4 +21,4 @@ Scripts em **texto claro** (`.sh`) — auditáveis, sem binários de terceiros.
 | `tails/backup-persistencia.sh` | Tails | 🟡 Extraído |
 | `whonix/verificar-tor.sh` | Whonix WS | 🔴 Pendente |
 
-Fonte bruta: `soberano-equipe-dev/pesquisas/canonico/04-manual-fortaleza/` e `old/manuscrito-backups/`
+Testar após cada release de Tails/Whonix — marcar 🟢 só com hardware real.

@@ -14,4 +14,3 @@ Ferramentas **públicas** — vão ao repositório remoto junto com `compila.ps1
 | --- | --- |
 | `scripts/` (esta) | ✅ Sim |
 | `laboratorio/scripts/` | ✅ Sim — Tails/Whonix nos labs |
-| `soberano-equipe-dev/scripts/` | ❌ Não — equipe, backup, organizar casa |

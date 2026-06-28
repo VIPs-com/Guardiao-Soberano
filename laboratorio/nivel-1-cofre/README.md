@@ -15,4 +15,4 @@
 
 `01` → `02` (**obrigatório**) → `03` → Nível 2 · `04` opcional DIY
 
-Progresso: `soberano-equipe-dev/docs/validacao/PROGRESSO-RODADA-2.md`
+Ordem: `01` → `02` (**obrigatório**) → `03` → Nível 2 · `04` opcional DIY.

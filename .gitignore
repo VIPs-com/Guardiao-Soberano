@@ -17,6 +17,9 @@ saida/*
 CLAUDE.md
 Claude.md
 
+# --- Arquivos de equipe dentro de pastas publicas ---
+laboratorio/INVENTARIO-RECUPERACAO.md
+
 # --- Arquivos que nao devem voltar para a raiz publica ---
 REPO-PUBLICO.md
 organizar-casa.ps1

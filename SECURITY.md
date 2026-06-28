@@ -25,10 +25,8 @@ qualquer problema como potencialmente grave.
 ## Como reportar
 
 1. **Não** abra issue pública com detalhes exploráveis.
-2. Envie descrição para o mantenedor do repositório (canal privado quando disponível).
+2. Use o canal **[Security Advisories](../../security/advisories/new)** do GitHub (privado).
 3. Inclua: arquivo/lab afetado, passo, impacto, reprodução mínima.
-
-Enquanto o projeto for **git local only**, reporte ao mantenedor por canal privado acordado (não use issues públicas).
 
 ---
 
