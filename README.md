@@ -27,7 +27,7 @@ Leia o livro para entender **por quê**; use o laboratório para **como fazer**.
 
 ### Baixar o livro
 
-Acesse a [página de Releases](../../releases) para baixar PDF, EPUB ou MOBI sem precisar compilar.
+Acesse a [página de Releases](https://github.com/VIPs-com/Guardiao-Soberano/releases) para baixar PDF, EPUB ou MOBI sem precisar compilar.
 
 ### Compilar localmente
 

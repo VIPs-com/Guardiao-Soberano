@@ -16,7 +16,7 @@ Entender e planejar migração do VirtualBox para **Qubes OS**: VM por função,
 
 ## Pré-requisitos
 
-- [ ] Hardware compatível: [Qubes HCL](https://www.qubes-os.org/compatibility/criteria/) — 16 GB+ RAM recomendado
+- [ ] Hardware compatível: [Qubes HCL](https://www.qubes-os.org/doc/hcl/) — 16 GB+ RAM recomendado
 - [ ] Whonix já dominado — [`../nivel-3-observador/01-whonix-virtualbox-completo.md`](../nivel-3-observador/01-whonix-virtualbox-completo.md)
 - [ ] Backup 3-2-1 funcional (N6/01)
 

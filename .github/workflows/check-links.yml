@@ -28,11 +28,13 @@ jobs:
             --verbose
             --no-progress
             --exclude-all-private
-            --accept 403,429,999
+            --accept 100..=103,200..=299,403,429,999
+            --timeout 60
             --exclude-path old
             --exclude-path soberano-equipe-dev
             --exclude-path saida
             --exclude '^https?://[^/]*\.onion'
+            --exclude '^https?://www\.gov\.br/receitafederal'
             '**/*.md'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

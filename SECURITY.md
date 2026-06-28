@@ -25,7 +25,7 @@ qualquer problema como potencialmente grave.
 ## Como reportar
 
 1. **Não** abra issue pública com detalhes exploráveis.
-2. Use o canal **[Security Advisories](../../security/advisories/new)** do GitHub (privado).
+2. Use o canal **[Security Advisories](https://github.com/VIPs-com/Guardiao-Soberano/security/advisories/new)** do GitHub (privado).
 3. Inclua: arquivo/lab afetado, passo, impacto, reprodução mínima.
 
 ---
