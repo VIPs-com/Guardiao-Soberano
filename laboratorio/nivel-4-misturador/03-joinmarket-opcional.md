@@ -157,5 +157,5 @@ Verificação on-chain (opcional):
 ## Referências oficiais
 
 - [JoinMarket-Org/joinmarket-clientserver](https://github.com/JoinMarket-Org/joinmarket-clientserver)
-- [JoinMarket docs](https://joinmarket.readthedocs.io/)
+- [JoinMarket docs](https://joinmarket-org.github.io/joinmarket-clientserver/)
 - Livro: Cap. 9 passo 4.7 · Cap. 15.2 · Glossário (JoinMarket)

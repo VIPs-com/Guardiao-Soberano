@@ -55,7 +55,7 @@ gpg --verify tails-amd64-*.img.sig tails-amd64-*.img
 
 Resultado esperado: `Good signature from "Tails developers..."`
 
-4. Grave no USB com [balenaEtcher](https://etcher.balancer.io/) ou `dd` (cuidado com o dispositivo correto).
+4. Grave no USB com [balenaEtcher](https://etcher.balena.io/) ou `dd` (cuidado com o dispositivo correto).
 
 ---
 
@@ -204,7 +204,7 @@ Na interface:
 - [Tails — Persistent Storage](https://tails.net/doc/persistent_storage/)
 - [Sparrow Wallet](https://sparrowwallet.com/docs/)
 - [Feather Wallet](https://featherwallet.org/docs/)
-- [eigenwallet](https://github.com/eigenwallet/eigenwallet)
+- [eigenwallet](https://github.com/eigenwallet/core)
 - [RetoSwap / Haveno Reto](https://github.com/retoaccess1/haveno-reto)
 
 ---

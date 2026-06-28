@@ -127,4 +127,4 @@ Coin control e rotulagem: [`02-coin-control-postmix.md`](02-coin-control-postmix
 
 - Livro: `manuscrito/09-nivel-4-misturador.md`
 - Apêndice B: Whirlpool coordinator comunitário
-- https://sparrowwallet.com/docs/coinjoin.html
+- https://sparrowwallet.com/docs/spending-privately.html

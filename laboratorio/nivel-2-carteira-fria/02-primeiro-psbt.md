@@ -190,7 +190,7 @@ Isso completa o **Nível 2 — A Carteira Fria** no aspecto operacional. Próxim
 
 - Livro: `manuscrito/07-nivel-2-carteira-fria.md` (passo 2.6)
 - Livro: `manuscrito/06-nivel-1-cofre.md` (tutorial PSBT QR)
-- [Sparrow — Send transactions](https://sparrowwallet.com/docs/send-transactions.html)
+- [Sparrow — Spending privately](https://sparrowwallet.com/docs/spending-privately.html)
 
 ---
 

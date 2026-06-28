@@ -61,4 +61,3 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 [Unreleased]: https://github.com/VIPs-com/Guardiao-Soberano/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.0
-[1.0.0]: https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.0.0
