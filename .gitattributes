@@ -1,0 +1,3 @@
+# Garante encoding correto para arquivos de config Git
+.gitignore text eol=lf
+.gitattributes text eol=lf
