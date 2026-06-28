@@ -81,26 +81,18 @@ Legenda laboratório: 🟢 testado em hardware · 🟡 extraído (aguarda hardwa
 | Scripts Tails | 🟡 6/6 — testar com labs N2/N5/N6 |
 | Validação equipe | 📋 [`docs/equipe/BATERIA-TESTES-v1.1.md`](docs/equipe/BATERIA-TESTES-v1.1.md) — **rodada 2 aberta** |
 | CI (links) | ✅ `.github/workflows/check-links.yml` |
-| Remote GitHub | ⏳ Push nesta rodada — ver abaixo |
+| Remote GitHub | ✅ [`VIPs-com/Guardiao-Soberano`](https://github.com/VIPs-com/Guardiao-Soberano) |
 
 ---
 
 ## Publicar no GitHub
 
-Repositório local pronto; ainda não há remote configurado. Conta `VIPs-com` autenticada no `gh`.
+Repositório público: **https://github.com/VIPs-com/Guardiao-Soberano**
 
 ```powershell
-# Criar repo público e enviar (ajuste visibilidade se preferir private)
-gh repo create VIPs-com/Guardiao-Soberano --public `
-  --description "Manual de Auto-Custódia Bitcoin com Privacidade (v1.1)" `
-  --source=. --remote=origin --push
-
-# Se o repo já existir, só adicionar remote e push:
-git remote add origin https://github.com/VIPs-com/Guardiao-Soberano.git
-git push -u origin main
+git push origin main
+# Releases (PDF/EPUB): anexar artefatos de saida/ manualmente — pasta saida/ nao e versionada
 ```
-
-Arquivos de saída (`saida/`) e pastas locais (`soberano-equipe-dev/`, `old/`) permanecem no `.gitignore`.
 
 ---
 
