@@ -13,7 +13,25 @@ Gerar arquivos atualizados:
 ## Antes de enviar à gráfica
 
 - [ ] PDF gráfica gerado hoje (`guardiao-soberano-v1.1-grafica.pdf`)
-- [ ] Capa miolo separada: `recursos/cover-a4.jpg` (2480×3508 px, A4, 300 DPI) — gerar com `.\scripts\export-cover-a4.ps1`
+## Capa (arte aprovada — master A4 retrato)
+
+Master: `imagens/cover-a4.png` (**2480 × 3508**, capa final aprovada). Cópia canónica: `imagens/cover-master.png` (sincronizada pelo script). Legado letterbox: `cover-master-letterbox.png`; paisagem: `cover-master-landscape.png`.
+
+Gerar capa A4 + e-book a partir do master:
+
+```powershell
+.\scripts\export-cover-portrait.ps1
+```
+
+| Arquivo | Formato |
+| --- | --- |
+| `recursos/cover-a4.jpg` | A4 **2480 × 3508** px @ 300 DPI |
+| `recursos/cover.jpg` | E-book **1600 × 2560** px |
+| `imagens/cover-a4.png` | PNG A4 |
+| `imagens/cover.png` | PNG e-book |
+
+- [ ] Capa frente A4: `recursos/cover-a4.jpg`
+- [ ] Contra-capa A4: `recursos/contra-capa-a4.jpg` *(pendente)*
 - [ ] Capa e-book: `recursos/cover.jpg` (vertical, EPUB/MOBI)
 - [ ] Metadados: título, subtítulo, versão 1.1, CC BY-NC-SA 4.0
 - [ ] Formato miolo: **A4** (210×297 mm)

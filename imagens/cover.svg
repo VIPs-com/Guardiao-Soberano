@@ -1,136 +1,253 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2560" width="1600" height="2560">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#000000"/>
-      <stop offset="100%" stop-color="#1a3a1a"/>
+    <!-- Main background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="42%" r="65%" gradientUnits="objectBoundingBox">
+      <stop offset="0%"   stop-color="#0d1b2e"/>
+      <stop offset="60%"  stop-color="#060d18"/>
+      <stop offset="100%" stop-color="#020509"/>
+    </radialGradient>
+
+    <!-- Glow halo behind lock -->
+    <radialGradient id="glowHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#F7931A" stop-opacity="0.18"/>
+      <stop offset="55%"  stop-color="#F7931A" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#F7931A" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Lock body gradient -->
+    <linearGradient id="lockBodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0f2035"/>
+      <stop offset="100%" stop-color="#060d18"/>
     </linearGradient>
-    <!-- Mountain shadow for depth -->
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+
+    <!-- Orange glow filter -->
+    <filter id="orangeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
+
+    <!-- Soft glow for title -->
+    <filter id="titleGlow" x="-5%" y="-20%" width="110%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip path for circuit traces area -->
+    <clipPath id="circuitClip">
+      <rect x="0" y="700" width="1600" height="1400"/>
+    </clipPath>
   </defs>
 
-  <!-- Background gradient -->
-  <rect width="1600" height="2560" fill="url(#bg)"/>
+  <!-- ═══ BACKGROUND ═══ -->
+  <rect width="1600" height="2560" fill="url(#bgGrad)"/>
 
-  <!-- Decorative horizontal lines (subtle) -->
-  <line x1="80" y1="120" x2="1520" y2="120" stroke="#2a5a2a" stroke-width="1" opacity="0.4"/>
-  <line x1="80" y1="2440" x2="1520" y2="2440" stroke="#2a5a2a" stroke-width="1" opacity="0.4"/>
+  <!-- Subtle grid — very faint structural lines -->
+  <g opacity="0.07" stroke="#4488bb" stroke-width="1" fill="none">
+    <!-- Vertical lines -->
+    <line x1="200"  y1="0" x2="200"  y2="2560"/>
+    <line x1="400"  y1="0" x2="400"  y2="2560"/>
+    <line x1="600"  y1="0" x2="600"  y2="2560"/>
+    <line x1="800"  y1="0" x2="800"  y2="2560"/>
+    <line x1="1000" y1="0" x2="1000" y2="2560"/>
+    <line x1="1200" y1="0" x2="1200" y2="2560"/>
+    <line x1="1400" y1="0" x2="1400" y2="2560"/>
+    <!-- Horizontal lines -->
+    <line x1="0" y1="320"  x2="1600" y2="320"/>
+    <line x1="0" y1="640"  x2="1600" y2="640"/>
+    <line x1="0" y1="960"  x2="1600" y2="960"/>
+    <line x1="0" y1="1280" x2="1600" y2="1280"/>
+    <line x1="0" y1="1600" x2="1600" y2="1600"/>
+    <line x1="0" y1="1920" x2="1600" y2="1920"/>
+    <line x1="0" y1="2240" x2="1600" y2="2240"/>
+  </g>
 
-  <!-- Bitcoin symbol (large, centered) -->
-  <text x="800" y="380" font-family="DejaVu Sans,Arial,sans-serif" font-size="220" font-weight="bold"
-        text-anchor="middle" fill="#F7931A" opacity="0.9">₿</text>
+  <!-- Circuit trace accents — horizontal runs with joints -->
+  <g opacity="0.12" stroke="#F7931A" stroke-width="1.5" fill="none">
+    <line x1="80"   y1="1280" x2="360"  y2="1280"/>
+    <line x1="360"  y1="1280" x2="360"  y2="1120"/>
+    <line x1="360"  y1="1120" x2="440"  y2="1120"/>
 
-  <!-- Title -->
-  <text x="800" y="560" font-family="DejaVu Sans,Arial,sans-serif" font-size="96" font-weight="bold"
-        text-anchor="middle" fill="#FFFFFF" letter-spacing="8">GUARDIÃO</text>
-  <text x="800" y="670" font-family="DejaVu Sans,Arial,sans-serif" font-size="96" font-weight="bold"
-        text-anchor="middle" fill="#FFFFFF" letter-spacing="8">SOBERANO</text>
+    <line x1="1520" y1="1280" x2="1240" y2="1280"/>
+    <line x1="1240" y1="1280" x2="1240" y2="1120"/>
+    <line x1="1240" y1="1120" x2="1160" y2="1120"/>
 
-  <!-- Orange underline accent -->
-  <rect x="250" y="695" width="1100" height="4" fill="#F7931A" rx="2"/>
+    <line x1="80"   y1="1600" x2="320"  y2="1600"/>
+    <line x1="320"  y1="1600" x2="320"  y2="1680"/>
+    <line x1="320"  y1="1680" x2="440"  y2="1680"/>
 
-  <!-- Subtitle -->
-  <text x="800" y="765" font-family="DejaVu Sans,Arial,sans-serif" font-size="38" font-weight="normal"
-        text-anchor="middle" fill="#CCCCCC">Da Semente ao Ecossistema Completo</text>
+    <line x1="1520" y1="1600" x2="1280" y2="1600"/>
+    <line x1="1280" y1="1600" x2="1280" y2="1680"/>
+    <line x1="1280" y1="1680" x2="1160" y2="1680"/>
+  </g>
+  <!-- Circuit nodes (tiny dots) -->
+  <g fill="#F7931A" opacity="0.15">
+    <circle cx="360"  cy="1280" r="4"/>
+    <circle cx="360"  cy="1120" r="4"/>
+    <circle cx="1240" cy="1280" r="4"/>
+    <circle cx="1240" cy="1120" r="4"/>
+    <circle cx="320"  cy="1600" r="4"/>
+    <circle cx="320"  cy="1680" r="4"/>
+    <circle cx="1280" cy="1600" r="4"/>
+    <circle cx="1280" cy="1680" r="4"/>
+  </g>
 
-  <!-- Description -->
-  <text x="800" y="830" font-family="DejaVu Sans,Arial,sans-serif" font-size="28" font-weight="normal"
-        text-anchor="middle" fill="#999999">Manual Prático de Auto-Custódia Bitcoin com Privacidade</text>
+  <!-- ═══ TOP BORDER ACCENT ═══ -->
+  <rect x="0" y="0" width="1600" height="6" fill="#F7931A" opacity="0.9"/>
 
-  <!-- Mountain silhouette with 7 peaks (ascending left to right) -->
-  <!-- Path: starts from bottom-left, goes up to each peak, then down to bottom-right -->
-  <path d="
-    M 0,2100
-    L 100,2100
-    L 200,1850
-    L 310,1960
-    L 430,1720
-    L 550,1840
-    L 680,1560
-    L 800,1680
-    L 940,1380
-    L 1060,1510
-    L 1200,1150
-    L 1330,1280
-    L 1480,940
-    L 1600,1080
-    L 1600,2100
-    Z"
-    fill="#0f2010" opacity="0.95"/>
+  <!-- ═══ GLOW HALO (behind lock) ═══ -->
+  <ellipse cx="800" cy="1350" rx="520" ry="480" fill="url(#glowHalo)"/>
 
-  <!-- Mountain highlights (lighter ridges) -->
-  <path d="
-    M 200,1850 L 310,1960
-    M 430,1720 L 550,1840
-    M 680,1560 L 800,1680
-    M 940,1380 L 1060,1510
-    M 1200,1150 L 1330,1280"
-    stroke="#1e4a1e" stroke-width="2" fill="none"/>
+  <!-- ═══ LOCK SYMBOL ═══ -->
 
-  <!-- Green flags at each of the 7 peaks -->
-  <!-- Peak 1: x=200, y=1850 -->
-  <line x1="200" y1="1850" x2="200" y2="1790" stroke="#3B6D11" stroke-width="3"/>
-  <polygon points="200,1790 235,1810 200,1830" fill="#3B6D11"/>
+  <!-- Shackle (arch) — outer glow layer -->
+  <path d="M 580 1100 L 580 870 A 220 220 0 0 1 1020 870 L 1020 1100"
+        stroke="#F7931A" stroke-width="72" stroke-linecap="round"
+        fill="none" opacity="0.15"/>
 
-  <!-- Peak 2: x=430, y=1720 -->
-  <line x1="430" y1="1720" x2="430" y2="1655" stroke="#3B6D11" stroke-width="3"/>
-  <polygon points="430,1655 468,1676 430,1697" fill="#3B6D11"/>
+  <!-- Shackle (arch) — main orange line -->
+  <path d="M 580 1100 L 580 870 A 220 220 0 0 1 1020 870 L 1020 1100"
+        stroke="#F7931A" stroke-width="46" stroke-linecap="round"
+        fill="none" filter="url(#orangeGlow)"/>
 
-  <!-- Peak 3: x=680, y=1560 -->
-  <line x1="680" y1="1560" x2="680" y2="1490" stroke="#3B6D11" stroke-width="3"/>
-  <polygon points="680,1490 722,1512 680,1534" fill="#3B6D11"/>
+  <!-- Shackle inner highlight -->
+  <path d="M 580 1100 L 580 870 A 220 220 0 0 1 1020 870 L 1020 1100"
+        stroke="#FFD080" stroke-width="6" stroke-linecap="round"
+        fill="none" opacity="0.35"/>
 
-  <!-- Peak 4: x=940, y=1380 -->
-  <line x1="940" y1="1380" x2="940" y2="1308" stroke="#3B6D11" stroke-width="3"/>
-  <polygon points="940,1308 985,1331 940,1354" fill="#3B6D11"/>
+  <!-- Lock body — shadow -->
+  <rect x="410" y="1090" width="780" height="600" rx="48"
+        fill="#000000" opacity="0.5" transform="translate(6,8)"/>
 
-  <!-- Peak 5: x=1200, y=1150 -->
-  <line x1="1200" y1="1150" x2="1200" y2="1072" stroke="#3B6D11" stroke-width="3"/>
-  <polygon points="1200,1072 1248,1096 1200,1120" fill="#3B6D11"/>
+  <!-- Lock body — fill -->
+  <rect x="410" y="1090" width="780" height="600" rx="48"
+        fill="url(#lockBodyGrad)"/>
 
-  <!-- Peak 6: x=1480, y=940 -->
-  <line x1="1480" y1="940" x2="1480" y2="858" stroke="#3B6D11" stroke-width="3"/>
-  <polygon points="1480,858 1532,884 1480,910" fill="#3B6D11"/>
+  <!-- Lock body — border outer glow -->
+  <rect x="410" y="1090" width="780" height="600" rx="48"
+        fill="none" stroke="#F7931A" stroke-width="12" opacity="0.25"/>
 
-  <!-- Foreground mountain layer (darker, closer) -->
-  <path d="
-    M 0,2200
-    L 150,2100
-    L 300,2180
-    L 500,1980
-    L 700,2060
-    L 900,1870
-    L 1100,1950
-    L 1350,1720
-    L 1600,1800
-    L 1600,2200
-    Z"
-    fill="#080f08" opacity="0.7"/>
+  <!-- Lock body — border main -->
+  <rect x="410" y="1090" width="780" height="600" rx="48"
+        fill="none" stroke="#F7931A" stroke-width="4" opacity="0.85"/>
 
-  <!-- Level indicators strip -->
-  <rect x="80" y="2150" width="1440" height="70" fill="#0a1a0a" rx="8" opacity="0.8"/>
-  <text x="160" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🌱</text>
-  <text x="360" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🔒</text>
-  <text x="560" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">👁️</text>
-  <text x="760" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🏰</text>
-  <text x="960" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🔀</text>
-  <text x="1160" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">🔄</text>
-  <text x="1360" y="2193" font-family="Segoe UI Emoji,sans-serif" font-size="36" text-anchor="middle">👑</text>
-  <!-- Level labels -->
-  <text x="160" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#6aaa3a">N0</text>
-  <text x="360" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#cc4444">N1</text>
-  <text x="560" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#4477cc">N2</text>
-  <text x="760" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#7766cc">N3</text>
-  <text x="960" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#cc8833">N4</text>
-  <text x="1160" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#33aa77">N5</text>
-  <text x="1360" y="2230" font-family="DejaVu Sans,Arial,sans-serif" font-size="16" text-anchor="middle" fill="#6aaa3a">N6</text>
+  <!-- Lock body — inner subtle bevel -->
+  <rect x="428" y="1108" width="744" height="564" rx="38"
+        fill="none" stroke="#ffffff" stroke-width="1" opacity="0.05"/>
 
-  <!-- Creative Commons + License note -->
-  <text x="800" y="2370" font-family="DejaVu Sans,Arial,sans-serif" font-size="22" font-weight="normal"
-        text-anchor="middle" fill="#666666">CC BY-NC-SA 4.0</text>
+  <!-- Bitcoin ₿ inside lock body — glow layer -->
+  <text x="800" y="1560"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="280" font-weight="bold"
+        text-anchor="middle"
+        fill="#F7931A" opacity="0.2">₿</text>
 
-  <!-- Footer -->
-  <text x="800" y="2420" font-family="DejaVu Sans,Arial,sans-serif" font-size="26" font-weight="normal"
-        text-anchor="middle" fill="#888888">Versão 1.1 — Junho 2026</text>
+  <!-- Bitcoin ₿ inside lock body — main -->
+  <text x="800" y="1560"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="280" font-weight="bold"
+        text-anchor="middle"
+        fill="#F7931A" opacity="0.92"
+        filter="url(#orangeGlow)">₿</text>
+
+  <!-- Keyhole slot below ₿ -->
+  <rect x="780" y="1570" width="40" height="90" rx="20"
+        fill="#F7931A" opacity="0.6"/>
+
+  <!-- ═══ TITLE ═══ -->
+
+  <!-- "GUARDIÃO" — glow layer -->
+  <text x="800" y="420"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="148" font-weight="bold" letter-spacing="20"
+        text-anchor="middle"
+        fill="#FFFFFF" opacity="0.12"
+        transform="translate(0,6)">GUARDIÃO</text>
+
+  <!-- "GUARDIÃO" — main -->
+  <text x="800" y="420"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="148" font-weight="bold" letter-spacing="20"
+        text-anchor="middle"
+        fill="#FFFFFF">GUARDIÃO</text>
+
+  <!-- "SOBERANO" — glow layer -->
+  <text x="800" y="580"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="148" font-weight="bold" letter-spacing="20"
+        text-anchor="middle"
+        fill="#F7931A" opacity="0.20"
+        transform="translate(0,6)">SOBERANO</text>
+
+  <!-- "SOBERANO" — main -->
+  <text x="800" y="580"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="148" font-weight="bold" letter-spacing="20"
+        text-anchor="middle"
+        fill="#F7931A">SOBERANO</text>
+
+  <!-- Decorative accent line under title -->
+  <rect x="160" y="615" width="1280" height="2" fill="#F7931A" opacity="0.9" rx="1"/>
+  <!-- Fine white highlight above orange line -->
+  <rect x="160" y="613" width="1280" height="1" fill="#FFFFFF" opacity="0.15" rx="1"/>
+
+  <!-- Title sub-caption: "Da Semente ao Ecossistema Completo" -->
+  <text x="800" y="685"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="42" font-weight="normal" letter-spacing="4"
+        text-anchor="middle"
+        fill="#AABBCC">Da Semente ao Ecossistema Completo</text>
+
+  <!-- ═══ SUBTITLE SECTION (below lock) ═══ -->
+
+  <!-- Separator dots -->
+  <g fill="#F7931A" opacity="0.5">
+    <circle cx="740" cy="1770" r="4"/>
+    <circle cx="800" cy="1770" r="4"/>
+    <circle cx="860" cy="1770" r="4"/>
+  </g>
+
+  <!-- Primary description -->
+  <text x="800" y="1850"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="40" font-weight="normal" letter-spacing="2"
+        text-anchor="middle"
+        fill="#CCDDEE">Manual Prático de Auto-Custódia Bitcoin</text>
+
+  <text x="800" y="1910"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="40" font-weight="normal" letter-spacing="2"
+        text-anchor="middle"
+        fill="#CCDDEE">com Privacidade · em Português</text>
+
+  <!-- ═══ DECORATIVE DIVIDER ═══ -->
+  <line x1="160" y1="2060" x2="660" y2="2060" stroke="#1e3a5a" stroke-width="1"/>
+  <circle cx="800" cy="2060" r="5" fill="none" stroke="#F7931A" stroke-width="2" opacity="0.7"/>
+  <circle cx="800" cy="2060" r="2" fill="#F7931A" opacity="0.7"/>
+  <line x1="940" y1="2060" x2="1440" y2="2060" stroke="#1e3a5a" stroke-width="1"/>
+
+  <!-- ═══ FOOTER ═══ -->
+
+  <!-- CC License -->
+  <text x="800" y="2200"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="28" font-weight="normal" letter-spacing="3"
+        text-anchor="middle"
+        fill="#445566">CC BY-NC-SA 4.0</text>
+
+  <!-- Version -->
+  <text x="800" y="2270"
+        font-family="DejaVu Sans, Arial, sans-serif"
+        font-size="32" font-weight="normal" letter-spacing="2"
+        text-anchor="middle"
+        fill="#556677">Versão 1.1 · Junho 2026</text>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="2540" width="1600" height="20" fill="#F7931A" opacity="0.7"/>
+  <rect x="0" y="2536" width="1600" height="4" fill="#FFFFFF" opacity="0.08"/>
 </svg>
