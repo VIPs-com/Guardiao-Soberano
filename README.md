@@ -13,7 +13,7 @@ Versão 1.1 — Junho de 2026 | Português (Brasil)
 
 | Camada | Pasta | Função |
 | --- | --- | --- |
-| **Livro** | [`manuscrito/`](manuscrito/) | Trilha conceitual — 8 níveis (0–7), ~46k palavras na Parte II |
+| **Livro** | [`manuscrito/`](manuscrito/) | Trilha conceitual — 8 níveis (0–7), ~46k palavras (31 arquivos) |
 | **Laboratório** | [`laboratorio/`](laboratorio/) | Tutoriais passo a passo, checklists e scripts |
 | **Compilação** | [`compila.ps1`](compila.ps1) | PDF, EPUB, MOBI, PDF gráfica |
 
@@ -72,10 +72,9 @@ Legenda laboratório: 🟢 testado em hardware · 🟡 extraído (aguarda hardwa
 
 | Item | Status |
 | --- | --- |
-| Livro v1.1 (manuscrito) | ✅ Editorial IA fechado — Fase 4: validação humano + hardware |
+| Livro v1.1 (manuscrito) | ✅ Editorial IA · tipografia IBM Plex · ícones N0–N7 redesenhados · capa Canva · agentes A–D aplicados — Fase 4: validação humano + hardware |
 | PDF / EPUB / MOBI | ✅ Compilável localmente (IBM Plex Serif/Sans/Mono; fallback DejaVu) |
 | Prova gráfica | 📋 [`recursos/prova-grafica-checklist.md`](recursos/prova-grafica-checklist.md) |
-| Auditoria layout v1.2 | 📋 [`docs/auditoria-tipografia-tabelas.md`](docs/auditoria-tipografia-tabelas.md) · `.\scripts\auditoria-layout.ps1` |
 | Laboratório | 🟡 **29/29 extraídos** · **0/18** labs 🔴 validados em hardware |
 | Scripts Tails | 🟡 6/6 extraídos — aguarda teste com labs N2/N5/N6 |
 | CI (links) | ✅ `.github/workflows/check-links.yml` |
