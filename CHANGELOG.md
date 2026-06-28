@@ -9,6 +9,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- **Ícones de nível:** redesign completo N0–N7 com SVG paths puros (sem emoji); fundo escuro radial consistente com a capa; símbolos corretos: N2 floco (carteira fria), N3 olho (observador), N5 BTC↔XMR; tamanho 30mm no PDF
 - **Capa:** redesign completo (Canva) — cadeado geométrico 3D com glow laranja Bitcoin ₿, fundo azul profundo radial, tipografia Montserrat Black em duas cores; `cover-masters-aprovada.png` preservado como original aprovado
 - **Scripts:** `export-cover-portrait.ps1` unificado — gera e-book (1600×2560) e A4 gráfica (2480×3508 @300 Dpi) a partir do mesmo master
 - **Integração complementos caps 05–12:** ~29K palavras de lixo/duplicatas removidas; `RELATORIO-INTEGRACAO-COMPLEMENTOS.md` criado
