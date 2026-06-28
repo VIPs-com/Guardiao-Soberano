@@ -13,7 +13,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 - **Cap. 14.0b** — air-gap vs Tails vs Whonix vs mobile; árvore de decisão
 - **Apêndice H** — consulta rápida (três perguntas + matriz + fluxos)
 - **Glossário:** entradas expandidas air-gap, PSBT bridge, watch-only, Tails A/B, Whonix
-- **Docs versionados:** `docs/validacao/VERIFICACAO-v1.1.md`, `docs/equipe/BATERIA-TESTES-v1.1.md`
+- **Docs versionados:** movidos para `soberano-equipe-dev/docs/` (offline, `.gitignore`)
 - **Labs no miolo:** blocos **Lab:** Caps. 9–10 (N4 Whirlpool, N5 swap/ABCTracer)
 - **KruxMobileApp, Specter, mapa 14.0** (rodada anterior consolidada neste push)
 
@@ -21,7 +21,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 - Prefácio, Parte III, Ap. G — referências ao mapa de ambientes
 - Caps. 7, 8, 11, 15, 16 — cross-links Ap. H e labs
-- `README.md` — status rodada 2, pasta `docs/`
+- `README.md` — git local, pasta equipe offline
 - `compila.ps1` — inclui `H-ambientes-fluxos.md`
 
 ### Próximo (rodada 2)

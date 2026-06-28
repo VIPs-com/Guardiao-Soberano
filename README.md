@@ -11,14 +11,15 @@ Versão 1.1 — Junho de 2026 | Português (Brasil)
 
 ## O que é este projeto
 
-| Camada | Pasta | Função |
-| --- | --- | --- |
-| **Livro** | [`manuscrito/`](manuscrito/) | Trilha conceitual — 8 níveis (0–7), ~71k palavras (32 arquivos + Ap. H) |
-| **Laboratório** | [`laboratorio/`](laboratorio/) | Tutoriais passo a passo, checklists e scripts |
-| **Validação** | [`docs/`](docs/) | Checklist pré-release + instruções para agentes |
-| **Compilação** | [`compila.ps1`](compila.ps1) | PDF, EPUB, MOBI, PDF gráfica |
+| Camada | Pasta | No git? | Função |
+| --- | --- | --- | --- |
+| **Livro** | [`manuscrito/`](manuscrito/) | ✅ | Trilha — 8 níveis (0–7), ~71k palavras (32 arquivos + Ap. H) |
+| **Laboratório** | [`laboratorio/`](laboratorio/) | ✅ | Tutoriais passo a passo e scripts |
+| **Compilação** | [`compila.ps1`](compila.ps1) | ✅ | PDF, EPUB, MOBI, PDF gráfica → `saida/` |
+| **Equipe / validação** | `soberano-equipe-dev/` | ❌ local | Checklists, agentes, relatórios |
+| **Saída compilada** | `saida/` | ❌ local | Binários gerados |
 
-Leia o livro para entender **por quê**; use o laboratório para **como fazer** com verificação no final de cada exercício.
+Leia o livro para entender **por quê**; use o laboratório para **como fazer**.
 
 ---
 
@@ -31,7 +32,7 @@ Leia o livro para entender **por quê**; use o laboratório para **como fazer** 
 # Abrir: saida/guardiao-soberano-v1.1.pdf
 ```
 
-Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
+Ou navegue [`manuscrito/`](manuscrito/) no explorador de arquivos.
 
 ### Prática guiada (laboratório)
 
@@ -39,69 +40,85 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
 | --- | --- | --- |
 | 0 | [nivel-0-semente](laboratorio/nivel-0-semente/) | [Seed com dados](laboratorio/nivel-0-semente/01-gerar-seed-dados.md) · [Backup aço](laboratorio/nivel-0-semente/02-backup-aco.md) |
 | 1 | [nivel-1-cofre](laboratorio/nivel-1-cofre/) | [HW init](laboratorio/nivel-1-cofre/01-hw-wallet-inicializacao.md) · [Restore](laboratorio/nivel-1-cofre/02-teste-restauracao.md) |
-| 2 | [nivel-2-carteira-fria](laboratorio/nivel-2-carteira-fria/) | [Sparrow watch-only](laboratorio/nivel-2-carteira-fria/01-sparrow-watching-only.md) · [Primeiro PSBT](laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md) · [KeePassXC](laboratorio/nivel-2-carteira-fria/03-keepassxc-tails.md) · [Electrum](laboratorio/nivel-2-carteira-fria/04-electrum-tails.md) · [Tails setup](laboratorio/nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md) |
-| 3 | [nivel-3-observador](laboratorio/nivel-3-observador/) | [Whonix VirtualBox](laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md) · [Node + EPS](laboratorio/nivel-3-observador/02-bitcoin-node-eps-onion.md) · [Migração Tails](laboratorio/nivel-3-observador/04-migracao-tails-whonix.md) |
-| 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | [Whirlpool](laboratorio/nivel-4-misturador/01-whirlpool-primeiro-mix.md) · [Coin control](laboratorio/nivel-4-misturador/02-coin-control-postmix.md) · [JoinMarket](laboratorio/nivel-4-misturador/03-joinmarket-opcional.md) |
-| 5 | N5 | [nivel-5-trocador](laboratorio/nivel-5-trocador/) | [eigenwallet](laboratorio/nivel-5-trocador/01-eigenwallet-whonix-btc-xmr.md) · [Feather](laboratorio/nivel-5-trocador/02-feather-tails-instalacao.md) · [RetoSwap](laboratorio/nivel-5-trocador/03-retoswap-xmr-btc.md) · [ABCTracer](laboratorio/nivel-5-trocador/04-defesa-abctracer.md) |
-| 6 | [nivel-6-soberano](laboratorio/nivel-6-soberano/) | [Backup 3-2-1](laboratorio/nivel-6-soberano/01-backup-3-2-1.md) · [Scripts Tails](laboratorio/nivel-6-soberano/02-scripts-operador-tails.md) |
-| 7 | [nivel-7-mestre](laboratorio/nivel-7-mestre/) | [Multisig 2-of-3](laboratorio/nivel-7-mestre/01-multisig-2of3-trilha-a.md) |
+| 2 | [nivel-2-carteira-fria](laboratorio/nivel-2-carteira-fria/) | [Sparrow watch-only](laboratorio/nivel-2-carteira-fria/01-sparrow-watching-only.md) · [Primeiro PSBT](laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md) |
+| 3 | [nivel-3-observador](laboratorio/nivel-3-observador/) | [Whonix](laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md) · [Migração Tails](laboratorio/nivel-3-observador/04-migracao-tails-whonix.md) |
+| 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | [Whirlpool](laboratorio/nivel-4-misturador/01-whirlpool-primeiro-mix.md) · [Coin control](laboratorio/nivel-4-misturador/02-coin-control-postmix.md) |
+| 5 | [nivel-5-trocador](laboratorio/nivel-5-trocador/) | [eigenwallet](laboratorio/nivel-5-trocador/01-eigenwallet-whonix-btc-xmr.md) · [ABCTracer](laboratorio/nivel-5-trocador/04-defesa-abctracer.md) |
+| 6 | [nivel-6-soberano](laboratorio/nivel-6-soberano/) | [Backup 3-2-1](laboratorio/nivel-6-soberano/01-backup-3-2-1.md) |
+| 7 | [nivel-7-mestre](laboratorio/nivel-7-mestre/) | [Multisig](laboratorio/nivel-7-mestre/01-multisig-2of3-trilha-a.md) |
 
 Índice completo: [`laboratorio/README.md`](laboratorio/README.md)
+
+### Validação (equipe — pasta local)
+
+Checklists e bateria de testes dos agentes:
+
+```
+soberano-equipe-dev/docs/validacao/VERIFICACAO-v1.1.md
+soberano-equipe-dev/docs/processo/BATERIA-TESTES-v1.1.md
+```
+
+*(Não versionados — ver `.gitignore`.)*
 
 ---
 
 ## Estrutura do repositório
 
 ```
-├── manuscrito/       # Livro (32 .md + Ap. H)
-├── laboratorio/      # Extensão prática (29 labs)
-├── docs/             # VERIFICACAO-v1.1 + BATERIA-TESTES agentes
+├── manuscrito/       # Livro (versionado)
+├── laboratorio/      # Labs + scripts (versionado)
 ├── recursos/         # CSS, metadata, capa
-├── imagens/          # Diagramas, ícones, capa (ver imagens/README.md)
-├── LICENSE           # CC BY-NC-SA 4.0 (+ MIT para scripts)
-├── CONTRIBUTING.md   # Como contribuir
-├── CHANGELOG.md      # Histórico de versões
-└── SECURITY.md       # Reportar problemas em scripts
+├── imagens/          # Diagramas, ícones
+├── compila.ps1
+└── .gitignore        # soberano-equipe-dev/, saida/, old/, CLAUDE.md, docs/, .claude/
 ```
 
-Pastas locais (não versionadas): `soberano-equipe-dev/`, `old/`, `saida/`, `CLAUDE.md` — ver [`CONTRIBUTING.md`](CONTRIBUTING.md).
+**Offline (não entram no git):** `soberano-equipe-dev/` · `saida/` · `old/` · `CLAUDE.md` · `.claude/` · `docs/` (legado — usar `soberano-equipe-dev/docs/`)
+
+Detalhes: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ---
 
 ## Status
 
-Legenda laboratório: 🟢 testado em hardware · 🟡 extraído (aguarda hardware) · 🔴 bloqueado.
-
 | Item | Status |
 | --- | --- |
-| Livro v1.1 (manuscrito) | ✅ Editorial + **mapa ambientes** (13.4–13.8, 14.0/14.0b, Ap. H, glossário) |
-| PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` |
-| Prova gráfica | 📋 [`recursos/prova-grafica-checklist.md`](recursos/prova-grafica-checklist.md) · [`docs/validacao/VERIFICACAO-v1.1.md`](docs/validacao/VERIFICACAO-v1.1.md) |
-| Laboratório | 🟡 **29/29 extraídos** · **0/18** labs 🔴 em hardware |
-| Scripts Tails | 🟡 6/6 — testar com labs N2/N5/N6 |
-| Validação equipe | 📋 [`docs/equipe/BATERIA-TESTES-v1.1.md`](docs/equipe/BATERIA-TESTES-v1.1.md) — **rodada 2 aberta** |
-| CI (links) | ✅ `.github/workflows/check-links.yml` |
-| Remote GitHub | ✅ [`VIPs-com/Guardiao-Soberano`](https://github.com/VIPs-com/Guardiao-Soberano) |
+| Livro v1.1 | ✅ Editorial + mapa ambientes (13.4–13.8, 14.0/14.0b, Ap. H) |
+| PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` → `saida/` |
+| Laboratório | 🟡 29/29 extraídos · 0/18 🔴 em hardware |
+| Validação equipe | 📋 `soberano-equipe-dev/docs/` — rodada 2 |
+| Git | ✅ **Local** (`main`) — **sem remote** configurado |
+| GitHub | ⏸ Não publicado — configurar só após aprovação explícita |
 
 ---
 
-## Publicar no GitHub
-
-Repositório público: **https://github.com/VIPs-com/Guardiao-Soberano**
+## Git local (fluxo padrão)
 
 ```powershell
-git push origin main
-# Releases (PDF/EPUB): anexar artefatos de saida/ manualmente — pasta saida/ nao e versionada
+git status
+git add manuscrito/ laboratorio/   # nunca saida/ ou soberano-equipe-dev/
+git commit -m "descricao"
+# Sem git push ate remote aprovado
 ```
+
+### Publicar no GitHub (futuro — requer aprovação)
+
+```powershell
+# So depois de alinhar com a equipe:
+git remote add origin <URL-APROVADA>
+git push -u origin main
+```
+
+Artefatos `saida/` → Releases manuais ou distribuição local, **não** versionar no git.
 
 ---
 
 ## Contribuir
 
-Leia [`CONTRIBUTING.md`](CONTRIBUTING.md). Labs devem seguir [`laboratorio/_template-lab.md`](laboratorio/_template-lab.md).
+Leia [`CONTRIBUTING.md`](CONTRIBUTING.md). Labs: [`laboratorio/_template-lab.md`](laboratorio/_template-lab.md).
 
 ---
 
 ## Licença
 
-[Creative Commons BY-NC-SA 4.0](LICENSE) — scripts `.sh` sob MIT. Ver [`LICENSE`](LICENSE).
+[Creative Commons BY-NC-SA 4.0](LICENSE) — scripts `.sh` sob MIT.

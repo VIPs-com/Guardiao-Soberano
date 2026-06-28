@@ -13,19 +13,20 @@ Guardião-Soberano/
 ├── compila.ps1
 ├── manuscrito/              # livro
 ├── laboratorio/             # tutoriais e scripts
-├── docs/                    # VERIFICACAO-v1.1 + BATERIA-TESTES (equipe)
 ├── recursos/, imagens/
-└── .github/                 # templates e CI
+└── .github/                 # templates e CI (so roda se houver remote)
 ```
 
-**Não publicar** (`.gitignore`):
+**Não versionar** (`.gitignore`):
 
-| Pasta | Motivo |
+| Pasta / arquivo | Motivo |
 | --- | --- |
-| `soberano-equipe-dev/` | Pipeline interno — ver estrutura abaixo |
+| `soberano-equipe-dev/` | Pipeline interno, validação, relatórios agentes |
 | `old/` | Backups e duplicatas históricas |
-| `saida/` | Binários compilados → usar **GitHub Releases** |
-| `CLAUDE.md` | Contexto do projeto para IAs (mantenedores) — atualizar ao encerrar sessão |
+| `saida/` | Binários compilados (PDF, EPUB, MOBI) |
+| `docs/` | Legado — usar `soberano-equipe-dev/docs/` |
+| `CLAUDE.md` / `.claude/` | Contexto IA local |
+| `analise-pesquisas.md` | Notas de pesquisa local |
 
 Reorganizar localmente após restaurar backup:
 
