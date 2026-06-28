@@ -11,8 +11,10 @@
 | `03-primeiros-sats-sem-kyc.md` | RoboSats / P2P — checklist | 🟡 Extraído — revalidar em hardware |
 | `04-checklist-fase1-opcional.md` | Mapa Fase 1 → labs N0–N7 | 🟡 Extraído — revalidar em hardware |
 
-## Ordem sugerida
+## Ordem sugerida (rodada 2)
 
-`01` → `02` → Nível 1 (cofre) → `03` (primeira compra) · `04` = mapa opcional após N2
+`01` (simulação) → **N1** `01` → `02` → `03` · `02-backup-aco` no passo metal do N1 · `03-primeiros-sats` após N2
+
+Progresso: `soberano-equipe-dev/docs/validacao/PROGRESSO-RODADA-2.md` · Fase **A**
 
 Ver [`../INVENTARIO-RECUPERACAO.md`](../INVENTARIO-RECUPERACAO.md).

@@ -14,6 +14,10 @@ Adquirir e configurar um dispositivo **air-gapped** (sem WiFi, Bluetooth ou USB 
 
 **Pré-requisitos:** Nível 0 concluído.
 
+> **Labs (Fase A):** `01-hw-wallet-inicializacao` → `02-teste-restauracao` (**obrigatório**) → `03-psbt-via-qr` — pasta `laboratorio/nivel-1-cofre/`. Progresso: `soberano-equipe-dev/docs/validacao/PROGRESSO-RODADA-2.md`
+
+> **Mapa ambientes:** seed só no HW — Cap. **13.4**, Ap. **H**.
+
 ---
 
 ### Passo 1.0 — Escolher seu dispositivo
