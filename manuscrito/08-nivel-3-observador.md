@@ -14,6 +14,8 @@ Migrar para ambiente Whonix com **node próprio** (Bitcoin Core) e **EPS** (Elec
 
 **Pré-requisitos:** Nível 2 concluído + computador com **8 GB RAM mínimo** (16 GB recomendado para full node + três VMs).
 
+> **Labs (Fase C prep):** `01-whonix-virtualbox-completo` · `02-bitcoin-node-eps-onion` · `03-verificacao-pgp-downloads` · `04-migracao-tails-whonix` — `laboratorio/nivel-3-observador/`. Bridge PSBT: Cap. **13.8**, Ap. **H**.
+
 ---
 
 ### Passo 3.1 — Instalar VirtualBox no host

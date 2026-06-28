@@ -61,9 +61,9 @@ Escolha **um** dispositivo (livro: tabela Coldcard, Jade, Passport, SeedSigner, 
 ## Passo 4 — Seed com dice rolls (Passo 1.4)
 
 1. Menu: **New Wallet** → **Dice Rolls** (não "Quick Generate")
-2. Insira os lançamentos do Nível 0 (100+)
+2. Lance os dados **no próprio dispositivo** (100+ entradas) — **não** reutilize a simulação do N0/01; aqui nasce a seed **definitiva**
 3. Dispositivo exibe 24 palavras
-4. Anote em papel temporário → grave em metal (lab N0/02)
+4. Anote em papel temporário → grave em metal (lab N0/02 ou Passo 6b)
 5. Confirme palavras na tela do dispositivo
 
 ---

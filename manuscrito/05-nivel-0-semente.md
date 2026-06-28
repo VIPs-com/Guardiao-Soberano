@@ -104,6 +104,8 @@ João, um bitcoiner de São Paulo, comprou dois dados por R$12 na loja de jogos 
 
 ### Passo 0.4 — Converter entropia em seed (SIMULAÇÃO OFFLINE)
 
+> **Lab:** `laboratorio/nivel-0-semente/01-gerar-seed-dados.md` — passo a passo + checklist.
+
 Agora você vai **simular** a geração da seed para validar o processo. As palavras deste exercício **não** são sua seed definitiva — **não envie fundos** para elas. A seed **real** será gerada no **dispositivo air-gapped** que você escolher no Capítulo 6 (Coldcard, SeedSigner, Krux, Jade ou similar).
 
 - [ ] Em um computador COM INTERNET:

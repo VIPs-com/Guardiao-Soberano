@@ -14,6 +14,10 @@ Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow mon
 
 **Pré-requisitos:** Nível 1 concluído.
 
+> **Labs (Fase B):** `05-tails-setup-btc-xmr-completo` (setup) · `01-sparrow-watching-only` · `03-keepassxc-tails` · `02-primeiro-psbt` · `04-electrum-tails` (opcional) — `laboratorio/nivel-2-carteira-fria/`. Lacunas: `soberano-equipe-dev/docs/validacao/LACUNAS-RODADA-2.md`
+
+> **Ambiente:** Tails amnésico + persistência — Cap. **13.4–13.5**, Ap. **H**.
+
 ---
 
 ### Passo 2.1 — Instalar Tails OS (primeiro ambiente)

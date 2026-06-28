@@ -21,13 +21,23 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 - Prefácio, Parte III, Ap. G — referências ao mapa de ambientes
 - Caps. 7, 8, 11, 15, 16 — cross-links Ap. H e labs
+- **Rodada 2 lacunas (IA):** links labs Caps. 5–8, 11–12; Cap. 6 Passo 1.4 alinhado com lab N1/01 (dice **no HW**, não reutilizar N0)
 - `README.md` — git local, pasta equipe offline
 - `compila.ps1` — inclui `H-ambientes-fluxos.md`
 
+### Documentação interna (offline, `soberano-equipe-dev/docs/`)
+
+- `validacao/LACUNAS-RODADA-2.md` — 20+ lacunas IA corrigidas; backlog E-L1, Maria/João
+- `validacao/ESTRATEGIA-RODADA-2.md` — trilha A ✅ compila; trilha B hardware por último
+- `validacao/PROGRESSO-RODADA-2.md` — 18 labs 🔴 aguardando humano
+- `processo/RETOMAR-AGENTES.md` — prompt modo lacunas vs hardware
+
 ### Próximo (rodada 2 — git local)
 
-- Validação hardware 18 labs 🔴 — `soberano-equipe-dev/docs/validacao/VERIFICACAO-v1.1.md`
-- Prova gráfica 1× · tag `v1.1.0` **local** (sem push)
+- **CONFIRM remoto:** `soberano-equipe-dev/docs/CONFIRM-PRE-REMOTO.md` (checklist R1–R10)
+- **Backup camada local:** `soberano-equipe-dev/scripts/bkp/backup-camada-local.ps1`
+- **Trilha B:** validação hardware 18 labs — `PROGRESSO-RODADA-2.md` (por último)
+- PGP Ap. D · .onion Ap. B · prova gráfica 1× · tag `v1.1.0` **local** antes do push
 
 ---
 

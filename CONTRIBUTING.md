@@ -48,11 +48,19 @@ prompts/            Contexto IA (ex.: Privacy-OS-Hub) + cópia Guardião
 
 ---
 
-## Git — somente local
+## Git — local → remoto (fase final)
 
-- Commits apenas no disco: `git commit` — **sem** `git push` (sem remote).
-- Não versionar: `soberano-equipe-dev/`, `saida/`, `old/`, `CLAUDE.md`.
-- GitHub **off** por hora — repo acidental removido jun/2026.
+- Commits no disco: `git commit` — **sem push** até checklist [`CONFIRM-PRE-REMOTO`](soberano-equipe-dev/docs/CONFIRM-PRE-REMOTO.md) (R1–R10).
+- Não versionar: `soberano-equipe-dev/`, `saida/*` (exc. `saida/README.md`), `old/`, `CLAUDE.md`.
+- **Backup** antes do primeiro push: `.\soberano-equipe-dev\scripts\bkp\backup-camada-local.ps1`
+
+### Release vs git
+
+| Destino | Conteúdo |
+| --- | --- |
+| **Git** | Fontes: manuscrito, labs, recursos, imagens |
+| **GitHub Release** | `saida/*.pdf` (digital), `*.epub`, `*.mobi` |
+| **Só local** | `*-grafica*.pdf`, pesquisas, prompts agentes |
 
 (Scripts e docs internos não entram no git.)
 

@@ -14,6 +14,8 @@ Expandir conhecimento, contribuir com a comunidade, adaptar-se a novas ameaças 
 
 **Pré-requisitos:** Nível 6 concluído + mentalidade de aprendizado contínuo.
 
+> **Labs (N7):** `01-multisig-2of3-trilha-a` · `02-qubes-whonix-opcional` · `03-ensinar-guardiao` — `laboratorio/nivel-7-mestre/`.
+
 ---
 
 ### Trilhas de Especialização

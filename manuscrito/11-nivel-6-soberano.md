@@ -14,6 +14,8 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
 
 **Pré-requisitos:** Níveis 0–5 concluídos.
 
+> **Labs (Fase D):** `01-backup-3-2-1` · `02-scripts-operador-tails` · `03-mobile-calyxos` · `04-declaracao-cripto-brasil` — `laboratorio/nivel-6-soberano/`. Ecossistema: Cap. **13**.
+
 ---
 
 ### Passo 6.1 — Mapear seu ecossistema pessoal

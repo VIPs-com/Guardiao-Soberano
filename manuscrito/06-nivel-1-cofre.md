@@ -110,9 +110,8 @@ João pediu o Coldcard com cartão-presente de supermercado e recebeu na caixa p
 ### Passo 1.4 — Inicializar com dice rolls
 
 - [ ] Dispositivo → New Wallet → Dice Rolls (nova seed / lançamentos de dados)
-- [ ] Usar seus 100+ lançamentos de dados do Nível 0 (lista anotada em papel)
-- [ ] Se perdeu a lista: refaça os lançamentos
-  - não reutilize palavras de exercício do Passo 0.4
+- [ ] Lance os dados **de novo no dispositivo** (100+ entradas) — **não** reutilize os números do exercício Passo 0.4; aqui nasce a seed **definitiva**
+- [ ] Se preferir papel auxiliar: anote lançamentos **novos**, depois digite no HW
 - [ ] Inserir um por um, conferindo na tela
 - [ ] Dispositivo gera 24 palavras BIP39
 - [ ] NUNCA usar "Quick Generate" (RNG interno do chip — você confia no fabricante)
@@ -160,6 +159,8 @@ Siga o **Capítulo 5, Passo 0.5** e o lab `laboratorio/nivel-0-semente/02-backup
 ---
 
 ### Passo 1.7 — Teste de recuperação (CRÍTICO)
+
+> **Lab:** `laboratorio/nivel-1-cofre/02-teste-restauracao.md` — **obrigatório** antes de fundos.
 
 > **Pré-requisito:** Passo 1.6b concluído (2 cópias em metal).
 
