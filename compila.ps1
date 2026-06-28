@@ -107,7 +107,8 @@ $arquivos = @(
     "$ms\D-guia-verificacao-pgp.md",
     "$ms\E-aspectos-legais-brasil.md",
     "$ms\F-troubleshooting.md",
-    "$ms\G-matriz-decisao.md"
+    "$ms\G-matriz-decisao.md",
+    "$ms\H-ambientes-fluxos.md"
 )
 
 # Verificar se todos os arquivos existem

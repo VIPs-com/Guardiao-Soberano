@@ -23,6 +23,7 @@
 | Funds insuficientes | UTXO consolidado | Coin Control; não juntar UTXOs |
 | Senha Whonix padrão | Não alterada | Trocar user/root `changeme` |
 | Estado eigen perdido | Tails sem Persistent | Symlink em `~/Persistent/` |
+| Perdi seed/settings após update do Krux no celular | KruxMobileApp (beta) — não é cofre | Restaure só em hardware dedicado; veja Cap. 14 (Krux DIY) |
 
 ---
 
@@ -86,5 +87,13 @@ Se você suspeita que alguém teve acesso à sua seed (dispositivo roubado, seed
 - Se você usa Tails (amnésico), a sessão reiniciou e o processo parou — migre para Whonix para mixing contínuo
 - O coordinator pode estar temporariamente fora do ar — veja anúncios no canal oficial do Sparrow
 - JoinMarket é a alternativa P2P sem coordinator — veja Capítulo 15
+
+**"Usei Krux no Android e perdi acesso ou os fundos sumiram"**
+
+- O **KruxMobileApp** não é o Krux do Capítulo 6 — é app experimental para aprendizado, não cold wallet (nota de rodapé em Cap. 14)
+- Atualizações do APK podem apagar configurações e mnemônicos cifrados; assinaturas do app ainda não são gerenciadas oficialmente
+- Se a **seed em metal** está intacta: restaure em Maix/M5StickV com firmware Krux ou outro dispositivo air-gapped (Passo 3 acima)
+- Se guardou fundos reais no app Android: trate a seed como **potencialmente comprometida** e migre para nova seed em hardware dedicado (Passo 4)
+- Detalhes e posicionamento: Capítulo 14, seção Krux (DIY Firmware)
 
 ---

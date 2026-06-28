@@ -6,7 +6,7 @@
 
 **ABCTracer** — Paper acadêmico (arXiv:2504.01822) que demonstrou 91,75% de rastreabilidade em pontes cross-chain usando correlação temporal, proporção valor/taxa e análise de endereços de destino.
 
-**Air-gap** — Isolamento físico total entre um dispositivo e qualquer rede. Um dispositivo air-gapped nunca se conecta à internet, WiFi, Bluetooth ou qualquer forma de comunicação digital.
+**Air-gap** — Isolamento físico total entre um dispositivo e qualquer rede. Um dispositivo air-gapped nunca se conecta à internet, WiFi, Bluetooth ou qualquer forma de comunicação digital ao guardar ou assinar com a seed. **Não é um sistema operacional:** Tails e Whonix são *computadores*; air-gap é *propriedade* do hardware wallet (Coldcard, SeedSigner, Krux, etc.). O PSBT atravessa o gap por SD ou QR — as chaves privadas não. Ver: Capítulos **13.4**, **13.6**, **14.0b**; Apêndice **H**. *Não confundir* com **AirGap Vault** (app de cofre no celular — postura diferente; Cap. **13.5**).
 
 **Anonset (Anonymity Set)** — O número de possíveis remetentes de uma transação. Anonset 5 significa que um analista vê 5 possíveis donos para aquele output. Quanto maior, melhor a privacidade.
 
@@ -142,7 +142,9 @@
 
 **PGP (Pretty Good Privacy)** — Sistema de criptografia usado para assinar e verificar arquivos. Toda ferramenta neste livro deve ter sua assinatura PGP verificada antes do uso.
 
-**PSBT (Partially Signed Bitcoin Transaction)** — Formato padronizado para transações Bitcoin parcialmente assinadas. Permite criar a transação em um dispositivo online, assinar em dispositivo offline, e transmitir de volta no online.
+**PSBT (Partially Signed Bitcoin Transaction)** — Formato padronizado para transações Bitcoin parcialmente assinadas. Permite criar a transação em um dispositivo online (Sparrow na Whonix Workstation ou mobile watch-only), assinar no dispositivo air-gapped offline, e transmitir de volta no ambiente online — **sem** expor a seed ao computador com rede.
+
+**Pasta PSBT bridge (`/psbt_bridge`)** — Pasta compartilhada entre o host físico e a Whonix Workstation onde transitam arquivos `.psbt` entre Sparrow e o cartão MicroSD. Conveniente e sensível: só PSBTs, nunca seeds; apagar após transmitir; tratar o host como potencialmente comprometido. Ver: Capítulos **13.6–13.8**; Apêndice **H**; lab `laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md`.
 
 ---
 
@@ -184,7 +186,7 @@
 
 **Trustless** — Sem necessidade de confiar em um intermediário; a segurança vem de contratos ou provas criptográficas (ex.: atomic swap). Em português, costuma-se dizer *sem custódia* ou *sem confiança em terceiros*.
 
-**Tails** — Sistema operacional amnésico que roda a partir de um pendrive USB. Não deixa rastros no computador host. Todo tráfego passa por Tor.
+**Tails** — Sistema operacional amnésico que roda a partir de um pendrive USB. Não deixa rastros no computador host. Todo tráfego passa por Tor. **Complementa** o Whonix (não o substitui): use para operações cirúrgicas sem rastro; Whonix para rotina (mix, swap, nó). Dois pendrives **A** (rotina) e **B** (cirúrgico): Capítulos **13.4**, **15**; Apêndice **H**.
 
 **Taproot** — Atualização do Bitcoin ativada em 2021. Melhora privacidade, eficiência e capacidade de smart contracts.
 
@@ -202,11 +204,11 @@
 
 ## W — Whirlpool e Whonix {-}
 
-**Watching-only** — Carteira que conhece apenas a chave pública (xpub). Pode ver o saldo e criar transações para assinar, mas não pode gastar.
+**Watching-only (watch-only)** — Carteira que conhece apenas a chave pública (xpub ou descriptor). Pode ver saldo, UTXOs e montar transações para assinar no hardware air-gapped, mas **não pode gastar** sozinha. Na trilha: Sparrow na Whonix WS e Sparrow/Feather no celular **dedicado** (CalyxOS/GrapheneOS + Orbot) — sempre **sem** importar a seed BIP39. Três posturas do celular (watch-only, coordinator PSBT via QR, cofre no telefone): Capítulo **13.5**; mapa de ambientes: **13.4**, Apêndice **H**. Sinônimos usados no livro: *watch-only*, *watching-only*, *somente leitura*.
 
 **Whirlpool** — Implementação de CoinJoin com coordenador central, integrada ao Sparrow Wallet. Usa pools de valores fixos (0.001, 0.01, 0.05, 0.5 BTC).
 
-**Whonix** — Sistema operacional que roda em duas máquinas virtuais: Gateway (força todo tráfego por Tor) e Workstation (onde o usuário opera, sem IP real).
+**Whonix** — Sistema operacional que roda em duas máquinas virtuais: Gateway (força todo tráfego por Tor) e Workstation (onde o usuário opera Sparrow, Whirlpool, eigenwallet — **sem** IP real e **sem** seed). Ambiente **persistente** da trilha após o Nível 3. Ver mapa operação × ambiente: Capítulos **13.4–13.5**; migração desde Tails: **13.7**; Apêndice **H**.
 
 ---
 

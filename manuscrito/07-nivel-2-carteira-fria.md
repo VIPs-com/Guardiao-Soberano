@@ -107,6 +107,8 @@ Criar uma carteira **somente leitura** (*watching-only*) no Tails: o Sparrow mon
 
 ### Passo 2.6 — Testar envio (ciclo PSBT completo)
 
+> **Mapa de ambientes:** onde cada passo pode rodar (Tails vs HW vs bridge) — **Capítulo 13.6** e **Apêndice H**. Lab: `laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md`.
+
 - [ ] Sparrow → Enviar (Send) → criar transação de 0,00005 BTC
   - Enviar para outro endereço seu (ou de um amigo)
   - Exportar PSBT para assinatura offline:

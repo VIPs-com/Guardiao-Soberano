@@ -189,6 +189,8 @@ sudo apt install keepassxc -y
 
 As seções abaixo aprofundam instalação Whonix, cifragem de VMs, rotina diária e comparação Tails vs Whonix. **Não são obrigatórias** para concluir o Nível 3.
 
+> **Migração Tails → Whonix:** o que exportar (xpub, wallet sem chaves) e o que **nunca** migra (seed) — **Capítulo 13.7** e lab `laboratorio/nivel-3-observador/04-migracao-tails-whonix.md`.
+
 > **Prévia do N5:** menções a Feather, eigenwallet e RetoSwap são contexto para o Capítulo 10 — **não instale nem opere swaps** até lá.
 
 ---

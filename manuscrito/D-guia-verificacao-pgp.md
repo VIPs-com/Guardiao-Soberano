@@ -35,6 +35,7 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
 | Projeto | Desenvolvedor | Fingerprint |
 | --- | --- | --- |
 | Sparrow Wallet | Craig Raw | `D4D0D3202FC06849A257B38DE94618334C674B40` |
+| Specter Desktop | Specter Signer | `785A2269EE3A9736AC1A4F4C864B7CF9A811FEF7` |
 | Electrum | ThomasV (Thomas Voegtlin) | `6694D8DE7BE8EE5631BED9502BD5824B7F9470E6` |
 | Whonix | Patrick Schleizer | `916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA` |
 | Tails | Tails Project | `A490D0F4D311A4153E2BB7CADBB802B258ACD84F` |
@@ -46,6 +47,7 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
 **Fontes oficiais para conferir fingerprints:**
 
 - Sparrow: sparrowwallet.com/download/
+- Specter Desktop: specter.solutions/downloads
 - Electrum: electrum.org/#download · github.com/spesmilo/electrum/blob/master/pubkeys/ThomasV.asc
 - Whonix: whonix.org/wiki/Signing_Key
 - Tails: tails.net/doc/about/openpgp_keys/
@@ -163,6 +165,38 @@ gpg --verify \
   sparrow-${SP_VER}-x86_64.tar.gz.asc \
   sparrow-${SP_VER}-x86_64.tar.gz
 ```
+
+### Specter Desktop — download verificado (jun/2026)
+
+Distribuição oficial: [specter.solutions/downloads](https://specter.solutions/downloads). Binários (GUI ou `specterd`) acompanham `SHA256SUMS` assinado pela chave **Specter Signer**.
+
+```bash
+# Importar chave Specter Signer
+gpg --keyserver hkps://keys.openpgp.org \
+  --recv-keys 785A2269EE3A9736AC1A4F4C864B7CF9A811FEF7
+gpg --fingerprint \
+  785A2269EE3A9736AC1A4F4C864B7CF9A811FEF7
+# Saída esperada: 785A 2269 EE3A 9736 AC1A  4F4C 864B 7CF9 A811 FEF7
+
+# Baixar release (Whonix — scurl-download; conferir versão na página)
+# Exemplo genérico — ajuste VERSAO e ARQUIVO conforme a release atual:
+scurl-download https://github.com/cryptoadvance/specter-desktop/releases/download/VERSAO/SHA256SUMS
+scurl-download https://github.com/cryptoadvance/specter-desktop/releases/download/VERSAO/SHA256SUMS.asc
+scurl-download https://github.com/cryptoadvance/specter-desktop/releases/download/VERSAO/ARQUIVO
+
+# 1) Verificar assinatura do arquivo de hashes
+gpg --verify SHA256SUMS.asc SHA256SUMS
+# Esperado: Good signature from "Specter Signer" (ou nome equivalente)
+
+# 2) Conferir hash do binário baixado
+sha256sum -c SHA256SUMS --ignore-missing
+```
+
+> **Fontes cruzadas obrigatórias (conferir antes de usar):**
+> - [specter.solutions/downloads](https://specter.solutions/downloads) — fingerprint publicada na seção “Signatures and hashes”
+> - [github.com/cryptoadvance/specter-desktop/releases](https://github.com/cryptoadvance/specter-desktop/releases) — artefatos e `SHA256SUMS`
+
+> **Uso no livro:** Specter é **alternativa** ao Sparrow para multisig + Bitcoin Core (Cap. 14, Nível 7). Não use como substituto do Sparrow para Whirlpool (Cap. 9).
 
 ### Tails 7.9 — download verificado (jun/2026)
 

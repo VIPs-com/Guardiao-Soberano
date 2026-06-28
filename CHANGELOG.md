@@ -9,6 +9,32 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- **Mapa de ambientes:** Cap. 13.4–13.8 (matriz operação × ambiente, PSBT, migração Tails→Whonix, `/psbt_bridge`)
+- **Cap. 14.0b** — air-gap vs Tails vs Whonix vs mobile; árvore de decisão
+- **Apêndice H** — consulta rápida (três perguntas + matriz + fluxos)
+- **Glossário:** entradas expandidas air-gap, PSBT bridge, watch-only, Tails A/B, Whonix
+- **Docs versionados:** `docs/validacao/VERIFICACAO-v1.1.md`, `docs/equipe/BATERIA-TESTES-v1.1.md`
+- **Labs no miolo:** blocos **Lab:** Caps. 9–10 (N4 Whirlpool, N5 swap/ABCTracer)
+- **KruxMobileApp, Specter, mapa 14.0** (rodada anterior consolidada neste push)
+
+### Alterado
+
+- Prefácio, Parte III, Ap. G — referências ao mapa de ambientes
+- Caps. 7, 8, 11, 15, 16 — cross-links Ap. H e labs
+- `README.md` — status rodada 2, pasta `docs/`
+- `compila.ps1` — inclui `H-ambientes-fluxos.md`
+
+### Próximo (rodada 2)
+
+- Validação hardware 18 labs 🔴 — ver `docs/validacao/VERIFICACAO-v1.1.md`
+- Prova gráfica 1× · tag `v1.1.0` após checklist 100%
+
+---
+
+## [Unreleased — histórico jun 2026]
+
+### Adicionado (jun 2026)
+
 - **Ícones de nível:** redesign completo N0–N7 com SVG paths puros (sem emoji); fundo escuro radial consistente com a capa; símbolos corretos: N2 floco (carteira fria), N3 olho (observador), N5 BTC↔XMR; tamanho 30mm no PDF
 - **Capa:** redesign completo (Canva) — cadeado geométrico 3D com glow laranja Bitcoin ₿, fundo azul profundo radial, tipografia Montserrat Black em duas cores; `cover-masters-aprovada.png` preservado como original aprovado
 - **Scripts:** `export-cover-portrait.ps1` unificado — gera e-book (1600×2560) e A4 gráfica (2480×3508 @300 Dpi) a partir do mesmo master

@@ -13,8 +13,9 @@ Versão 1.1 — Junho de 2026 | Português (Brasil)
 
 | Camada | Pasta | Função |
 | --- | --- | --- |
-| **Livro** | [`manuscrito/`](manuscrito/) | Trilha conceitual — 8 níveis (0–7), ~46k palavras (31 arquivos) |
+| **Livro** | [`manuscrito/`](manuscrito/) | Trilha conceitual — 8 níveis (0–7), ~71k palavras (32 arquivos + Ap. H) |
 | **Laboratório** | [`laboratorio/`](laboratorio/) | Tutoriais passo a passo, checklists e scripts |
+| **Validação** | [`docs/`](docs/) | Checklist pré-release + instruções para agentes |
 | **Compilação** | [`compila.ps1`](compila.ps1) | PDF, EPUB, MOBI, PDF gráfica |
 
 Leia o livro para entender **por quê**; use o laboratório para **como fazer** com verificação no final de cada exercício.
@@ -41,7 +42,7 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
 | 2 | [nivel-2-carteira-fria](laboratorio/nivel-2-carteira-fria/) | [Sparrow watch-only](laboratorio/nivel-2-carteira-fria/01-sparrow-watching-only.md) · [Primeiro PSBT](laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md) · [KeePassXC](laboratorio/nivel-2-carteira-fria/03-keepassxc-tails.md) · [Electrum](laboratorio/nivel-2-carteira-fria/04-electrum-tails.md) · [Tails setup](laboratorio/nivel-2-carteira-fria/05-tails-setup-btc-xmr-completo.md) |
 | 3 | [nivel-3-observador](laboratorio/nivel-3-observador/) | [Whonix VirtualBox](laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md) · [Node + EPS](laboratorio/nivel-3-observador/02-bitcoin-node-eps-onion.md) · [Migração Tails](laboratorio/nivel-3-observador/04-migracao-tails-whonix.md) |
 | 4 | [nivel-4-misturador](laboratorio/nivel-4-misturador/) | [Whirlpool](laboratorio/nivel-4-misturador/01-whirlpool-primeiro-mix.md) · [Coin control](laboratorio/nivel-4-misturador/02-coin-control-postmix.md) · [JoinMarket](laboratorio/nivel-4-misturador/03-joinmarket-opcional.md) |
-| 5 | [nivel-5-trocador](laboratorio/nivel-5-trocador/) | [eigenwallet](laboratorio/nivel-5-trocador/01-eigenwallet-whonix-btc-xmr.md) · [Feather](laboratorio/nivel-5-trocador/02-feather-tails-instalacao.md) · [RetoSwap](laboratorio/nivel-5-trocador/03-retoswap-xmr-btc.md) |
+| 5 | N5 | [nivel-5-trocador](laboratorio/nivel-5-trocador/) | [eigenwallet](laboratorio/nivel-5-trocador/01-eigenwallet-whonix-btc-xmr.md) · [Feather](laboratorio/nivel-5-trocador/02-feather-tails-instalacao.md) · [RetoSwap](laboratorio/nivel-5-trocador/03-retoswap-xmr-btc.md) · [ABCTracer](laboratorio/nivel-5-trocador/04-defesa-abctracer.md) |
 | 6 | [nivel-6-soberano](laboratorio/nivel-6-soberano/) | [Backup 3-2-1](laboratorio/nivel-6-soberano/01-backup-3-2-1.md) · [Scripts Tails](laboratorio/nivel-6-soberano/02-scripts-operador-tails.md) |
 | 7 | [nivel-7-mestre](laboratorio/nivel-7-mestre/) | [Multisig 2-of-3](laboratorio/nivel-7-mestre/01-multisig-2of3-trilha-a.md) |
 
@@ -52,8 +53,9 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente no GitHub.
 ## Estrutura do repositório
 
 ```
-├── manuscrito/       # Livro (31 .md)
-├── laboratorio/      # Extensão prática
+├── manuscrito/       # Livro (32 .md + Ap. H)
+├── laboratorio/      # Extensão prática (29 labs)
+├── docs/             # VERIFICACAO-v1.1 + BATERIA-TESTES agentes
 ├── recursos/         # CSS, metadata, capa
 ├── imagens/          # Diagramas, ícones, capa (ver imagens/README.md)
 ├── LICENSE           # CC BY-NC-SA 4.0 (+ MIT para scripts)
@@ -72,13 +74,14 @@ Legenda laboratório: 🟢 testado em hardware · 🟡 extraído (aguarda hardwa
 
 | Item | Status |
 | --- | --- |
-| Livro v1.1 (manuscrito) | ✅ Editorial IA · tipografia IBM Plex · ícones N0–N7 redesenhados · capa Canva · agentes A–D aplicados — Fase 4: validação humano + hardware |
-| PDF / EPUB / MOBI | ✅ Compilável localmente (IBM Plex Serif/Sans/Mono; fallback DejaVu) |
-| Prova gráfica | 📋 [`recursos/prova-grafica-checklist.md`](recursos/prova-grafica-checklist.md) |
-| Laboratório | 🟡 **29/29 extraídos** · **0/18** labs 🔴 validados em hardware |
-| Scripts Tails | 🟡 6/6 extraídos — aguarda teste com labs N2/N5/N6 |
+| Livro v1.1 (manuscrito) | ✅ Editorial + **mapa ambientes** (13.4–13.8, 14.0/14.0b, Ap. H, glossário) |
+| PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` |
+| Prova gráfica | 📋 [`recursos/prova-grafica-checklist.md`](recursos/prova-grafica-checklist.md) · [`docs/validacao/VERIFICACAO-v1.1.md`](docs/validacao/VERIFICACAO-v1.1.md) |
+| Laboratório | 🟡 **29/29 extraídos** · **0/18** labs 🔴 em hardware |
+| Scripts Tails | 🟡 6/6 — testar com labs N2/N5/N6 |
+| Validação equipe | 📋 [`docs/equipe/BATERIA-TESTES-v1.1.md`](docs/equipe/BATERIA-TESTES-v1.1.md) — **rodada 2 aberta** |
 | CI (links) | ✅ `.github/workflows/check-links.yml` |
-| Remote GitHub | ⏳ Sem `origin` — ver [Publicar no GitHub](#publicar-no-github) |
+| Remote GitHub | ⏳ Push nesta rodada — ver abaixo |
 
 ---
 

@@ -31,6 +31,8 @@ Fornecer um checklist completo e acionável para verificar cada componente do ec
 
 ## C — Ambiente Tails (por sessão)
 
+> **Dica (dois pendrives):** **A** = rotina com Persistent Storage; **B** = cirúrgico, amnésico — Cap. 15 e Apêndice H.
+
 - [ ] **C1** — Baixar e verificar Tails OS (OpenPGP)
 - [ ] **C2** — Configurar Persistent Storage com senha forte
 - [ ] **C3** — Confirmar conexão Tor (check.torproject.org)

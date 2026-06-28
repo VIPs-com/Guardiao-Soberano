@@ -178,6 +178,19 @@ Os melhores "pendrives" para uso intenso não são pendrives — são SSDs exter
 
 E mais importante: **teste a restauração**. Um backup não testado é um backup que pode falhar quando você mais precisa. A cada dois meses, pegue o pendrive de backup e restaure os dados em um dispositivo limpo. Confirme que tudo funciona. Só então você tem um backup real.
 
+### Dois pendrives Tails: A (rotina) e B (cirúrgico)
+
+Maria usava um único Tails para tudo — inclusive abrir e-mail pessoal “só rapidinho” antes de um swap sensível. O Persistent Storage acumulou cookies, histórico e metadados que ela nem lembrava. Na próxima sessão “limpa”, parte desse rastro voltou.
+
+**Separe mentalmente e fisicamente:**
+
+| Pendrive | Uso | Persistent Storage |
+| --- | --- | --- |
+| **A — rotina** | Atualizar ISO, instalar apps, estudos, RoboSats ocasional | Permitido — configs genéricas |
+| **B — cirúrgico** | Swap alto valor, P2P delicado, operação que deve “nunca existir” | **Evite** — preferir amnésia pura |
+
+Grave labels físicos discretos (não escreva “Bitcoin” no stick). O **B** nunca visita sites de conta pessoal, redes sociais ou downloads aleatórios. Detalhes: **Capítulo 13.4**, **Apêndice H**.
+
 ---
 
 ## Resumo do Capítulo

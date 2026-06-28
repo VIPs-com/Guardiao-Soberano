@@ -16,6 +16,8 @@ Gerar uma seed BIP39 com entropia própria, sem confiar em nenhum software. Adqu
 
 **Pré-requisitos:** Nenhum. Você começa aqui.
 
+> **Dica — uma trilha, não dez tutoriais:** Este livro segue um stack coerente (Caps. 5–12): seed em metal → hardware air-gapped → Sparrow na Whonix → PSBT, Whirlpool, swaps. Se fóruns ou vídeos citarem outras marcas **antes** de você terminar a trilha, **não migre no impulso**. Quando precisar saber se algo é alternativa ou concorrente do Sparrow, leia **Capítulo 14.0** (Parte III) ou o **Apêndice G**.
+
 ---
 
 ## Abertura Narrativa

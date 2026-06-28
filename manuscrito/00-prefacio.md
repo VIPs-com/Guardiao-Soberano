@@ -38,6 +38,10 @@ Este livro está organizado em três partes e deve ser lido em sequência na pri
 
 **Parte III — Referência Permanente:** Depois de completar a trilha, esta parte será seu guia de consulta rápida. Checklists, tabelas, glossário e troubleshooting para o dia a dia.
 
+**Durante a Parte II**, se tutoriais na internet citarem Electrum, Specter, Wasabi ou “a carteira X” e você sentir vertigem, **não troque de stack no impulso**. Leia primeiro o **Capítulo 14.0** (*mesma função, nomes diferentes*) — uma seção curta que explica o que é **trilha do livro**, o que é **mesma função com outro nome** e o que **não concorre** com o Sparrow. Referência compacta: **Apêndice G**.
+
+Se a confusão for **onde** operar (Tails vs Whonix vs celular vs air-gap), use as **três perguntas** do **Capítulo 13.4** (*Onde está a seed? Onde está a rede? Rotina ou cirúrgico?*) — ou vá direto ao **Apêndice H**.
+
 **Apêndices:** Material complementar que você não precisa memorizar, mas vai querer ter à mão.
 
 ---
@@ -72,7 +76,7 @@ Este livro foi escrito em junho de 2026. A tecnologia de privacidade em Bitcoin 
 
 O que não muda são os princípios. A relação entre chave privada e soberania é matemática — não vai mudar. A importância de verificar o que você baixa antes de executar é uma regra de ouro que permanece válida independentemente do software específico. A necessidade de guardar a seed offline, em aço, longe de câmeras, é um princípio que sobrevive décadas.
 
-Aprenda os princípios. As ferramentas, você atualiza.
+Aprenda os princípios. As ferramentas, você atualiza **no mesmo software** quando possível — troca de marca é migração, não “update”. O mapa trilha vs. alternativas está no **Capítulo 14.0**.
 
 ---
 

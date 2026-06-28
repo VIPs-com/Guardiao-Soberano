@@ -6,7 +6,7 @@
 
 ## Objetivo
 
-Apresentar o diagrama completo do ecossistema soberano, explicando como cada componente se conecta e qual sua função na arquitetura geral.
+Apresentar o diagrama completo do ecossistema soberano, explicando como cada componente se conecta e qual sua função na arquitetura geral — incluindo **onde** cada operação deve acontecer (mapa de ambientes, Cap. 13.4–13.8).
 
 ---
 
@@ -92,7 +92,140 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 
 ---
 
-## 13.4 Fluxos Principais
+## 13.4 Mapa de ambientes — não confunda camadas
+
+João sabia usar a Coldcard, o Sparrow e o Tails — mas misturava tudo: abria seed no Tails “só para conferir”, assinava PSBT com o celular pessoal e guardava swap no mesmo pendrive do dia a dia. Nada estava “errado” isoladamente; **juntos**, formavam um mapa mental confuso — e confusão é onde o adversário mora.
+
+Antes de qualquer operação, responda **três perguntas** (grave-as):
+
+> **1. Onde está a seed?** (metal, HW offline, ou — idealmente — em nenhum computador)  
+> **2. Onde está a rede?** (Tor forçado, amnésico, ou offline total)  
+> **3. Rotina ou cirúrgico?** (Whonix persiste estado; Tails apaga tudo ao desligar)
+
+Se uma resposta contradizer a operação que você vai fazer, **pare** e consulte a tabela abaixo ou o **Apêndice H**.
+
+### Os cinco ambientes (e o que cada um *é*)
+
+| Ambiente | O que é | Rede | Persistência | Seed / chaves privadas |
+| --- | --- | --- | --- | --- |
+| **Dispositivo air-gapped** | Coldcard, SeedSigner, Krux, AirGap Vault | **Nunca** | Só enquanto ligado (stateless no DIY) | **Sim** — único lugar legítimo para seed |
+| **Whonix Workstation** | VM de operação diária | Tor **forçado** (via GW) | Sim (disco VM) | **Nunca** — só xpub, PSBT, metadados |
+| **Whonix Gateway** | Roteador Tor | Só Tor | Sim | **Nunca** |
+| **Tails** | OS amnésico em pendrive | Tor **forçado** | Opcional (Persistent Storage) | **Nunca** na trilha — exceção: validação Ian Coleman **offline** |
+| **Celular dedicado** | CalyxOS/GrapheneOS + Orbot | Tor via Orbot | Sim (dispositivo) | **Nunca** cofre — ver posturas no Cap. 13.5 |
+| **Host físico** | Windows/Linux/macOS + VirtualBox | Internet normal | Sim | **Nunca** — assume-se comprometível |
+
+**Air-gap não é “um app”.** É ausência de canal de rede ao dispositivo que guarda a seed. **Tails não substitui air-gap** — substitui o *computador* onde você monta transações sem deixar rastro. **Whonix não substitui Tails** — é onde você *vive* (mixing, swaps, nó); Tails é onde você *entra* para uma operação que deve sumir ao desligar.
+
+### O que **pode** e o que **nunca** pode
+
+| Ambiente | Pode | Nunca |
+| --- | --- | --- |
+| **HW air-gapped** | Gerar seed, assinar PSBT, verificar endereço no display | Conectar USB/Wi‑Fi/Bluetooth ao host online; fotografar tela com seed |
+| **Whonix WS** | Sparrow watch-only, Whirlpool, eigenwallet, Feather, RetoSwap | Digitar seed; colar seed; importar BIP39 completa |
+| **Tails** | Compra P2P, swap pontual, RoboSats, sessão “limpa” | Rotina de CoinJoin semanas; guardar seed na persistência |
+| **Mobile dedicado** | Ver saldo watch-only; montar PSBT → QR; transmitir tx assinada | Seed principal; valores grandes sem HW; apps de “cofre” no celular pessoal |
+| **Host** | Rodar VirtualBox, copiar arquivos para `/psbt_bridge` | Operar carteira com chaves; confiar que “VM protege tudo” |
+
+Desambiguação de nomes parecidos (AirGap Vault vs air-gap genérico): **Capítulo 14.0b**. Matriz compacta: **Apêndice G** e **Apêndice H**.
+
+---
+
+## 13.5 Qual ambiente para qual operação?
+
+Use esta matriz quando o checklist do dia pedir uma ação e você hesitar *onde* abrir o computador.
+
+| Operação | Ambiente recomendado | Alternativa aceitável | Evite |
+| --- | --- | --- | --- |
+| **Gerar / restaurar seed** | HW air-gapped offline | SeedSigner/Krux DIY (lab) | Tails, Whonix, celular, Ian Coleman online |
+| **Validar palavras (checksum)** | Tails **sem rede** ou papel | — | Qualquer site “BIP39 converter” com internet |
+| **Ver saldo / UTXOs** | Sparrow na Whonix WS | Mobile watch-only (valores pequenos) | Servidor Electrum público como rotina |
+| **Receber BTC** | Sparrow WS (endereço novo) | Mobile watch-only | Reutilizar endereço “por preguiça” |
+| **Enviar BTC (cold)** | Sparrow WS → PSBT → HW assina → WS transmite | Mobile monta PSBT → HW assina | Assinar no host sem air-gap |
+| **CoinJoin (Whirlpool)** | Sparrow na Whonix WS | — | Tails (estado efêmero quebra rotina); trocar coordinator no meio |
+| **Swap BTC → XMR** | eigenwallet na Whonix WS | Tails *(operação única, alto valor)* | Exchange KYC “rápida” |
+| **Swap XMR → BTC** | RetoSwap na Whonix WS | Tails pontual | eigenwallet como saída *(trilha usa RetoSwap)* |
+| **Comprar sem KYC (BTC)** | Tails + RoboSats | Whonix WS | Conta pessoal logada na mesma sessão |
+| **Comprar sem KYC (XMR)** | Tails + Feather/Cake | RetoSwap fiat | — |
+| **Operação “nunca existiu”** | Tails amnésico (sem persistência sensível) | — | Whonix com logs e cache |
+| **Multisig / herança (N7)** | Sparrow + Specter *(expert)* | Qubes | Mobile |
+
+### Três posturas do celular (N6)
+
+O celular **não é um quarto cofre** — é um **painel de vidro** na parede do cofre:
+
+| Postura | Apps | Seed? | Quando |
+| --- | --- | --- | --- |
+| **Watch-only** | Sparrow/Feather só xpub | **Não** | Ver saldo, alertas, QR para PSBT |
+| **Coordinator leve** | Sparrow monta tx → QR | **Não** | Assinar sempre no HW; transmitir tx assinada |
+| **AirGap Vault / similar** | App “cofre” no celular | **Sim, no telefone** | Só valores pequenos ou backup de emergência — **não** substitui Coldcard na trilha |
+
+Lab: `laboratorio/nivel-6-soberano/03-mobile-calyxos.md`. Mapa ferramentas vs trilha: **Cap. 14.0**.
+
+---
+
+## 13.6 Fluxos PSBT por ambiente
+
+O PSBT é a **ponte** entre “mundo online” e “mundo offline”. O mecanismo muda; a regra não: **bytes da transação atravessam; chaves privadas não.**
+
+### Trilha principal: MicroSD + pasta bridge (Whonix / host)
+
+1. Sparrow (Whonix WS) cria PSBT → exporta para `/psbt_bridge` no host (pasta compartilhada com o host físico)
+2. Você copia o arquivo para MicroSD **no host** — nunca dentro da VM com rede se puder evitar expor nomes de arquivo sensíveis
+3. MicroSD → dispositivo air-gapped → verificar endereço e valor no display → assinar
+4. PSBT assinada de volta ao SD → host → `/psbt_bridge` → Sparrow importa → **Transmit** via Tor
+
+Diagrama: imagem `diagrama-psbt.png`. Lab passo a passo: `laboratorio/nivel-2-carteira-fria/02-primeiro-psbt.md`.
+
+### Alternativa: QR animado (SeedSigner, Passport, Jade)
+
+1. Sparrow exibe QR do PSBT (ou fatias animadas)
+2. HW escaneia → assina → exibe QR assinado
+3. Sparrow escaneia → transmite
+
+**Proibições comuns:** não fotografar QR de PSBT com celular pessoal; não enviar PSBT por e-mail, WhatsApp ou nuvem; não assinar PSBT cujo endereço de destino você não conferiu **no display do HW**.
+
+### Mobile como coordinator (N6)
+
+1. Sparrow mobile (watch-only) cria transação → QR
+2. HW air-gapped assina → QR de volta
+3. Mobile transmite (Tor/Orbot)
+
+Mesma lógica do SD; o canal é **óptico**. O celular ainda **nunca** vê a seed.
+
+---
+
+## 13.7 Migração Tails → Whonix — o que migra e o que não
+
+No Nível 3 você **sai** do Tails como casa principal e **entra** no Whonix. Isso não é “trocar de carteira” — é trocar de **ambiente operacional**.
+
+| Item | Migra? | Como |
+| --- | --- | --- |
+| **Seed / chaves privadas** | **Não** | Permanecem no metal + HW; nunca foram no Tails |
+| **xpub / descriptor / wallet file Sparrow** | **Sim** | Exportar wallet **sem chaves** do Tails → importar na Whonix WS |
+| **Estado Whirlpool (anonset, pools)** | **Parcial** | Reconectar ao mesmo coordinator; UTXOs on-chain migram; **anonset** pode exigir continuidade — não troque de software no meio de um mix |
+| **Persistent Storage Tails** | **Não copiar cegamente** | Revise o que havia lá; metadados via KeePassXC; descarte o que não precisa |
+| **Hábitos de sessão** | **Sim (mental)** | Tails vira “ferramenta cirúrgica”; Whonix vira “escritório” |
+
+Lab detalhado: `laboratorio/nivel-3-observador/04-migracao-tails-whonix.md`. Comparação longa: **Cap. 8** (aprofundamento Tails vs Whonix).
+
+---
+
+## 13.8 Pasta `/psbt_bridge` — regras de segurança
+
+A pasta compartilhada entre host e Whonix WS é **conveniente e sensível**. Trate como corredor público entre duas salas trancadas.
+
+- **Só PSBTs** — nunca seeds, `.wallet` com chaves, ou backups KeePass com segredos
+- **Apague após uso** — PSBT assinada transmitida → remover arquivos da bridge e do SD
+- **SD dedicado** — um cartão só para PSBT; não misturar com fotos, ISOs ou outros dados
+- **Host assumido hostil** — malware no host pode ler tudo na bridge; por isso a seed **nunca** passa por ali
+- **Nome neutro** — evite `coldcard_mainnet_5btc.psbt` visível no explorador de arquivos do host
+
+Se usar QR em vez de SD, a bridge pode ficar vazia — melhor ainda.
+
+---
+
+## 13.9 Fluxos Principais
 
 ### Fluxo 1: Depósito → Mixagem → Swap → Cold Storage
 
@@ -116,7 +249,7 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 
 ---
 
-## 13.5 Matriz de Resiliência
+## 13.10 Matriz de Resiliência
 
 | Cenário | Impacto | Recuperação | Tempo |
 | --- | --- | --- | --- |
@@ -130,7 +263,7 @@ Uma pasta compartilhada (`/psbt_bridge`) conecta o host físico ao mundo air-gap
 
 ---
 
-## 13.6 Custos Totais Estimados
+## 13.11 Custos Totais Estimados
 
 | Categoria | Custo (Brasil) |
 | --- | --- |
@@ -145,7 +278,7 @@ Comparado com o custo de ter fundos confiscados, hackeados ou bloqueados, é um 
 
 ---
 
-## 13.7 Princípios de design: por que cada camada existe
+## 13.12 Princípios de design: por que cada camada existe
 
 O ecossistema descrito neste livro não nasceu de uma lista aleatória de ferramentas. Cada escolha arquitetural responde a um modelo de ameaça específico. Esta seção explica o "porquê" por trás do "o quê".
 
@@ -186,6 +319,8 @@ Para operações que você quer que "nunca aconteceram" do ponto de vista forens
 ## Resumo do Capítulo
 
 O ecossistema soberano não é um produto — é uma arquitetura que você constrói. Cada componente tem função específica. Nenhum terceiro controla todas as peças. Você é o ponto central — e também o elo mais importante.
+
+**Para o aluno:** quando sentir vertigem entre Tails, Whonix, air-gap e celular, volte às **três perguntas** (13.4) e à **matriz operação × ambiente** (13.5). Consulta rápida: **Apêndice H**.
 
 Guarde este capítulo como mapa. Quando algo falhar, você saberá exatamente onde está o problema e como recuperar.
 

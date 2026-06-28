@@ -6,7 +6,93 @@
 
 ## Objetivo
 
-Apresentar alternativas para cada componente do ecossistema, garantindo que você tenha opções se sua ferramenta principal estiver indisponível.
+Apresentar alternativas para cada componente do ecossistema, garantindo que você tenha opções se sua ferramenta principal estiver indisponível — **sem** confundir você com dezenas de caminhos paralelos.
+
+---
+
+## 14.0 — Mapa da trilha: mesma função, nomes diferentes
+
+Maria terminou o Nível 3 e abriu cinco tutoriais na internet. Um dizia Electrum, outro Specter, outro Wasabi, outro “Krux no celular”. Todas pareciam fazer “a mesma coisa”. Ela quase recomeçou do zero — e perderia semanas.
+
+**Este capítulo não existe para você trocar de trilha.** Existe para você saber que, se o Sparrow cair amanhã, o **papel** “coordinator Bitcoin” continua existindo — só muda o nome do software. O que ensinamos nos Caps. 5–12 é **uma trilha coerente**. As alternativas abaixo são **substitutos de emergência** ou **evoluções para depois** que você dominar o básico.
+
+### Três categorias (memorize)
+
+| Categoria | O que significa | O que fazer |
+| --- | --- | --- |
+| **Trilha do livro** | Stack que você montou nos Níveis 0–7 | **Siga até concluir.** Atualize versões **no mesmo** software. |
+| **Mesma função, outro nome** | Faz o **mesmo papel** (assinar, misturar, trocar…) com outra marca | **Não troque no meio da trilha.** Use só se a ferramenta da trilha morrer ou após dominar o fluxo. |
+| **Função diferente** | Parece “carteira Bitcoin”, mas serve outro cenário (multisig avançado, app de estudo…) | **Não é concorrente da trilha Sparrow** — é outro capítulo da sua jornada (ex.: Nível 7). |
+
+> **AVISO — regra de ouro:** Uma seed, um coordinator, um fluxo PSBT. Não importe a mesma seed em Sparrow **e** Electrum **e** Specter “só para testar” sem entender o que muda. Confusão de xpub, gap limit e CoinJoin quebrado é comum.
+
+### Mapa por **papel** (não por marca)
+
+Cada linha é um **assento na mesa** do ecossistema. Vários produtos sentam no mesmo assento — você escolhe **um** durante a trilha.
+
+| Papel | Trilha do livro | Outras opções (mesma função) | Concorre com a trilha? | Quando usar alternativa |
+| --- | --- | --- | --- | --- |
+| **Guardar seed e assinar PSBT** | Coldcard MK5 *(ou SeedSigner/Krux no perfil DIY)* | Jade Plus, Passport, Keystone, Krux (Maix), AirGap Vault | **Substituto de hardware** — escolha **um** no N1 e mantenha | HW queimou; preferência QR vs SD **antes** de enviar fundos |
+| **Coordinator BTC** (saldo, UTXO, PSBT, Tor) | **Sparrow** na Whonix WS | Electrum, Specter Desktop | **Sim — mesma função.** Não misture na trilha | Sparrow indisponível; Electrum no Tails para tarefa pontual |
+| **CoinJoin BTC** | **Whirlpool** (via Sparrow) | JoinMarket, Wasabi (WabiSabi) | **Sim — mesma função** | Coordinator Whirlpool offline por semanas |
+| **Ambiente isolado (longo prazo)** | **Whonix** GW + WS | Tails *(sessões)*, Qubes *(N7)* | **Parcial** — Tails complementa, não substitui WS | Operação amnésica; expert em N7 |
+| **Nó Bitcoin próprio** | Bitcoin Core + EPS *(N3+)* | Servidor público Sparrow/Electrum | **Evite** servidores públicos na trilha | Falta de disco — solução temporária apenas |
+| **Carteira XMR** | **Feather** | Cake Wallet, Monero GUI | **Sim — mesma função** | Mobile casual; GUI oficial |
+| **Swap BTC → XMR** | **eigenwallet** | BasicSwap DEX | **Sim — mesma função** | Trustlessness máximo (expert) |
+| **Swap XMR → BTC** | **RetoSwap** | BasicSwap; eigenwallet como maker | **Sim — mesma função** | RetoSwap fora do ar *(raro)* |
+| **Multisig avançado** | Sparrow *(N7)* | **Specter Desktop** + Core | **Não na trilha N1–N6** — outro cenário | 2-of-3, herança, várias HW |
+| **Aprender fluxo air-gap** | Laboratório / testnet | KruxMobileApp *(Android)* | **Não** — pedagógico, não cofre | Testnet only; ver nota [^krux-mobile] |
+
+**Concorrente direto da trilha Sparrow** = outro **coordinator BTC** (Electrum, Specter como carteira do dia a dia). **Não concorrente** = Specter só para multisig, KruxMobileApp só para estudo, Liana para herança — **função diferente** ou **fase diferente**.
+
+### O que fazer quando sair atualização
+
+1. **Atualize no lugar** — Sparrow 2.5.2 → 2.5.3 no **mesmo** Sparrow; Whonix OVA → importe a nova OVA **no mesmo** desenho GW+WS.
+2. **Confira PGP** — Apêndice D; nunca instale binário novo sem verificar assinatura.
+3. **Não “aproveite a atualização” para trocar de stack** — trocar Electrum no meio do N4 Whirlpool zera anonset e confunde UTXOs.
+4. **Leia o CHANGELOG do projeto** — breaking changes (como RetoSwap pós-17/06/2026) exigem ação; mudança de marca não.
+
+### Stack canônico da trilha (referência rápida)
+
+```
+Seed (metal) → HW air-gapped → xpub → Sparrow (Whonix WS) → PSBT → HW assina
+                                    → Whirlpool (N4)
+                                    → eigenwallet (N5) → Feather → RetoSwap (N5)
+Ambiente: Whonix (+ Tails pontual) · Tor · KeePassXC (metadados, não seed)
+```
+
+Detalhes por nível: Caps. 5–12. Matriz expandida: Apêndice G.
+
+> **Para o aprendiz:** Se sentir vertigem com nomes novos, volte a esta tabela. Pergunte: *“Qual **papel** este software ocupa?”* Se for o mesmo papel do Sparrow, é **alternativa** — não obrigação. Se for outro papel, não abandone a trilha por causa dele.
+
+---
+
+## 14.0b — Ambientes: air-gap, Tails, Whonix e mobile
+
+A seção **14.0** mapeia **ferramentas** (Sparrow vs Electrum). Esta seção mapeia **lugares** onde você opera — outra fonte comum de confusão.
+
+| Termo que você ouve | O que **não** é | O que **é** na trilha |
+| --- | --- | --- |
+| **Air-gap / air-gapped** | Um sistema operacional | **Propriedade** do dispositivo que guarda seed: zero rede ao assinar |
+| **Tails** | Substituto da Coldcard | **Computador amnésico** para sessões Tor sem rastro |
+| **Whonix** | Carteira Bitcoin | **Par de VMs** (GW+WS) onde você *mora* operacionalmente |
+| **AirGap Vault** | Sinônimo de “qualquer HW” | **App** de cofre no celular — postura diferente (Cap. 13.5) |
+| **Celular CalyxOS** | Cofre principal | **Watch-only / PSBT coordinator** — seed no HW |
+
+### Árvore rápida de decisão
+
+```
+Preciso TOCAR na seed?
+├─ SIM → só HW air-gapped (ou metal backup offline)
+└─ NÃO → preciso de rede?
+    ├─ Operação única, sem rastro → Tails
+    ├─ Rotina (mix, swap, nó) → Whonix WS
+    └─ Só consultar saldo → mobile watch-only OU Sparrow WS
+```
+
+**Regra de ouro:** uma seed, um coordinator principal (Sparrow na WS), um fluxo PSBT. Tails **complementa** Whonix; mobile **não substitui** HW.
+
+Mapa completo, matriz operacional, fluxos PSBT e regras da pasta bridge: **Capítulo 13.4–13.8**. Folha de consulta: **Apêndice H**.
 
 ---
 
@@ -49,6 +135,10 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 - **Quando usar:** Alternativa moderna ao SeedSigner
 - **Open source:** Sim, com builds verificáveis
 
+A equipe do Krux mantém um **app Android experimental** ([KruxMobileApp](https://github.com/selfcustody/KruxMobileApp)) que replica a interface Krux no celular para **aprender** fluxos PSBT air-gapped. Esse projeto **não substitui** o firmware em hardware dedicado descrito acima: o próprio repositório avisa que celulares têm OS, bibliotecas e periféricos fora do seu controle, que o código ainda é pouco testado e que **não se deve** guardar poupança ou mnemônicos importantes no app.[^krux-mobile] Para a trilha do livro (Nível 1), use Maix Amigo ou M5StickV com firmware oficial ([selfcustody.github.io/krux](https://selfcustody.github.io/krux)). Se quiser experimentar o app, faça apenas em **testnet ou regtest**, com seed descartável, em aparelho que nunca volte à internet com dados sensíveis.
+
+[^krux-mobile]: Repositório `selfcustody/KruxMobileApp` (jun/2026): APK em beta (`26.06.beta1`), assinaturas ainda não gerenciadas, atualizações podem exigir reinstalação e apagar configurações ou mnemônicos cifrados. Mantido como ferramenta pedagógica, não como cold wallet.
+
 ### AirGap Vault (Mobile)
 
 - **Preço:** Gratuito (usa celular velho)
@@ -71,6 +161,16 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 - **Função:** Interface para Bitcoin Core
 - **Diferencial:** Multisig avançado, integração com hardware wallets
 - **Quando usar:** Configurar multisig com múltiplos dispositivos
+- **Download:** [specter.solutions/downloads](https://specter.solutions/downloads) (GUI, `specterd`, PyPI, Docker)
+- **Open source:** Sim ([GitHub](https://github.com/cryptoadvance/specter-desktop))
+
+O **Specter Desktop** é a alternativa correta quando você já tem **Bitcoin Core** (ou EPS) e quer coordenar **multisig** com várias hardware wallets — cenário típico do Nível 7 (Cap. 12). **Não substitui o Sparrow** na trilha principal: o Sparrow continua sendo o coordinator recomendado para PSBT, Tor nativo e **Whirlpool** (Caps. 7–9). Specter não cobre CoinJoin integrado da mesma forma.
+
+Distribuição oficial em [specter.solutions/downloads](https://specter.solutions/downloads): binários para Windows, macOS e Linux, arquivo `SHA256SUMS` assinado com a chave **Specter Signer** (fingerprint no Apêndice D).[^specter-pgp] No Linux, configure as regras `udev` incluídas no arquivo; no macOS, exige Catalina (10.15) ou superior.
+
+> **Nota — nome parecido:** no Capítulo 6, “Specter DIY” refere-se a **hardware** open-source alternativo (como Keystone ou Passport). **Specter Desktop** é **software** de carteira — produtos diferentes.
+
+[^specter-pgp]: Chave de release Specter Signer: `785A 2269 EE3A 9736 AC1A 4F4C 864B 7CF9 A811 FEF7`. Verificação passo a passo: Apêndice D.
 
 ### Liana Wallet
 
@@ -142,11 +242,13 @@ O Coldcard MK5 é nossa recomendação principal, mas existem outras opções ex
 
 ## 14.6 Matriz de Decisão Rápida
 
-| Situação | Ferramenta principal | Alternativa |
+> **Lembrete:** coluna “Alternativa” = **mesma função**, não convite a trocar de trilha. Ver seção **14.0**.
+
+| Situação | Ferramenta principal *(trilha)* | Alternativa *(mesma função)* |
 | --- | --- | --- |
-| Melhor segurança BTC | Coldcard MK5 | Jade, Passport, Krux |
-| Coordinator BTC | Sparrow | Electrum, Specter |
-| CoinJoin | Whirlpool (Sparrow) | JoinMarket |
+| Melhor segurança BTC | Coldcard MK5 | Jade, Passport, Krux, SeedSigner |
+| Coordinator BTC | **Sparrow** | Electrum, Specter *(multisig/Core — N7)* |
+| CoinJoin | Whirlpool (Sparrow) | JoinMarket, Wasabi |
 | Swap BTC→XMR | eigenwallet | BasicSwap |
 | Swap XMR→BTC | RetoSwap | BasicSwap |
 | Entrada fiat sem KYC | RoboSats | RetoSwap, venda direta |
@@ -222,9 +324,11 @@ O ecossistema de privacidade em Bitcoin evolui rapidamente. Ferramentas são atu
 
 ## Resumo do Capítulo
 
-Ter alternativas não é paranoia — é preparação. Cada ferramenta deste capítulo resolve o mesmo problema por um caminho diferente. Se uma falhar, você continua operando.
+Ter alternativas não é paranoia — é preparação. Cada ferramenta deste capítulo resolve o **mesmo tipo de problema** por um caminho diferente. Se uma falhar, você continua operando **desde que saiba qual papel ela ocupa**.
 
-A diversidade de ferramentas é uma defesa. A dependência de uma única ferramenta é uma vulnerabilidade.
+A diversidade de ferramentas é uma defesa. **Trocar de trilha a cada tutorial novo** é vulnerabilidade operacional.
+
+**Antes de instalar qualquer nome novo:** consulte a seção **14.0** — *mesma função, nomes diferentes* — e **14.0b** — *ambientes (air-gap, Tails, Whonix, mobile)*.
 
 ---
 

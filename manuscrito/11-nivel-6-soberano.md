@@ -61,7 +61,9 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
   - Escanear QR do dispositivo air-gapped
   - Transmitir transação assinada
 
-> Lab complementar: `laboratorio/nivel-6-soberano/02-scripts-operador-tails.md`
+> **Três posturas do celular** (watch-only / coordinator PSBT / cofre no phone): **Capítulo 13.5** e **14.0b**. Mapa rápido: **Apêndice H**.
+
+> Lab complementar: `laboratorio/nivel-6-soberano/03-mobile-calyxos.md`
 
 ---
 

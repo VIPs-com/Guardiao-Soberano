@@ -16,7 +16,9 @@ Dominar CoinJoin com Whirlpool. Ter alternativa funcional com JoinMarket. Aprend
 
 ---
 
-> **Ambiente:** o Whirlpool exige uptime e persistência — este nível assume **Whonix** (Capítulo 8). Mixagem pontual ocasional: Tails; remixes automáticos ao longo de dias: Whonix. Tabela completa Tails vs Whonix: Cap. 8, seção *Referência: Tails vs Whonix*.
+> **Ambiente:** o Whirlpool exige uptime e persistência — este nível assume **Whonix** (Capítulo 8). Mixagem pontual ocasional: Tails; remixes automáticos ao longo de dias: Whonix. Tabela completa: Cap. **13.5** · Ap. **H**.
+
+> **Labs:** `01-whirlpool-primeiro-mix` (Passos 4.4–4.6) · `02-coin-control-postmix` (Passo 4.8) · `03-joinmarket-opcional` (Passo 4.7) — `laboratorio/nivel-4-misturador/`
 
 ---
 
@@ -93,6 +95,8 @@ Conceitos para pesquisar antes de começar:
 - [ ] Criar PSBT → dispositivo air-gapped assina → transmitir
 - [ ] Aguardar 1 confirmação
 
+> **Lab:** `laboratorio/nivel-4-misturador/01-whirlpool-primeiro-mix.md` — *Como confirmar:* anonset registrado, PSBT assinado no HW, tx confirmada.
+
 ---
 
 ### Passo 4.5 — Mixagem (deixar rodando)
@@ -146,6 +150,8 @@ Conceitos para pesquisar antes de começar:
 ---
 
 ### Passo 4.8 — Praticar Coin Control
+
+> **Lab:** `laboratorio/nivel-4-misturador/02-coin-control-postmix.md` — rotular UTXOs, congelar “sujos”, nunca consolidar pós-CJ.
 
 > **Coin Control** = seleção manual de quais UTXOs entram em cada transação (no Sparrow: aba UTXOs).
 

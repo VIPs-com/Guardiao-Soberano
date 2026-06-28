@@ -14,6 +14,10 @@ Executar swaps BTC↔XMR com segurança e proteção contra correlação tempora
 
 **Pré-requisitos:** Nível 4 concluído + UTXO pós-coinjoin disponível.
 
+> **Ambiente:** swaps de rotina na **Whonix WS**; sessões amnésicas pontuais no **Tails** (Cap. **13.5**). Defesa ABCTracer exige **intervalo** entre pernas — não pule o Passo 5.7.
+
+> **Labs:** `01-eigenwallet-whonix-btc-xmr` · `02-feather-tails-instalacao` · `03-retoswap-xmr-btc` · `04-defesa-abctracer` — `laboratorio/nivel-5-trocador/`
+
 ---
 
 ### Passo 5.1 — Estudar atomic swaps e Monero
@@ -58,6 +62,8 @@ Conceitos para pesquisar:
   - Senha forte para abrir a carteira
 - [ ] Conectar a nó .onion (Tor integrado nativo)
 
+> **Lab:** `laboratorio/nivel-5-trocador/02-feather-tails-instalacao.md` (Tails) — ou instalação Whonix no Passo 5.3+ · PGP: Ap. **D**.
+
 ---
 
 ### Passo 5.3 — Instalar eigenwallet (BTC→XMR)
@@ -81,6 +87,8 @@ gpg --verify \
 - [ ] Tornar executável e rodar
 - [ ] eigenwallet detecta Tor automaticamente (porta 9050)
 
+> **Lab:** `laboratorio/nivel-5-trocador/01-eigenwallet-whonix-btc-xmr.md` — verificação PGP, primeiro swap **teste** (valor mínimo).
+
 ---
 
 ### Passo 5.4 — Instalar RetoSwap (XMR→BTC e fiat)
@@ -98,6 +106,8 @@ gpg --verify \
   - Swap XMR→BTC (caminho inverso)
   - Comprar XMR com dinheiro físico/fiat
   - Vender XMR por dinheiro físico/fiat
+
+> **Lab:** `laboratorio/nivel-5-trocador/03-retoswap-xmr-btc.md` — perfil Tails ou Whonix; script: `laboratorio/scripts/tails/start-retoswap.sh`.
 
 ---
 
@@ -154,6 +164,8 @@ gpg --verify \
 
   - Aguardar +1 hora
   - Quebra vínculo de valor
+
+> **Lab:** `laboratorio/nivel-5-trocador/04-defesa-abctracer.md` — simular intervalos seguros antes do swap reverso (Passo 5.8).
 
 ---
 

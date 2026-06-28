@@ -13,6 +13,7 @@ Guardião-Soberano/
 ├── compila.ps1
 ├── manuscrito/              # livro
 ├── laboratorio/             # tutoriais e scripts
+├── docs/                    # VERIFICACAO-v1.1 + BATERIA-TESTES (equipe)
 ├── recursos/, imagens/
 └── .github/                 # templates e CI
 ```

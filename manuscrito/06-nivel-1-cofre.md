@@ -208,7 +208,7 @@ As seções abaixo aprofundam catálogo de hardware, fluxo PSBT e comparativo DI
 
 ### Referência rápida — hardware air-gapped
 
-Catálogo completo e alternativas: **Capítulo 14** e **Apêndice G**.
+Catálogo completo e alternativas: **Capítulo 14** (leia **14.0** antes de trocar de marca) e **Apêndice G**.
 
 | Dispositivo | Tipo | Comunicação | Notas |
 | --- | --- | --- | --- |

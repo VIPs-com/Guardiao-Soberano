@@ -27,7 +27,8 @@ Extensão **viva** do livro: tutoriais passo a passo, checklists de verificaçã
 
 Legenda: 🟢 Testado em hardware · 🟡 Extraído — revalidar em hardware · 🔴 Bloqueado
 
-> **Trilha completa:** 29 labs extraídos + 2 opcionais (N0/04, N1/04). Testes em hardware: `soberano-equipe-dev/docs/validacao/VALIDACAO-LABORATORIO-29.md` (equipe, pasta local).
+> **Trilha completa:** 29 labs extraídos + 2 opcionais (N0/04, N1/04).  
+> **Validação:** [`docs/validacao/VERIFICACAO-v1.1.md`](../docs/validacao/VERIFICACAO-v1.1.md) · agentes: [`docs/equipe/BATERIA-TESTES-v1.1.md`](../docs/equipe/BATERIA-TESTES-v1.1.md)
 
 ---
 
