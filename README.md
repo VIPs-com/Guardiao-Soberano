@@ -70,7 +70,8 @@ soberano-equipe-dev/docs/processo/BATERIA-TESTES-v1.1.md
 ├── recursos/         # CSS, metadata, capa
 ├── imagens/          # Diagramas, ícones
 ├── compila.ps1
-└── .gitignore        # soberano-equipe-dev/, saida/, old/, CLAUDE.md, docs/, .claude/
+├── scripts/          # build: capa, diagramas P&B, auditoria (REMOTO)
+└── .gitignore        # soberano-equipe-dev/, saida/*, old/, CLAUDE.md, docs/
 ```
 
 **Offline (não entram no git):** `soberano-equipe-dev/` · `saida/` · `old/` · `CLAUDE.md` · `.claude/` · `docs/` (legado — usar `soberano-equipe-dev/docs/`)

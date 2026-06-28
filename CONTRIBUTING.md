@@ -11,6 +11,7 @@ Guardião-Soberano/
 ├── README.md, LICENSE, CHANGELOG.md, SECURITY.md
 ├── CONTRIBUTING.md          # este arquivo
 ├── compila.ps1
+├── scripts/                 # build publico (capa, P&B, auditoria)
 ├── manuscrito/              # livro
 ├── laboratorio/             # tutoriais e scripts
 ├── recursos/, imagens/
