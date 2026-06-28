@@ -9,23 +9,24 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Adicionado
 
+- **Capa:** redesign completo (Canva) — cadeado geométrico 3D com glow laranja Bitcoin ₿, fundo azul profundo radial, tipografia Montserrat Black em duas cores; `cover-masters-aprovada.png` preservado como original aprovado
+- **Scripts:** `export-cover-portrait.ps1` unificado — gera e-book (1600×2560) e A4 gráfica (2480×3508 @300 Dpi) a partir do mesmo master
+- **Integração complementos caps 05–12:** ~29K palavras de lixo/duplicatas removidas; `RELATORIO-INTEGRACAO-COMPLEMENTOS.md` criado
+- **Imagens P&B:** `imagens/pb/` — 5 diagramas em preto e branco para miolo gráfico
 - **Laboratório:** trilha N0–N7 completa (29 labs + 2 opcionais); scripts Tails (`start-sparrow`, `start-keepass`, `start-electrum`, `start-feather`, `start-retoswap`, `backup-persistencia`)
 - **Livro:** Feather no Apêndice D (fingerprint + seção 2.8.1); leitura complementar no Cap. 11
 - **Repositório:** `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`; CI de links; templates de issue
-- **Equipe (local, gitignored):** `VALIDACAO-AMBIENTE.md`, `VALIDACAO-LABORATORIO-29.md`; reorganização `soberano-equipe-dev/`
 
 ### Alterado
 
-- Triagens T5–T6 + links lab EPUB-safe; fechamento editorial v1.1; `CLAUDE.md` local (mantenedores)
-- Cap. 7 (N2): passada estilo/gramática (verificação N2, menus Sparrow PT)
-- Cap. 6 (N1): revisão P0–P1 + passada estilo/gramática
-- Cap. 5 (N0): revisão P0–P2 + passada estilo/gramática
-- Manuscrito: diagramas incorporados nos Caps. 6, 9, 10 e 13 (`../imagens/*.png`)
-- Labs: caminhos relativos corrigidos para `../../imagens/`
-- `compila.ps1`: `--resource-path` para embutir diagramas no EPUB/MOBI
-- `README.md`: status remote GitHub pendente aprovação
-- Cap. 8 e Apêndice C: verificação PGP Feather alinhada ao Apêndice D (keyserver + fingerprint)
-- Cap. 11: seção de leitura complementar (ponte ao Cap. 13)
+- **Capa:** `imagens/cover-master.png` (1600×2560), `cover-a4.png` (2480×3508), `recursos/cover.jpg` (674 KB), `recursos/cover-a4.jpg` (1210 KB) — versão Canva aprovada
+- **Tipografia PDF/EPUB:** IBM Plex Serif + IBM Plex Sans (Agente 09)
+- **Tabelas:** pipe tables reformatadas em todos os caps e apêndices (Agente 10)
+- **Layout:** quebras de página e tabelas Apêndice G (Agente 11)
+- **`compila.ps1`:** pipeline P&B separado (miolo gráfica ≠ PDF digital); capa A4; fontes IBM Plex
+- Caps 05–12: complementos técnicos integrados/limpos (word count final ~45.948)
+- Correções técnicas jun/2026: fingerprints PGP, Krux v26.04.0, Coldcard US$170, Jade Plus US$169, Feather 2.8.1, RetoSwap v1.8.0-reto, FCMP++ datas, links EPUB internos
+- Triagens T5–T6 + links lab EPUB-safe; fechamento editorial v1.1
 - `README.md` com badges e mapa livro + laboratório
 
 ---
