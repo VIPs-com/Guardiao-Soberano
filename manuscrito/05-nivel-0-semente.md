@@ -191,7 +191,7 @@ Por que sem KYC? Se você comprar em exchange (Binance, Coinbase), seu nome e do
   - Oferecer serviços e receber em BTC
   - Cliente envia diretamente para seu endereço
   - BTC entra sem exchange
-- [ ] **Opção B (avançado — Nível 5):** RetoSwap/Haveno
+- [ ] **Opção B (avançado — Nível 5):** RetoSwap (ex-Haveno)
   - Dinheiro físico → XMR → BTC
   - Instale o RetoSwap (nível 5)
   - Procure oferta "cash by mail" (dinheiro por correio)

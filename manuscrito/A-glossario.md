@@ -16,7 +16,7 @@
 
 ## B — BIP39 e Blockchain {-}
 
-**BasicSwap** — DEX descentralizado para swaps entre blockchains (incluindo XMR↔︎BTC), auto-hospedado. Alternativa trustless ao Haveno/RetoSwap para alguns fluxos.
+**BasicSwap** — DEX descentralizado para swaps entre blockchains (incluindo XMR↔︎BTC), auto-hospedado. Alternativa trustless ao RetoSwap para alguns fluxos.
 
 **BIP39** — Bitcoin Improvement Proposal 39. Padrão que converte entropia em uma lista de palavras humanas (seed). A lista tem 2048 palavras. 24 palavras = 256 bits de entropia.
 

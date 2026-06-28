@@ -75,7 +75,7 @@ Integrar todos os componentes em um sistema coeso, adicionar camada mobile, domi
   - Escrow Lightning (hold invoices)
   - Ideal para: comprar BTC com Pix
 
-- [ ] RetoSwap/Haveno (fiat → XMR):
+- [ ] RetoSwap (fiat → XMR):
   - Dinheiro físico, transferência, Pix
   - Escrow multisig XMR
   - Ideal para: entrada totalmente anônima

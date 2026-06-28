@@ -242,7 +242,7 @@ Bitcoin é transparente por design — todo saldo e transação é público para
 
 1. **Preparar BTC** — coin control no Sparrow; Whirlpool/JoinMarket opcional antes do swap
 2. **Subendereço XMR fresco** — Feather/Cake → Receive → New subaddress (nunca reutilizar)
-3. **Swap BTC→XMR** — eigenwallet (trustless) ou RetoSwap/Haveno (P2P/fiat); sempre via Tor
+3. **Swap BTC→XMR** — eigenwallet (trustless) ou RetoSwap (P2P/fiat); sempre via Tor
 4. **Aguardar** — mínimo 24h, ideal 3–7 dias (derrota correlação temporal)
 5. **Swap XMR→BTC** — RetoSwap; valor ligeiramente diferente; endereço BTC novo da HW wallet
 6. **Cold storage** — BTC final via PSBT air-gapped; Sparrow watching-only monitora
@@ -252,7 +252,7 @@ Bitcoin é transparente por design — todo saldo e transação é público para
 | Ferramenta | Tipo | Direção / uso | Notas |
 | --- | --- | --- | --- |
 | **eigenwallet** | Atomic | BTC→XMR | Trustless; Tor; ~25–60 min |
-| **RetoSwap / Haveno** | P2P | XMR↔BTC | Escrow multisig |
+| **RetoSwap** | P2P | XMR↔BTC | Escrow multisig |
 | **BasicSwap DEX** | Atomic | BTC↔XMR | Trustless; Docker + ~400 GB |
 | **Feather Wallet** | Carteira XMR | Custódia | Tor nativo entre swaps |
 | **Cake Wallet** | Mobile | Uso casual | Multi-coin; não para grandes quantias |
@@ -270,7 +270,7 @@ Bitcoin é transparente por design — todo saldo e transação é público para
 > *Vetor:* mesma proporção exata entrada/saída.
 > *Defesa:* divida em partes (ex.: 0.4 + 0.3 + 0.5 BTC) em dias diferentes.
 
-> **AVISO — Haveno (arXiv:2505.02392, maio 2025):** certas transações podem ser detectadas on-chain. Prefira eigenwallet/BasicSwap para trustlessness; diversifique ferramentas.
+> **AVISO — RetoSwap (ex-Haveno, arXiv:2505.02392, mai/2025):** certas transações podem ser detectadas on-chain. Prefira eigenwallet/BasicSwap para trustlessness; diversifique ferramentas.
 
 > **Nota — FCMP++ (previsto mainnet 2026):** expande anonymity set Monero para toda a blockchain. Beta v0.19.0.0 (mai/2026); mainnet ainda não ativada em jun/2026.
 

@@ -38,7 +38,7 @@ Legenda: 🟢 Testado em hardware · 🟡 Extraído — revalidar em hardware ·
 | **Tails** (amnésico + persistência) | N2 KeePassXC/Electrum · N5 Feather + RetoSwap no Tails |
 | **Whonix** (Gateway + Workstation) | N3 setup VirtualBox · N4 Whirlpool · N5 eigenwallet |
 | **SeedSigner / Krux** (sem HW comercial) | N1 air-gap QR · N2 PSBT via QR |
-| **Coldcard / Jade** (HW wallet) | N1 backup e teste de restauração · N2 PSBT via SD/QR |
+| **Coldcard / Jade Plus** (HW wallet) | N1 backup e teste de restauração · N2 PSBT via SD/QR |
 
 ---
 

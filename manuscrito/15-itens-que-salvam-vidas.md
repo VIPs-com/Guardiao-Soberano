@@ -77,11 +77,11 @@ Coin Control é a prática de selecionar manualmente quais UTXOs gastar em cada 
 
 ---
 
-## 15.5 Vulnerabilidade Haveno 2025
+## 15.5 Vulnerabilidade RetoSwap/Haveno 2025
 
-Em maio de 2025, pesquisadores identificaram que certas transações do Haveno podem ser detectadas on-chain (arXiv:2505.02392).
+Em maio de 2025, pesquisadores identificaram que certas transações do Haveno (predecessor do RetoSwap) podem ser detectadas on-chain (arXiv:2505.02392).
 
-**Mitigações:** Usar eigenwallet ou BasicSwap para trustlessness total. Aguardar correções do Haveno/RetoSwap. Diversificar entre ferramentas de swap.
+**Mitigações:** Usar eigenwallet ou BasicSwap para trustlessness total. Aguardar correções do RetoSwap. Diversificar entre ferramentas de swap.
 
 ---
 

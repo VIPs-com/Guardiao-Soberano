@@ -184,7 +184,7 @@ As **12 Leis completas** — seed, rede, swaps e a Lei Mestra — estão no **Ca
 **Mitigações:**
 
 * Usar **eigenwallet** ou **BasicSwap** para trustlessness total
-* Aguardar correções do Haveno/RetoSwap
+* Aguardar correções do RetoSwap
 * Diversificar entre ferramentas (não usar só uma)
 
 ---
