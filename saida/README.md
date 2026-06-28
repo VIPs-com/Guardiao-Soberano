@@ -12,4 +12,4 @@ Gerado por `.\compila.ps1` — **não versionado no git**.
 
 Pastas/arquivos temporários (`_epub_extract/`, `_book.zip`) podem ser apagados.
 
-Para obter os arquivos compilados sem rodar o Pandoc, veja a [página de Releases](https://github.com/VIPs-com/guardiao-soberano/releases).
+Para obter os arquivos compilados sem rodar o Pandoc, veja a [página de Releases](https://github.com/VIPs-com/Guardiao-Soberano/releases).

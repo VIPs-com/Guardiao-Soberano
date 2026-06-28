@@ -81,7 +81,7 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente aqui no GitHub.
 | Livro v1.1 | ✅ 17 caps + 7 apêndices (~46k palavras) |
 | PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` |
 | Laboratório | 29 labs · validação em hardware em andamento |
-| Versão | v1.1 (pré-release) — tag `v1.1.0` após validação |
+| Versão | ✅ [v1.1.0](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.0) publicada · validação hardware em andamento |
 
 ---
 
