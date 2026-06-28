@@ -1,6 +1,6 @@
 ﻿# Capítulo 10 — Nível 5: O Trocador
 
-![](../imagens/icones/nivel-5.png){fig-align=center width=22mm}
+![](../imagens/icones/nivel-5.png){fig-align=center width=30mm}
 
 > "A ponte entre mundos"
 

@@ -1,6 +1,6 @@
-# Capítulo 11 — Nível 6: O Soberano
+﻿# Capítulo 11 — Nível 6: O Soberano
 
-![](../imagens/icones/nivel-6.png){fig-align=center width=22mm}
+![](../imagens/icones/nivel-6.png){fig-align=center width=30mm}
 
 > "O ecossistema completo"
 

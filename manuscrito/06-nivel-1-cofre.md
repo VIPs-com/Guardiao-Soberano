@@ -1,6 +1,6 @@
-# Capítulo 6 — Nível 1: O Cofre
+﻿# Capítulo 6 — Nível 1: O Cofre
 
-![](../imagens/icones/nivel-1.png){fig-align=center width=22mm}
+![](../imagens/icones/nivel-1.png){fig-align=center width=30mm}
 
 > "O dispositivo que guarda o segredo"
 

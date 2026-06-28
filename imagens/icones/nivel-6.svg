@@ -1,5 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <circle cx="256" cy="256" r="240" fill="#EAF3DE" stroke="#6aaa3a" stroke-width="6"/>
-  <text x="256" y="280" font-family="Segoe UI Emoji,Apple Color Emoji,sans-serif" font-size="160" text-anchor="middle" dominant-baseline="middle">👑</text>
-  <text x="256" y="400" font-family="DejaVu Sans,Arial,sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#3a6a1a">N6</text>
+  <defs>
+    <radialGradient id="bg6" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1e1800"/>
+      <stop offset="100%" stop-color="#0e0c00"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="245" fill="url(#bg6)"/>
+  <circle cx="256" cy="256" r="245" fill="none" stroke="#FFD700" stroke-width="9" opacity="0.8"/>
+  <!-- Crown: 3 peaks on base -->
+  <path d="M 155 320 L 195 170 L 220 258 L 256 145 L 292 258 L 317 170 L 357 320 Z"
+        fill="#FFD700"/>
+  <!-- Crown base band -->
+  <rect x="155" y="318" width="202" height="46" rx="8" fill="#FFD700"/>
+  <!-- Gem: left peak -->
+  <circle cx="195" cy="168" r="16" fill="#1e1800" stroke="#FFD700" stroke-width="4"/>
+  <circle cx="195" cy="168" r="8" fill="#FFE566"/>
+  <!-- Gem: center peak -->
+  <circle cx="256" cy="143" r="16" fill="#1e1800" stroke="#FFD700" stroke-width="4"/>
+  <circle cx="256" cy="143" r="8" fill="#FFE566"/>
+  <!-- Gem: right peak -->
+  <circle cx="317" cy="168" r="16" fill="#1e1800" stroke="#FFD700" stroke-width="4"/>
+  <circle cx="317" cy="168" r="8" fill="#FFE566"/>
+  <!-- Decorative lines on base -->
+  <line x1="175" y1="337" x2="337" y2="337" stroke="#1e1800" stroke-width="3" opacity="0.4"/>
+  <!-- NX label -->
+  <text x="256" y="432" font-family="DejaVu Sans,Arial,sans-serif" font-size="70" font-weight="bold" text-anchor="middle" fill="#FFD700">N6</text>
 </svg>

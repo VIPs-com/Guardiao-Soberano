@@ -1,6 +1,6 @@
-# Capítulo 12 — Nível 7: O Mestre
+﻿# Capítulo 12 — Nível 7: O Mestre
 
-![](../imagens/icones/nivel-7.png){fig-align=center width=22mm}
+![](../imagens/icones/nivel-7.png){fig-align=center width=30mm}
 
 > "Além da soberania pessoal"
 

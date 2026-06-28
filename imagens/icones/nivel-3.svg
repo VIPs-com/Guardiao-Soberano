@@ -1,5 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <circle cx="256" cy="256" r="240" fill="#EEEDFE" stroke="#7766cc" stroke-width="6"/>
-  <text x="256" y="280" font-family="Segoe UI Emoji,Apple Color Emoji,sans-serif" font-size="160" text-anchor="middle" dominant-baseline="middle">🏰</text>
-  <text x="256" y="400" font-family="DejaVu Sans,Arial,sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#5040a0">N3</text>
+  <defs>
+    <radialGradient id="bg3" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1e0d3e"/>
+      <stop offset="100%" stop-color="#0e061e"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="245" fill="url(#bg3)"/>
+  <circle cx="256" cy="256" r="245" fill="none" stroke="#9B70DB" stroke-width="9" opacity="0.8"/>
+  <!-- Eye outer almond shape -->
+  <path d="M 108 235 C 148 160 364 160 404 235 C 364 310 148 310 108 235 Z"
+        fill="none" stroke="#9B70DB" stroke-width="16"/>
+  <!-- Iris ring -->
+  <circle cx="256" cy="235" r="52" fill="#1e0d3e" stroke="#9B70DB" stroke-width="12"/>
+  <!-- Pupil filled -->
+  <circle cx="256" cy="235" r="28" fill="#9B70DB" opacity="0.95"/>
+  <!-- Dark inner pupil -->
+  <circle cx="256" cy="235" r="14" fill="#1e0d3e"/>
+  <!-- Specular highlight -->
+  <circle cx="270" cy="222" r="10" fill="#D4B8FF" opacity="0.75"/>
+  <!-- Lower lid accent -->
+  <path d="M 128 252 C 180 292 332 292 384 252"
+        stroke="#9B70DB" stroke-width="6" fill="none" opacity="0.4"/>
+  <!-- NX label -->
+  <text x="256" y="432" font-family="DejaVu Sans,Arial,sans-serif" font-size="70" font-weight="bold" text-anchor="middle" fill="#9B70DB">N3</text>
 </svg>

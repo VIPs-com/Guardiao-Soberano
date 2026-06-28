@@ -1,6 +1,6 @@
-# Capítulo 5 — Nível 0: A Semente
+﻿# Capítulo 5 — Nível 0: A Semente
 
-![](../imagens/icones/nivel-0.png){fig-align=center width=22mm}
+![](../imagens/icones/nivel-0.png){fig-align=center width=30mm}
 
 > "Tudo começa com entropia verdadeira"
 

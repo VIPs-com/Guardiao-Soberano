@@ -1,5 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <circle cx="256" cy="256" r="240" fill="#FCEBEB" stroke="#cc4444" stroke-width="6"/>
-  <text x="256" y="280" font-family="Segoe UI Emoji,Apple Color Emoji,sans-serif" font-size="160" text-anchor="middle" dominant-baseline="middle">🔒</text>
-  <text x="256" y="400" font-family="DejaVu Sans,Arial,sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#9a2020">N1</text>
+  <defs>
+    <radialGradient id="bg1" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#0d1b2e"/>
+      <stop offset="100%" stop-color="#050c18"/>
+    </radialGradient>
+  </defs>
+  <circle cx="256" cy="256" r="245" fill="url(#bg1)"/>
+  <circle cx="256" cy="256" r="245" fill="none" stroke="#F7931A" stroke-width="9" opacity="0.8"/>
+  <!-- Padlock shackle -->
+  <path d="M 196 248 L 196 185 A 60 60 0 0 1 316 185 L 316 248"
+        stroke="#F7931A" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <!-- Shackle inner highlight -->
+  <path d="M 196 248 L 196 185 A 60 60 0 0 1 316 185 L 316 248"
+        stroke="#FFB347" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.4"/>
+  <!-- Lock body fill -->
+  <rect x="172" y="244" width="168" height="118" rx="18" fill="#0f2035"/>
+  <!-- Lock body border -->
+  <rect x="172" y="244" width="168" height="118" rx="18" fill="none" stroke="#F7931A" stroke-width="6"/>
+  <!-- Keyhole circle -->
+  <circle cx="256" cy="298" r="22" fill="#F7931A" opacity="0.9"/>
+  <!-- Keyhole slot -->
+  <rect x="246" y="318" width="20" height="28" rx="10" fill="#F7931A" opacity="0.9"/>
+  <!-- NX label -->
+  <text x="256" y="432" font-family="DejaVu Sans,Arial,sans-serif" font-size="70" font-weight="bold" text-anchor="middle" fill="#F7931A">N1</text>
 </svg>

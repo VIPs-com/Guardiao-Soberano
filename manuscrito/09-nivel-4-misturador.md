@@ -1,6 +1,6 @@
-# Capítulo 9 — Nível 4: O Misturador
+﻿# Capítulo 9 — Nível 4: O Misturador
 
-![](../imagens/icones/nivel-4.png){fig-align=center width=22mm}
+![](../imagens/icones/nivel-4.png){fig-align=center width=30mm}
 
 > "Desaparecendo na multidão"
 
