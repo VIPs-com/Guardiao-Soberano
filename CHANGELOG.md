@@ -98,6 +98,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
-[Unreleased]: https://github.com/SEU-USUARIO/Guardiao-Soberano/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/SEU-USUARIO/Guardiao-Soberano/releases/tag/v1.1.0
-[1.0.0]: https://github.com/SEU-USUARIO/Guardiao-Soberano/releases/tag/v1.0.0
+<!-- Links de release: preencher quando houver remote aprovado -->
+<!-- [Unreleased]: ... -->
+<!-- [1.1.0]: ... -->
+<!-- [1.0.0]: ... -->

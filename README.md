@@ -87,8 +87,8 @@ Detalhes: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 | PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` → `saida/` |
 | Laboratório | 🟡 29/29 extraídos · 0/18 🔴 em hardware |
 | Validação equipe | 📋 `soberano-equipe-dev/docs/` — rodada 2 |
-| Git | ✅ **Local** (`main`) — **sem remote** configurado |
-| GitHub | ⏸ Não publicado — configurar só após aprovação explícita |
+| Git | ✅ **Local** (`main`) — sem remote |
+| GitHub | ❌ Repo removido (jun/2026) — **não republicar** até aprovação explícita |
 
 ---
 
@@ -101,11 +101,14 @@ git commit -m "descricao"
 # Sem git push ate remote aprovado
 ```
 
-### Publicar no GitHub (futuro — requer aprovação)
+### Publicar no GitHub (futuro — requer aprovação da equipe)
+
+> O repositório `VIPs-com/Guardiao-Soberano` criado por engano foi **apagado** (jun/2026). Não recriar sem alinhamento.
 
 ```powershell
-# So depois de alinhar com a equipe:
-git remote add origin <URL-APROVADA>
+# So depois de aprovacao explicita:
+gh repo create <org>/<nome> --private   # ou public
+git remote add origin <URL>
 git push -u origin main
 ```
 
