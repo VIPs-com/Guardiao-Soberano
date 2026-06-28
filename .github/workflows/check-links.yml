@@ -28,7 +28,6 @@ jobs:
             --verbose
             --no-progress
             --exclude-all-private
-            --exclude-mail
             --accept 403,429,999
             --exclude-path old
             --exclude-path soberano-equipe-dev
