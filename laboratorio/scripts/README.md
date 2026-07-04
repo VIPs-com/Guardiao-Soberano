@@ -7,9 +7,17 @@ Scripts em **texto claro** (`.sh`) — auditáveis, sem binários de terceiros.
 1. Comentário em cada bloco explicando o que faz  
 2. Caminhos explícitos para Tails (`/home/amnesia/Persistent/`) ou Whonix  
 3. Testar após cada release de Tails/Whonix  
-4. Copiar do Manual da Fortaleza **somente** após adaptar à trilha deste livro  
+4. Prefixo **`gs-`** nos scripts Whonix deste repositório (autocontidos — não dependem de outros cursos VIPs-com)
 
-## Scripts planejados
+## Scripts Whonix (host + Workstation)
+
+| Arquivo | Ambiente | Status |
+| --- | --- | --- |
+| `whonix/gs-whonix-install-virtualbox.sh` | Host Debian amd64 | 🟡 Extraído (lab N3/01 Passo 1) |
+| `whonix/gs-whonix-import-ova.sh` | Host com VBoxManage | 🟡 Extraído (lab N3/01 Passos 2–4) |
+| `whonix/gs-verificar-tor.sh` | Whonix Workstation | 🟡 Extraído (lab N3/01 Passo 5) |
+
+## Scripts Tails
 
 | Arquivo | Ambiente | Status |
 | --- | --- | --- |
@@ -19,6 +27,5 @@ Scripts em **texto claro** (`.sh`) — auditáveis, sem binários de terceiros.
 | `tails/start-feather.sh` | Tails | 🟡 Extraído (lab N5) |
 | `tails/start-retoswap.sh` | Tails | 🟡 Extraído (lab N5/03) |
 | `tails/backup-persistencia.sh` | Tails | 🟡 Extraído |
-| `whonix/verificar-tor.sh` | Whonix WS | 🔴 Pendente |
 
 Testar após cada release de Tails/Whonix — marcar 🟢 só com hardware real.

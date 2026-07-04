@@ -37,9 +37,12 @@ Livro: `manuscrito/D-guia-verificacao-pgp.md`
 
 | Passo | Comando / fonte |
 | --- | --- |
-| Fingerprint | `916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA` |
-| Fontes | whonix.org/wiki/Signing_Key |
-| Verificar | `gpg --verify Whonix*.asc Whonix*.ova` |
+| Chave | Baixar `derivative.asc` — https://www.whonix.org/keys/derivative.asc |
+| Fingerprint | **Conferir na página oficial** — https://www.whonix.org/wiki/Verify_the_images (não fixar de memória; pode rotacionar) |
+| Importar chave | `gpg --import derivative.asc` |
+| Verificar | `gpg --verify Whonix-LXQt-*.ova.asc Whonix-LXQt-*.ova` → **Good signature** |
+| Automação | [`../scripts/whonix/gs-whonix-import-ova.sh`](../scripts/whonix/gs-whonix-import-ova.sh) com `-f` da wiki |
+| Lab | N3 [`01-whonix-virtualbox-completo.md`](01-whonix-virtualbox-completo.md) |
 
 ### Sparrow Wallet
 
