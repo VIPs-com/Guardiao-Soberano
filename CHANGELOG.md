@@ -7,14 +7,23 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+---
+
+## [1.1.1] — 2026-07-04
+
 ### Adicionado
 
 - **Laboratório N3/01:** scripts `gs-whonix-install-virtualbox.sh`, `gs-whonix-import-ova.sh`, `gs-verificar-tor.sh` (trilha Whonix 18.x LXQt autocontida)
-- **Manuscrito:** Caps. 08, C e Ap. D alinhados ao fluxo `derivative.asc` (sem keyserver)
 
 ### Alterado
 
+- **Manuscrito:** Caps. 08, C e Ap. D — fluxo `derivative.asc` (sem keyserver)
 - Lab `01-whonix-virtualbox-completo.md` e `03-verificacao-pgp-downloads.md` — VirtualBox verificado + Whonix 18 LXQt
+- PDF/EPUB/MOBI recompilados com manuscrito atualizado
+
+### Release
+
+- [v1.1.1](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.1) — PDF, EPUB, MOBI, gráfica
 
 ---
 
@@ -68,5 +77,6 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
-[Unreleased]: https://github.com/VIPs-com/Guardiao-Soberano/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/VIPs-com/Guardiao-Soberano/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.1
 [1.1.0]: https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.0
