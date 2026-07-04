@@ -7,6 +7,15 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Unreleased]
 
+### Adicionado
+
+- **Laboratório N3/01:** scripts `gs-whonix-install-virtualbox.sh`, `gs-whonix-import-ova.sh`, `gs-verificar-tor.sh` (trilha Whonix 18.x LXQt autocontida)
+- **Manuscrito:** Caps. 08, C e Ap. D alinhados ao fluxo `derivative.asc` (sem keyserver)
+
+### Alterado
+
+- Lab `01-whonix-virtualbox-completo.md` e `03-verificacao-pgp-downloads.md` — VirtualBox verificado + Whonix 18 LXQt
+
 ---
 
 ## [1.1.0] — 2026-06-28
