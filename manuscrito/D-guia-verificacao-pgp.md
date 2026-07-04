@@ -37,7 +37,7 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
 | Sparrow Wallet | Craig Raw | `D4D0D3202FC06849A257B38DE94618334C674B40` |
 | Specter Desktop | Specter Signer | `785A2269EE3A9736AC1A4F4C864B7CF9A811FEF7` |
 | Electrum | ThomasV (Thomas Voegtlin) | `6694D8DE7BE8EE5631BED9502BD5824B7F9470E6` |
-| Whonix | Patrick Schleizer | `916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA` |
+| Whonix | Patrick Schleizer | Conferir em [Verify_the_images](https://www.whonix.org/wiki/Verify_the_images) (pode rotacionar) |
 | Tails | Tails Project | `A490D0F4D311A4153E2BB7CADBB802B258ACD84F` |
 | Feather (Monero) | Feather Wallet | `8185E158A33330C7FD61BC0D1F76E155CEFBA71C` |
 | eigenwallet | binarybaron | Assinaturas `.asc` nas releases |
@@ -49,7 +49,7 @@ Quando um desenvolvedor assina um arquivo com sua chave PGP, ele prova que foi r
 - Sparrow: sparrowwallet.com/download/
 - Specter Desktop: specter.solutions/downloads
 - Electrum: electrum.org/#download · github.com/spesmilo/electrum/blob/master/pubkeys/ThomasV.asc
-- Whonix: whonix.org/wiki/Signing_Key
+- Whonix: whonix.org/wiki/Verify_the_images · chave `derivative.asc` em whonix.org/keys/
 - Tails: tails.net/doc/about/openpgp_keys/
 - Feather: docs.featherwallet.org/guides/release-signing-key
 - eigenwallet: github.com/eigenwallet/core/releases
@@ -214,14 +214,18 @@ gpg --fingerprint \
 
 Verificação completa: tails.net/install/download/index.en.html
 
-### Whonix — comando verificado (jun/2026)
+### Whonix — imagem .ova (LXQt 18.x, jul/2026)
+
+Baixe `derivative.asc` e confira o fingerprint **na página oficial** antes de importar:
 
 ``` {.sourceCode .bash}
-gpg --keyserver hkps://keys.openpgp.org \
-  --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
-gpg --fingerprint \
-  916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
+curl -fsSL https://www.whonix.org/keys/derivative.asc -o derivative.asc
+gpg --import derivative.asc
+# Conferir fingerprint publicado em whonix.org/wiki/Verify_the_images
+gpg --verify Whonix-LXQt-*.ova.asc Whonix-LXQt-*.ova
 ```
+
+Automação: [`laboratorio/scripts/whonix/gs-whonix-import-ova.sh`](../laboratorio/scripts/whonix/gs-whonix-import-ova.sh) · lab N3 [`01-whonix-virtualbox-completo.md`](../laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md)
 
 ### SeedSigner 0.8.6 — arquivos de verificação (jun/2026)
 

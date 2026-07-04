@@ -237,18 +237,36 @@ bash dist-installer-cli --install --ci
 # Instala VirtualBox + Gateway + Workstation OVA
 ```
 
-### Opção B — Windows/macOS: importar OVA manualmente
+### Opção B — Debian: VirtualBox verificado + import (scripts do livro)
+
+Roteiro completo no laboratório [`laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md`](../laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md).
 
 ```bash
-# 1. Instalar VirtualBox + Extension Pack (virtualbox.org)
-# 2. Baixar Whonix .ova + .ova.asc (whonix.org)
-gpg --keyserver hkps://keys.openpgp.org \
-  --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
-gpg --verify Whonix-*.ova.asc Whonix-*.ova
-# 3. VirtualBox → Arquivo → Importar appliance → .ova
+# Host Debian amd64 — scripts autocontidos deste repositório
+cd laboratorio/scripts/whonix
+chmod +x gs-whonix-*.sh
+sudo ./gs-whonix-install-virtualbox.sh -e -y
+# Baixe .ova + .ova.asc + derivative.asc (whonix.org/wiki/Download)
+sudo ./gs-whonix-import-ova.sh \
+  -i /caminho/Whonix-LXQt-VERSAO.Intel_AMD64.ova \
+  -s /caminho/Whonix-LXQt-VERSAO.Intel_AMD64.ova.asc \
+  -k /caminho/derivative.asc \
+  -f "FINGERPRINT_DA_wiki_Verify_the_images" \
+  -t lxqt
 ```
 
-> GPG obrigatório antes de importar. Saída esperada: assinatura de Patrick Schleizer.
+### Opção C — Windows/macOS: importar OVA manualmente
+
+```bash
+# 1. Instalar VirtualBox + Extension Pack (mesma versão — virtualbox.org)
+# 2. Baixar Whonix-LXQt-*.ova + .ova.asc + derivative.asc (whonix.org/wiki/Download)
+# 3. Conferir fingerprint em whonix.org/wiki/Verify_the_images (NÃO use keyserver)
+gpg --import derivative.asc
+gpg --verify Whonix-LXQt-*.ova.asc Whonix-LXQt-*.ova
+# 4. VirtualBox → Arquivo → Importar appliance → .ova
+```
+
+> GPG obrigatório antes de importar. Saída esperada: **Good signature** de Patrick Schleizer. Variante GUI atual: **LXQt 18.x** (Xfce descontinuada).
 
 ### Primeira inicialização — Gateway SEMPRE primeiro
 

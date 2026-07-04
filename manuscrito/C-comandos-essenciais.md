@@ -175,19 +175,24 @@ sudo dd if=seedsigner_os.0.8.6.pi0.img \
 ## Whonix — Instalação e configuração
 
 ``` {.sourceCode .bash}
-# Instalar Whonix via auto-installer (Linux host)
+# Opção A: auto-installer Whonix (Linux host)
 bash dist-installer-cli --install --ci
 
-# Importar chaves GPG do Whonix
-gpg --keyserver hkps://keys.openpgp.org \
-  --recv-keys 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA
+# Opção B: scripts deste repo (Debian host) — laboratorio/scripts/whonix/
+sudo ./gs-whonix-install-virtualbox.sh -e -y
+sudo ./gs-whonix-import-ova.sh -i Whonix-LXQt-*.ova -s Whonix-LXQt-*.ova.asc \
+  -k derivative.asc -f "FPR_da_wiki_Verify_the_images" -t lxqt
 
-# Verificar imagem Whonix após download
-gpg --verify Whonix-*.ova.asc Whonix-*.ova
+# Verificar imagem (manual) — NÃO use keyserver
+curl -fsSL https://www.whonix.org/keys/derivative.asc -o derivative.asc
+gpg --import derivative.asc
+gpg --verify Whonix-LXQt-*.ova.asc Whonix-LXQt-*.ova
+
+# Workstation: confirmar Tor
+./gs-verificar-tor.sh
 
 # IMPORTANTE: Alterar senhas padrão na primeira inicialização
-# Usuário padrão: user/changeme → alterar
-# Root padrão: root/changeme → alterar
+# user/changeme e root/changeme → passwd em Gateway e Workstation
 passwd
 ```
 
