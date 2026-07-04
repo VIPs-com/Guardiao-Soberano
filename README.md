@@ -2,7 +2,7 @@
 
 [![Licença: CC BY-NC-SA 4.0](https://img.shields.io/badge/Licença-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 [![Labs](https://img.shields.io/badge/Labs-8%20níveis-blue.svg)](laboratorio/)
-[![Manuscrito](https://img.shields.io/badge/Livro-v1.1-green.svg)](manuscrito/)
+[![Manuscrito](https://img.shields.io/badge/Livro-v1.1.1-green.svg)](manuscrito/)
 
 **Manual Prático de Auto-Custódia Bitcoin com Privacidade** — *Da Semente ao Ecossistema Completo*  
 Versão 1.1 — Junho de 2026 | Português (Brasil)
