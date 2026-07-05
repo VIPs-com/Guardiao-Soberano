@@ -83,6 +83,7 @@ Use o template **Erro de comando** (lab, passo, SO, mensagem de erro).
 | --- | --- |
 | `v1.0.0` | Livro inicial |
 | `v1.1.0` | Livro revisado + mapa ambientes |
+| `v1.1.1` | Trilha Whonix 18 LXQt · scripts `gs-whonix-*` · manuscrito/labs alinhados |
 | `v1.1-labs` | Labs validados em hardware (futuro) |
 
 Os binários (PDF/EPUB/MOBI) são publicados como **GitHub Release** — não ficam no git.

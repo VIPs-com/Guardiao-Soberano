@@ -78,7 +78,7 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente aqui no GitHub.
 
 | Item | Status |
 | --- | --- |
-| Livro v1.1 | ✅ 17 caps + 7 apêndices (~46k palavras) |
+| Livro v1.1.1 | ✅ 17 caps + 7 apêndices (~46k palavras) |
 | PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` |
 | Laboratório | 29 labs · validação em hardware em andamento |
 | Versão | ✅ [v1.1.1](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.1) — Whonix 18 LXQt + scripts `gs-whonix-*` |
