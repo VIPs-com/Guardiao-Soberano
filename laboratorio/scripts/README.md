@@ -13,7 +13,9 @@ Scripts em **texto claro** (`.sh`) — auditáveis, sem binários de terceiros.
 
 | Arquivo | Ambiente | Status |
 | --- | --- | --- |
-| `whonix/gs-whonix-install-virtualbox.sh` | Host Debian amd64 | 🟡 Extraído (lab N3/01 Passo 1) |
+| `whonix/gs-whonix-install-virtualbox.sh` | Host Debian amd64 | ✅ Suíte v3.5.4 (lab N3/01 Passo 1 · MOK/Secure Boot) |
+| `whonix/gs-whonix-sign-virtualbox-modules.sh` | Host Debian amd64 | ✅ Assina + carrega vboxdrv (repetir a cada kernel novo) |
+| `whonix/gs-whonix-verify-virtualbox-host.sh` | Host Debian amd64 | ✅ 9 checks read-only + QA log |
 | `whonix/gs-whonix-import-ova.sh` | Host com VBoxManage | 🟡 Extraído (lab N3/01 Passos 2–4 · verify PGP embutido) |
 | `whonix/gs-verificar-tor.sh` | Whonix Workstation | 🟡 Extraído (lab N3/01 Passo 5) |
 

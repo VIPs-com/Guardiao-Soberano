@@ -37,15 +37,19 @@ Instalar o VirtualBox de fonte verificada, importar e operar o par **Whonix-Gate
 5. Instale `virtualbox-7.2` (revalide a série em [Linux Downloads](https://www.virtualbox.org/wiki/Linux_Downloads))
 6. Adicione seu usuário ao grupo `vboxusers` e faça logout/login
 
-**Automação (Debian):** [`../scripts/whonix/gs-whonix-install-virtualbox.sh`](../scripts/whonix/gs-whonix-install-virtualbox.sh)
+**Automação (Debian):** suíte de 3 scripts em [`../scripts/whonix/`](../scripts/whonix/) (port da suíte Privacy-OS-Hub `whonix-host` v3.5.4)
 
 ```bash
 cd laboratorio/scripts/whonix
-chmod +x gs-whonix-install-virtualbox.sh
-sudo ./gs-whonix-install-virtualbox.sh -e -y   # -e = Extension Pack (pastas compartilhadas)
+chmod +x gs-whonix-*.sh
+sudo ./gs-whonix-install-virtualbox.sh -y            # pacote + Extension Pack + MOK (se Secure Boot)
+# Secure Boot ON: reboot → tela azul Enroll MOK → Continue → Yes → senha → Reboot → depois:
+sudo ./gs-whonix-sign-virtualbox-modules.sh -y --qa-log
+sudo ./gs-whonix-verify-virtualbox-host.sh --qa-log  # esperado: RESULTADO: PASS
 ```
 
-Log: `/var/log/virtualbox-install.log`
+Logs: `/var/log/virtualbox-install.log` · `/var/log/virtualbox-sign.log` · `qa-logs/10-virtualbox-host-*.txt`
+Kernel novo (apt upgrade)? Repita só o `sign` — a tela azul MOK é uma vez só.
 
 ### Windows / macOS
 
@@ -56,7 +60,7 @@ Log: `/var/log/virtualbox-install.log`
    - **Rede interna:** VMs conversam; Workstation não expõe IP real
    - **Snapshot:** foto da VM antes de operações críticas
 
-> Se Secure Boot (Linux) bloquear módulos `vboxdrv`, desabilite na UEFI ou assine via MOK.
+> Se Secure Boot (Linux) estiver ligado, os scripts acima cuidam da MOK automaticamente (geração + enroll + assinatura). A única ação humana é a tela azul no reboot. Validado em campo: Debian 13 trixie + SB + VBox 7.2.12 (jul/2026).
 
 ---
 
