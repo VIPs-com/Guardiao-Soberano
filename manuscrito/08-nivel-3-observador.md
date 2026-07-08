@@ -1,4 +1,4 @@
-﻿# Capítulo 8 — Nível 3: O Observador
+# Capítulo 8 — Nível 3: O Observador
 
 ![](../imagens/icones/nivel-3.png){fig-align=center width=30mm}
 
