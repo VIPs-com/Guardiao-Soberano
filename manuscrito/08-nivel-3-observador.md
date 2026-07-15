@@ -223,21 +223,9 @@ A Workstation só fala com a Gateway (rede interna). A Gateway força todo tráf
 
 > **AVISO — risco vs Tails:** o sistema **host** é superfície de ataque. Host comprometido pode monitorar VMs. Ideal: Linux dedicado só para Whonix.
 
-O projeto Whonix oferece um instalador automático para Linux que baixa e configura VirtualBox + ambas as VMs com um único comando. Para Windows/macOS o fluxo é manual via OVA.
+No **Debian amd64**, o caminho do livro é a suíte `gs-whonix-*` (VirtualBox Oracle verificado + MOK/Secure Boot + import PGP fail-closed) — espelha o Privacy-OS-Hub. Windows/macOS: fluxo OVA manual. O instalador automático upstream (`dist-installer-cli`) existe, mas **não** é o roteiro canônico deste livro.
 
-### Opção A — Linux: instalador automático (recomendado)
-
-O instalador verifica virtualização aninhada, secure boot e instala VirtualBox + ambas as VMs.
-
-```bash
-# Host Linux (Debian/Ubuntu/Fedora)
-# Baixar via Tor Browser: whonix.org/wiki/Linux
-sha512sum dist-installer-cli
-bash dist-installer-cli --install --ci
-# Instala VirtualBox + Gateway + Workstation OVA
-```
-
-### Opção B — Debian: VirtualBox verificado + import (scripts do livro)
+### Opção A — Debian: VirtualBox verificado + import (scripts do livro · recomendado)
 
 Roteiro completo no laboratório [`laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md`](../laboratorio/nivel-3-observador/01-whonix-virtualbox-completo.md).
 
@@ -245,7 +233,10 @@ Roteiro completo no laboratório [`laboratorio/nivel-3-observador/01-whonix-virt
 # Host Debian amd64 — scripts autocontidos deste repositório
 cd laboratorio/scripts/whonix
 chmod +x gs-whonix-*.sh
-sudo ./gs-whonix-install-virtualbox.sh -e -y
+sudo ./gs-whonix-install-virtualbox.sh -y            # pacote + Extension Pack + MOK (se Secure Boot)
+# Secure Boot ON: reboot → tela azul Enroll MOK → Continue → Yes → senha → Reboot → depois:
+sudo ./gs-whonix-sign-virtualbox-modules.sh -y --qa-log
+sudo ./gs-whonix-verify-virtualbox-host.sh --qa-log  # esperado: RESULTADO: PASS
 # Baixe .ova + .ova.asc + derivative.asc (whonix.org/wiki/Download)
 sudo ./gs-whonix-import-ova.sh \
   -i /caminho/Whonix-LXQt-VERSAO.Intel_AMD64.ova \
@@ -253,6 +244,20 @@ sudo ./gs-whonix-import-ova.sh \
   -k /caminho/derivative.asc \
   -f "FINGERPRINT_DA_wiki_Verify_the_images" \
   -t lxqt
+```
+
+Repita só o `sign` após cada atualização de kernel — a tela azul MOK é **uma vez só**. Se o VirtualBox já estiver instalado, o `install` retoma (pula download/pacote).
+
+### Opção B — Linux: instalador automático upstream (alternativa)
+
+O projeto Whonix oferece um `dist-installer-cli` que baixa e configura VirtualBox + VMs. Use só se preferir o fluxo oficial e aceitar a superfície dele; **não** substitui a disciplina PGP do lab N3/01.
+
+```bash
+# Host Linux (Debian/Ubuntu/Fedora)
+# Baixar via Tor Browser: whonix.org/wiki/Linux
+sha512sum dist-installer-cli
+bash dist-installer-cli --install --ci
+# Instala VirtualBox + Gateway + Workstation OVA
 ```
 
 ### Opção C — Windows/macOS: importar OVA manualmente

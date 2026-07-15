@@ -175,13 +175,16 @@ sudo dd if=seedsigner_os.0.8.6.pi0.img \
 ## Whonix — Instalação e configuração
 
 ``` {.sourceCode .bash}
-# Opção A: auto-installer Whonix (Linux host)
-bash dist-installer-cli --install --ci
-
-# Opção B: scripts deste repo (Debian host) — laboratorio/scripts/whonix/
-sudo ./gs-whonix-install-virtualbox.sh -e -y
+# Opção A (recomendado · Debian): scripts deste repo — laboratorio/scripts/whonix/
+sudo ./gs-whonix-install-virtualbox.sh -y            # + MOK se Secure Boot
+# Secure Boot ON: reboot → tela azul Enroll MOK → depois:
+sudo ./gs-whonix-sign-virtualbox-modules.sh -y --qa-log
+sudo ./gs-whonix-verify-virtualbox-host.sh --qa-log  # RESULTADO: PASS
 sudo ./gs-whonix-import-ova.sh -i Whonix-LXQt-*.ova -s Whonix-LXQt-*.ova.asc \
   -k derivative.asc -f "FPR_da_wiki_Verify_the_images" -t lxqt
+
+# Opção B (alternativa): auto-installer Whonix upstream (Linux host)
+# bash dist-installer-cli --install --ci
 
 # Verificar imagem (manual) — NÃO use keyserver
 curl -fsSL https://www.whonix.org/keys/derivative.asc -o derivative.asc
