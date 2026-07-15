@@ -71,9 +71,13 @@ if ($xelatexExe) {
     Write-Host "xelatex: $xelatexExe" -ForegroundColor Gray
 }
 
-$a   = [char]0x00E3
-$base = "i:\VIPs-com\Guardi" + $a + "o-Soberano"
-$ms   = "$base\manuscrito"
+# Raiz do repo = pasta deste script (funciona em E:\VIPs-com, I:\VIPs-com, etc.)
+$base = $PSScriptRoot
+if (-not (Test-Path (Join-Path $base "manuscrito"))) {
+    Write-Host "ERRO: manuscrito/ nao encontrado sob $base" -ForegroundColor Red
+    exit 1
+}
+$ms = Join-Path $base "manuscrito"
 
 # Ordem explicita dos arquivos (glob nao garante sequencia correta)
 $arquivos = @(
