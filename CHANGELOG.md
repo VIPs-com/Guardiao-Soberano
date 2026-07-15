@@ -9,6 +9,22 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
+## [1.1.4] — 2026-07-15
+
+### Alterado
+
+- **Manuscrito Cap. 8 + Ap. C:** caminho canônico Debian = scripts `gs-whonix-*` (install → MOK → sign → verify-host → import); `dist-installer-cli` como Opção B alternativa
+- **`compila.ps1`:** raiz do repo via `$PSScriptRoot` (não depende mais do drive `I:\`)
+- **PDF/EPUB/MOBI** recompilados com o manuscrito atualizado
+
+### Release
+
+- [v1.1.4](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.4) — PDF, EPUB, MOBI
+
+> Tags intermediárias sem artefatos de livro: [v1.1.2](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.2) (fixes lab Whonix) · [v1.1.3](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.3) (sanitize `virtualbox.list`).
+
+---
+
 ## [1.1.1] — 2026-07-04
 
 ### Adicionado
@@ -77,6 +93,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
-[Unreleased]: https://github.com/VIPs-com/Guardiao-Soberano/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/VIPs-com/Guardiao-Soberano/compare/v1.1.4...HEAD
+[1.1.4]: https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.4
 [1.1.1]: https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.1
 [1.1.0]: https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.0
