@@ -19,7 +19,7 @@ Versionamento: [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ### Release
 
-- [v1.1.4](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.4) — PDF, EPUB, MOBI
+- [v1.1.4](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.4) — PDF, EPUB, MOBI, gráfica
 
 > Tags intermediárias sem artefatos de livro: [v1.1.2](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.2) (fixes lab Whonix) · [v1.1.3](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.3) (sanitize `virtualbox.list`).
 
