@@ -35,6 +35,7 @@ jobs:
             --exclude-path saida
             --exclude '^https?://[^/]*\.onion'
             --exclude '^https?://www\.gov\.br/receitafederal'
+            --exclude '^https?://(www\.)?virtualbox\.org/wiki/'
             '**/*.md'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
