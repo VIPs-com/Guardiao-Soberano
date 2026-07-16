@@ -2,10 +2,11 @@
 
 [![Licença: CC BY-NC-SA 4.0](https://img.shields.io/badge/Licença-CC%20BY--NC--SA%204.0-lightgrey.svg)](LICENSE)
 [![Labs](https://img.shields.io/badge/Labs-8%20níveis-blue.svg)](laboratorio/)
-[![Manuscrito](https://img.shields.io/badge/Livro-v1.1.1-green.svg)](manuscrito/)
+[![Manuscrito](https://img.shields.io/badge/Livro-v1.1.4-green.svg)](manuscrito/)
+[![Release](https://img.shields.io/github/v/release/VIPs-com/Guardiao-Soberano?label=release)](https://github.com/VIPs-com/Guardiao-Soberano/releases/latest)
 
 **Manual Prático de Auto-Custódia Bitcoin com Privacidade** — *Da Semente ao Ecossistema Completo*  
-Versão 1.1 — Junho de 2026 | Português (Brasil)
+Versão 1.1 — Atualizado julho de 2026 | Português (Brasil)
 
 ---
 
@@ -27,7 +28,7 @@ Leia o livro para entender **por quê**; use o laboratório para **como fazer**.
 
 ### Baixar o livro
 
-Acesse a [página de Releases](https://github.com/VIPs-com/Guardiao-Soberano/releases) para baixar PDF, EPUB ou MOBI sem precisar compilar.
+Acesse a [página de Releases](https://github.com/VIPs-com/Guardiao-Soberano/releases/latest) para baixar **PDF, EPUB, MOBI e PDF gráfica** sem precisar compilar. Latest: [`v1.1.4`](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.4).
 
 ### Compilar localmente
 
@@ -78,10 +79,10 @@ Ou navegue [`manuscrito/`](manuscrito/) diretamente aqui no GitHub.
 
 | Item | Status |
 | --- | --- |
-| Livro v1.1.1 | ✅ 17 caps + 7 apêndices (~46k palavras) |
-| PDF / EPUB / MOBI | ✅ `.\compila.ps1 -All` |
+| Livro v1.1 | ✅ 17 caps + 7 apêndices (~46k palavras) |
+| PDF / EPUB / MOBI / gráfica | ✅ `.\compila.ps1 -All` · assets no [release](https://github.com/VIPs-com/Guardiao-Soberano/releases/latest) |
 | Laboratório | 29 labs · validação em hardware em andamento |
-| Versão | ✅ [v1.1.1](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.1) — Whonix 18 LXQt + scripts `gs-whonix-*` |
+| Versão | ✅ [v1.1.4](https://github.com/VIPs-com/Guardiao-Soberano/releases/tag/v1.1.4) — Cap. 8 `gs-whonix-*` (install → MOK → sign → verify → import) + rebuild |
 
 ---
 
